@@ -1,0 +1,7050 @@
+=== PÁGINA 1 ===
+
+=== PÁGINA 2 ===
+
+2
+
+=== PÁGINA 3 ===
+
+3
+
+Este é um projeto não oficial de RPG de mesa, criado de fã para fã, e distribuído de forma 
+totalmente gratuita. Este material não tem fins lucrativos e não possui nenhum tipo de vínculo ou 
+endosso de Eiichiro Oda, Shueisha, Toei Animation ou qualquer empresa detentora dos direitos 
+da marca One Piece.
+
+Todas as imagens, nomes, lugares, Akuma no Mi e conceitos do universo de One Piece presentes 
+neste livro são propriedade intelectual exclusiva de seus respectivos criadores. O uso possui 
+caráter puramente ilustrativo e de homenagem.
+
+As regras e mecânicas originais desenvolvidas para este sistema são de autoria própria. Qualquer 
+contribuição financeira recebida através de nosso site é voluntária e independente, destinada 
+exclusivamente a apoiar o trabalho do desenvolvedor para cobrir custos de hospedagem, não 
+caracterizando a venda deste livro
+
+=== PÁGINA 4 ===
+
+4
+
+Se você está lendo estas páginas, é porque compartilha de um sonho muito específico. Aquele 
+mesmo sonho que nos fisgou quando vimos um pequeno barco de madeira zarpar em direção a 
+um oceano infinito, embalado pela promessa de liberdade, tesouros incalculáveis e aventuras que 
+desafiam a própria lógica.
+
+Este sistema de RPG nasceu dessa exata paixão. Ele é uma carta de amor à obra que me inspirou 
+há tantos anos, um projeto feito genuinamente de fã para fã. Todo este manual foi desenhado para 
+capturar a essência do que torna esse universo tão especial: a força inabalável dos nossos ideais, o 
+peso de proteger nossos companheiros e a coragem de rir na cara do perigo.
+
+Durante o desenvolvimento, cada regra foi pensada para que você não apenas jogue, mas sinta 
+que está realmente navegando pela Grand Line. Aqui, as suas escolhas moldam a sua influência 
+no mundo, e a sua força de vontade é o que te mantém de pé quando o corpo já não aguenta mais.
+
+Mas, antes de rolarem os dados, peço que lembrem da regra de ouro: este livro é apenas um mapa, 
+não a sua âncora. O RPG é um espaço de criatividade absoluta e liberdade. Se uma regra estiver 
+atrapalhando a diversão da sua mesa, jogue-a ao mar! O Mestre e os jogadores são os verdadeiros 
+donos da história. Modifiquem, inventem, quebrem os limites e, acima de tudo, deem boas risadas 
+juntos.
+
+Muito obrigado por baixar este material, por dar uma chance a este sistema e por manter viva a 
+chama da aventura. Que os ventos soprem sempre a favor do seu navio e que a jornada do seu 
+bando seja digna de virar uma lenda contada nas tavernas de todos os mares.
+
+Ergam suas canecas, vistam seus melhores sorrisos e preparem os dados. A Nova Era ainda não 
+acabou!
+
+=== PÁGINA 5 ===
+
+5
+
+Agradecimentos Especiais
+
+Nenhum pirata chega à Grand Line navegando sozinho. Quero deixar um agradecimento 
+enorme aos meus amigos, que apoiaram esse projeto e ajudaram a dar vida a este sistema nas
+
+nossas mesas de jogo.
+
+Um brinde especial à minha tripulação: Pedro (Zhin), Lucca (Atlas), Kauê (Kayo) e Mateus
+
+(Irmar). Sem vocês, esse mar seria muito mais difícil de desbravar.
+
+Muito obrigado por embarcarem nessa aventura!
+
+=== PÁGINA 6 ===
+
+6
+
+One Piece RPG é um jogo de interpretação 
+em que os jogadores assumem o papel de 
+personagens vivendo suas próprias aventuras 
+em um mundo inspirado em One Piece.
+
+Você pode ser um pirata em busca do maior 
+tesouro do mundo, um marinheiro tentando 
+capturar 
+criminosos, 
+um 
+revolucionário 
+lutando contra o Governo Mundial, um 
+caçador de recompensas, um explorador, um 
+cientista ou qualquer outro personagem que 
+faça sentido dentro do mundo.
+
+Diferente de um videogame, em um RPG 
+você não está limitado às opções que 
+aparecem 
+na 
+tela. 
+Você 
+pode 
+tentar 
+praticamente qualquer coisa.
+
+• Quer derrubar uma porta com um soco?
+
+Pode tentar.
+
+• Quer convencer um inimigo a abandonar
+
+a luta? Pode tentar.
+
+• Quer usar uma habilidade de maneira
+
+diferente da que imaginou originalmente?
+
+Pode tentar.
+
+• Quer destruir o chão para impedir a fuga
+
+de alguém? Pode tentar.
+
+• Quer se jogar de um navio, usar o mastro
+
+como impulso e atacar um inimigo no ar?
+
+Se a situação permitir, você pode tentar. Mas 
+existe uma diferença importante entre: poder 
+tentar algo e conseguir fazer isso.
+
+É aí que entram as regras.
+
+Uma sessão de One Piece RPG possui dois 
+grupos principais: Os Jogadores e o Mestre.
+
+Os Jogadores
+
+Cada jogador controla um personagem. Esse 
+personagem possui:
+
+• Uma história;
+
+• Objetivos;
+
+• Atributos;
+
+• Perícias;
+
+• Habilidades;
+
+• Equipamentos;
+
+• Relações;
+
+• Sonhos;
+
+• E, possivelmente, poderes como Haki ou
+
+Akuma no Mi.
+
+O jogador decide o que seu personagem 
+pensa, fala e tenta fazer. Por exemplo: "Eu 
+saco minha espada e avanço contra o 
+inimigo." ou: "Antes de atacar, observo como 
+ele luta." ou: "Eu tento enganá-lo, fazendo ele 
+acreditar que existem reforços chegando." O 
+jogador controla as decisões do personagem.
+
+O Mestre
+
+O Mestre é responsável por apresentar e 
+conduzir o mundo.
+
+Ele controla:
+
+• Inimigos;
+
+• Criaturas;
+
+• Personagens não jogadores;
+
+• Cidades;
+
+• Ilhas;
+
+=== PÁGINA 7 ===
+
+7
+
+• Organizações;
+
+• Perigos;
+
+• Acontecimentos;
+
+• E as consequências das ações dos
+
+jogadores.
+
+O Mestre descreve o mundo. Por exemplo: 
+"Depois de três dias navegando, vocês 
+finalmente encontram uma ilha. Uma enorme 
+cidade portuária se estende diante de vocês. 
+Porém, antes que possam desembarcar, 
+percebem navios da Marinha patrulhando o 
+porto." Agora os jogadores decidem:
+
+• Entrar no porto;
+
+• Fugir;
+
+• Lutar;
+
+• Tentar se disfarçar;
+
+• Procurar outra entrada;
+
+• ou fazer algo completamente inesperado.
+
+O papel do Mestre não é derrotar os 
+jogadores. Também não é decidir o que eles 
+devem fazer. O papel do Mestre é: apresentar 
+o mundo, interpretar suas consequências e 
+arbitrar as regras.
+
+Praticamente toda situação em One Piece 
+RPG segue o mesmo ciclo:
+
+1. O Mestre descreve a situação.
+
+- "O inimigo está segurando seu amigo pela 
+garganta."
+
+2. O jogador descreve o que deseja fazer.
+
+- "Eu corro até ele e tento derrubá-lo."
+
+3. O Mestre decide se existe risco ou 
+incerteza.
+
+- Se a ação for simples e não houver risco, ela 
+simplesmente acontece.
+
+- Se existir uma possibilidade real de falha, o 
+Mestre pode pedir um teste.
+
+4. O jogador realiza o teste.
+
+- O jogador utiliza o atributo e, quando 
+aplicável, a perícia adequada à maneira como 
+está tentando resolver a situação.
+
+5. O resultado determina o que acontece.
+
+- O sucesso permite que o personagem 
+alcance seu objetivo.
+
+- A falha significa que algo dá errado ou que 
+o personagem não consegue realizar a ação da 
+maneira pretendida.
+
+Esse ciclo é a base do jogo: Mestre descreve → 
+Jogador decide → Regras resolvem → 
+História continua.
+
+A Regra Mais
+
+One 
+Piece 
+é 
+um 
+mundo 
+exagerado. 
+Personagens quebram prédios com socos. 
+Navios 
+atravessam 
+mares 
+impossíveis. 
+Espadas cortam aço. Músicos podem derrotar 
+inimigos através de suas canções. Um 
+cozinheiro 
+pode 
+chutar 
+uma 
+criatura 
+gigantesca para longe. Uma pessoa pode 
+transformar o próprio corpo em fogo. Por 
+isso, One Piece RPG não deve funcionar como 
+um jogo onde o jogador apenas procura na 
+ficha:
+
+=== PÁGINA 8 ===
+
+8
+
+- "Qual botão eu aperto agora?"
+
+O jogador deve primeiro pensar:
+
+- "O que meu personagem faria?"
+
+Depois, as regras entram para determinar:
+
+- "Ele consegue?"
+
+A ordem ideal é: Narrativa → Abordagem → 
+Regra → Resultado.
+
+E não: "Olho minhas regras → escolho uma 
+opção → invento uma narrativa."
+
+Isso será especialmente importante para:
+
+• Perícias;
+
+• Habilidades;
+
+• Pontos de Esforço;
+
+• Haki;
+
+• Akuma no Mi;
+
+• e 
+soluções 
+criativas 
+durante 
+uma
+
+aventura.
+
+Quando quiser realizar algo, descreva o que 
+seu personagem está tentando fazer e como 
+ele pretende fazer aquilo. Compare:
+
+- "Eu quero usar Intimidação."
+
+Isso descreve uma mecânica.
+
+- "Eu seguro o inimigo pela camisa, encosto 
+meu rosto no dele e digo que, se ele não falar 
+onde está o capitão, vou jogar ele no mar."
+
+Agora sabemos:
+
+• O objetivo;
+
+• A ação;
+
+• A abordagem.
+
+O Mestre pode então decidir qual combinação 
+representa melhor aquilo. Por exemplo: Físico 
++ Intimidação. Porque o personagem está 
+utilizando ameaça física. Mas imagine outra 
+situação:
+
+- "Enquanto conversamos, percebo que ele 
+fica nervoso sempre que mencionamos o 
+irmão 
+dele. 
+Então 
+digo 
+que 
+sabemos 
+exatamente onde encontrá-lo."
+
+Nesse caso, a mesma perícia pode ser 
+utilizada de outra forma. Talvez: Instinto + 
+Intimidação Porque o personagem primeiro 
+identificou o medo do alvo e depois o 
+explorou.
+
+A perícia (neste caso, Intimidação) representa 
+o que você está tentando fazer.
+
+O atributo (neste caso, Físico e Instinto) 
+representa como você está fazendo aquilo.
+
+Quando Realizar um
+
+Nem toda ação precisa de uma rolagem. Se 
+não existe risco, dificuldade ou oposição 
+relevante, o Mestre pode simplesmente 
+decidir que a ação funciona. Por exemplo:
+
+Um personagem quer abrir uma porta 
+destrancada. Não existe motivo para rolar. Ele 
+abre a porta. Agora imagine:
+
+A porta está trancada, reforçada e soldados 
+estão se aproximando. Agora existe:
+
+• Dificuldade;
+
+• Risco;
+
+• Pressão.
+
+=== PÁGINA 9 ===
+
+9
+
+Um teste pode ser necessário. A regra geral é: 
+Role apenas quando o resultado for incerto e 
+a falha puder gerar uma consequência 
+relevante.
+
+One Piece RPG utiliza principalmente dados 
+de vários tipos:
+
+• d4;
+
+• d6;
+
+• d8;
+
+• d10;
+
+• d12;
+
+• d20.
+
+O número depois da letra “d” representa 
+quantas faces o dado possui. Por exemplo:
+
+1d6 = role um dado de seis lados.
+
+2d8 = role dois dados de oito lados.
+
+3d20 = role três dados de vinte lados.
+
+O d20 é o principal dado utilizado para 
+determinar o sucesso ou falha de ações, 
+ataques, testes e disputas. Os outros dados 
+são utilizados principalmente para:
+
+• Dano;
+
+• Cura;
+
+• Efeitos de habilidades;
+
+• E outras regras específicas.
+
+As regras básicas apresentam os principais 
+elementos utilizados para resolver as ações 
+realizadas durante o jogo. Em um RPG, você 
+pode tentar praticamente qualquer coisa. 
+Porém, quando existe uma chance real de 
+falhar, quando o resultado é incerto ou 
+quando as consequências são importantes, as 
+regras ajudam a determinar o que acontece.
+
+As regras existem para ajudar a resolver 
+situações incertas, mas não devem limitar a 
+criatividade dos jogadores. Se uma ideia fizer 
+sentido dentro da narrativa, ela pode ser 
+tentada.
+
+A diferença entre tentar algo e conseguir 
+realizá-lo será determinada pelos Atributos, 
+Perícias, Testes e pelas circunstâncias da 
+situação.
+
+Para realizar ações em One Piece RPG, os 
+personagens utilizam uma combinação de 
+Atributos e Perícias.
+
+Os Atributos representam as capacidades 
+naturais e desenvolvidas do personagem.
+
+As Perícias representam aquilo que o 
+personagem aprendeu, treinou ou possui 
+experiência para fazer.
+
+=== PÁGINA 10 ===
+
+10
+
+Quando um personagem tenta realizar uma 
+ação, a combinação entre Atributo e Perícia 
+depende da maneira como ele está tentando 
+resolver aquela situação.
+
+Físico
+
+Representa 
+a 
+capacidade 
+física 
+do 
+personagem. Pode envolver:
+
+• Força;
+
+• Resistência;
+
+• Potência;
+
+• Esforço corporal;
+
+• Capacidade de suportar impactos;
+
+• Capacidade física geral.
+
+Exemplo: Tentar levantar uma enorme pedra.
+
+Agilidade
+
+Representa 
+velocidade, 
+coordenação 
+e 
+controle corporal. Pode envolver:
+
+• Movimentos rápidos;
+
+• Reflexos;
+
+• Equilíbrio;
+
+• Coordenação;
+
+• Manobras;
+
+• Controle do próprio corpo.
+
+Exemplo: Correr por uma parede antes de 
+saltar sobre um inimigo.
+
+Intelecto
+
+Representa raciocínio, conhecimento, análise 
+e planejamento. Pode envolver:
+
+• Resolver problemas;
+
+• Compreender informações;
+
+• Criar estratégias;
+
+• Conhecimento técnico;
+
+• Investigação;
+
+• Planejamento.
+
+Exemplo: Tentar descobrir como desativar 
+uma máquina.
+
+Instinto
+
+Representa 
+percepção, 
+intuição 
+e 
+a 
+capacidade de reagir ao ambiente. Pode 
+envolver:
+
+• Perceber perigos;
+
+• Identificar comportamentos;
+
+• Usar os seus sentidos;
+
+• Reagir intuitivamente;
+
+• Compreender intenções;
+
+• Perceber 
+detalhes 
+que 
+outros 
+não
+
+perceberam.
+
+Exemplo: 
+Perceber 
+que 
+alguém 
+está 
+escondido antes de conseguir vê-lo.
+
+Lista de Perícias
+
+Atletismo. A capacidade de realizar feitos que 
+exigem esforço e condicionamento físico. 
+Usada para levantar ou empurrar objetos 
+pesados, escalar superfícies, nadar, correr 
+longas distâncias, saltar grandes obstáculos 
+ou disputar força com outra criatura.
+
+Resistência. 
+Representa 
+a 
+resistência, 
+determinação e capacidade de continuar 
+mesmo diante de situações adversas. É usada 
+para 
+suportar 
+dor, 
+exaustão, 
+venenos, 
+doenças, medo, pressão psicológica ou outros 
+efeitos que tentem impedir o personagem de 
+continuar agindo.
+
+Luta. A habilidade de enfrentar diretamente 
+um oponente utilizando o próprio corpo ou 
+armas de combate próximo. É utilizada para 
+socos, chutes, agarrões, artes marciais e 
+ataques realizados com armas corpo a corpo,
+
+=== PÁGINA 11 ===
+
+11
+
+como espadas, lanças e machados. Um 
+personagem treinado em Luta pode possuir 
+um Estilo de Combate, representando sua 
+especialização, 
+como 
+Corpo 
+a 
+Corpo, 
+Espadas, Duas Espadas ou qualquer outro 
+estilo apropriado.
+
+Precisão. A habilidade de acertar alvos 
+utilizando armas, projéteis ou ataques à 
+distância. É utilizada para disparar armas de 
+fogo, 
+utilizar 
+arcos, 
+bestas, 
+fundas, 
+estilingues, arremessar objetos ou atingir 
+pontos específicos à distância.
+
+Acrobacia. A habilidade de realizar feitos que 
+exigem controle, coordenação e domínio do 
+próprio 
+corpo. 
+Usada 
+para 
+manter 
+o 
+equilíbrio, realizar manobras, atravessar 
+superfícies instáveis, passar por espaços 
+difíceis, executar movimentos complexos ou 
+escapar utilizando a mobilidade.
+
+Furtividade. A capacidade de agir sem 
+chamar atenção. É usada para se mover em 
+silêncio, esconder-se, infiltrar-se em locais 
+protegidos, seguir alguém sem ser percebido 
+ou evitar ser detectado.
+
+Prestidigitação. A habilidade de manipular 
+objetos com precisão, velocidade e discrição. 
+Usada para esconder ou roubar pequenos 
+objetos, plantar algo sem ser percebido, 
+realizar truques com as mãos, manipular 
+mecanismos simples ou executar ações 
+delicadas rapidamente.
+
+Navegação. Representa o conhecimento e 
+experiência necessários para se orientar e 
+conduzir embarcações pelos mares. É usada 
+para interpretar mapas e rotas, compreender 
+correntes marítimas, encontrar caminhos, 
+navegar em condições perigosas e conduzir 
+um navio até seu destino.
+
+Sobrevivência. A capacidade de sobreviver e 
+se 
+adaptar 
+a 
+ambientes 
+perigosos 
+ou 
+desconhecidos. Usada para rastrear criaturas 
+ou pessoas, encontrar alimento e água, 
+identificar perigos naturais, montar abrigos, 
+caçar e se orientar em regiões selvagens.
+
+Percepção. 
+Representa 
+a 
+atenção 
+do 
+personagem ao ambiente e sua capacidade de 
+perceber detalhes. É usada para notar perigos, 
+encontrar objetos escondidos, ouvir sons 
+distantes, perceber movimentos suspeitos ou 
+identificar algo que esteja fora do normal.
+
+Investigação. A habilidade de procurar, 
+analisar 
+e 
+conectar 
+informações 
+para 
+encontrar respostas. Usada para examinar 
+pistas, investigar locais, encontrar evidências, 
+identificar 
+contradições, 
+reconstruir 
+acontecimentos ou descobrir informações 
+escondidas.
+
+Cultura. 
+Representa 
+os 
+conhecimentos 
+adquiridos através de estudo, pesquisa ou 
+experiência especializada. Pode envolver 
+áreas como História, Arqueologia, Biologia, 
+Oceanografia, Geografia, Mitologia, Governo 
+Mundial, Pirataria ou Poneglyphs, entre 
+outras. 
+Um 
+personagem 
+pode 
+possuir 
+conhecimentos 
+mais 
+aprofundados 
+em 
+determinadas áreas de Cultura, conforme sua 
+história e treinamento.
+
+Tecnologia. A habilidade de compreender, 
+construir, modificar ou reparar mecanismos, 
+estruturas e máquinas. É usada para consertar 
+equipamentos, criar invenções, desmontar 
+mecanismos, 
+analisar 
+construções 
+ou 
+desenvolver soluções técnicas.
+
+Medicina. Representa o conhecimento sobre 
+anatomia, 
+doenças 
+e 
+tratamento 
+de 
+ferimentos. 
+É 
+usada 
+para 
+diagnosticar 
+condições, 
+tratar 
+ferimentos, 
+realizar
+
+=== PÁGINA 12 ===
+
+12
+
+procedimentos 
+médicos, 
+preparar 
+medicamentos e identificar substâncias ou 
+doenças.
+
+Ofício. Representa um Ofício, arte ou técnica 
+especializada aprendida pelo personagem. 
+Ao possuir treinamento em Ofício, o 
+personagem 
+pode 
+escolher 
+uma 
+área 
+específica, 
+como 
+Culinária, 
+Carpintaria, 
+Construção 
+Naval, 
+Ferraria, 
+Costura, 
+Joalheria ou outro Ofício adequado ao 
+cenário. 
+Essa 
+perícia 
+representa 
+conhecimentos 
+práticos 
+que 
+não 
+são 
+necessariamente cobertos por outras perícias.
+
+Persuasão. A habilidade de influenciar outras 
+pessoas através de argumentos, negociação, 
+diplomacia ou conversa. É usada para 
+convencer alguém, negociar acordos, obter 
+informações, acalmar conflitos ou fazer com 
+que outra pessoa aceite uma ideia.
+
+Enganação. A capacidade de manipular 
+informações ou criar falsas impressões. É 
+usada para mentir, esconder intenções, 
+inventar histórias, se passar por outra pessoa, 
+blefar ou fazer alguém acreditar em algo falso.
+
+Intimidação. A habilidade de pressionar, 
+ameaçar ou causar medo em outras pessoas. 
+Pode ser usada através da força física, 
+presença, palavras, informações ou qualquer 
+outra forma coerente com a situação.
+
+Intuição. 
+Representa 
+a 
+capacidade 
+de 
+compreender 
+os 
+sentimentos, 
+comportamentos e intenções de outras 
+pessoas. É usada para perceber emoções, 
+identificar 
+quando 
+alguém 
+está 
+desconfortável, 
+compreender 
+motivações, 
+acalmar alguém ou criar uma conexão 
+emocional.
+
+Performance. A habilidade de se expressar e 
+impressionar outras pessoas através de uma
+
+arte ou Performance. É usada para cantar, 
+tocar instrumentos, dançar, atuar, contar 
+histórias, realizar apresentações ou entreter 
+uma audiência.
+
+Sempre que um personagem tenta realizar 
+uma ação cujo resultado seja incerto, perigoso 
+ou tenha consequências relevantes, o Mestre 
+pode solicitar um Teste.
+
+Um Teste determina se o personagem 
+consegue realizar aquilo que está tentando 
+fazer. Para realizar um Teste, siga estes 
+passos:
+
+1. Declare sua intenção
+
+O jogador explica o que seu personagem 
+deseja fazer.
+
+"Quero descobrir por onde esse homem 
+fugiu."
+
+2. Descreva sua abordagem
+
+O jogador explica como pretende realizar a 
+ação.
+
+“Vou procurar pegadas, galhos quebrados e 
+outros rastros deixados no caminho."
+
+3. Determine o Atributo e a Perícia
+
+Com base na abordagem utilizada, é 
+escolhido o Atributo e a Perícia mais 
+adequados para a situação.
+
+Neste exemplo, poderia ser: Instinto + 
+Sobrevivência
+
+Outro personagem poderia tentar resolver a 
+mesma situação de outra maneira:
+
+=== PÁGINA 13 ===
+
+13
+
+"Vou 
+analisar 
+cuidadosamente 
+o 
+local 
+procurando pistas que indiquem para onde 
+ele foi."
+
+Nesse caso, poderia ser utilizado: Intelecto + 
+Investigação
+
+A situação é a mesma, mas a abordagem é 
+diferente.
+
+Realizando um Teste
+
+• A Perícia utilizada determina quantos d20
+
+o personagem rola, conforme o seu grau.
+
+• Após realizar a rolagem, o personagem
+
+utiliza o melhor resultado obtido.
+
+• Em seguida, adiciona o valor do Atributo
+
+utilizado.
+
+A fórmula geral de um Teste é:
+
+Resultado = Maior dos dados da Perícia + 
+Atributo
+
+Exemplo: Um personagem possui Agilidade 
+3 e tenta atravessar uma corda suspensa 
+utilizando Acrobacia no grau Treinado.
+
+• Ele rola os dados da Perícia: 2d20
+
+• Os resultados são: 7 e 18
+
+• Ele utiliza o maior resultado: 18
+
+• Soma o Atributo: 18 + 3 = 21
+
+• O resultado final do Teste é: 21
+
+Atributo 0
+
+Um personagem com 0 em um Atributo 
+possui uma dificuldade significativa para 
+realizar 
+ações 
+que 
+dependam 
+daquela 
+capacidade, pois não recebe nenhum bônus 
+natural para auxiliá-lo.
+
+Sempre que realizar um Teste utilizando um 
+Atributo em que possui valor 0, o personagem
+
+simplesmente soma 0 ao resultado da 
+rolagem.
+
+Grau de Perícias
+
+O grau de uma Perícia representa o quanto 
+um personagem se especializou, estudou ou 
+treinou em determinada área. Todas as 
+Perícias começam no grau 0 (Leigo) e vão até 
+3 (Mestre).
+
+Quando um personagem realiza um Teste, o 
+grau da Perícia determina a quantidade de 
+dados rolados:
+
+• +0 (Leigo): 1d20 (Sem treinamento)
+
+• +1 (Treinado): 2d20
+
+• +2 (Especialista): 3d20
+
+• +3 (Mestre): 4d20
+
+Exemplo: Um personagem possui:
+
+• Instinto 2;
+
+• Percepção no grau Treinado.
+
+Ao tentar perceber alguém escondido, ele rola 
+os dados da Perícia: 2d20
+
+• Obtém: 8 e 15
+
+• Utiliza o maior resultado: 15
+
+• Soma o valor do Atributo: 15 + 2 = 17
+
+• O resultado final do Teste é: 17
+
+Dificuldades
+
+Quando um personagem realiza uma ação 
+contra uma situação, obstáculo ou desafio, o 
+Mestre define uma Classe de Dificuldade, 
+também chamada de CD.
+
+Para obter sucesso, o resultado final do Teste 
+deve ser igual ou maior que a CD. Resultado 
+do Teste ≥ CD = Sucesso.
+
+=== PÁGINA 14 ===
+
+14
+
+A tabela abaixo serve como referência para 
+definir a dificuldade de uma ação.
+
+CD 
+Dificuldade 
+5 
+Muito Fácil 
+10 
+Fácil 
+15 
+Moderada 
+20 
+Difícil 
+25 
+Muito Difícil
+
+Nota: 
+Esses 
+valores 
+são 
+apenas 
+uma 
+referência. O Mestre pode definir uma CD 
+diferente caso a situação exija.
+
+Disputas
+
+Às 
+vezes, 
+um 
+personagem 
+não 
+está 
+enfrentando uma dificuldade fixa. Ele está 
+enfrentando outro personagem. Nesses casos, 
+ocorre uma Disputa.
+
+Cada participante realiza o Teste apropriado 
+para sua abordagem. Quem obtiver o maior 
+resultado vence a Disputa.
+
+Exemplo: Um personagem tenta empurrar 
+outro para fora de uma ponte.
+
+O atacante utiliza: Físico + Atletismo
+
+O alvo tenta resistir utilizando: Físico + 
+Resistência
+
+Ambos realizam seus Testes.
+
+• Personagem A: 17
+
+• Personagem B: 14
+
+O Personagem A vence a Disputa e empurra o 
+outro.
+
+Abordagens Diferentes
+
+Os dois participantes não precisam utilizar 
+necessariamente a mesma combinação.
+
+Exemplo: Imagine que um personagem tenta 
+agarrar outro.
+
+O primeiro personagem tenta utilizar sua 
+força: Físico + Atletismo
+
+O segundo não tenta competir em força. Em 
+vez 
+disso, 
+tenta 
+escapar 
+através 
+de 
+movimentos rápidos: Agilidade + Acrobacia
+
+Os dois realizam os Testes. Aquele que obtiver 
+o maior resultado vence a Disputa. Isso 
+permite 
+que 
+personagens 
+diferentes 
+enfrentem uma mesma situação utilizando 
+suas próprias capacidades.
+
+Empates
+
+Caso dois ou mais participantes obtenham o 
+mesmo resultado em uma Disputa, a situação 
+permanece sem uma vitória clara. Nenhum 
+dos lados consegue superar completamente o 
+outro.
+
+Dependendo da situação, o Mestre pode:
+
+• Manter o estado atual;
+
+• Permitir que ambos obtenham parte do
+
+que desejavam;
+
+• Solicitar uma nova Disputa;
+
+• Ou aplicar uma consequência narrativa
+
+apropriada.
+
+Sucesso e Falha
+
+Após realizar um Teste, o resultado determina 
+as consequências da ação.
+
+Sucesso - Se o resultado for igual ou maior 
+que a CD, ou superar o resultado do oponente 
+em uma Disputa, o personagem obtém 
+sucesso.
+
+Isso significa que ele consegue realizar aquilo 
+que estava tentando fazer.
+
+=== PÁGINA 15 ===
+
+15
+
+Falha - Se o resultado for menor que a CD, ou 
+não superar o resultado necessário em uma 
+Disputa, a personagem falha.
+
+Porém, 
+uma 
+Falha 
+não 
+significa 
+necessariamente 
+que 
+nada 
+acontece. 
+Dependendo da situação, uma Falha pode 
+significar:
+
+• O 
+personagem 
+simplesmente 
+não
+
+consegue realizar a ação;
+
+• O personagem consegue parcialmente o
+
+que desejava;
+
+• A ação demora mais tempo;
+
+• O personagem sofre uma consequência;
+
+• Algo inesperado acontece;
+
+• Uma nova oportunidade surge com um
+
+risco maior.
+
+Falhas não devem bloquear a História
+
+O Mestre deve tomar cuidado para que uma 
+Falha não interrompa completamente a 
+aventura.
+
+Se uma informação for necessária para 
+continuar a história, simplesmente falhar em 
+um Teste não deveria significar que os 
+jogadores nunca mais poderão encontrá-la. 
+Uma Falha pode gerar:
+
+• Perda de tempo;
+
+• Novos perigos;
+
+• Informações incompletas;
+
+• Uma consequência;
+
+• Uma solução mais difícil.
+
+Exemplo: Os personagens precisam encontrar 
+um criminoso.
+
+Ao investigar sua antiga casa, falham no 
+Teste. Em vez de:
+
+“Vocês não encontram nada."
+
+O Mestre poderia dizer:
+
+"Vocês encontram o endereço de uma 
+possível 
+testemunha, 
+mas 
+enquanto 
+investigavam, alguém percebeu que vocês 
+estavam procurando pelo criminoso."
+
+A história continua, mas agora existe uma 
+nova consequência.
+
+Vantagem e Desvantagem
+
+Certas situações podem tornar uma ação mais 
+fácil 
+ou 
+mais 
+difícil. 
+Quando 
+uma 
+circunstância 
+oferece 
+uma 
+vantagem 
+significativa ao personagem, ele pode receber 
+Vantagem. 
+Quando 
+uma 
+circunstância 
+dificulta significativamente a ação, ele pode 
+sofrer Desvantagem.
+
+A Vantagem e a Desvantagem representam 
+condições 
+temporárias 
+causadas 
+pela 
+situação, 
+ambiente, 
+habilidades, 
+equipamentos ou outras circunstâncias.
+
+Vantagens 
+e 
+Desvantagens 
+podem 
+se 
+acumular.
+
+Vantagem
+
+Quando possui Vantagem em um Teste, o 
+personagem rola: +1 dado nos dados da 
+Perícia e continua utilizando o maior 
+resultado.
+
+Exemplo: Um personagem recebe Vantagem 
+ao tentar escapar de um inimigo distraído 
+utilizando 
+Acrobacia 
+no 
+grau 
+Leigo. 
+Normalmente, 
+ele 
+rolaria: 
+1d20 
+Com 
+Vantagem, ele rola: 2d20
+
+Desvantagem
+
+Quando sofre Desvantagem em um Teste, o 
+personagem rola: -1 dado nos dados da
+
+=== PÁGINA 16 ===
+
+16
+
+Perícia. O personagem continua utilizando o 
+maior resultado entre os dados restantes.
+
+Exemplo: Um personagem tenta atravessar 
+uma 
+superfície 
+extremamente 
+instável 
+utilizando Acrobacia no grau Especialista. O 
+Mestre 
+determina 
+que 
+ele 
+possui 
+Desvantagem.
+
+Normalmente, 
+ele 
+rolaria: 
+3d20 
+Com 
+Desvantagem, ele rola: 2d20 Ele utiliza o 
+maior resultado.
+
+Caso o total de dados chegue a 0 ou menos 
+devido a Desvantagens, o personagem rola: 
+2d20 e utiliza o menor resultado.
+
+Exemplo: Um personagem está tentando 
+resolver um problema utilizando Tecnologia 
+no grau Leigo.
+
+Normalmente, ele rolaria: 1d20 Porém, ele 
+sofre 
+uma 
+grande 
+distração 
+e 
+recebe 
+Desvantagem. Como os dados caíram para 0, 
+ele rola: 2d20 e utiliza o menor resultado.
+
+Vantagem e Desvantagem ao Mesmo 
+Tempo
+
+Caso um personagem possua Vantagem e 
+Desvantagem ao mesmo tempo, uma cancela 
+a outra. O personagem realiza a rolagem 
+normalmente.
+
+Exemplo: Um personagem possui Acrobacia 
+no grau Treinado. Ele recebe Vantagem 
+porque o inimigo está distraído, mas sofre 
+Desvantagem porque está lutando em uma 
+superfície instável. As duas condições se 
+anulam. Ele rola: 2d20 e utiliza o maior 
+resultado.
+
+O combate ocorre quando o tempo, a posição 
+e as ações dos personagens passam a ser 
+importantes.
+
+Durante um combate, o tempo é dividido em 
+Rodadas, e cada personagem possui seu 
+próprio Turno dentro de cada Rodada.
+
+Quando chega seu Turno, o personagem pode 
+realizar diferentes tipos de ações.
+
+Uma Rodada representa alguns segundos de 
+combate.
+
+Durante cada Rodada, todos os participantes 
+possuem a oportunidade de agir uma vez, 
+seguindo a ordem de iniciativa.
+
+Quando todos os participantes terminarem 
+seus Turnos, uma nova Rodada começa.
+
+Durante seu Turno, um personagem possui:
+
+• 1 Ação
+
+• 1 Movimento
+
+• 1 Ação Extra (ou bônus), caso possua algo
+
+que permita utilizá-la
+
+• Ações Livres
+
+• 1 Reação por Rodada
+
+=== PÁGINA 17 ===
+
+17
+
+Esses 
+elementos 
+representam 
+diferentes 
+maneiras pelas quais um personagem pode 
+agir durante o combate.
+
+Ações em um
+
+Ação
+
+A Ação representa a principal atividade 
+realizada pelo personagem durante seu 
+Turno. Normalmente, um personagem possui 
+apenas uma Ação por Turno.
+
+Essa Ação pode ser utilizada de diversas 
+formas. O personagem pode realizar uma das 
+ações apresentadas a seguir ou tentar realizar 
+outra ação que faça sentido dentro da 
+situação.
+
+As ações listadas representam opções comuns 
+e possuem regras próprias, mas não limitam 
+aquilo que um personagem pode tentar 
+fazer.
+
+Atacar
+
+Você realiza um ataque contra um alvo.
+
+Dependendo da forma como ataca, o teste 
+pode utilizar Luta ou Precisão, combinadas 
+com o Atributo apropriado.
+
+As regras completas para ataques são 
+apresentadas posteriormente neste capítulo.
+
+Focar
+
+Você interrompe momentaneamente sua 
+ofensiva para recuperar o controle da 
+respiração e reunir suas forças.
+
+Ao utilizar Focar, recupere: 1 + Atributo mais 
+alto de PEs.
+
+Porém, essa ação possui uma limitação, ela só 
+pode ser utilizada uma vez por descanso total.
+
+Recuperar-se.
+
+Você tenta superar um efeito que esteja 
+afetando seu corpo ou sua mente. Algumas 
+habilidades, efeitos e condições necessitam 
+que você utilize esta Ação para tentar encerrar 
+seus efeitos.
+
+Quando 
+isso 
+for 
+possível, 
+a 
+própria 
+habilidade, 
+efeito 
+ou 
+condição 
+deve 
+informar:
+
+• Se é possível utilizar Recuperar-se;
+
+• Qual Teste deve ser realizado, caso
+
+necessário;
+
+• Qual é a CD ou condição para obter
+
+sucesso;
+
+• O que acontece em caso de sucesso ou
+
+falha.
+
+Se uma habilidade, efeito ou condição não 
+informar que pode ser encerrada através de 
+Recuperar-se, esta Ação não precisa ser 
+utilizada para removê-la.
+
+Exemplo: Uma habilidade pode dizer:
+
+“O alvo fica Amedrontado. Ao final de cada 
+um de seus Turnos, ele pode utilizar a Ação 
+Recuperar-se e realizar um Teste de Instinto + 
+Resistência contra a CD da habilidade. Em 
+caso de sucesso, a condição termina.”
+
+Outra pode dizer:
+
+“O alvo fica Atordoado até o início do 
+próximo Turno do usuário.”
+
+E outra:
+
+=== PÁGINA 18 ===
+
+18
+
+“O alvo fica Envenenado. A condição só pode 
+ser 
+encerrada 
+através 
+de 
+tratamento, 
+Medicina ou após o término da duração do 
+efeito.”
+
+Ajudar
+
+Você utiliza sua Ação para ajudar outro 
+personagem.
+
+Descreva de que maneira está ajudando. Caso 
+a ajuda seja possível e relevante para a 
+situação, o personagem escolhido recebe 
+Vantagem em seu próximo Teste relacionado 
+à ajuda recebida.
+
+Preparar
+
+Você prepara uma ação para realizá-la 
+posteriormente.
+
+Ao Preparar uma Ação, escolha:
+
+• Uma ação que pretende realizar;
+
+• Um gatilho claro que determinará quando
+
+ela será realizada.
+
+Quando o gatilho acontecer, você pode 
+utilizar sua Ação como se fosse uma Reação, 
+mas sem gastar sua Reação da rodada.
+
+Exemplo: "Se aquele inimigo tentar atacar 
+meu capitão, vou bloqueá-lo."
+
+Ou: "Se alguém entrar por aquela porta, vou 
+arremessar esta bomba."
+
+Se o gatilho não acontecer antes do início do 
+seu próximo Turno, a ação preparada é 
+perdida.
+
+Proteger
+
+Você assume uma posição defensiva para 
+proteger alguém ou alguma coisa. Escolha um
+
+alvo que esteja ao seu alcance ou em uma 
+posição que você consiga proteger.
+
+Até o início do seu próximo Turno, quando 
+um ataque ou efeito atingir o alvo protegido, 
+você pode utilizar sua Ação como se fosse 
+uma Reação para tentar intervir, bloquear, 
+interceptar ou proteger o alvo, desde que isso 
+seja fisicamente possível.
+
+As regras específicas para interceptar ataques 
+podem ser definidas posteriormente junto às 
+regras de Defesa.
+
+Avaliar.
+
+Você observa cuidadosamente uma criatura, 
+objeto ou situação para compreender melhor 
+aquilo que está enfrentando.
+
+Realize um Teste apropriado, normalmente 
+utilizando:
+
+• Percepção;
+
+• Investigação;
+
+• Intuição;
+
+• Cultura.
+
+Em caso de sucesso, o Mestre fornece uma 
+informação relevante que o personagem 
+poderia descobrir através de sua análise.
+
+Exemplos: Você pode tentar descobrir:
+
+• Se um inimigo está ferido;
+
+• Qual é o padrão de seus ataques;
+
+• Se existe uma fraqueza aparente;
+
+• Como funciona um mecanismo;
+
+• Se uma estrutura está prestes a desabar;
+
+• Se alguém parece estar escondendo algo.
+
+Ação Criativa
+
+Além das opções apresentadas acima, você 
+pode utilizar sua Ação para tentar realizar
+
+=== PÁGINA 19 ===
+
+19
+
+qualquer outra atividade que faça sentido 
+dentro da narrativa. Por exemplo:
+
+• Derrubar uma estante sobre um inimigo;
+
+• Empurrar alguém;
+
+• Tentar agarrar uma criatura;
+
+• Quebrar uma porta;
+
+• Jogar areia nos olhos de um adversário;
+
+• Puxar uma alavanca;
+
+• Arremessar um objeto;
+
+• Usar uma corda para se balançar;
+
+• Tentar apagar um incêndio;
+
+O Mestre determina:
+
+• se a ação é possível;
+
+• se exige um Teste;
+
+• qual Atributo e Perícia devem ser
+
+utilizados;
+
+• quais são as consequências do sucesso ou
+
+da falha.
+
+Nota: A lista de ações não representa tudo o 
+que um personagem pode fazer.
+
+Movimento
+
+O Movimento representa o deslocamento do 
+personagem 
+durante 
+seu 
+Turno. 
+Cada 
+personagem possui uma quantidade máxima 
+de metros que pode percorrer, determinada 
+por suas regras de movimentação. O 
+Movimento pode ser realizado antes, depois 
+ou entre outras ações.
+
+Exemplo: Um personagem pode: mover-se 3 
+metros → atacar → mover-se mais 4 metros.
+
+Desde que não ultrapasse seu limite total de 
+Movimento, também o personagem não é 
+obrigado a utilizar todo o seu Movimento, ele 
+pode permanecer parado.
+
+Ação Extra
+
+A Ação Extra representa uma ação rápida ou 
+complementar. Diferente de uma Ação 
+normal, 
+um 
+personagem 
+não 
+possui 
+automaticamente uma Ação Extra utilizável.
+
+Ela só pode ser utilizada quando uma 
+habilidade, técnica, equipamento ou outra 
+regra permitir. Ações Extras geralmente 
+representam 
+ações 
+menores 
+que 
+complementam a atividade principal do 
+personagem.
+
+Exemplos
+
+• Realizar um movimento especial;
+
+• Utilizar uma técnica rápida;
+
+• Trocar a posição de uma arma;
+
+• Ativar determinada habilidade;
+
+• Realizar um ataque adicional permitido
+
+por uma técnica.
+
+Uma habilidade que exige uma Ação Extra 
+não pode ser utilizada utilizando uma Ação 
+normal, a menos que a própria regra diga o 
+contrário.
+
+Ação Livre
+
+Ações 
+Livres 
+representam 
+atividades 
+extremamente rápidas que não exigem uma 
+Ação ou Ação Extra. Elas podem ser 
+realizadas durante o Turno do personagem, 
+desde que façam sentido dentro da situação.
+
+Exemplos:
+
+• Falar algumas palavras;
+
+• Soltar um objeto;
+
+• Apontar uma direção;
+
+• Fazer um sinal;
+
+• Gritar uma ordem curta;
+
+=== PÁGINA 20 ===
+
+20
+
+• Sacar ou guardar um objeto simples, caso
+
+não 
+exista 
+pressão 
+ou 
+dificuldade
+
+relevante.
+
+Porém, uma Ação Livre não pode ser 
+utilizada para realizar uma ação complexa 
+apenas porque o jogador afirma que ela é 
+rápida. O Mestre possui a decisão final sobre 
+quando uma ação deixa de ser Livre. Além 
+disso, várias ações livres que, juntas, 
+representariam uma atividade relevante 
+podem exigir uma Ação.
+
+Uma Ação Livre deve ser rápida, simples e 
+não possuir impacto mecânico significativo 
+por si só.
+
+Reação
+
+Uma 
+Reação 
+representa 
+uma 
+resposta 
+imediata a algo que acontece durante o 
+combate. 
+Um 
+personagem 
+possui 
+normalmente uma Reação por Rodada, que é 
+recuperada no início de seu próximo Turno.
+
+Uma Reação pode ser utilizada fora do Turno 
+do personagem quando determinada situação 
+permitir.
+
+Exemplos:
+
+• Bloquear um ataque;
+
+• Esquivar de um ataque;
+
+• Utilizar uma habilidade defensiva;
+
+• Reagir a uma ação inimiga.
+
+Se o personagem já utilizou sua Reação, ele 
+não poderá utilizar outra até recuperá-la. Isso 
+é importante porque obriga o jogador a tomar 
+decisões:
+
+"Eu uso minha Reação agora para Bloquear ou 
+guardo caso aconteça algo mais perigoso?"
+
+Quando um combate começa, é necessário 
+determinar a ordem em que cada participante 
+irá agir.
+
+Cada participante realiza um Teste de 
+Iniciativa, 
+normalmente 
+utilizando 
+Agilidade + Percepção, representando sua 
+capacidade de perceber o início do conflito e 
+reagir rapidamente.
+
+O resultado determina a ordem dos Turnos, 
+do maior para o menor.
+
+Em caso de empate, os envolvidos podem 
+comparar o maior resultado obtido nos 
+dados. Caso o empate permaneça, o Mestre 
+decide a ordem ou os jogadores envolvidos 
+escolhem entre si.
+
+A ordem de Iniciativa permanece a mesma 
+durante todo o combate, a menos que alguma 
+habilidade ou efeito altere essa ordem.
+
+Um ataque representa uma tentativa de 
+atingir diretamente um alvo utilizando uma 
+arma, golpe, habilidade ou qualquer outro 
+meio capaz de causar dano ou produzir um 
+efeito ofensivo.
+
+Para realizar um ataque, siga estes passos:
+
+1. Escolha o alvo
+
+Escolha uma criatura, objeto ou área que 
+possa ser afetada pelo ataque e esteja dentro 
+do alcance apropriado.
+
+2. Determine o Atributo e a Perícia
+
+=== PÁGINA 21 ===
+
+21
+
+O Atributo e a Perícia utilizados dependem da 
+forma como o ataque é realizado.
+
+Um ataque corpo a corpo pode utilizar Físico 
++ Luta, enquanto um ataque rápido e preciso 
+com uma arma pode utilizar Agilidade + 
+Precisão.
+
+Um disparo normalmente pode utilizar 
+Agilidade 
++ 
+Precisão, 
+mas 
+outras 
+combinações podem ser utilizadas quando 
+fizerem sentido.
+
+Da mesma forma, uma habilidade pode 
+utilizar Intelecto + Medicina, Instinto + 
+Intimidação ou qualquer outra combinação 
+coerente com a narrativa e o efeito da 
+habilidade.
+
+3. Realize o Teste de Ataque
+
+Realize o teste normalmente, utilizando o 
+Atributo e a Perícia escolhidos.
+
+O resultado obtido será comparado à Defesa 
+do alvo.
+
+4. O alvo se defende
+
+O alvo pode confiar em sua Defesa Passiva 
+ou, caso ainda possua sua Reação, utilizar 
+Bloqueio, Esquiva ou outra forma de defesa 
+permitida.
+
+Se o resultado do ataque for igual ou superior 
+à Defesa utilizada, o ataque atinge o alvo.
+
+Se for inferior, o ataque falha.
+
+5. Resolva os efeitos
+
+Caso o ataque acerte, aplique o dano e 
+quaisquer outros efeitos causados pela arma, 
+habilidade ou situação.
+
+Um ataque nem sempre precisa causar apenas 
+dano. Dependendo de sua natureza, ele 
+também 
+pode 
+aplicar 
+uma 
+condição,
+
+empurrar o alvo, quebrar um objeto, causar 
+um efeito em área ou produzir qualquer outro 
+resultado descrito pela habilidade.
+
+A Defesa representa a capacidade de um 
+personagem evitar, resistir ou reduzir os 
+efeitos de um ataque. Existem três formas 
+principais de defesa:
+
+• Defesa Passiva
+
+• Bloqueio
+
+• Esquiva
+
+Quando um personagem é alvo de uma ação 
+ataque, ele pode utilizar a Defesa Passiva sem 
+gastar nenhum recurso ou utilizar sua Reação 
+para realizar uma defesa ativa.
+
+Nota: Quando for alvo de uma ação de ataque 
+e optar por usar uma Reação para se defender 
+do oponente, a defesa escolhida vai funcionar 
+para todos os ataques daquele oponente.
+
+Lembrando! Uma Reação só pode ser 
+utilizada quando uma regra, habilidade ou 
+situação permitir seu uso. Após utilizar sua 
+Reação, o personagem não poderá utilizar 
+outra até o início de seu próximo Turno, salvo 
+se alguma regra determinar o contrário.
+
+Defesa Passiva
+
+A Defesa Passiva representa a capacidade 
+natural do personagem de evitar ser atingido 
+sem realizar uma reação específica.
+
+Ela é calculada da seguinte forma:
+
+Defesa 
+Passiva 
+= 
+10 
++ Agilidade 
++ 
+Equipamentos
+
+=== PÁGINA 22 ===
+
+22
+
+O personagem não precisa gastar sua Reação 
+para utilizar sua Defesa Passiva. Se o 
+resultado do ataque for igual ou superior à 
+Defesa Passiva, o ataque acerta.
+
+Bloqueio
+
+O Bloqueio representa a tentativa de resistir 
+diretamente ao ataque utilizando o próprio 
+corpo, uma arma, escudo ou outro meio 
+apropriado.
+
+Para utilizar Bloqueio, você deve gastar sua 
+Reação. Sua Defesa de Bloqueio é calculada 
+da seguinte forma:
+
+Bloqueio = 10 + Físico x Grau da Perícia Luta 
+(0 a 3).
+
+Além de tentar evitar o ataque, algumas 
+armas, habilidades ou características podem 
+permitir que o Bloqueio reduza parte do dano 
+sofrido mesmo quando o ataque acerta.
+
+Um personagem só pode Bloquear um ataque 
+se possuir uma forma fisicamente possível de 
+fazê-lo. Por exemplo, normalmente não é 
+possível bloquear um disparo à distância 
+apenas com as mãos, a menos que uma 
+habilidade ou característica permita isso.
+
+Esquiva
+
+A Esquiva representa a tentativa de sair da 
+trajetória de um ataque.
+
+Para utilizar Esquiva, você deve gastar sua 
+Reação. Sua Defesa de Esquiva é calculada da 
+seguinte forma:
+
+Esquiva = 10 + Agilidade x Grau da Perícia 
+Acrobacia (0 a 3).
+
+Uma Esquiva também pode permitir que o 
+personagem se reposicione, caso isso seja
+
+permitido pelas regras ou pela habilidade 
+utilizada.
+
+Um personagem não pode Esquivar caso 
+esteja em uma situação que torne o 
+movimento impossível, como quando seu 
+Deslocamento for 0 ou quando estiver sob 
+uma condição que impeça sua movimentação.
+
+Contra-Ataque
+
+O Contra-Ataque representa a tentativa de 
+responder a um ataque inimigo com um 
+ataque 
+próprio, 
+buscando 
+interromper, 
+superar ou atingir o oponente antes que sua 
+ação seja concluída.
+
+Para utilizar um Contra-Ataque, você deve 
+gastar sua Reação.
+
+Quando você for alvo de uma ação de ataque 
+e você está corpo-a-corpo com o oponente, 
+pode realizar imediatamente um ataque 
+contra o atacante, desde que seja capaz de 
+alcançá-lo.
+
+Os dois ataques são resolvidos normalmente 
+e seus resultados são comparados.
+
+• Se o resultado do seu Contra-Ataque for
+
+superior ao resultado do ataque inimigo,
+
+você impede o ataque e seu Contra-
+
+Ataque acerta normalmente.
+
+• Se o resultado do atacante for superior, o
+
+ataque original é resolvido normalmente
+
+contra você.
+
+• Se o resultado for um empate, ambos
+
+rolam os dados de dano do ataque (o
+
+defensor não pode utilizar habilidades
+
+neste caso). No fim, o dano mais alto
+
+ganha e encerra o ataque.
+
+=== PÁGINA 23 ===
+
+23
+
+Exemplo: Um inimigo realiza um ataque e 
+obtém 18.
+
+• Você decide gastar sua Reação para
+
+realizar um Contra-Ataque e obtém 20.
+
+• Como seu resultado foi superior, você
+
+supera o ataque inimigo, impedindo que
+
+ele acerte e realizando seu próprio ataque.
+
+• Se você obtivesse 16, o Contra-Ataque
+
+falharia e o ataque inimigo continuaria
+
+sendo resolvido normalmente.
+
+Mais um Exemplo: Um inimigo realiza um 
+ataque e obtém 17.
+
+• Você decide gastar sua Reação para
+
+realizar um Contra-Ataque e obtém 17.
+
+Ora, um empate!
+
+• Ambos rolam os dados de dano do ataque.
+
+• O inimigo obtém um total de dano igual a
+
+12.
+
+• Você obtém um total de dano igual a 14.
+
+• Seu contra-ataque é um sucesso e causa 14
+
+de dano ao adversário.
+
+Nota: Se o inimigo realizar dois ataques, o seu 
+contra-ataque será válido apenas para um 
+deles e para o segundo ataque será utilizado a 
+sua defesa passiva.
+
+Quando um ataque ou efeito atinge seu alvo, 
+ele pode causar dano.
+
+A quantidade de dano é determinada pela 
+arma, habilidade ou efeito utilizado. Por 
+exemplo:
+
+• Uma espada pode causar 1d8 + Físico de
+
+dano.
+
+• Uma habilidade pode causar 2d6 +
+
+Intelecto de dano.
+
+• Um ataque desarmado pode possuir seu
+
+próprio valor de dano.
+
+Após determinar o dano, o alvo perde uma 
+quantidade de Pontos de Vida igual ao 
+resultado final. E alguns efeitos podem 
+modificar esse dano antes que ele seja 
+aplicado.
+
+Resistência e Vulnerabilidade
+
+Algumas criaturas, habilidades ou efeitos 
+podem possuir resistência ou vulnerabilidade 
+a determinados tipos de dano.
+
+Resistência. Reduz o dano sofrido pela 
+metade.
+
+Vulnerabilidade. Dobra o dano sofrido.
+
+Se um efeito possuir tanto Resistência quanto 
+Vulnerabilidade ao mesmo tipo de dano, elas 
+se anulam, a menos que uma regra específica 
+determine o contrário.
+
+Tipos de Dano
+
+Os tipos de dano ajudam a definir a natureza 
+de um ataque ou efeito.
+
+Alguns exemplos são:
+
+• Concussão: impactos, socos, martelos,
+
+quedas e força bruta.
+
+• Cortante: espadas, machados, garras e
+
+objetos afiados.
+
+• Perfurante: 
+tiros, 
+flechas, 
+lanças 
+e
+
+estocadas.
+
+• Ígneo: fogo e calor intenso.
+
+• Gélido: frio extremo e congelamento.
+
+=== PÁGINA 24 ===
+
+24
+
+• Elétrico: Eletro e habilidades elétricas.
+
+• Ácido: substâncias corrosivas.
+
+• Veneno: venenos de animais ou sintéticos
+
+e habilidades.
+
+• Energia: efeitos concentrados de energia
+
+ou explosões especiais.
+
+• Corrupto: 
+efeitos 
+sobrenaturais 
+ou
+
+poderes cuja natureza cause corrupção.
+
+Um Acerto Crítico representa um ataque 
+executado de forma excepcional, capaz de 
+causar mais dano do que o normal.
+
+Por outro lado, uma Falha Crítica representa 
+um erro, desequilíbrio ou execução imperfeita 
+durante o ataque, podendo reduzir seu dano 
+ou até mesmo fazer com que ele falhe 
+completamente.
+
+Críticos só podem ocorrer durante uma Ação 
+de Ataque.
+
+Ao realizar uma rolagem de ataque:
+
+• Para cada 20 natural obtido, você recebe 1
+
+Acerto Crítico;
+
+• Para cada 1 natural obtido, você recebe 1
+
+Falha Crítica.
+
+Antes de aplicar seus efeitos, os Acertos 
+Críticos e as Falhas Críticas podem se anular.
+
+Acerto Crítico
+
+Quando você obtém um ou mais Acertos 
+Críticos, seu ataque causa dano adicional. 
+Para cada Acerto Crítico restante, adicione 1 
+dado de dano do mesmo tipo de um dos 
+dados de danos causados pelo ataque.
+
+Se o ataque possuir mais de um tipo de dano, 
+escolha qual dos dados de dano será 
+aumentado para cada Acerto Crítico.
+
+Nota: Os bônus fixos não são afetados.
+
+Exemplo 1: Um ataque causa: 1d8 + 3 de dano
+
+Durante a rolagem de ataque, você obtém um 
+20 natural. Você possui 1 Acerto Crítico.
+
+O ataque passa a causar: 2d8 + 3 de dano
+
+Exemplo 2: Uma habilidade causa: 2d6 + 4 de 
+dano
+
+Durante a rolagem de ataque, você obtém 
+dois 20 naturais. Você possui 2 Acertos 
+Críticos.
+
+O ataque passa a causar: 4d6 + 4 de dano
+
+Exemplo 3 — Diferentes tipos de dano: Uma 
+habilidade causa: 1d8 Cortante + 1d6 Ígneo + 
+3 de dano
+
+Durante a rolagem de ataque, você obtém um 
+20 natural. Você pode escolher qual parte do 
+dano será aumentada.
+
+O ataque pode passar a causar: 2d8 Cortante 
++ 1d6 Ígneo + 3
+
+ou: 1d8 Cortante + 2d6 Ígneo + 3
+
+Habilidades Potencializadas
+
+O Acerto Crítico considera todo o dano em 
+dados 
+causado 
+pelo 
+ataque 
+naquele 
+momento. Isso inclui dados adicionados 
+através da potencialização da habilidade.
+
+Exemplo: Uma habilidade normalmente 
+causa: 2d8 + Físico
+
+O jogador gasta PE adicional para aumentar 
+seu dano e ela passa a causar: 4d8 + Físico
+
+=== PÁGINA 25 ===
+
+25
+
+Durante a rolagem de ataque, ele obtém um 
+20 natural. O ataque possui 1 Acerto Crítico e 
+passa a causar: 5d8 + Físico
+
+Se obtivesse dois 20 naturais: 6d8 + Físico
+
+Falha Crítica
+
+Quando você obtém uma ou mais Falhas 
+Críticas, seu ataque causa menos dano. Para 
+cada Falha Crítica restante, remova 1 dado de 
+dano causado pelo ataque.
+
+Se o ataque possuir diferentes dados ou tipos 
+de dano, escolha qual dado de dano será 
+removido. Um dado de dano removido deixa 
+de ser rolado e não causa dano.
+
+Caso as Falhas Críticas removam todos os 
+dados de dano do ataque, o ataque falha 
+completamente. Nesse caso, o ataque não 
+causa dano e não aplica efeitos que dependam 
+diretamente de causar dano ao alvo.
+
+Exemplo 1: Um ataque causa: 1d8 de dano
+
+O atacante obtém uma Falha Crítica. Como o 
+ataque possui apenas um dado de dano, ele é 
+removido.
+
+O ataque falha e não causa dano.
+
+Exemplo 2: Uma habilidade causa: 3d6 + 4 de 
+dano
+
+Durante a rolagem de ataque, você obtém 
+dois 1 naturais. Você possui 2 Falhas Críticas. 
+Dois dados de dano são removidos.
+
+O ataque passa a causar: 1d6 + 4 de dano
+
+Exemplo 3 — Diferentes tipos de dano: Uma 
+habilidade causa: 2d8 Cortante + 1d6 Ígneo + 
+3
+
+Durante a rolagem de ataque, você obtém um 
+1 natural. Um dos dados de dano é removido.
+
+O ataque poderia passar a causar: 1d8 
+Cortante + 1d6 Ígneo + 3
+
+ou: 2d8 Cortante + 3
+
+Anulação de Críticos
+
+Acertos Críticos e Falhas Críticas representam 
+resultados opostos e podem se anular. Antes 
+de aplicar qualquer bônus ou penalidade ao 
+dano, compare a quantidade de Acertos 
+Críticos e Falhas Críticas obtidos na rolagem.
+
+Cada Acerto Crítico anula uma Falha Crítica. 
+Após todas as anulações, apenas os resultados 
+restantes produzem efeitos.
+
+Exemplo 1: Um personagem obtém:
+
+• 20
+
+• 20
+
+• 1
+
+Isso gera: 2 Acertos Críticos e 1 Falha Crítica. 
+Um Acerto Crítico e uma Falha Crítica se 
+anulam.
+
+Resta: 1 Acerto Crítico e o ataque recebe 1 
+dado adicional de dano.
+
+Exemplo 2: Um personagem obtém:
+
+• 20
+
+• 1
+
+Isso gera: 1 Acerto Crítico e 1 Falha Crítica. 
+Os dois se anulam. O dano do ataque 
+permanece normal, mas o 20 natural é usado 
+para o acerto.
+
+Exemplo 3: Um personagem obtém:
+
+• 20
+
+• 1
+
+• 1
+
+=== PÁGINA 26 ===
+
+26
+
+Isso gera: 1 Acerto Crítico e 2 Falhas Críticas. 
+Um Acerto Crítico anula uma Falha Crítica.
+
+Resta: 1 Falha Crítica e o ataque perde 1 dado 
+de dano.
+
+Ordem de Resolução
+
+Sempre que uma rolagem de ataque possuir 
+resultados críticos, siga esta ordem:
+
+1. Conte os resultados
+
+Conte quantos:
+
+• 20 naturais foram obtidos;
+
+• 1 naturais foram obtidos.
+
+2. Anule os resultados opostos
+
+Cada Acerto Crítico anula uma Falha Crítica.
+
+3. Aplique os resultados restantes
+
+Para cada Acerto Crítico restante: Adicione 1 
+dado de dano.
+
+Para cada Falha Crítica restante: Remova 1 
+dado de dano.
+
+Testes contra a
+
+Quando 
+os 
+Pontos 
+de 
+Vida 
+de 
+um 
+personagem chegam a 0, ele entra em estado 
+de Morrendo e deve realizar imediatamente 
+um Teste contra a Morte.
+
+O Teste contra a Morte consiste em rolar 
+1d20, sem adicionar Atributos, Perícias ou 
+qualquer outro bônus. O resultado determina 
+como o personagem reage ao limite entre a 
+vida e a morte.
+
+Teste contra a Morte
+
+O Teste contra a Morte é uma rolagem de 
+1d20, sem adicionar Atributos ou Perícias.
+
+Ferimento Letal (1–5). O personagem cai 
+Inconsciente e à beira da morte. No início de 
+cada Turno dele, role 1d20 sem bônus (Teste 
+Contra a Morte) contra CD 10.
+
+• Sucesso (10 ou mais): conta 1 sucesso.
+
+• Falha (9 ou menos): conta 1 falha.
+
+• 3 falhas: o personagem morre.
+
+• 3 
+sucessos: 
+o 
+personagem 
+fica
+
+Estabilizado e passa para Trauma Grave.
+
+Um aliado pode usar uma Ação e um Teste de 
+Medicina CD 15 para estabilizá-lo. Em caso de 
+sucesso, os testes terminam e o personagem 
+passa para Trauma Grave.
+
+Trauma Grave (6–10). O personagem cai 
+Inconsciente e fica Estabilizado. Ao recuperar 
+a consciência, por cura ou por descanso, ele 
+recebe 1 nível de Exaustão. Cada vez que 
+voltar a este estado, recebe mais 1 nível, 
+somando ao que já possui.
+
+Nocaute 
+(11–15). 
+O 
+personagem 
+cai 
+Inconsciente e Estabilizado. Ele acorda 
+naturalmente 1 hora após o combate, com 1 
+PV.
+
+Por 
+um 
+Fio 
+(16–19). 
+O 
+personagem 
+permanece consciente com 0 PV. Em seu 
+próximo Turno, ele pode realizar apenas o
+
+Resultado 
+Estado 
+1-5 
+Ferimento Letal 
+6-10 
+Trauma Grave 
+11-15 
+Nocaute 
+16-19 
+Por um Fio 
+20 
+Inabalável
+
+=== PÁGINA 27 ===
+
+27
+
+Movimento ou uma Ação, à sua escolha. Se 
+for curado, volta ao combate normalmente.
+
+Inabalável (20). O personagem recupera 1 PV 
+imediatamente e permanece consciente.
+
+Dica de Pirata: O grupo pode esconder o 
+resultado 
+de 
+quem 
+estiver 
+morrendo, 
+revelando o resultado somente no turno do 
+jogador.
+
+Sofrendo Dano enquanto Morrendo
+
+Uma criatura Morrendo está extremamente 
+vulnerável e qualquer novo golpe pode 
+agravar seus ferimentos.
+
+Sempre que uma criatura Morrendo sofrer 
+dano, o efeito dependerá do estado em que ela 
+se encontra:
+
+• Nocaute: 
+passa 
+imediatamente 
+para
+
+Trauma Grave.
+
+• Trauma Grave: passa imediatamente para
+
+Ferimento Letal.
+
+• Por um Fio: passa imediatamente para
+
+Nocaute.
+
+• Ferimento Letal: Qualquer ataque que
+
+acertar o alvo com Ferimento Letal recebe
+
+1 falha automaticamente.
+
+Importante! Um Acerto Crítico contra uma 
+criatura Morrendo não possui um efeito 
+adicional. O estado em que ela se encontra já 
+determina a consequência do dano.
+
+Morrendo Novamente
+
+Se o personagem continuar com 0 PV após o 
+Teste de Morrendo, ele permanece no estado 
+determinado pelo resultado.
+
+Sempre que uma situação exigir um novo 
+Teste de Morrendo, o jogador realiza uma 
+nova rolagem de 1d20.
+
+Um personagem que recuperar pelo menos 1 
+PV deixa de estar Morrendo e volta a seguir 
+as regras normais.
+
+Estabilizado
+
+Uma criatura Estabilizada permanece com 0 
+PV, mas não precisa mais realizar Testes de 
+Morte. 
+Ela 
+continua 
+Incapacitada 
+até 
+recuperar pelo menos 1 PV. Qualquer efeito 
+que recupere seus Pontos de Vida faz com que 
+ela deixe de estar Morrendo.
+
+Importante! Um personagem pode gastar 1 
+Força de Vontade ao chegar a 0 PV para 
+utilizar 
+Último 
+Fôlego, 
+recuperando 
+imediatamente 1 PV e evitando ficar 
+Morrendo.
+
+Durante uma aventura, um personagem pode 
+sofrer diversos efeitos capazes de alterar 
+temporariamente sua capacidade de agir. 
+Esses 
+efeitos 
+são 
+representados 
+pelas 
+Condições.
+
+Uma Condição pode ser causada por uma 
+habilidade, ataque, Akuma no Mi, Haki, 
+veneno, ambiente ou qualquer outro efeito da 
+narrativa.
+
+Cada Condição possui efeitos próprios. 
+Quando 
+uma 
+habilidade 
+aplicar 
+uma 
+Condição, ela deve informar sua duração e, 
+quando necessário, como o alvo pode se 
+livrar dela.
+
+Importante: uma Condição só pode ser 
+encerrada da maneira indicada por ela ou 
+pelo efeito que a causou.
+
+=== PÁGINA 28 ===
+
+28
+
+Algumas podem terminar automaticamente 
+após determinado período, enquanto outras 
+exigem um Teste, a Ação Recuperar-se, uma 
+habilidade específica ou alguma solução 
+narrativa.
+
+Agarrado
+
+Uma 
+criatura 
+Agarrada 
+está 
+sendo 
+fisicamente presa por outra criatura ou efeito. 
+Enquanto estiver Agarrada:
+
+• Seu Deslocamento é 0;
+
+• Não pode se afastar voluntariamente da
+
+fonte do agarramento;
+
+• Pode realizar ações normalmente, desde
+
+que elas sejam fisicamente possíveis.
+
+Uma criatura pode tentar escapar de um 
+Agarramento 
+através 
+de 
+uma 
+Disputa 
+apropriada, caso o efeito que causou a 
+condição permita.
+
+A condição também termina quando a 
+criatura que realizou o agarramento a soltar 
+ou quando o efeito que a mantém presa for 
+encerrado.
+
+Amedrontado
+
+Uma criatura Amedrontada está sob forte 
+influência de medo, terror ou intimidação. 
+Enquanto estiver Amedrontada:
+
+• Possui Desvantagem em Testes e ataques
+
+realizados contra a fonte de seu medo;
+
+• Não pode voluntariamente se aproximar
+
+da fonte do medo, caso isso seja permitido
+
+pela situação.
+
+A condição termina conforme determinado 
+pelo efeito que a causou.
+
+Quando o efeito permitir, o personagem pode 
+utilizar a Ação Recuperar-se para realizar o 
+Teste indicado pela habilidade ou condição.
+
+Atordoado
+
+Uma 
+criatura 
+Atordoada 
+está 
+temporariamente 
+incapaz 
+de 
+reagir 
+adequadamente. 
+Enquanto 
+estiver 
+Atordoada:
+
+• Não pode realizar Reações;
+
+• Seu Deslocamento é 0;
+
+• Ataques contra ela possuem Vantagem.
+
+A duração da condição é determinada pelo 
+efeito que a causou.
+
+Atordoado não pode ser encerrado pela Ação 
+Recuperar-se, a menos que o efeito que 
+aplicou a condição permita explicitamente.
+
+Caído
+
+Uma criatura Caída está no chão ou em uma 
+posição 
+equivalente 
+que 
+dificulta 
+seus 
+movimentos. Enquanto estiver Caída:
+
+• Seu 
+Deslocamento 
+permanece
+
+normalmente disponível, mas ela precisa
+
+se 
+levantar 
+para 
+se 
+movimentar
+
+normalmente;
+
+• Ataques corpo a corpo contra ela possuem
+
+Vantagem;
+
+• Ataques realizados por ela possuem
+
+Desvantagem, caso dependam de estar
+
+em pé.
+
+Levantar-se 
+exige 
+metade 
+do 
+seu 
+Deslocamento. Uma criatura também pode 
+permanecer Caída e realizar outras ações, 
+desde que sejam fisicamente possíveis.
+
+Cego
+
+=== PÁGINA 29 ===
+
+29
+
+Uma criatura Cega não consegue utilizar sua 
+visão. Enquanto estiver Cega:
+
+• Falha automaticamente em qualquer Teste
+
+que dependa exclusivamente da visão;
+
+• Possui Desvantagem em ataques contra
+
+alvos que não consiga perceber;
+
+• Ataques contra ela possuem Vantagem,
+
+quando o atacante puder percebê-la
+
+normalmente.
+
+A condição termina conforme determinado 
+pelo efeito que a causou.
+
+Congelado
+
+Uma criatura Congelada está parcialmente 
+ou completamente presa por gelo ou por um 
+efeito de congelamento. Enquanto estiver 
+Congelada:
+
+• Seu Deslocamento é 0;
+
+• Não pode realizar ações que dependam de
+
+movimentação física;
+
+• Possui Desvantagem em Testes de
+
+Agilidade, quando o gelo interferir
+
+diretamente na ação.
+
+A condição termina quando o efeito que a 
+causou acabar, quando o gelo for destruído 
+ou através de qualquer outro método 
+indicado pela habilidade.
+
+Confuso
+
+Uma criatura Confusa possui sua percepção 
+ou capacidade de raciocínio prejudicada. 
+Enquanto estiver Confusa:
+
+• Possui 
+Desvantagem 
+em 
+Testes 
+de
+
+Intelecto e Instinto;
+
+• Pode ter dificuldade para distinguir
+
+aliados, 
+inimigos 
+ou 
+informações,
+
+conforme determinado pela fonte da
+
+condição.
+
+O efeito que causou a condição deve indicar 
+sua duração.
+
+Quando permitido, o personagem pode 
+utilizar Recuperar-se para tentar encerrar a 
+condição.
+
+Envenenado
+
+Uma criatura Envenenada possui uma 
+substância nociva afetando seu organismo.
+
+Enquanto estiver Envenenada, sofre os efeitos 
+determinados pelo veneno ou pela habilidade 
+que aplicou a condição. Um veneno pode, por 
+exemplo:
+
+• Causar dano periódico;
+
+• Impor Desvantagem;
+
+• Reduzir algum atributo;
+
+• Aplicar outra condição.
+
+A condição termina quando o veneno perder 
+seu 
+efeito 
+ou 
+quando 
+alguma 
+forma 
+apropriada de tratamento for utilizada.
+
+A 
+Ação 
+Recuperar-se 
+não 
+remove 
+automaticamente Envenenado. Ela só pode 
+ser utilizada se o efeito responsável pelo 
+veneno permitir.
+
+Exausto
+
+A Exaustão representa o desgaste físico e 
+mental causado por esforço excessivo, falta de 
+descanso ou determinados efeitos.
+
+A Exaustão possui 5 níveis. Seus efeitos são 
+cumulativos.
+
+Um Descanso Total reduz a Exaustão em 1 
+nível.
+
+=== PÁGINA 30 ===
+
+30
+
+Habilidades, itens ou outros efeitos podem 
+reduzir ou remover níveis de Exaustão 
+conforme especificado.
+
+Importante! Os efeitos da Exaustão são 
+cumulativos. Uma criatura que está no nível 3 
+de exaustão, sofre também os outros 2 níveis.
+
+• Nível 1 - Cansado: Desvantagem em
+
+Testes de Físico e Agilidade.
+
+• Nível 2 - Fadigado: Desvantagem em
+
+Testes de Instinto e Intelecto, e ataques.
+
+• Nível 
+3 
+– 
+Exausto: 
+Deslocamento
+
+reduzido pela metade.
+
+• Nível 4 – Debilitado: +2 Desvantagens em
+
+todas rolagens.
+
+• Nível 5 – Colapso: Incapacitado e
+
+Deslocamento igual a 0 metros.
+
+Incapacitado
+
+Uma criatura Incapacitada não consegue 
+realizar ações normalmente. Enquanto estiver 
+Incapacitada:
+
+• Não pode realizar Ações;
+
+• Não pode realizar Ações Extras;
+
+• Não pode utilizar Reações.
+
+Seu Deslocamento e outras capacidades 
+podem continuar funcionando caso a fonte da 
+condição permita.
+
+A condição termina conforme determinado 
+pelo efeito que a causou.
+
+Incendiado
+
+Uma criatura Incendiada está em chamas. 
+Enquanto estiver Incendiada:
+
+• Sofre dano de fogo no início de cada um
+
+de seus Turnos, conforme determinado
+
+pelo efeito que aplicou a condição.
+
+O personagem pode utilizar uma Ação para 
+tentar apagar as chamas. Além disso, a 
+condição pode terminar quando:
+
+• Outra criatura apagar o fogo;
+
+• O personagem entrar em contato com uma
+
+quantidade suficiente de água;
+
+• Alguma habilidade remover as chamas;
+
+• Ou 
+outro 
+método 
+apropriado 
+for
+
+utilizado.
+
+O dano e a duração devem ser definidos pela 
+fonte da condição.
+
+Inconsciente
+
+Uma 
+criatura 
+Inconsciente 
+perdeu 
+a 
+consciência. Enquanto estiver Inconsciente:
+
+• Está Incapacitada;
+
+• Não pode realizar Ações, Ações Extras ou
+
+Reações;
+
+• Seu Deslocamento é 0;
+
+• Não pode perceber normalmente o que
+
+acontece ao seu redor;
+
+• Fica Caída.
+
+A condição termina quando o personagem 
+recuperar a consciência ou quando o efeito 
+responsável por ela terminar.
+
+Paralisado
+
+Uma criatura Paralisada está fisicamente 
+incapaz de controlar seu corpo. Enquanto 
+estiver Paralisada:
+
+• Seu Deslocamento é 0;
+
+• Não pode realizar Ações que exijam
+
+movimento corporal;
+
+• Não pode realizar Reações;
+
+• Ataques contra ela possuem Vantagem;
+
+=== PÁGINA 31 ===
+
+31
+
+A duração e a forma de encerramento são 
+determinadas pelo efeito que causou a 
+condição.
+
+Sangrando
+
+Uma criatura Sangrando sofreu um ferimento 
+que continua causando perda de sangue. 
+Enquanto estiver Sangrando:
+
+• Sofre o dano determinado pela fonte da
+
+condição no momento indicado;
+
+• O efeito pode continuar se não for tratado.
+
+A condição normalmente termina quando o 
+ferimento é tratado ou quando algum efeito 
+apropriado interrompe o sangramento.
+
+Uma habilidade que aplicar Sangrando deve 
+indicar quanto dano é causado e quando ele 
+ocorre.
+
+Surdo
+
+Uma criatura Surda não consegue ouvir 
+normalmente. Enquanto estiver Surda:
+
+• Falha automaticamente em Testes que
+
+dependam exclusivamente da audição;
+
+• Possui dificuldade para perceber sons,
+
+ordens ou avisos;
+
+• Não pode utilizar informações sonoras
+
+que não consiga perceber.
+
+A condição termina conforme determinado 
+pelo efeito que a causou.
+
+Recuperar-se
+
+Recuperar-se é uma Ação que pode ser 
+utilizada para tentar encerrar determinadas 
+Condições.
+
+Entretanto, Recuperar-se não remove uma 
+Condição por padrão.
+
+A própria Condição ou o efeito que a aplicou 
+deve informar quando Recuperar-se pode ser 
+utilizado.
+
+Quando puder ser utilizada, a regra deve 
+informar:
+
+• Qual Teste deve ser realizado;
+
+• Qual é a CD;
+
+• Quando o Teste pode ser realizado;
+
+• O que acontece em caso de sucesso;
+
+• O que acontece em caso de falha.
+
+Exemplo: Uma habilidade diz:
+
+“O alvo fica Confuso por 1 minuto. Nos seus 
+Turnos, ele pode utilizar Recuperar-se para 
+realizar um Teste de Instinto + Resistência 
+contra a CD da habilidade. Em caso de 
+sucesso, a condição termina.”
+
+Nesse caso, o jogador sabe exatamente como 
+se livrar da condição.
+
+Já outra habilidade pode dizer:
+
+“O alvo fica Atordoado até o início do 
+próximo Turno do usuário.”
+
+Nesse caso, Recuperar-se não pode ser 
+utilizado, porque a própria habilidade 
+determinou quando o efeito termina.
+
+Os recursos representam aquilo que um 
+personagem possui e pode gastar, recuperar 
+ou administrar durante uma aventura.
+
+Diferente dos Atributos e Perícias, que 
+representam as capacidades do personagem, 
+os Recursos representam reservas que podem
+
+=== PÁGINA 32 ===
+
+32
+
+ser 
+utilizadas 
+para 
+realizar 
+feitos 
+extraordinários, sustentar habilidades ou 
+superar situações extremas.
+
+Os principais Recursos do sistema são:
+
+• Pontos de Vida (PV)
+
+• Pontos de Esforço (PE)
+
+• Força de Vontade
+
+• Pontos de Influência (PI)
+
+• Berries (B$)
+
+Cada recurso possui uma função diferente e 
+uma forma própria de recuperação.
+
+Os Pontos de Vida (PV) representam a 
+capacidade do personagem de suportar 
+ferimentos, impactos e outras formas de dano.
+
+Quando um personagem sofre dano, ele 
+reduz seus Pontos de Vida em uma 
+quantidade igual ao dano recebido.
+
+Quando seus Pontos de Vida chegam a 0, o 
+personagem fica em uma situação crítica e 
+deve 
+seguir 
+as 
+regras 
+de 
+Morte 
+e 
+Inconsciência.
+
+Os Pontos de Vida podem ser recuperados 
+através de habilidades, itens, tratamentos e 
+descansos.
+
+A quantidade máxima de PV de um 
+personagem é determinada durante a criação 
+e progressão do personagem.
+
+Os Pontos de Esforço (PE) representam a 
+energia, 
+resistência 
+e 
+capacidade 
+do 
+personagem de utilizar técnicas especiais e 
+realizar feitos extraordinários.
+
+Os PE são o principal recurso utilizado pelas 
+Habilidades. Uma habilidade possui um 
+custo básico, mas o jogador pode gastar PE 
+adicional para potencializar seus efeitos, 
+permitindo que a mesma técnica seja utilizada 
+de maneiras diferentes dependendo da 
+situação.
+
+Isso significa que uma habilidade não precisa 
+possuir uma versão diferente para cada 
+intensidade. O jogador decide quanto esforço 
+deseja colocar na técnica, respeitando os 
+limites estabelecidos pelas regras. Quanto 
+maior o esforço empregado, maior pode ser 
+o efeito produzido.
+
+Os PE também podem representar coisas 
+diferentes dependendo do personagem. Para 
+um lutador, podem representar esforço físico. 
+Para um usuário de Akuma no Mi, podem 
+representar 
+o 
+esforço 
+necessário 
+para 
+controlar seu poder. Para um usuário de Haki, 
+podem representar concentração e energia.
+
+A narrativa pode determinar como o 
+personagem manifesta esse esforço, mas as 
+regras determinam quanto ele pode gastar.
+
+Limite de PE
+
+Um personagem possui uma quantidade 
+máxima de PE. Esse valor representa o limite 
+de esforço que ele consegue acumular e 
+utilizar antes de precisar recuperar suas 
+forças.
+
+PE Máximo = 4 + Nível + Maior Atributo
+
+=== PÁGINA 33 ===
+
+33
+
+Gastando PE
+
+Quando uma habilidade possui um custo em 
+PE, o personagem deve possuir PE suficiente 
+para utilizá-la. O custo é descontado no 
+momento em que a habilidade é utilizada. 
+Os PE gastos dessa maneira não podem ser 
+utilizados novamente até serem recuperados.
+
+Além do custo básico de uma habilidade, o 
+jogador pode utilizar PE adicional para 
+potencializar seus efeitos, desde que respeite 
+os limites estabelecidos pelo sistema.
+
+A potencialização deve ser descrita pelo 
+jogador de maneira narrativa e coerente com 
+a habilidade.
+
+Por exemplo: Um personagem utiliza uma 
+técnica de impacto.
+
+Ele pode gastar PE adicional para aumentar a 
+força do golpe, ampliar sua área, aumentar 
+seu 
+alcance 
+ou 
+produzir 
+outro 
+efeito 
+permitido pela regra de potencialização.
+
+A habilidade não precisa possuir uma 
+descrição diferente para cada possibilidade.
+
+Recuperando PE
+
+Os Pontos de Esforço podem ser recuperados 
+através de determinadas ações e descansos.
+
+Focar
+
+Focar é uma Ação utilizada para interromper 
+momentaneamente sua ofensiva, controlar a 
+respiração e reunir suas forças.
+
+Ao utilizar Focar: Recupere 3 PE.
+
+Focar só pode ser utilizada uma vez por 
+Descanso total.
+
+Os descansos parcial e total, são uma parte 
+importante da mecânica do RPG. Após uma 
+batalha tensa ou depois de um dia, para 
+recuperar seus recursos como vida, esforço e 
+outras habilidades, é necessário descansar e 
+recuperar forças para uma nova aventura.
+
+Descanso Parcial
+
+Um Descanso parcial representa uma pausa 
+durante a aventura na qual o personagem 
+pode recuperar parte de suas forças. Um 
+descanso parcial precisa de uma hora mínima 
+para ser realizado, ele pode ser não só uma 
+cochilada, mas pode ser uma refeição ou uma 
+celebração.
+
+Durante um Descanso parcial, o personagem 
+recupera PE até alcançar metade de seu PE 
+Máximo. Isso significa que o personagem 
+nunca recupera PE acima da metade de sua 
+capacidade máxima através de um Descanso 
+parcial.
+
+Exemplo: Um personagem possui: 20 PE 
+máximos
+
+Ele termina um combate com: 4 PE
+
+Ao realizar um Descanso parcial, recuperará 
+PE até chegar a: 10 PE
+
+Portanto, recuperará: 6 PE
+
+Caso já possuísse 12 PE, não recuperaria 
+nenhum PE através desse Descanso parcial, 
+pois já está acima da metade de seu máximo.
+
+Descanso Total
+
+Um 
+Descanso 
+total 
+representa 
+uma 
+recuperação 
+completa 
+das 
+forças 
+do 
+personagem. Por isso, ele não pode ser feito
+
+=== PÁGINA 34 ===
+
+34
+
+em qualquer lugar, deve ser feito com 
+segurança e conforto. É preciso no mínimo 
+seis horas para realiza-lo.
+
+Ao completar um Descanso total:
+
+• Recupera todos os Pontos de Esforço;
+
+• Recupera os Pontos de Vida conforme as
+
+regras de descanso;
+
+• Recupera os usos de habilidades que
+
+especificarem Descanso total;
+
+• Recupera outros recursos que possuam
+
+essa forma de recuperação.
+
+O Descanso total normalmente exige um 
+período prolongado de descanso, geralmente 
+durante uma noite, mas o Mestre pode 
+determinar o tempo necessário de acordo com 
+a situação.
+
+A 
+Força 
+de 
+Vontade 
+representa 
+a 
+determinação do personagem, seus ideais, 
+sonhos 
+e 
+a 
+capacidade 
+de 
+continuar 
+avançando mesmo quando tudo parece 
+perdido.
+
+Ela é um recurso principalmente narrativo, 
+concedido pelo Mestre quando o jogador 
+interpreta seu personagem de maneira 
+marcante ou toma uma decisão que reflita 
+seus objetivos, valores, personalidade ou 
+história.
+
+A Força de Vontade não possui uma 
+recuperação automática através de descansos. 
+Ela é recuperada através da interpretação e 
+de momentos importantes da história.
+
+Ganhando Força de Vontade
+
+O Mestre pode conceder 1 ponto de Força de 
+Vontade quando um jogador realizar uma 
+ação que represente de forma significativa 
+quem seu personagem é.
+
+Isso pode acontecer quando o personagem:
+
+• Age de acordo com seus ideais mesmo
+
+diante de uma grande dificuldade;
+
+• Coloca seu sonho em risco para alcançar
+
+um objetivo importante;
+
+• Protege alguém importante para ele;
+
+• Supera uma situação que normalmente
+
+faria seu personagem desistir;
+
+• Toma uma decisão difícil relacionada à
+
+sua história;
+
+• Realiza 
+um 
+feito 
+marcante 
+ou
+
+emocionante durante a aventura.
+
+A Força de Vontade deve recompensar 
+momentos significativos, e não cada pequena 
+ação 
+realizada 
+de 
+acordo 
+com 
+a 
+personalidade.
+
+Exemplo: Um personagem possui o sonho de 
+encontrar o One Piece.
+
+Durante uma batalha, ele tem a oportunidade 
+de fugir e salvar a própria vida, mas decide 
+permanecer 
+para 
+proteger 
+seus 
+companheiros.
+
+O Mestre pode conceder: +1 Força de 
+Vontade.
+
+Limite de Força de Vontade
+
+Um personagem pode possuir no máximo 3 
+pontos de Força de Vontade ao mesmo 
+tempo. Qualquer ponto recebido acima desse 
+limite é perdido.
+
+Isso faz com que o jogador seja incentivado a 
+utilizar 
+seus 
+pontos 
+em 
+momentos
+
+=== PÁGINA 35 ===
+
+35
+
+importantes, 
+em 
+vez 
+de 
+simplesmente 
+acumulá-los indefinidamente.
+
+Gastando Força de Vontade
+
+Um personagem pode gastar Força de 
+Vontade para superar situações nas quais 
+normalmente falharia. Cada ponto gasto pode 
+ser utilizado para uma das opções abaixo.
+
+Determinação
+
+Quando você falhar em um Teste, pode 
+gastar 1 ponto de Força de Vontade para 
+realizar o Teste novamente.
+
+Você repete a rolagem utilizando as mesmas 
+regras do Teste original.
+
+O novo resultado substitui o resultado 
+anterior.
+
+Exemplo: Um personagem tenta atravessar 
+uma ponte destruída e falha em seu Teste de 
+Acrobacia.
+
+Ele decide não desistir e gasta: 1 Força de 
+Vontade.
+
+Ele realiza o Teste novamente e essa vez, 
+consegue atravessar.
+
+Último Fôlego
+
+Quando seus Pontos de Vida chegarem a 0, 
+você pode gastar 1 ponto de Força de 
+Vontade para permanecer consciente. Você 
+volta imediatamente para: 1 PV.
+
+Depois disso, continua sujeito às demais 
+regras relacionadas a estar com poucos 
+Pontos de Vida.
+
+Exemplo: Um personagem recebe um golpe 
+que reduziria seus PV para 0.
+
+Em vez de cair, ele gasta: 1 Força de Vontade.
+
+Ele permanece de pé com 1 PV.
+
+Nota: Uma vez que essa opção representa um 
+momento 
+excepcional, 
+o 
+Mestre 
+pode 
+determinar 
+consequências 
+narrativas 
+apropriadas para a situação.
+
+Reerguer-se
+
+Você pode gastar 1 ponto de Força de 
+Vontade para recuperar 3 Pontos de Esforço.
+
+Essa recuperação representa o personagem 
+encontrando uma nova fonte de determinação 
+para continuar lutando.
+
+Essa opção não pode fazer com que seus PE 
+ultrapassem seu limite máximo.
+
+Exemplo: Um personagem possui 18 PE 
+máximos e está com apenas 2 PE.
+
+Ele gasta: 1 Força de Vontade e recupera 3 PE, 
+ficando com: 5 PE.
+
+Outros Usos
+
+A 
+Força 
+de 
+Vontade 
+representa 
+a 
+determinação do personagem e, por isso, 
+pode ser utilizada de outras maneiras além 
+das opções apresentadas.
+
+Caso um jogador queira gastar Força de 
+Vontade para realizar algo que não esteja 
+descrito neste capítulo, o Mestre decide se o 
+uso é apropriado e qual será o efeito.
+
+A decisão deve levar em consideração:
+
+• A situação;
+
+• A narrativa;
+
+• O personagem;
+
+• A importância do momento;
+
+• E o impacto mecânico da ação.
+
+=== PÁGINA 36 ===
+
+36
+
+A Força de Vontade não deve ser utilizada 
+para ignorar completamente as regras ou 
+transformar qualquer desejo em realidade.
+
+Ela existe para permitir que o personagem vá 
+além 
+de 
+seus 
+limites 
+em 
+momentos 
+importantes.
+
+Força de Vontade e o Mestre
+
+A Força de Vontade não deve ser tratada 
+como um prêmio por simplesmente "jogar 
+certo".
+
+Ela existe para incentivar os jogadores a 
+interpretarem seus personagens e criarem 
+momentos memoráveis.
+
+O 
+Mestre 
+deve 
+observar 
+quando 
+o 
+personagem: faz aquilo que faria sentido 
+para 
+ele, 
+mesmo 
+quando 
+seria 
+mais 
+conveniente fazer o contrário. Esse é o 
+momento em que a Força de Vontade deve 
+aparecer.
+
+Os Berries (B$) representam o dinheiro 
+utilizado no mundo de One Piece.
+
+Eles podem ser utilizados para:
+
+• Comprar equipamentos;
+
+• Adquirir alimentos;
+
+• Contratar serviços;
+
+• Pagar hospedagem;
+
+• Comprar materiais;
+
+• Negociar com NPCs;
+
+• Realizar outras transações.
+
+A quantidade de Berries inicial depende da 
+Origem e de outras características do 
+personagem.
+
+Viajar pelo mundo de One Piece exige mais 
+do que um bom navio. Uma tripulação 
+precisa de comida, água potável e outros 
+recursos básicos para sobreviver durante suas 
+viagens.
+
+Os Suprimentos representam comida, água e 
+outros itens necessários para manter uma 
+tripulação alimentada durante a viagem.
+
+Consumo
+
+Ao final de cada dia de viagem, a tripulação 
+consome 1 Suprimento por tripulante. Esse 
+valor pode ser aumentado pelo Mestre caso a 
+tripulação seja muito grande, possua criaturas 
+de 
+tamanho 
+excepcional 
+ou 
+esteja 
+transportando muitos passageiros.
+
+Falta de Suprimentos
+
+Quando a quantidade de Suprimentos chega 
+a 0, a tripulação começa a sofrer com a fome e 
+a sede. A partir do primeiro dia sem 
+Suprimentos, todos os personagens que não 
+tiverem acesso a alimentação adequada 
+recebem 1 nível de Exaustão por dia. A 
+Exaustão causada pela fome e pela sede não é 
+removida 
+simplesmente 
+através 
+de 
+Descansos. É necessário voltar a consumir 
+alimentos e água adequadamente para que o 
+personagem possa se recuperar.
+
+Importante: O Mestre pode adaptar o 
+consumo e os efeitos de acordo com a 
+situação. Uma tripulação pode encontrar
+
+=== PÁGINA 37 ===
+
+37
+
+água, pescar, caçar ou conseguir alimentos de 
+outras maneiras durante a viagem.
+
+Obtendo Suprimentos
+
+Suprimentos podem ser obtidos de diversas 
+maneiras:
+
+• Comprando em ilhas e cidades;
+
+• Pescando;
+
+• Caçando;
+
+• Coletando alimentos;
+
+• Recebendo 
+suprimentos 
+de 
+outras
+
+pessoas;
+
+• Utilizando habilidades ou características
+
+específicas.
+
+Algumas 
+Origens, 
+Habilidades 
+e 
+equipamentos podem alterar a quantidade 
+de Suprimentos obtida ou consumida.
+
+5. Criação de
+
+Criar um personagem é definir quem você é 
+no mundo de One Piece. Suas capacidades, 
+sua história, seus objetivos e suas escolhas 
+irão determinar como você enfrentará os 
+perigos encontrados durante sua jornada.
+
+Para criar um personagem, siga as etapas 
+abaixo na ordem apresentada.
+
+• Conceito e Nível
+
+• Atributos e Perícias
+
+• Origem
+
+• Raça
+
+• Recursos (PV e PE)
+
+• Equipamentos e Habilidades
+
+Antes de escolher números e características, 
+pense em quem é o seu personagem. Você 
+pode começar definindo coisas simples:
+
+• Qual é o seu sonho?
+
+• De onde você veio?
+
+• O que você deseja alcançar?
+
+• Como você luta?
+
+• Qual é sua personalidade?
+
+• O que é importante para você?
+
+• Por que você decidiu partir para o mar?
+
+Não é necessário ter todas as respostas 
+imediatamente. 
+O 
+conceito 
+pode 
+ser 
+desenvolvido conforme a ficha é construída.
+
+Exemplo: Um jogador decide criar um jovem 
+pirata que deseja se tornar o maior 
+espadachim do mundo. Ele é impulsivo, 
+extremamente determinado e não abandona 
+seus companheiros.
+
+O Mestre determina o nível inicial da 
+campanha. Normalmente, uma campanha 
+começa no Nível 1, mas o Mestre pode 
+permitir que os personagens iniciem em 
+níveis superiores. Não existe nível máximo.
+
+=== PÁGINA 38 ===
+
+38
+
+O nível determina a experiência e o poder 
+geral do personagem, influenciando seus 
+Atributos, Habilidades e Recursos.
+
+A cada nível a partir do 2, o jogador escolhe 
+uma destas opções
+
+• Uma Habilidade nova;
+
+• Melhorar uma Perícia em um grau (Ex:
+
+Leigo para Treinado).
+
+Para os graus Treinado e Especialista, basta a 
+prática contínua durante a aventura, não 
+exigindo um mentor.
+
+Porém, para chegar à Perícia no grau Mestre, 
+o personagem precisa ser treinado por 
+alguém que já seja grau Mestre naquela 
+Perícia (um NPC ou outro personagem). Os 
+jogadores podem procurar esse mentor por 
+conta própria durante a campanha.
+
+O Mestre também pode permitir o avanço em 
+uma batalha ou momento crítico. Enquanto 
+não há mentor disponível, a escolha de 
+evolução daquela Perícia fica reservada, sem 
+ser perdida.
+
+Atributos
+
+Todo personagem possui quatro Atributos: 
+Físico, Agilidade, Intelecto e Instinto. Eles 
+representam as capacidades fundamentais do 
+personagem e são utilizados em conjunto com 
+as Perícias para realizar Testes.
+
+No Nível 1, distribua: 1, 1, 1 e 0 entre os 
+quatro Atributos.
+
+Também no Nível 1, a sua origem concede 
+mais Atributos
+
+Nota: Nenhum Atributo pode ultrapassar 5!
+
+Perícias
+
+As Perícias representam conhecimentos, 
+técnicas e experiências adquiridas pelo 
+personagem. No Nível 1, escolha 3 Perícias 
+para passarem para o grau Treinado. As 
+Perícias que a sua Origem concede também 
+iniciam no grau Treinado. Normalmente, 
+ninguém pode começar a aventura com 
+Perícias no grau Especialista ou Mestre.
+
+A Perícia utilizada determina a quantidade de 
+dados que o personagem rola durante um 
+Teste, conforme o seu grau.
+
+Origem
+
+A 
+Origem 
+representa 
+o 
+passado 
+do 
+personagem 
+e 
+as 
+experiências 
+que 
+o 
+moldaram antes de sua aventura.
+
+Cada Origem oferece duas opções de 
+aumento de atributos: você pode escolher 
+receber +1 em dois atributos indicados ou +2 
+em apenas um deles.
+
+Além disso, a sua Origem determina os seus 
+equipamentos iniciais, a sua riqueza em 
+Berries e concede Treinamento em perícias 
+específicas. Por fim, ela fornece habilidades 
+exclusivas para o seu personagem e, em 
+alguns casos, uma desvantagem narrativa 
+atrelada ao seu passado.
+
+Raça
+
+O mundo é repleto de diferentes povos. A sua 
+Raça define características físicas e mecânicas 
+fundamentais do seu personagem.
+
+Ela determina o seu deslocamento base, o seu 
+tamanho e os idiomas que você fala.
+
+A Raça também concede traços raciais únicos, 
+que são habilidades especiais naturais, e 
+define a base para o cálculo dos seus Pontos 
+de Vida no Nível 1.
+
+=== PÁGINA 39 ===
+
+39
+
+Pontos de Vida
+
+Os Pontos de Vida (PV) representam a 
+capacidade do personagem de suportar 
+ferimentos, impactos e outras formas de dano.
+
+No Nível 1, o seu PV máximo é determinado 
+pela sua Raça somado ao atributo exigido por 
+ela (geralmente o Físico).
+
+Por exemplo, um Humano Comum começa 
+com 12 + Físico Pontos de Vida.
+
+Pontos de Esforço
+
+Os Pontos de Esforço (PE) representam a 
+energia, 
+resistência 
+e 
+capacidade 
+do 
+personagem de utilizar técnicas especiais.
+
+O seu limite máximo de PE é calculado da 
+seguinte forma: 4 + Nível + Maior Atributo.
+
+Você gasta PE para usar ou potencializar as 
+suas habilidades durante o jogo.
+
+Alinhamento
+
+O mundo de One Piece é formado por pessoas 
+com sonhos, ideais e maneiras muito 
+diferentes de enxergar a liberdade, a justiça e 
+os outros. O Alinhamento representa esses 
+valores, enquanto os Pontos de Influência 
+(PI) representam o impacto que as ações do 
+personagem causam no mundo.
+
+O Alinhamento não determina como um 
+personagem deve agir. Ele representa aquilo 
+que o personagem valoriza e acredita. Um 
+personagem pode mudar suas opiniões ao 
+longo de uma aventura, e suas ações podem 
+fazer com que seu Alinhamento mude com o 
+tempo.
+
+Já os Pontos de Influência representam o 
+quanto o personagem se tornou reconhecido 
+por aquilo que defende e faz. Quanto maior
+
+sua Influência, maior será o impacto de suas 
+ações 
+sobre 
+pessoas, 
+comunidades 
+e 
+organizações.
+
+Equipamentos
+
+Em um mundo cheio de perigos, as armas são 
+essenciais para a sobrevivência.
+
+Anote na sua ficha a sua arma escolhida (com 
+o seu dano e propriedades) e os itens e 
+bugigangas concedidos pela sua Origem. 
+Lembre-se do seu limite de carga, que é 
+baseado no seu atributo Físico.
+
+História
+
+Defina o passado do seu personagem, seus 
+objetivos e como ele enxerga o mundo.
+
+Escolha o seu alinhamento dentro dos eixos 
+de Justiça contra Liberdade e Egoísmo contra 
+Altruísmo. O seu alinhamento definirá como 
+você ganha ou perde Pontos de Influência (PI) 
+ao longo da aventura, afetando a sua fama 
+pelo mundo.
+
+Finalizando a Ficha
+
+Para completar a sua criação, calcule e anote 
+as suas três formas de Defesa na ficha:
+
+Defesa 
+Passiva: 
+10 
++ 
+Agilidade 
++ 
+Equipamentos.
+
+Bloqueio: 10 + Físico x Grau da Perícia Luta 
+(de 0 a 3).
+
+Esquiva: 10 + Agilidade x Grau da Perícia 
+Acrobacia (de 0 a 3).
+
+=== PÁGINA 40 ===
+
+40
+
+As Origens representam o passado, o Ofício, 
+o ambiente e as experiências que moldaram 
+seu personagem antes de partir para sua 
+aventura. Sua Origem não determina quem 
+você é por completo, mas representa aquilo 
+que você aprendeu e viveu antes do início da 
+campanha.
+
+Cada Origem concede características que 
+ajudam a definir seu personagem, podendo 
+incluir:
+
+• Atributos
+
+• Perícias
+
+• Equipamentos
+
+• Habilidades
+
+• Berries
+
+• Características especiais
+
+• Desvantagens, quando apropriado
+
+Escolha uma Origem que combine com o 
+conceito do seu personagem e aplique todas 
+as suas características à ficha.
+
+Importante! A Origem representa o passado 
+do personagem, não seu Ofício obrigatório 
+durante a aventura. Um personagem que 
+começou 
+como 
+Cozinheiro 
+pode 
+posteriormente 
+se 
+tornar 
+um 
+grande 
+combatente, navegador ou capitão.
+
+Atributos da Origem
+
+Cada Origem fornece duas opções de 
+Atributos. Ao escolhê-la, você recebe: +1 nos 
+dois Atributos ou +2 em apenas um deles.
+
+Perícias da Origem
+
+A Origem também concede Treinamento em 
+Perícias relacionadas às experiências do 
+personagem. Essas Perícias são adicionadas 
+às Perícias escolhidas durante a criação.
+
+Equipamentos e Berries
+
+Cada Origem pode conceder equipamentos 
+iniciais e uma quantidade de Berries. Esses 
+recursos 
+representam 
+aquilo 
+que 
+o 
+personagem possuía ou conseguiu obter antes 
+de iniciar sua aventura. Você pode escolher se 
+quer manter os equipamentos, ou se quer 
+trocar desde que o Mestre esteja de acordo 
+com a escolha.
+
+Habilidades e Desvantagens
+
+Algumas Origens concedem Habilidades 
+próprias, representando conhecimentos ou 
+vantagens adquiridas ao longo da vida. 
+Algumas 
+também 
+podem 
+possuir 
+Desvantagens.
+
+As Desvantagens não existem simplesmente 
+para punir o jogador. Elas representam 
+aspectos do passado do personagem que 
+podem 
+gerar 
+complicações 
+durante 
+a 
+aventura.
+
+Exemplo: Um personagem que possui uma 
+antiga ligação com a Marinha pode possuir 
+conhecimentos e contatos úteis, mas também 
+pode ser reconhecido por antigos inimigos.
+
+Alcoólatra
+
+Atributos: Físico e Instinto.
+
+Perícias: Treinamento em Resistência e 
+Sobrevivência.
+
+=== PÁGINA 41 ===
+
+41
+
+Equipamento: Uma garrafa de bebida de alta 
+qualidade (M), um cantil prateado de bolso 
+(L), um isqueiro de metal resistente a ventos 
+(L) e um conjunto de roupas comuns gastas 
+(L).
+
+Estou de Boa. Você possui Vantagem em 
+Testes de Resistência para resistir aos efeitos 
+do álcool.
+
+Coragem Líquida. Uma vez por Descanso 
+Total, você pode consumir sua bebida como 
+uma Ação. Durante 1d4 horas, você fica 
+imune à condição Amedrontado e recebe 1 
+dado adicional em efeitos de cura.
+
+Riqueza: 2d6 × 10.000 Berries.
+
+Alquimista
+
+Atributos: Intelecto e Instinto.
+
+Perícias: Treinamento em Ofício (Alquimia) e 
+Investigação.
+
+Equipamento: Bolsa de Ingredientes (M), Kit 
+de Alquimia (M), óculos de proteção grossos 
+(L) e três frascos de vidro vazios reforçados 
+(L).
+
+Olho de Coletor. Você possui Vantagem em 
+Testes 
+realizados 
+para 
+encontrar 
+ou 
+reconhecer ingredientes.
+
+Risco Ocupacional. Quando falhar em um 
+Teste para criar uma poção, role 1d100. Com 
+resultado 10 ou menos, ocorre uma pequena 
+explosão, causando dano ácido igual ao seu 
+nível.
+
+Riqueza: 4d6 × 10.000 Berries.
+
+Arqueólogo
+
+Atributos: Intelecto e Instinto.
+
+Perícias: 
+Treinamento 
+em 
+Ofício 
+(Arqueologia) e Cultura.
+
+Equipamento: Um diário de pesquisa (L), Kit 
+de Cartógrafo (M), roupas de viajante (M), 
+lupa de aumento com aro de bronze (L) e um 
+pequeno pincel de escavação (L).
+
+Leitor de Poneglyphs. Você é capaz de ler a 
+língua antiga dos Poneglyphs.
+
+Conhecimento Aprimorado. Você recebe 
+Treinamento em Investigação.
+
+Procurado. Ler Poneglyphs é um crime. O 
+Governo Mundial pode persegui-lo caso 
+descubra sua capacidade.
+
+Riqueza: 4d6 × 10.000 Berries.
+
+Artesão
+
+Atributos: Intelecto e escolha um entre Físico 
+ou Agilidade.
+
+Perícias: Treinamento em Ofício (Artesão) — 
+escolha um ofício — e Investigação.
+
+Equipamento: 
+Kit 
+de 
+Ferramentas 
+apropriado para seu ofício (P), avental de 
+couro com bolsos (M), luvas grossas de 
+proteção (L) e óculos de solda rústicos (L).
+
+Olho para o Valor. Você possui Vantagem em 
+Testes para determinar o valor, qualidade ou 
+autenticidade de um objeto.
+
+Reparo Rápido. Com 10 minutos de trabalho 
+e materiais básicos, você pode realizar um 
+reparo temporário em um objeto quebrado.
+
+Impostos. Seu trabalho pode atrair clientes, 
+cobradores, 
+autoridades 
+ou 
+pessoas 
+insatisfeitas.
+
+Riqueza: 6d6 × 10.000 Berries.
+
+Brigão
+
+=== PÁGINA 42 ===
+
+42
+
+Atributos: Agilidade e Físico.
+
+Perícias: Treinamento em Luta e Resistência.
+
+Equipamento: Uma arma leve escondida (L), 
+roupas confortáveis para correr (L), símbolo 
+de uma antiga gangue ou clube de luta (L) e 
+ataduras esportivas sujas para as mãos (L).
+
+Golpe Baixo. Nas ruas não existe luta justa. 
+Uma vez por turno, se você atacar corpo a 
+corpo um inimigo que esteja engajado com 
+pelo menos um aliado seu a até 1,5 metros 
+dele, o seu ataque causa 1d4 de dano extra.
+
+Riqueza: 3d6 x 10.000 Berries.
+
+Caçador de Recompensas
+
+Atributos: Instinto e escolha um entre Físico 
+ou Agilidade.
+
+Perícias: Treinamento em Sobrevivência e 
+Intimidação.
+
+Equipamento: Um conjunto de algemas (M), 
+cópias de diversos cartazes de procurados (L), 
+um binóculo de bolso (L) e uma capa pesada 
+de viagem (M).
+
+Rastreador 
+Experiente. 
+Você 
+possui 
+Vantagem em Testes de Sobrevivência para 
+rastrear um alvo. Além disso, pode conseguir 
+informações básicas sobre procurados em 
+bases da Marinha.
+
+Conhecido pelos Procurados. Piratas e 
+criminosos podem reconhecer você e reagir 
+de maneira hostil.
+
+Riqueza: 5d6 × 10.000 Berries.
+
+Carpinteiro
+
+Atributos: Físico e Intelecto.
+
+Perícias: Treinamento em Ofício (Carpintaria) 
+e Atletismo.
+
+Equipamento: Kit de Ferramentas (P), cinto 
+de utilidades de couro (M), corda extra de 5m 
+(M) e uma caixa de pregos especiais 
+reforçados (L).
+
+Mestre Naval. Você é capaz de construir e 
+reparar navios. Possui Vantagem em Testes de 
+Ofício (Carpintaria) realizados em um navio 
+para repará-lo ou melhorá-lo.
+
+Riqueza: 5d6 × 10.000 Berries.
+
+Cientista
+
+Atributos: Intelecto e Agilidade.
+
+Perícias: Treinamento em Ofício (Ciência), 
+Tecnologia e Cultura.
+
+Equipamento: Kit de Ferramentas ou Kit de 
+Alquimia (M), anotações de pesquisa (L), 
+jaleco com manchas de produtos químicos (L) 
+e uma lanterna a manivela (L).
+
+Mente Analítica. Qualquer teste que envolva 
+Intelecto você pode adicionar 1d4 a mais no 
+teste.
+
+Conhecimento Perigoso. Seu conhecimento 
+pode chamar a atenção de poderes militares 
+ou 
+organizações 
+interessadas 
+em 
+suas 
+pesquisas.
+
+Riqueza: 6d6 × 10.000 Berries.
+
+Cozinheiro
+
+Atributos: Instinto e Intelecto.
+
+Perícias: Treinamento em Ofício (Cozinheiro) 
+e Sobrevivência.
+
+Equipamento: Kit de Cozinha (P), um livro de 
+receitas raras (L), conjunto de facas de chef (L, 
+podem servir como adagas) e um pequeno 
+pote de cerâmica com temperos exóticos (L).
+
+=== PÁGINA 43 ===
+
+43
+
+Rango Revigorante. Durante um Descanso 
+Parcial, você pode preparar uma refeição 
+especial. Cada criatura que consumir a 
+refeição recupera 1d6 + seu maior entre 
+Instinto e Intelecto em PV adicionais ao final 
+do descanso. O dado de cura aumenta em 1 
+dado a cada 5 níveis.
+
+Dever de Cozinheiro Opcional: Quando 
+encontrar alguém com fome, você sente a 
+necessidade 
+de 
+oferecer 
+comida, 
+independentemente de quem seja.
+
+Riqueza: 4d6 × 10.000 Berries.
+
+Escravo Libertado
+
+Atributos: Físico e Instinto.
+
+Perícias: Treinamento em Resistência e 
+Cultura.
+
+Equipamento: Roupas simples que você tinha 
+ao escapar (L), uma marca permanente física 
+ou mental, correntes quebradas (M, servem 
+como arma improvisada) e um amuleto que 
+representa a liberdade (L).
+
+Vontade Inquebrável. Você adiciona seu 
+Atributo de Instinto em testes para evitar as 
+condições 
+Agarrado, 
+Paralisado, 
+Amedrontado.
+
+Liberdade Acima de Tudo. Seu passado 
+deixou uma forte ligação com a liberdade. 
+Quando presencia alguém sendo escravizado 
+ou preso injustamente, você pode ser levado a 
+agir.
+
+Riqueza: 3d6 × 100 Berries.
+
+Estudante de Dojo
+
+Atributos: Agilidade e Físico.
+
+Perícias: Treinamento em Luta e Resistência.
+
+Equipamento: Um kimono ou roupa de 
+treinamento tradicional (M), ataduras de 
+treino para as mãos (L), arma de lembrança do 
+mestre (M) e uma flâmula bordada do seu 
+antigo dojo (L).
+
+Postura Impecável. A repetição exaustiva dos 
+treinos lhe deu uma memória muscular 
+perfeita. Uma vez por descanso parcial, 
+quando errar uma rolagem de ataque corpo a 
+corpo, você pode usar a sua Reação para rolar 
+o ataque novamente, aplicando a correção 
+mental do seu mestre na hora do golpe.
+
+Código de Honra. Você segue as regras do 
+Caminho da Luta. Você se recusa a atacar um 
+oponente desarmado de surpresa e nunca 
+recusa um duelo formal frente a frente, 
+mesmo em desvantagem.
+
+Riqueza: 2d6 x 10.000 Berries.
+
+Eremita
+
+Atributos: Físico e Instinto.
+
+Perícias: Treinamento em Sobrevivência e 
+Medicina.
+
+Equipamento: Roupas simples (M), um 
+bastão de caminhada (M), ervas secas 
+medicinais (L) e um cantil feito de cabaça (L).
+
+Autossuficiente. Você possui Vantagem em 
+Testes de Resistência contra venenos e 
+doenças 
+naturais. 
+Além 
+disso, 
+sua 
+experiência permite que você precise de 
+apenas 
+metade 
+dos 
+Suprimentos 
+normalmente necessários para alimentação e 
+água.
+
+Riqueza: 1d6 × 100 Berries.
+
+Ex-Marinheiro
+
+Atributos: Físico e Agilidade.
+
+=== PÁGINA 44 ===
+
+44
+
+Perícias: Treinamento em Atletismo e Luta ou 
+Precisão.
+
+Equipamento: Um uniforme antigo da 
+Marinha (M), um Denden Mushi comum (M), 
+lembrança do antigo posto (L) e um apito de 
+sinalização militar de latão (L).
+
+Conhecimento Militar: Você conhece os 
+protocolos. Você tem Vantagem em testes de 
+Cultura (Intelecto) e em testes sociais 
+(Persuasão, Enganação) ao interagir com 
+agentes do Governo Mundial.
+
+Riqueza: 4d6 × 10.000 Berries.
+
+Gladiador
+
+Atributos: Agilidade e Físico.
+
+Perícias: Treinamento em Precisão e Luta;
+
+Equipamento: Uma arma com marcas de 
+batalhas sangrentas (M ou P), parte de 
+armadura que aumenta sua defesa passiva em 
++1 quando equipada (M), um troféu de fera ou 
+oponente derrotado (L) e óleo corporal 
+espesso para a arena (L).
+
+Calor da Batalha. Uma vez por descanso 
+parcial, durante um combate você pode gastar 
+sua ação extra em um turno e ganhar 1d10 + 
+Físico de vida temporária.
+
+Dívida de Sangue. Você não saiu da arena de 
+forma amigável. Você tem uma dívida 
+financeira ou rixa mortal com figurões do 
+submundo que gerenciavam o coliseu, ou 
+com um oponente derrotado.
+
+Riqueza: 4d6 x 10.000 Berries.
+
+Grande Negociador
+
+Atributos: Intelecto e Instinto.
+
+Perícias: 
+Treinamento 
+em 
+Persuasão 
+e 
+Intuição.
+
+Equipamento: Roupas de luxo (M), um 
+patrimônio ou item no valor de 100.000 
+Berries (L), bloco de contratos com capa de 
+couro encerado (L) e caneta tinteiro folheada 
+a ouro (L).
+
+Barganha. Você possui Vantagem em Testes 
+de Persuasão realizados para negociar preços, 
+comprar ou vender.
+
+Riqueza Atrai Problemas. Sua riqueza pode 
+atrair ladrões, golpistas e pessoas invejosas.
+
+Riqueza: 8d6 × 10.000 Berries.
+
+Ladrão
+
+Atributos: Agilidade e Intelecto.
+
+Perícias: Treinamento em Furtividade e 
+Prestidigitação.
+
+Equipamento: Kit de Ladrão/Gazuas (L), 
+roupas escuras com capuz (M), gancho de 
+escalada portátil (L) e um saco de lona com 
+fundo falso (L).
+
+Mãos Rápidas. Você possui Vantagem em 
+Testes de Prestidigitação para bater carteiras 
+ou abrir fechaduras.
+
+Ganância Opcional: Dinheiro pode exercer 
+uma influência maior sobre você do que 
+deveria.
+
+Riqueza: 5d6 × 10.000 Berries.
+
+Médico
+
+Atributos: Intelecto e Instinto.
+
+Perícias: 
+Treinamento 
+em 
+Medicina 
+e 
+Investigação.
+
+=== PÁGINA 45 ===
+
+45
+
+Equipamento: Kit Médico (M), um livro de 
+anatomia pesado (M), máscara de pano 
+protetora (L).
+
+Diagnóstico Rápido. Você possui Vantagem 
+em Testes de Medicina para estabilizar uma 
+criatura Morrendo ou diagnosticar doenças e 
+venenos.
+
+Kit Médico Improvisado. Uma vez por 
+Descanso Total, você pode criar um Kit 
+Médico com alguns itens de cura.
+
+Riqueza: 6d6 × 10.000 Berries.
+
+Membro de Facção
+
+Atributos: Intelecto e Agilidade.
+
+Perícias: Treinamento em Furtividade e 
+Enganação.
+
+Equipamento: Um conjunto de roupas 
+discretas (M), um Canivete ou outra arma leve 
+(L), símbolo da sua facção escondido (L) e um 
+pequeno frasco de tinta invisível para recados 
+(L).
+
+Contatos do Submundo. Em uma área 
+urbana, você pode passar 1 hora procurando 
+um contato. Com um Teste de Intelecto 
+apropriado bem-sucedido, o contato pode 
+fornecer:
+
+• Um esconderijo seguro;
+
+• Uma informação valiosa.
+
+Inimigos da Facção. Outras facções podem 
+reconhecer você e tentar prejudicá-lo.
+
+Riqueza: 4d6 × 10.000 Berries.
+
+Mentiroso
+
+Atributos: Intelecto e Agilidade.
+
+Perícias: Treinamento em Enganação e 
+Performance.
+
+Equipamento: Kit de Fantasia com roupas e 
+maquiagem (M), um dado viciado ou baralho 
+marcado 
+(L) 
+e 
+uma 
+identidade 
+falsa 
+incrivelmente bem forjada (L).
+
+Mentira Convincente. Você possui Vantagem 
+em Testes de Enganação.
+
+Riqueza: 3d6 × 10.000 Berries.
+
+Músico
+
+Atributos: Intelecto e Instinto.
+
+Perícias: Treinamento em Performance e 
+Persuasão.
+
+Equipamento: Dois instrumentos musicais à 
+sua escolha (M ou P), roupas artísticas 
+extravagantes (M) e rolos de partituras 
+musicais antigas (L).
+
+Cativar Audiência. Após 
+realizar 
+uma 
+Performance, você possui Vantagem em 
+Testes sociais contra a audiência durante 1 
+hora.
+
+Riqueza: 4d6 × 10.000 Berries.
+
+Navegador
+
+Atributos: Intelecto e Instinto.
+
+Perícias: Treinamento em Navegação e 
+Sobrevivência.
+
+Equipamento: Kit de Cartógrafo (M), Log 
+Pose ou Bússola (L), luneta de vidro reforçado 
+(L) e um casaco de chuva marítimo (M).
+
+Sentido Climático. Você possui Vantagem 
+em Testes de Cultura ou Sobrevivência 
+relacionados ao clima e ao mar.
+
+Riqueza: 4d6 × 10.000 Berries.
+
+=== PÁGINA 46 ===
+
+46
+
+Pirata Aposentado
+
+Atributos: Instinto e escolha um entre 
+Agilidade ou Físico.
+
+Perícias: Treinamento em Sobrevivência e 
+Intimidação.
+
+Equipamento: Uma arma antiga levemente 
+enferrujada (M), uma garrafa de rum (L), 
+tapa-olho de couro costurado à mão (L) e uma 
+moeda de ouro de uma era esquecida (L).
+
+Histórias de Taverna. Você possui Vantagem 
+em Testes de Performance realizados para 
+contar histórias e entreter uma audiência em 
+tavernas. Uma boa história pode render 
+comida, informações ou pequenos favores.
+
+Experiência. Você possui Vantagem em 
+Testes de Cultura.
+
+Rival do Passado. Você possui um antigo 
+rival, que pode ser um membro da Marinha 
+ou outro pirata.
+
+Riqueza: 4d6 × 10.000 Berries.
+
+Religioso
+
+Atributos: Instinto e Intelecto.
+
+Perícias: Treinamento em Medicina e Cultura.
+
+Equipamento: Um símbolo sagrado (L), um 
+livro de escrituras (L), vestes cerimoniais 
+pesadas (M) e alguns bastões de incensos de 
+meditação (L).
+
+Santuário. Você e seus aliados podem 
+encontrar abrigo e cuidados simples em 
+templos ou igrejas relacionados à sua fé.
+
+Fé Inabalável. Sua fé é uma fonte excepcional 
+de determinação. Você recebe +1 no seu 
+limite máximo de Força de Vontade.
+
+Fé que Cura. pode gastar 1 Força de Vontade 
+para utilizar uma Ação e curar uma criatura 
+em: 1d12 + Instinto PV.
+
+Apostasia. 
+Caso 
+abandone 
+ou 
+traia 
+deliberadamente sua fé, o Mestre pode 
+remover os benefícios concedidos por esta 
+Origem e aplicar consequências narrativas.
+
+Riqueza: 3d6 × 10.000 Berries.
+
+Revolucionário Espião
+
+Atributos: Agilidade e escolha um entre 
+Intelecto ou Instinto.
+
+Perícias: Treinamento em Enganação e 
+Furtividade.
+
+Equipamento: Denden Mushi pequeno (L), 
+um livro de códigos simples (L), um par de 
+óculos falsos com bigode para disfarce rápido 
+(L) e um bloco de notas que dissolve na água 
+(L).
+
+Identidade Secreta. Você possui Vantagem 
+em Testes de Enganação para esconder sua 
+verdadeira afiliação. Além disso, conhece 
+senhas secretas utilizadas para acessar 
+esconderijos revolucionários em grandes 
+cidades.
+
+Riqueza: 4d6 × 10.000 Berries.
+
+Sobrevivente de Tragédia
+
+Atributos: Físico e Instinto.
+
+Perícias: Treinamento em Sobrevivência e 
+Resistência.
+
+Equipamento: Um item pessoal que lembra a 
+tragédia (L), roupas gastas (L), uma faca de 
+sobrevivência de lâmina dentada (L) e 
+ataduras velhas (L).
+
+=== PÁGINA 47 ===
+
+47
+
+Instinto de Sobrevivência. Você possui 
+Vantagem em Testes para resistir à condição 
+Amedrontado. Além disso, uma vez por 
+Descanso Total, quando falhar em um Teste 
+de Resistência, você pode realizar a rolagem 
+novamente. O novo resultado deve ser 
+utilizado.
+
+Riqueza: 4d6 x 1.000 Berries.
+
+As Raças representam os diferentes povos 
+que habitam o mundo de One Piece. Cada uma 
+possui características físicas, culturais e 
+naturais próprias, que podem influenciar a 
+maneira como um personagem interage com 
+o mundo.
+
+Ao criar um personagem, escolha uma Raça 
+disponível e aplique suas características à 
+ficha.
+
+Cada 
+Raça 
+pode 
+possuir 
+diferentes 
+características, 
+dependendo 
+de 
+suas 
+particularidades.
+
+Atributos
+
+Modificadores ou opções de Atributos que 
+representam as capacidades naturais daquela 
+Raça.
+
+Perícias
+
+Algumas 
+Raças 
+podem 
+conceder 
+Treinamento 
+em 
+determinadas 
+Perícias 
+relacionadas 
+às 
+suas 
+características 
+ou 
+cultura.
+
+Características Raciais
+
+Habilidades naturais, sentidos especiais, 
+resistências, capacidades físicas ou outras 
+vantagens exclusivas daquela Raça.
+
+Tamanho
+
+A altura de um personagem é determinada 
+pela sua Raça. Você define qual é a altura 
+exata e as dimensões do seu próprio corpo. 
+Como regra geral, utilize:
+
+Tamanho 
+Altura Média 
+Espaço
+
+Pequeno 
++30cm 
+1x1
+
+Médio 
++1,6m 
+1x1 ou 2x2
+
+Grande 
++4m 
+2x2 ou 3x3
+
+Gigante 
++9m 
+3x3 ou 4x4
+
+Colossal 
++15m 
+4x4 ou mais
+
+Deslocamento
+
+Determina a distância que o personagem 
+pode percorrer durante seu Movimento. 
+Neste sistema, para cada quadrado ou 
+hexágono em um grid é 5 pés ou 1,5 metros.
+
+O povo Tontatta ou Anões, habita o lendário 
+e escondido Reino Tontatta, uma sociedade 
+em miniatura erguida sob as florestas de 
+Green Bit, nos arredores da ilha de Dressrosa. 
+No passado distante, essa pequena civilização 
+foi duramente explorada e escravizada pela 
+tirânica família Donquixote, até ser libertada 
+e acolhida pela generosa dinastia real de Riku, 
+a quem juraram eterna lealdade como as fadas 
+protetoras da floresta. Os Tontattas são 
+conhecidos mundialmente como os maiores
+
+=== PÁGINA 48 ===
+
+48
+
+mestres 
+da 
+botânica 
+e 
+da 
+agricultura 
+existentes, 
+possuindo 
+um 
+conhecimento 
+quase místico capaz de cultivar qualquer tipo 
+de planta, árvore medicinal ou semente rara 
+em qualquer terreno hostil. No entanto, seu 
+traço mais notório é a ingenuidade absoluta: 
+os membros desta raça possuem corações tão 
+puros e desprovidos de malícia que acreditam 
+de forma imediata em qualquer mentira 
+contada com convicção, caindo facilmente em 
+armadilhas e truques verbais, mas lutando 
+bravamente e sem hesitar caso descubram que 
+seus amigos correm perigo.
+
+Em termos visuais, os Tontattas são criaturas 
+minúsculas que medem entre vinte e quarenta 
+centímetros de altura, cabendo perfeitamente 
+na palma da mão de um humano adulto. 
+Apesar do tamanho reduzido, sua densidade 
+muscular é fenomenal, conferindo-lhes uma 
+força bruta assombrosa capaz de arremessar 
+guerreiros humanos pelo ar com facilidade e 
+estilhaçar pavimentos de pedra com simples 
+golpes. Apresentam rostos expressivos com 
+narizes longos e pontiagudos e uma cauda 
+grande, felpuda e musculosa parecida com a 
+de um esquilo saindo de suas costas, que 
+utilizam como suporte para equilíbrio e mola 
+para disparos acrobáticos. Vestem-se com 
+pequenos chapéus cônicos, toucas com óculos 
+de proteção de aviador, fivelas, pequenos 
+cintos e roupas de alfaiataria rústica feitas 
+com folhas resistentes e tecidos naturais. 
+Quando correm, movem-se a uma velocidade 
+tão estonteante que deixam para trás apenas 
+uma rajada de vento, tornando-se quase 
+invisíveis aos olhos desatentos.
+
+Características
+
+Deslocamento: Suas pernas são curtas, mas 
+seu ritmo é rápido, e com a ajuda de sua
+
+cauda, 
+facilita 
+o 
+movimento. 
+Seu 
+deslocamento é de 9 metros.
+
+Tamanho: Pequeno. Medem entre 20 a 40 
+centímetros.
+
+Pontos de Vida no Nível 1: 10 + Físico.
+
+Pequeno e Evasivo: Seu pequeno porte te traz 
+algumas vantagens. Recebe Treinamento em 
+Furtividade e Acrobacia.
+
+Conhecimento da Natureza: Você possui 
+Vantagem em todos Testes relacionados à 
+natureza.
+
+Amigos Insetos: Os Tontattas vivem lado a 
+lado com os insetos nas florestas, eles os usam 
+como montarias e para utilidades do dia a dia. 
+Você pode tentar se comunicar com os insetos 
+com gestos e sons para eles ajudarem você.
+
+Coração Ingênuo: Você possui Desvantagem 
+em Testes de Intuição para perceber alguém 
+mentindo.
+
+Os Bukaneiros formam uma raça lendária e 
+praticamente extinta cujas origens remontam 
+ao cruzamento de gigantes com humanos 
+comuns. Essa herança sanguínea singular 
+confere aos seus membros uma robustez 
+monstruosa, ossos densos e uma força física 
+descomunal capaz de resistir a castigos que 
+aniquilariam qualquer outra raça. Devido a 
+um antigo pecado histórico atribuído aos seus 
+antepassados contra as ordens que fundaram 
+o Governo Mundial, os Bukaneiros foram 
+sistematicamente perseguidos, caçados como 
+foragidos hereditários e condenados a vidas 
+inteiras de escravidão cruel sob a nobreza de 
+Mariejois. 
+Vivendo 
+frequentemente
+
+=== PÁGINA 49 ===
+
+49
+
+acorrentados desde infância, mantiveram 
+viva sua identidade através da fé profunda e 
+de canções passadas de geração em geração 
+sobre Nika, o lendário Deus do Sol e 
+Guerreiro da Libertação que trará a liberdade 
+ao mundo.
+
+A constituição física de um Bukaneiro é 
+titânica e imponente. Com estaturas que 
+variam tipicamente entre três metros e meio e 
+mais de seis metros de altura, eles possuem 
+um tronco largo e volumoso em formato de 
+barril, ombros largos e uma musculatura 
+pesada que se assemelha a blocos maciços de 
+pedra. Seus rostos são marcados por queixos 
+proeminentes e largos, expressões solenes e 
+mãos imensas capazes de envolver o tronco 
+de uma pessoa comum. A presença física de 
+um Bukaneiro chama atenção imediata em 
+qualquer porto ou embarcação, transmitindo 
+uma solidez inabalável e uma resiliência 
+corporal tão impressionante que são capazes 
+de permanecer de pé e conscientes mesmo 
+após sofrerem impactos devastadores.
+
+Características
+
+Deslocamento: 
+Pernas 
+grandes, 
+passos 
+maiores ainda, seu deslocamento é de 12 
+metros.
+
+Tamanho: Grande. Sua altura varia entre 3,5 a 
+8 metros.
+
+Pontos de Vida no Nível 1: 16 + Físico.
+
+Força Bruta: Você possui Vantagem em 
+Testes de Atletismo que utilizem Físico.
+
+Capacidade de Carga Aumentada: Devido à 
+sua ossatura e porte gigante, você adiciona +5 
+espaços para Itens Médios e +2 para Itens 
+Pesados no seu limite de inventário, além de 
+poder empunhar armas de tamanho Grande 
+sem penalidades.
+
+Peso Descomunal: Uma vez por turno, 
+quando acertar um ataque corpo a corpo 
+utilizando Físico, você pode aplicar o dobro 
+do seu Físico ao dano, em vez do valor 
+normal.
+
+Presença Massiva: Você possui Desvantagem 
+em Testes de Furtividade.
+
+Os humanos constituem a espécie mais 
+populosa, 
+dominante 
+e 
+politicamente 
+influente de todos os mares. Foram os 
+fundadores 
+do 
+Governo 
+Mundial 
+há 
+oitocentos anos e controlam as maiores rotas 
+comerciais, as fortalezas militares da Marinha 
+e 
+a 
+esmagadora 
+maioria 
+dos 
+reinos 
+espalhados pelos quatro Blues e pela Grand 
+Line. Por não contarem com vantagens 
+anatômicas sobre-humanas inatas — como 
+guelras para respirar debaixo d'água, asas ou 
+capacidade de produzir eletricidade corporal 
+—, a humanidade prosperou através de uma 
+adaptabilidade 
+cultural 
+ímpar, 
+engenhosidade científica, avanço tecnológico 
+e uma ambição desmedida. Essa diversidade 
+comportamental permite que os humanos 
+atinjam os mais altos picos de Treinamento 
+marcial e erudição, gerando tanto os cientistas 
+mais brilhantes quanto os piratas mais 
+temidos que desafiam os poderes supremos 
+do mundo.
+
+Visualmente, a raça humana se destaca pela 
+impressionante plasticidade fisionômica. Não 
+existe um padrão corporal rígido: um 
+humano adulto pode medir desde estaturas 
+comuns de um metro e cinquenta até alturas 
+monumentais de mais de três ou quatro 
+metros, mantendo proporções biológicas
+
+=== PÁGINA 50 ===
+
+50
+
+naturais de sua linhagem. Suas silhuetas 
+variam entre estruturas esguias, corpos 
+atarracados, caixas torácicas desmedidas e 
+feições 
+faciais 
+bastante 
+expressivas 
+e 
+angulosas. Suas vestimentas refletem a 
+imensa variedade cultural de suas ilhas 
+natais, 
+abrangendo 
+trajes 
+aristocráticos 
+refinados, quimonos tradicionais, uniformes 
+militares da Marinha, roupas leves de 
+navegadores ou vestes rústicas de piratas e 
+cidadãos dos portos.
+
+Características
+
+Deslocamento: 10,5 metros.
+
+Tamanho: Médio. Possuem os mais diversos 
+tamanhos, a média é de 1,3 a 4 metros de 
+altura.
+
+Pontos de Vida no Nível 1: 12 + Físico.
+
+Talentoso: Escolha duas Perícia adicionais. 
+Você recebe Treinamento nelas.
+
+Determinação Superior: Você incendeia o 
+coração de outras pessoas com determinação. 
+Quando tiver Força de Vontade disponível, 
+você pode entrega-la a um aliado.
+
+Adaptação. Uma vez por Descanso Total, 
+quando falhar em um teste, você pode refazer 
+este teste.
+
+Recuperar. No Nível 2, você recebe +1 PE e ao 
+chegar no nível 10, recebe +1 PE.
+
+As Kuja formam uma civilização guerreira 
+exclusivamente feminina que habita o reino 
+isolado de Amazon Lily, localizado nas águas 
+perigosas e calmas do Calm Belt, onde navios
+
+comuns dificilmente conseguem navegar 
+devido à calmaria eterna e à presença 
+constante de ninhos de Reis dos Mares. 
+Governadas com autoridade máxima por sua 
+Imperatriz Pirata, a lendária Princesa Cobra, 
+as Kuja possuem leis rígidas e uma proibição 
+absoluta contra a entrada de homens em seu 
+território sagrado sob pena de execução 
+sumária. Toda mulher Kuja é instruída desde 
+a primeira infância na disciplina das armas, 
+na 
+caça 
+de 
+feras 
+gigantescas 
+e 
+na 
+sobrevivência nas densas florestas tropicais de 
+sua ilha natal. Graças a essa doutrina militar 
+secular, as Kuja possuem uma predisposição 
+intuitiva e refinada para o uso do Haki do 
+Armamento, imbuindo suas flechas e lanças 
+de modo que simples armas de madeira 
+consigam estilhaçar armaduras de ferro 
+maciço e romper pedregulhos.
+
+As guerreiras Kuja apresentam silhuetas 
+atléticas, postura altiva e uma presença que 
+transborda confiança e graciosidade. Vestem 
+trajes leves desenhados para caça e combate 
+dinâmico, como túnicas curtas, biquínis 
+tribais de batalha, botas de couro flexível e 
+capas esvoaçantes adornadas com padrões de 
+peles de répteis e ossos polidos. Uma de suas 
+características mais marcantes é a companhia 
+constante de grandes serpentes domesticadas 
+que vivem com cada guerreira desde o 
+nascimento. Essas cobras possuem peles com 
+padrões 
+coloridos 
+geométricos 
+e 
+uma 
+anatomia 
+especial: 
+quando 
+ordenadas, 
+enrijecem seus corpos musculosos para servir 
+de arcos de combate rígidos, lanças retas, 
+chicotes flexíveis ou suportes para repouso. 
+Embora a grande maioria possua feições 
+humanas convencionais, algumas mulheres 
+Kuja exibem traços discretos de serpente, 
+como 
+caninos 
+pontiagudos, 
+línguas 
+levemente bifurcadas ou olhos com pupilas
+
+=== PÁGINA 51 ===
+
+51
+
+verticais que reforçam sua afinidade natural 
+com venenos e toxinas.
+
+Características
+
+Deslocamento: Seu deslocamento normal é 
+de 10,5 metros.
+
+Tamanho: Médio, sua altura varia entre 1,3 a 
+3,2 metros.
+
+Pontos de Vida no Nível 1: 12 + Físico.
+
+Arquearia Kuja: Você recebe Treinamento 
+em Precisão.
+
+Sobrevivente: Você recebe Treinamento em 
+Sobrevivência.
+
+Conhecimento 
+Venenoso: 
+Você 
+possui 
+Resistência a dano de Veneno e Vantagem 
+em Testes de Resistência contra a condição 
+Envenenado.
+
+Encantadora 
+de 
+Cobras: 
+Você 
+pode 
+domesticar cobras naturalmente. Uma cobra 
+domesticada 
+pode 
+ser 
+utilizada 
+para 
+diferentes funções, incluindo como arma, 
+ferramenta ou auxiliar.
+
+Haki Natural: Recebe um Ponto de Haki 
+antecipadamente no Haki do Armamento, ao 
+atingir Nível 5. Substituindo o ponto no Nível 
+8.
+
+A Tribo Kumate é uma comunidade humana 
+isolada, feroz e temida que habita ilhas 
+remotas e inóspitas nos mares do mundo. 
+Conhecidos por seus costumes violentos e 
+tradições canibais, os guerreiros Kumate 
+tratam qualquer estrangeiro que se aproxime 
+de seu território como caça ou intruso a ser
+
+eliminado 
+e 
+devorado 
+sem 
+qualquer 
+hesitação. Eles vivem sob uma estrutura tribal 
+moldada pelo culto à força bruta, pela 
+sobrevivência em ambientes inóspitos e por 
+rituais de guerra onde a derrota do oponente 
+é celebrada através do consumo de sua carne 
+como símbolo de triunfo e renovação de 
+forças. São peritos na manufatura de armas 
+primitivas 
+e 
+improvisadas 
+utilizando 
+materiais do próprio ambiente, como ossos 
+reforçados, dentes de bestas marinhas e lascas 
+de pedra afiadas. Apesar de sua agressividade 
+implacável contra quem vem de fora, mantêm 
+laços rituais profundos entre si, realizando 
+danças 
+cerimoniais 
+e 
+cantos 
+de 
+agradecimento ao redor do fogo durante os 
+descansos e refeições da tribo para celebrar a 
+fartura e a união do bando.
+
+Visualmente, os membros da Tribo Kumate 
+apresentam estaturas humanas que variam 
+entre um metro e meio e quase três metros de 
+altura, exibindo corpos musculosos, rijos e 
+marcados por cicatrizes de caça. Uma de suas 
+características visuais mais marcantes é a 
+impressionante uniformidade: quase todos os 
+guerreiros se vestem de maneira idêntica, 
+usando mantos rústicos, tangas e trajes 
+simples feitos de couro e fibras vegetais. Seus 
+rostos e troncos são cobertos por pinturas de 
+guerra 
+características 
+desenhadas 
+com 
+pigmentos 
+naturais 
+escuros 
+e 
+padrões 
+geométricos 
+agressivos, 
+criando 
+uma 
+fisionomia 
+intimidadora 
+capaz 
+de 
+desestabilizar adversários antes mesmo do 
+início do combate.
+
+Características
+
+Deslocamento: 12 metros.
+
+Tamanho: Seu tamanho é Médio e sua altura 
+varia de 1,5 a 3 metros.
+
+=== PÁGINA 52 ===
+
+52
+
+Altura: 1,5 a 3 metros.
+
+Pontos de Vida no Nível 1: 12 + Físico.
+
+Canibal: Uma vez por Descanso Parcial, você 
+pode utilizar uma Ação para consumir parte 
+de um inimigo derrotado nos últimos 10 
+minutos. Você recupera: 1d10 + Físico PV e 
+recebe +1 de Força de Vontade até o próximo 
+Descanso Total.
+
+Arma Improvisada: Durante 1 hora ou um 
+Descanso Parcial, você pode fabricar uma 
+arma improvisada. Armas criadas dessa 
+maneira possuem a propriedade Brutal, 
+adicionando um dado de dano adicional em 
+um Acerto Crítico. Ela é destruída após um 
+combate.
+
+Vamos Comer: Durante um Descanso Parcial 
+ou Total, você pode realizar uma celebração 
+com seus aliados. Você e seus aliados recebem 
+1d12 + Instinto PV temporários. Você pode 
+utilizar esta característica uma vez por dia.
+
+Selvagens: Você possui Vantagem em Testes 
+de Sobrevivência e Intimidação.
+
+Opcional – Linguagem Nativa: Você não sabe 
+a linguagem comum do mundo.;
+
+Originários do isolado Reino de Torino, 
+situado nas florestas de árvores gigantescas 
+do South Blue, este povo representa um dos 
+maiores contrastes do mundo entre aparência 
+rústica 
+e 
+intelecto 
+avançado. 
+Embora 
+navegadores e forasteiros frequentemente os 
+subestimem e os considerem meros caçadores 
+primitivos devido às suas roupas e estilo de 
+vida silvestre, a Tribo Torino é detentora de
+
+um conhecimento científico e farmacêutico 
+extraordinário. Em sua terra natal, mantêm 
+bibliotecas imensas dedicadas ao estudo e 
+catalogação 
+de 
+compostos 
+médicos, 
+propriedades curativas da flora local e 
+tratamentos para doenças raras. Além de seu 
+Treinamento médico e da capacidade de 
+domesticar grandes criaturas e aves locais, 
+desenvolveram 
+técnicas 
+mecânicas 
+engenhosas, sendo capazes de fabricar lanças 
+tubulares propelidas capazes de disparar suas 
+pontas como verdadeiros mísseis perfurantes 
+e explosivos à distância para defender seu 
+território.
+
+Fisicamente, os nativos de Torino possuem 
+uma anatomia humana muito particular: são 
+baixos e atarracados, com estaturas que 
+variam entre um metro e vinte e um metro e 
+sessenta de altura, exibindo corpos largos, 
+arredondados e extremamente corpulentos. 
+Seus membros curtos e troncos densos 
+escondem uma força de tração considerável e 
+mãos precisas, ideais para o manuseio 
+cirúrgico de plantas e instrumentos delicados. 
+Trajam túnicas rústicas com padrões de listras 
+horizontais, saiotes de tecido grosso e 
+pequenos adereços de ossos e pedras. Em 
+combate ou exploração, costumam carregar 
+suas grandes lanças lançadoras de projéteis e 
+bolsas utilitárias repletas de pós medicinais, 
+bálsamos cicatrizantes e extratos vegetais 
+prontos para uso em campo.
+
+Características
+
+Deslocamento: 9 metros.
+
+Tamanho: Pequeno, sua altura varia de 1,2 a 
+1,6 metros.
+
+Pontos de Vida no Nível 1: 14 + Físico ou 
+Intelecto.
+
+=== PÁGINA 53 ===
+
+53
+
+Lança-Míssil: 
+Você 
+possui 
+uma 
+lança 
+especial. Uma vez por Descanso Parcial ou 
+Longo, você pode disparar sua ponta como 
+um míssil. Criaturas em um raio de 6 metros 
+fazem um Teste de Agilidade. Em uma falha, 
+sofrem: 2d6 + Intelecto de dano de Energia. 
+Em um sucesso, sofrem metade. O dano 
+aumenta em +1d6 nos níveis 5, 11 e 17.
+
+Medicina 
+Avançada: 
+Você 
+recebe 
+Treinamento em Medicina.
+
+Cuidados a Mais: Sempre que utilizar uma 
+habilidade que restaure PV, o alvo recupera 
+1d6 PV adicionais.
+
+Domadores: Você recebe Vantagem ao lidar 
+com animais. Além disso, pode possuir um 
+animal domesticado como aliado.
+
+Tribo Braços
+
+A Tribo dos Braços-Longos é uma linhagem 
+humana singular originária da Grand Line, 
+com raízes históricas fortemente ligadas à Ilha 
+Kenzan. Famosos por sua postura confiante e 
+cultura expressiva, eles construíram uma 
+sociedade 
+marcada 
+tanto 
+pelo 
+desenvolvimento de artes marciais dinâmicas 
+quanto pela paixão pela música, moda e 
+instrumentos de percussão. Ao longo dos 
+séculos, os Braços-Longos travaram conflitos 
+territoriais contínuos contra a Tribo das 
+Pernas-Longas, gerando uma rivalidade tribal 
+que ultrapassa mil anos de história. Em 
+combate, 
+destacam-se 
+por 
+um 
+estilo 
+pragmático que explora a biomecânica única 
+de seus membros superiores, executando 
+socos em trajetória elástica, agarramentos
+
+firmes e manobras capazes de surpreender 
+defesas convencionais.
+
+Sua característica física mais evidente e 
+marcante é a presença de duas articulações de 
+cotovelo em cada braço, dividindo o membro 
+superior em dois antebraços funcionais. 
+Graças a essa anatomia adicional, seus braços 
+são 
+desmedidamente 
+compridos, 
+ultrapassando a altura dos joelhos mesmo 
+quando estão eretos. Essa flexibilidade 
+permite dobras e movimentos angulares 
+impossíveis para um humano comum, 
+criando uma amplitude de alcance de três 
+metros em ataques corpo a corpo e golpes de 
+alavanca com grande força de impacto. Em 
+termos de vestimenta, costumam trajar 
+quimonos e túnicas orientais de mangas 
+amplas, faixas bordadas na cintura e calças 
+folgadas, permitindo a total liberdade de 
+articulação 
+durante 
+combates 
+ou 
+apresentações artísticas.
+
+Características
+
+Deslocamento: 9 metros.
+
+Tamanho: Médio, variando entre 1,5 e 1,9 
+metros de altura.
+
+Pontos de Vida no Nível 1: 12 + Físico.
+
+Soco Comprimido: Com uma Ação Extra, seu 
+próximo ataque desarmado com as mãos 
+neste turno, causa +1d6 de dano de 
+Concussão.
+
+Alcance Extra: Seus ataques corpo a corpo 
+podem atingir criaturas a até 3 metros quando 
+realizados com seus braços.
+
+Desarme Articulado: Quando um aliado a até 
+3 metros for alvo de um ataque, você pode 
+utilizar sua Reação para impor Desvantagem 
+nesse ataque.
+
+=== PÁGINA 54 ===
+
+54
+
+Especialista de Diferentes Ângulos: Seus 
+ataques corpo a corpo ignoram o bônus de 
+Defesa concedido por Coberturas, como 
+escudos ou paredes.
+
+Constritor: Você possui Vantagem em Testes 
+para Agarrar ou manter uma criatura 
+Agarrada.
+
+Inimigos Mortais: Ao entrar em conflito com 
+um membro da Tribo Pernas Longas, você 
+possui uma forte rivalidade com ele. Não 
+saindo do combate até um dos dois estiverem 
+caídos no chão.
+
+Tribo Pernas
+
+A Tribo das Pernas-Longas reúne uma 
+sociedade de guerreiros altivos e acrobatas 
+formidáveis que compartilham a mesma 
+longa história de rivalidades e disputas 
+territoriais com os Braços-Longos na Grand 
+Line. Para um membro dessa tribo, as pernas 
+não são apenas membros de locomoção ou 
+combate: representam o maior símbolo de 
+status, dignidade e beleza corporal. Criados 
+sob uma rígida disciplina física desde a 
+infância, seus membros desenvolvem uma 
+musculatura 
+inferior 
+incomparável, 
+permitindo passadas largas, saltos de alturas 
+impressionantes 
+e 
+uma 
+velocidade 
+de 
+deslocamento que supera facilmente a da 
+maioria das outras linhagens humanas.
+
+Visualmente, 
+os 
+membros 
+desta 
+tribo 
+impressionam pela estatura elevada, que 
+comumente varia entre dois metros e meio e 
+cerca de cinco metros de altura, onde mais de 
+dois terços de todo o corpo são compostos
+
+exclusivamente por pernas longilíneas e 
+hipertrofiadas. Por considerarem suas pernas 
+a principal fonte de honra e estética, os 
+membros da tribo têm o costume de cobri-las 
+com tatuagens intrincadas ao longo de toda a 
+extensão das coxas e canelas, vestindo shorts 
+curtos, calções de corte alto e sandálias leves 
+para garantir que a musculatura permaneça 
+sempre à mostra. Em batalha, utilizam o 
+enorme alcance de seus passos para desferir 
+chutes demolidores a até três metros de 
+distância, transformando a agilidade de seus 
+saltos e a força de suas pisadas em 
+verdadeiros golpes de impacto contra seus 
+adversários. A Tribo possui uma rivalidade 
+histórica com os Braços Longos.
+
+Características
+
+Deslocamento: 13,5 metros.
+
+Tamanho: Médio ou Grande, dependendo da 
+altura, variando de 2,5 a 5 metros.
+
+Altura: 2,5 a 5 metros.
+
+Pontos de Vida no Nível 1: 14 + Físico.
+
+Super Pulo: Você possui Vantagem em Testes 
+de Atletismo ou Acrobacia relacionados a 
+saltos.
+
+Chute Potente: Com uma Ação Extra, seu 
+próximo ataque de chute neste turno causa 
++1d6 de dano de Concussão.
+
+Alcance Extra: Seus ataques corpo a corpo 
+realizados com as pernas possuem alcance de 
+3 metros.
+
+Sprint: Você pode utilizar sua Ação Extra 
+para dobrar seu deslocamento neste turno.
+
+Inimigos Mortais: Ao entrar em conflito com 
+um membro da Tribo Pernas Longas, você 
+possui uma forte rivalidade com ele. Não
+
+=== PÁGINA 55 ===
+
+55
+
+saindo do combate até um dos dois estiverem 
+caídos no chão.
+
+Nascidos nas profundezas do fundo do 
+oceano, na Ilha dos Homens-Peixe localizada 
+a dez mil metros abaixo da superfície, este 
+povo carrega uma herança marítima milenar. 
+Os homens-peixe possuem uma constituição 
+física impressionante, nascendo naturalmente 
+cerca de dez vezes mais fortes do que um 
+humano comum em terra firme, um poder 
+que se multiplica consideravelmente quando 
+estão completamente submersos na água. Ao 
+longo da história, essa espécie enfrentou 
+séculos de discriminação severa, perseguição 
+e escravidão promovidas pela nobreza 
+mundial e por caçadores de escravos da 
+superfície. 
+Essas 
+cicatrizes 
+históricas 
+moldaram 
+uma 
+sociedade 
+resiliente, 
+orgulhosa e extremamente leal aos seus laços 
+familiares e de irmandade, embora dividida 
+entre o sonho de convivência pacífica com a 
+humanidade e o ressentimento amargo de 
+grupos rebeldes. Como ápice de sua tradição 
+física, 
+desenvolveram 
+artes 
+marciais 
+lendárias, como o Karatê e o Jujutsu Homem-
+Peixe, técnicas marciais avançadas capazes de 
+controlar e golpear as moléculas de água ao 
+redor ou presentes no organismo dos 
+oponentes.
+
+A aparência de um homem-peixe combina a 
+estrutura bípede humanoide com a biologia 
+de uma criatura marinha específica, herdando 
+características de tubarões, polvos, baiacus, 
+enguias, baleias ou arraias. A coloração de 
+suas peles é viva e diversificada, variando 
+entre tons marcantes de azul profundo,
+
+carmesim, verde-mar, cinza e laranja, muitas 
+vezes acompanhada de texturas escamosas, 
+espinhosas ou viscosas. Todos possuem 
+brânquias funcionais no pescoço ou tronco e 
+pulmões desenvolvidos, respirando ar ou 
+água com igual facilidade. Seus olhos são 
+adaptados para enxergar na escuridão das 
+fossas oceânicas, suas mãos e pés contam com 
+membranas natatórias e a estrutura de sua 
+cabeça 
+pode 
+exibir 
+presas 
+serrilhadas 
+triangulares, barbatanas dorsais, múltiplos 
+braços tentaculares ou corpos infláveis de 
+acordo com a sua espécie de origem.
+
+Características
+
+Deslocamento: 10,5 metros ou 15 metros na 
+água.
+
+Tamanho: Variável conforme a espécie.
+
+Pontos de Vida no Nível 1: 14 + Físico.
+
+Filhos do Mar: Enquanto estiver submerso, 
+você 
+possui 
+Vantagem 
+em Testes 
+de 
+Atletismo e Acrobacia relacionados a nadar 
+ou se movimentar na água.
+
+Brânquias e Pulmões: Você pode respirar 
+normalmente tanto na superfície quanto 
+debaixo d'água.
+
+Chamado Familiar: Uma vez por Descanso 
+Total, quando estiver próximo ao mar, você 
+pode passar 1 minuto chamando criaturas 
+marinhas semelhantes da sua espécie para 
+ajuda-lo em rastreamento, mobilidade ou até 
+combate. O número total de criaturas que vem 
+até você é igual ao seu Atributo mais alto (se 
+forem criaturas pequenas, multiplique por 2).
+
+Parentes Próximos: Escolha uma espécie de 
+animal 
+marinho 
+para 
+representar 
+suas 
+características 
+físicas. 
+Você 
+recebe 
+as
+
+=== PÁGINA 56 ===
+
+56
+
+características correspondentes à espécie 
+escolhida.
+
+Polvo
+
+Oito Braços: Você pode escolher possuir oito 
+braços ou oito tentáculos no lugar dos pés.
+
+Camuflagem: Você possui Vantagem em 
+Testes de Furtividade.
+
+Tinta: Quando sofrer dano de um inimigo a 
+até 1,5 metro, você solta uma bolsa de tinta na 
+cara do inimigo. Na próxima rodada ele terá 
+desvantagem nos ataques. Essa característica 
+tem um uso igual a seu Bônus de 
+Treinamento e recupera com descanso total.
+
+Tubarão-Branco
+
+Mordida Feroz: Com uma Ação Extra, realize 
+um ataque de mordida desarmada. Causa 
+Dano perfurante igual ao seu Físico e 
+recupera vida igual ao mesmo.
+
+Intimidação: Você possui Vantagem em 
+Testes de Intimidação.
+
+Percepção de Topo de Cadeia: Enquanto 
+estiver submerso, você possui Vantagem em 
+Testes de Percepção.
+
+Baleia
+
+Pele Grossa: Você possui Resistência a dano 
+de Concussão, Cortante e Perfurante de 
+armas que não são feitas de Oceanite ou não 
+estão imbuídas em Haki.
+
+Baiacu
+
+Corpo Venenoso: Quando uma criatura 
+acertar um ataque desarmado contra você, ela 
+deve realizar um Teste de Resistência. Em 
+caso de falha, fica Envenenada por 1 minuto. 
+No início de cada turno, sofre 1d4 de dano de
+
+Veneno e pode repetir o Teste para encerrar a 
+condição. Uma criatura que já sofreu esse 
+envenenamento, não pode receber novamente 
+até o próximo dia.
+
+Inflar: Com uma Ação, você infla seu corpo. 
+Você passa a ocupar um espaço de 2×2 e 
+criaturas 
+a 
+até 
+1,5 
+metro 
+sofrem 
+da 
+característica Corpo Venenoso.
+
+Enguia
+
+Corpo de Alta Voltagem: Quando uma 
+criatura acertar um ataque desarmado contra 
+você, ela deve realizar um Teste de 
+Resistência. Em uma falha, sofre 1d4 de dano 
+Elétrico.
+
+Golpes Elétricos: Com uma Ação Extra, você 
+envolve seus ataques com eletricidade por 1 
+turno. O próximo ataque que acertar causa 
++1d6 de dano Elétrico.
+
+Os Minks são os habitantes do lendário 
+Ducado 
+de 
+Mokomo, 
+uma 
+sociedade 
+próspera e ancestral construída sobre as 
+florestas nas costas do elefante colossal 
+Zunesha, que vagueia pelos mares revoltos do 
+Novo Mundo. Vivendo isolados das disputas 
+políticas do Governo Mundial há mais de um 
+milênio, os Minks cultivam uma cultura 
+fundamentada na hospitalidade, na amizade 
+inquebrável e em um código de honra 
+compartilhado. Eles consideram os seres 
+humanos como irmãos de uma linhagem 
+menor e carinhosamente os chamam de 
+Minks sem pelos. Toda a população Mink, 
+desde as crianças até os anciãos da corte, é 
+formada por guerreiros habilidosos capazes 
+de 
+canalizar 
+voluntariamente 
+correntes
+
+=== PÁGINA 57 ===
+
+57
+
+bioelétricas de seus corpos conhecidas como 
+Eletro, descarregando choques através de 
+golpes desarmados e armas condutoras. Em 
+noites de céu limpo sob a luz direta da lua 
+cheia, os Minks despertam a forma Sulong, 
+uma transformação selvagem que canaliza 
+suas memórias mais primitivas para torná-los 
+combatentes extraordinariamente rápidos e 
+mortais, ao custo de severa exaustão física 
+posterior.
+
+Fisicamente, os Minks são humanoides 
+inteiramente cobertos por pelagem densa, 
+macia 
+ou 
+áspera, 
+incorporando 
+traços 
+anatômicos de mamíferos terrestres como 
+felinos, caninos, leporídeos, caprinos e touros. 
+Apresentam orelhas de animais móveis no 
+topo do crânio, focinhos proeminentes, 
+dentes caninos salientes e caudas longas ou 
+espessas que auxiliam no equilíbrio e na 
+expressão de suas emoções. Os machos 
+frequentemente possuem aparências robustas 
+e fortemente ligadas a feras musculosas, 
+enquanto as fêmeas costumam exibir traços 
+faciais mais suaves mesclados às orelhas e 
+pelagem do seu animal. Ao entrarem no 
+estado Sulong, a pelagem do corpo se alonga 
+em uma densa juba alva que brilha sob o luar, 
+seus olhos se tornam rubros como brasas e 
+faíscas elétricas azuis estalam continuamente 
+por toda a sua silhueta.
+
+Características
+
+Deslocamento: 12 metros.
+
+Tamanho: Variável, de acordo com a espécie.
+
+Pontos de Vida no Nível 1: 12 + Físico.
+
+Eletro: Com uma Ação Extra, você envolve 
+seus ataques com eletricidade por 1 minuto. 
+Seus ataques causam +1d6 de dano Elétrico.
+
+Pode ser utilizado uma vez por Descanso 
+Total.
+
+Sulong: Durante a noite, você pode utilizar 
+uma Ação Extra para despertar sua forma 
+Sulong por 1 minuto.
+
+Enquanto estiver nessa forma:
+
+• Recebe +1 Físico;
+
+• Recebe +1 Agilidade;
+
+• Seu Deslocamento aumenta em 6 metros;
+
+• Eletro causa +1d6 de dano adicional.
+
+• Recupera 5 x Físico em pontos de vida.
+
+Quando a transformaçfurião termina, você 
+fica Exausto até completar um Descanso 
+Parcial.
+
+Parentes Próximos: Escolha uma espécie de 
+animal 
+terrestre 
+para 
+representar 
+suas 
+características 
+físicas. 
+Você 
+recebe 
+as 
+características correspondentes à espécie 
+escolhida.
+
+Roedor
+
+Saltoelho: Você possui Vantagem em Testes 
+de Atletismo e recebe Treinamento em 
+Acrobacia.
+
+Sentidos Mais que Apurados: Você possui 
+Vantagem em Testes de Percepção e na 
+Iniciativa.
+
+Caprino
+
+Chifrada: Com uma Ação Extra, faça um 
+ataque desarmado utilizando seus chifres. 
+Causa 1d6 + Físico de Concussão. Se acertar, 
+você pode empurrar o alvo 1,5 x Físico metros 
+longe de você.
+
+Equilíbrio Caprino: Você possui Vantagem 
+em Testes de Acrobacia relacionados a 
+equilíbrio.
+
+=== PÁGINA 58 ===
+
+58
+
+Rusticidade: 
+Recebe 
+Treinamento 
+em 
+Resistência.
+
+Canídeo
+
+Mordida: Com uma Ação Extra, faça um 
+ataque de mordida desarmada. Causa 1d6 + 
+Físico ou Agilidade de dano Perfurante.
+
+Olfato Aguçado: Você possui Treinamento 
+em Percepção;
+
+Felino
+
+Garras: Seus ataques desarmados causam: 
+1d6 + Agilidade de dano Cortante.
+
+Visão no Escuro: Você consegue enxergar no 
+escuro em tons de cinza.
+
+Mestre da Agilidade: Você possui Vantagem 
+em Testes de Acrobacia.
+
+Os Onis representam uma linhagem lendária 
+e temida, formada pela ascendência direta 
+dos antigos Gigantes Ancestrais combinada à 
+matriz humana. Por conta desse sangue 
+primordial, os Onis são conhecidos em todos 
+os mares por sua ferocidade indomável, 
+orgulho inabalável e uma força física brutal 
+que ultrapassa os limites dos maiores 
+guerreiros convencionais. Historicamente, 
+são criaturas solitárias ou líderes naturais de 
+bandos cruéis que impõem respeito e terror 
+pela soberania da força bruta. Desenvolveram 
+uma ligação profunda com a adrenalina do 
+combate e uma predisposição violenta para 
+despertar os tipos mais destrutivos de Haki, 
+canalizando uma sede de sangue ancestral 
+que lhes permite resistir a ferimentos mortais 
+e continuar lutando com fúria avassaladora.
+
+Visualmente, os Onis impressionam pelo 
+porte 
+descomunal 
+e 
+pela 
+silhueta 
+aterrorizante. São consideravelmente maiores 
+que os humanos comuns, com alturas que 
+variam entre três e seis metros, ostentando 
+troncos 
+maciços, 
+ombros 
+largos 
+e 
+musculatura 
+densa 
+e 
+marcada. 
+Sua 
+característica física mais marcante é a 
+presença de um ou dois grandes chifres 
+curvados que brotam do topo do crânio, 
+conferindo-lhes um aspecto demoníaco. Seus 
+rostos exibem traços firmes e severos, 
+frequentemente com dentes afiados ou 
+caninos salientes, olhares penetrantes e 
+cabeleiras longas e volumosas. Costumam 
+trajar quimonos rústicos de batalha abertos no 
+peito, 
+armaduras 
+de 
+placas 
+pesadas, 
+braceletes cravados de metal ou cordas 
+cerimoniais 
+trançadas, 
+muitas 
+vezes 
+empunhando clavas gigantescas de ferro 
+cravadas de espinhos (kanabos) para esmagar 
+seus oponentes no campo de batalha.
+
+Características
+
+Deslocamento: 12 metros.
+
+Tamanho: Médio ou Grande. Sua altura varia 
+entre 3 a 6,5 metros.
+
+Pontos de Vida no Nível 1: 16 + Físico.
+
+Resistência Oni: Quando você cair a 0 PV 
+pela primeira vez em um dia, retorna 
+imediatamente com 1 PV. Recupera esta 
+característica após um Descanso Total.
+
+Afinidade Infernal com Haki: Recebe um 
+Ponto de Haki antecipadamente no Haki do 
+Armamento, ao atingir Nível 5. Substituindo 
+o ponto no Nível 8.
+
+Fúria Ancestral: Com uma Ação Extra, você 
+desperta sua fúria ancestral por 1 minuto. 
+Você recebe: PV temporários = 5 × Físico.
+
+=== PÁGINA 59 ===
+
+59
+
+Além disso, você recebe vantagem em testes 
+de Atletismo. Você pode usar esta habilidade 
+a cada Descanso Total.
+
+Originários da antiga e agora destruída ilha 
+celeste de Birka, este povo sempre se destacou 
+pela sua profunda religiosidade, cultura 
+contemplativa 
+e 
+tradição 
+monástica. A 
+história recente dos sobreviventes de Birka foi 
+marcada pela tragédia: anos atrás, um Birkan 
+renegado chamado Enel adquiriu poderes 
+divinos e aniquilou a sua própria terra natal 
+sem deixar rastros, forçando os sobreviventes 
+a se submeterem ao seu governo tirânico ou a 
+viverem como refugiados e sacerdotes 
+errantes pelos mares de nuvens. Os Birkans 
+possuem um treinamento ancestral voltado 
+para o silêncio mental e a contemplação 
+espiritual, 
+o 
+que 
+lhes 
+confere 
+uma 
+predisposição natural impressionante para 
+despertar o Mantra (Haki da Observação), 
+conseguindo 
+pressentir 
+a 
+presença, 
+as 
+emoções e os movimentos de qualquer 
+indivíduo a distâncias prodigiosas através 
+das correntes de ar celestes.
+
+Visualmente, os Birkans apresentam traços 
+anatômicos 
+muito 
+específicos 
+que 
+os 
+diferenciam 
+imediatamente 
+dos 
+demais 
+povos alados. Suas asas emplumadas brancas 
+são 
+expressivamente 
+maiores 
+e 
+mais 
+compridas, projetando-se das costas com as 
+pontas curvadas diretamente para baixo, em 
+direção ao chão. Além disso, a maioria dos 
+membros desta linhagem apresenta lóbulos 
+de orelha extraordinariamente longos e 
+caídos, que descem pelas laterais do pescoço 
+e alcançam a altura do peito. Costumam trajar
+
+mantos clericais e túnicas sacerdotais pesadas 
+com golas altas, gorros com abas caídas, 
+faixas cerimoniais e adereços de nuvem em 
+volta da cintura, caminhando com postura 
+solene 
+e 
+carregando 
+cajados, 
+cetros 
+condutores de energia ou pequenos tambores 
+rituais.
+
+Características
+
+Deslocamento: 10,5 metros.
+
+Tamanho: Médio, a altura varia entre 1,5 a 3 
+metros.
+
+Pontos de Vida no Nível 1: 10 + Físico.
+
+Variante: 
+Escolha 
+uma 
+das 
+seguintes 
+variantes:
+
+Alado
+
+Alados: Você possui Voo de 12 metros. Você 
+também é imune a dano de queda. Se suas 
+asas estiverem incapacitadas, você não pode 
+utilizar esse deslocamento e a imunidade.
+
+Destreza no Ar: Recebe Treinamento em 
+Acrobacia.
+
+Rajada de Vento: Com uma Ação, você lança 
+uma rajada de vento. Criaturas em um cone 
+de 4,5 metros devem realizar um Teste de 
+Resistência. Em uma falha, sofrem: 2d6 + 
+Agilidade 
+de 
+dano 
+Cortante 
+e 
+são 
+empurrados 3 metros.
+
+Sem Asas
+
+Mantra: 
+Recebe 
+um 
+Ponto 
+de 
+Haki 
+antecipadamente no Haki da Observação, ao 
+atingir Nível 5. Substituindo o ponto no Nível 
+8.
+
+Conhecimento Além da Terra: Você recebe 
+Treinamento em Cultura.
+
+=== PÁGINA 60 ===
+
+60
+
+Percepção Rápida: Você recebe +5 em Testes 
+para Iniciativa. E recebe Treinamento em 
+Percepção
+
+Os Shandians são um povo guerreiro e 
+orgulhoso, descendentes diretos dos antigos 
+habitantes de Shandora, a lendária "Cidade 
+do Ouro" que ficava originalmente na ilha de 
+Jaya, no mar azul. Há quatrocentos anos, 
+quando uma corrente marítima colossal (a 
+Knock Up Stream) arremessou parte de suas 
+terras para o céu, os Shandians foram 
+expulsos de seu território sagrado pelos 
+habitantes celestes, dando início a uma guerra 
+feroz e implacável de séculos pela reconquista 
+do Vearth ancestral. Moldados por gerações 
+de sobrevivência na floresta e caça implacável, 
+os 
+guerreiros 
+Shandian 
+possuem 
+uma 
+coragem 
+indomável 
+e 
+um 
+respeito 
+incondicional 
+à 
+promessa 
+de 
+seus 
+antepassados e ao som do Grande Sino de 
+Ouro. Utilizam Dials de forma extremamente 
+agressiva em combate, combinando Dials de 
+Impacto, Queimadura e Vento com patins 
+voadores (Waver) e armas de fogo rústicas 
+para emboscar e aniquilar invasores com 
+velocidade devastadora.
+
+A fisionomia de um Shandian reflete sua 
+natureza 
+marcial 
+e 
+sua 
+ancestralidade 
+guerreira. 
+Possuem 
+corpos 
+esguios 
+e 
+definidos, com peles bronzeadas ou morenas 
+que frequentemente exibem tatuagens rituais 
+intrincadas em formato tribal nos braços, 
+ombros e rostos, representando sua linhagem 
+e feitos de caça. Em suas costas repousa um 
+par de asas de penas brancas, ligeiramente 
+mais densas e largas que as dos Skypieanos,
+
+apontadas para trás e para cima. Suas 
+vestimentas 
+são 
+rústicas 
+e 
+funcionais, 
+desenhadas para combate na selva: trajam 
+tangas, saias de couro curtido, peles de 
+animais selvagens, bandagens nas pernas e 
+adornos feitos de dentes de feras e penas 
+coloridas presas aos cabelos longos e 
+esvoaçantes.
+
+Características
+
+Deslocamento: 10,5 metros.
+
+Tamanho: Médio. Variam de 1,5 a 3 metros.
+
+Pontos de Vida Nível 1: 14 + Físico.
+
+Herança 
+de 
+Shandora: 
+Você 
+recebe 
+Treinamento em Cultura e Resistência.
+
+Pela Terra Natal: Quando em uma rolagem de 
+ataque resultar em 1 natural, causando uma 
+Falha Crítica, você pode ignora-la. Os usos 
+dessa habilidade são iguais ao seu Atributo 
+mais alto, recuperando os usos com Descanso 
+Total.
+
+Asas do Guerreiro: Quando sofrer dano de 
+queda, você pode usar sua Reação para 
+reduzir o dano pela metade. Além disso, você 
+pode realizar pequenos ajustes de trajetória 
+durante uma queda, permitindo que o Mestre 
+considere possíveis locais de aterrissagem 
+que normalmente não seriam alcançáveis.
+
+Os Skypieanos são os habitantes pacíficos e 
+ordeiros de Skypiea, a grande terra das 
+nuvens situada no Mar Branco-Branco, a dez 
+mil metros de altitude. Descendentes diretos 
+dos povos que desceram da Lua no passado 
+distante, eles construíram uma sociedade
+
+=== PÁGINA 61 ===
+
+61
+
+estruturada, diplomática e devota, centrada 
+no respeito às leis celestes e à autoridade do 
+"Deus" (o governante e protetor da ilha). Por 
+viverem em um ambiente onde o solo 
+terrestre mineral é praticamente inexistente, 
+os Skypieanos consideram a terra natural 
+vinda do mar abaixo como uma substância 
+sagrada e preciosa, à qual chamam de Vearth. 
+A vida cotidiana e militar deste povo é 
+inteiramente movida pelo uso e comércio de 
+Dials — conchas marinhas fossilizadas que 
+capturam, armazenam e liberam vento, som, 
+calor, impacto e luz —, transformando esses 
+itens em ferramentas domésticas e armas 
+letais para a sua guarda real.
+
+Em termos de fisionomia, os Skypieanos 
+compartilham estaturas e feições semelhantes 
+às dos humanos da superfície, variando entre 
+um metro e meio e dois metros e vinte de 
+altura, mas contam com uma fisiologia 
+plenamente adaptada à respiração contínua 
+em altitudes extremas e ar rarefeito sem 
+apresentar cansaço. Seu traço biológico 
+definidor é a presença de um par de pequenas 
+asas emplumadas de penas alvas nas costas, 
+que apontam graciosamente para cima. 
+Costumam usar um penteado tradicional 
+icônico, dividindo e amarrando duas mechas 
+compridas de cabelo no alto da cabeça para 
+que fiquem espetadas lembrando pequenas 
+antenas. Vestem-se com túnicas leves de 
+tecidos claros, vestidos ornamentados com 
+detalhes em conchas polidas, sandálias de 
+sola macia adequadas para caminhar sobre as 
+nuvens sólidas e boinas ou adornos discretos.
+
+Características
+
+Deslocamento: 10,5 metros.
+
+Tamanho: Médio. Variam de 1,5 a 3 metros.
+
+Pontos de Vida Nível 1: 10 + Físico.
+
+Povo do Céu: Você recebe Treinamento em 
+Tecnologia. Além disso, quando realizar um 
+teste relacionado ao funcionamento ou 
+utilização de Dials, você possui Vantagem.
+
+Conhecimento 
+Antigo: 
+Você 
+recebe 
+Treinamento em Cultura
+
+Habitante 
+das 
+Nuvens: 
+Você 
+está 
+acostumado 
+a 
+ambientes 
+elevados 
+e 
+superfícies instáveis. Você recebe Vantagem 
+em testes de Acrobacia realizados para 
+manter o equilíbrio.
+
+Dials: Você recebe 5 Dials a sua escolha 
+(podendo 
+repetir). 
+Eles 
+podem 
+ser 
+recarregados após um Descanso Total.
+
+Asas Celestiais: Suas asas não são capazes de 
+produzir voo verdadeiro, mas ajudam a 
+controlar sua queda. Quando sofrer dano de 
+queda, você pode usar sua Reação para 
+reduzir o dano sofrido pela metade.
+
+Conhecidos no passado como divindades, os 
+Lunarianos habitaram o cume da gigantesca 
+Red Line em uma civilização lendária 
+chamada de Reino dos Deuses muito antes de 
+os primeiros reis humanos criarem o Governo 
+Mundial. 
+Dotados 
+de 
+uma 
+fisiologia 
+extraordinária capaz de sobreviver em 
+qualquer bioma do mundo e de gerar e 
+moldar o próprio fogo à vontade, os 
+Lunarianos 
+foram 
+vítimas 
+de 
+uma 
+perseguição implacável que dizimou quase 
+toda a sua população. Atualmente, tornaram-
+se uma raça fantasma cuja mera menção atrai 
+as atenções da Marinha e dos agentes da 
+Cipher Pol, com recompensas absurdas de 
+centenas de milhões de Berries oferecidas por
+
+=== PÁGINA 62 ===
+
+62
+
+qualquer informação sobre o paradeiro de um 
+sobrevivente vivo. Para sobreviver em um 
+mundo hostil, os poucos que restam cobrem-
+se inteiramente com máscaras pesadas, trajes 
+de couro escuro e capuzes para esconder suas 
+feições sagradas.
+
+A fisionomia de um Lunariano é nobre, 
+atlética e imediatamente reconhecível por três 
+marcas físicas inconfundíveis. Das suas costas 
+emergem um par de gigantescas asas 
+emplumadas de coloração negra como a 
+noite, que permitem voos em alta velocidade 
+e quedas controladas no ar. Sua pele possui 
+uma rica pigmentação morena escura ou 
+parda, contrastando de maneira vívida com 
+cabelos totalmente brancos ou prateados. 
+Além disso, uma chama ardente queima de 
+forma constante na parte superior de suas 
+costas. Essas labaredas dita o estilo de 
+combate do Lunariano: enquanto a chama 
+estiver acesa, o corpo do guerreiro atinge uma 
+rigidez impenetrável que resiste a lâminas e 
+explosões; 
+quando 
+a 
+chama 
+é 
+deliberadamente apagada, o Lunariano troca 
+sua durabilidade sobrenatural por uma 
+aceleração estarrecedora, movendo-se tão 
+rápido quanto um relâmpago para golpear 
+seus alvos com labaredas incandescentes.
+
+Características
+
+Deslocamento: 10,5 metros.
+
+Tamanho: Médio ou Grande, varia entre 2 a 4 
+metros de altura.
+
+Pontos de Vida no Nível 1: 14 + Físico.
+
+Alados: Você possui Voo de 12 metros. Você 
+também é imune a dano de queda. Se suas 
+asas estiverem incapacitadas, você não pode 
+utilizar esse deslocamento e a imunidade.
+
+Corpo em Chamas: Com uma Ação Extra, 
+você acende as chamas em suas costas por 1 
+minuto. Enquanto as chamas estiverem 
+ativas:
+
+• Você possui Resistência a dano de
+
+Concussão, Perfurante e Cortante;
+
+• Possui Imunidade a dano de Fogo;
+
+• Seus efeitos que causam danos Ígneo
+
+recebem +1 dado de dano.
+
+Quando as chamas se apagam, você fica 
+Vulnerável a todos os danos durante 1 
+rodada. Pode ser utilizado uma vez por 
+Descanso Total.
+
+Criar e Controlar o Fogo: Com uma Ação 
+Extra, você envolve seus ataques em chamas. 
+O próximo ataque que acertar causa +1d6 de 
+dano Ígneo. Além disso, você pode realizar 
+pequenos truques e manipulações com fogo.
+
+Perseguido: Os Lunarianos são perseguidos 
+pelo Governo Mundial. Um personagem 
+dessa Raça deve tomar cuidado para esconder 
+sua identidade, pois revelar sua verdadeira 
+natureza pode atrair atenção indesejada.
+
+A Tribo dos Três Olhos é uma das raças mais 
+raras do mundo. Seus membros possuem 
+aparência 
+praticamente 
+humana, 
+mas 
+apresentam um terceiro olho localizado no 
+centro da testa. Pouco se sabe sobre sua 
+origem, e atualmente existem pouquíssimos 
+descendentes conhecidos dessa raça.
+
+O 
+terceiro 
+olho 
+não 
+é 
+apenas 
+uma 
+característica física. Acredita-se que ele 
+possua um potencial especial capaz de 
+despertar a percepção da Voz de Todas as
+
+=== PÁGINA 63 ===
+
+63
+
+Coisas, uma habilidade extremamente rara 
+que 
+permite 
+perceber 
+mensagens 
+transmitidas por animais e objetos e, em 
+determinados 
+casos, 
+compreender 
+os 
+Poneglyphs. O despertar dessa capacidade 
+não 
+acontece necessariamente 
+desde 
+o 
+nascimento.
+
+Por sua raridade e ligação com os mistérios do 
+mundo, os Três Olhos podem ser perseguidos 
+por aqueles que desejam descobrir os 
+segredos escondidos nos Poneglyphs.
+
+Características
+
+Deslocamento: 10,5 metros.
+
+Tamanho: Médio. Variam de 1,5 a 3 metros.
+
+Pontos de Vida Nível 1: 10 + Físico.
+
+Idiomas: Comum.
+
+Terceiro Olho: Seu terceiro olho possui uma 
+percepção diferente da visão comum. Você 
+recebe Treinamento em testes de Percepção 
+que dependam da visão. Além disso, você 
+consegue perceber detalhes que normalmente 
+passariam despercebidos, como pequenas 
+alterações em inscrições, símbolos e escritas 
+antigas.
+
+Precisão 
+Potencializada: 
+Recebe 
+Treinamento em Precisão.
+
+Potencial Desperto: Seu terceiro olho possui 
+o potencial de despertar a Voz de Todas as 
+Coisas, 
+mas 
+esse 
+poder 
+ainda 
+está 
+adormecido. A partir do Nível 5, quando você 
+adquirir a habilidade Voz de Todas as Coisas, 
+você pode despertá-la normalmente. Quando 
+isso acontecer, você passa a ser capaz de 
+perceber as vozes de determinadas criaturas, 
+objetos e inscrições que possuam uma 
+presença significativa. O Mestre determina o 
+que pode ser percebido pela Voz.
+
+Compreender Poneglyphs: Você tem um 
+dom 
+natural 
+para 
+ler 
+e 
+compreender 
+Poneglyphs.
+
+Olhar Penetrante: Você recebe Vantagem em 
+testes para perceber ilusões, disfarces ou 
+detalhes visuais incomuns.
+
+Perseguido: Pelo seu dom de ler Poneglyphs, 
+os piratas e a Marinha, podem tentar captura-
+lo.
+
+Os membros da Tribo dos Pescoços de Cobra 
+possuem uma característica impossível de 
+confundir: seus pescoços são extremamente 
+longos. Apesar dessa diferença, possuem 
+corpos 
+semelhantes 
+aos 
+humanos 
+e 
+geralmente 
+apresentam 
+uma 
+estrutura 
+corporal esguia. Muitos adornam seus 
+pescoços com colares, tatuagens e outros 
+acessórios.
+
+Seu corpo peculiar permite que observem 
+ambientes de ângulos incomuns e alcancem 
+lugares que seriam inacessíveis para pessoas 
+comuns. Essa característica também pode ser 
+utilizada 
+em 
+combate, 
+permitindo 
+movimentos inesperados.
+
+Características
+
+Deslocamento: 10,5 metros.
+
+Tamanho: Médio. Variam de 2 a 4 metros.
+
+Pontos de Vida Nível 1: 14 + Físico.
+
+Pescoço Extensível: Você recebe Vantagem 
+em testes de Percepção.
+
+=== PÁGINA 64 ===
+
+64
+
+Arte dos Adornos: A decoração do pescoço é 
+uma importante forma de expressão para 
+muitos membros da tribo. Você recebe 
+Treinamento em Performance.
+
+Movimento Serpentino: Você aprendeu a 
+movimentar sua cabeça e pescoço de maneira 
+hipnotizante, 
+realizando 
+movimentos 
+semelhantes aos de uma serpente. Com uma 
+Ação, escolha uma criatura que possa vê-lo e 
+esteja a até 9 metros de você. Realize um Teste 
+de 
+Performance 
+contra 
+um 
+Teste 
+de 
+Resistência (Instinto) da criatura. Em caso de 
+sucesso, a criatura fica Confusa até o início do 
+seu próximo turno. A condição termina 
+imediatamente caso a criatura sofra dano ou 
+você deixe de estar visível para ela. Você pode 
+utilizar esta habilidade um número de vezes 
+igual ao seu Atributo mais alto por Descanso 
+Total.
+
+Autômatos são seres artificiais construídos 
+por antigas civilizações. Apesar de serem 
+máquinas, 
+possuem 
+consciência, 
+personalidade e capacidade de tomar suas 
+próprias decisões.
+
+Seus corpos podem assumir diferentes formas 
+e tamanhos, desde pequenas máquinas até 
+construções humanoides de grande porte. 
+Alguns 
+possuem 
+aparência 
+claramente 
+mecânica, 
+enquanto 
+outros 
+podem 
+ser 
+construídos para se parecerem com seres 
+vivos.
+
+Características
+
+Deslocamento: 9 metros (Pequeno), 10,5 
+metros (Médio ou Grande).
+
+Tamanho: Pequeno, Médio ou Grande.
+
+Pontos de Vida Nível 1: 14.
+
+Corpo Mecânico: Você não precisa comer, 
+beber ou respirar.
+
+Engenheiro Nato: Você tem Treinamento em 
+Tecnologia.
+
+Projeto Modular: Os Autômatos podem 
+possuir projetos e construções diferentes. Ao 
+criar seu personagem escolha uma das 
+seguintes opções:
+
+• Explorador: recebe Treinamento em
+
+Percepção.
+
+• Combatente: recebe Treinamento em
+
+Resistência.
+
+• Batedor: 
+recebe 
+Treinamento 
+em
+
+Furtividade.
+
+• Auxiliar: recebe Treinamento em Oficio.
+
+Núcleo de Energia: Todo Autômato possui 
+uma fonte de energia (Eletricidade, Vapor, 
+Refrigerante...) que mantém seu corpo 
+funcionando. Quando seus Pontos de Vida 
+chegam a 0, você não realiza os testes de 
+Morrendo normalmente. Em vez disso, seu 
+corpo entra em Modo Inativo. Enquanto 
+estiver em Modo Inativo, você permanece 
+inconsciente e incapaz de realizar ações. Você 
+pode ser reativado por uma criatura que 
+utilize uma Ação para realizar um teste de 
+Tecnologia 
+(Intelecto) 
+contra 
+uma 
+dificuldade definida pelo Mestre. Em um 
+sucesso, você recupera 1 PV e deixa o Modo 
+Inativo. Isso não significa que Autômatos 
+sejam imortais. Um Autômato destruído ou 
+gravemente danificado pode precisar de 
+reparos antes de poder ser reativado.
+
+=== PÁGINA 65 ===
+
+65
+
+Manutenção: Embora não precise de comida 
+ou descanso biológico, um Autômato precisa 
+realizar manutenção periódica. Durante um 
+Descanso Total ou Parcial, se possuir acesso 
+às ferramentas necessárias, você pode realizar 
+manutenção em seu próprio corpo. Ao fazer 
+isso, recupera todos os PVs.
+
+Habilidade Robótica: Escolha uma das 
+Habilidades de Ciborgue, você recebe a 
+habilidade 
+Combustível 
+automaticamente. 
+Você não recebe o dado de vida.
+
+Os Sereianos são uma das principais raças que 
+habitam os mares do mundo. Assim como 
+outros sereianos, sua aparência combina 
+características 
+humanas 
+e 
+aquáticas: 
+geralmente possuem a metade superior 
+semelhante à de uma humana, enquanto a 
+metade inferior é formada por uma cauda 
+baseada em alguma criatura marinha.
+
+Existem Sereias inspiradas em inúmeras 
+espécies aquáticas. Suas caudas podem 
+possuir características de peixes, enguias, 
+cavalos-marinhos, polvos e diversas outras 
+criaturas do mar. Mesmo Sereias da mesma 
+espécie 
+podem 
+apresentar 
+aparências 
+bastante diferentes. Sua maior característica 
+natural é a extraordinária adaptação ao 
+ambiente 
+aquático. 
+As 
+Sereias 
+são 
+consideradas 
+nadadoras 
+extremamente 
+rápidas, capazes de se mover pela água com 
+uma facilidade muito superior à maioria das 
+criaturas. Além disso, possuem a capacidade 
+de se comunicar com peixes e outras criaturas 
+marinhas por meio de ondas sonoras. Apesar
+
+de sua grande mobilidade no oceano, as 
+Sereias 
+possuem 
+limitações 
+em 
+terra 
+enquanto mantêm sua cauda. Entretanto, ao 
+completarem trinta anos, sua cauda se divide 
+em 
+duas, 
+permitindo-lhes 
+caminhar 
+utilizando pernas. Quando retornam à água, 
+podem unir novamente as partes da cauda 
+para nadar.
+
+Características
+
+Deslocamento: 3 metros.
+
+Tamanho: Médio ou Grande. Variam de 1,5 a 
+6 metros.
+
+Pontos de Vida no Nível 1: 10 + Físico.
+
+Habitante do Mar: Você pode respirar 
+normalmente tanto dentro quanto fora da 
+água. Além disso, seu Deslocamento de 
+Natação é de 15 metros. Você não sofre 
+penalidades por realizar ações enquanto 
+estiver submersa.
+
+Nadador Excepcional: Os Sereianos estão 
+entre os nadadores mais rápidos do mundo. 
+Você 
+recebe 
+Vantagem 
+em 
+testes 
+relacionados à natação, correntes marítimas 
+ou movimentação dentro da água. Além 
+disso, você possui Vantagem em testes para 
+escapar 
+de 
+agarrões 
+enquanto 
+estiver 
+submerso.
+
+Voz do Mar: Os Sereianos possuem a 
+capacidade natural de se comunicar com 
+peixes e outras criaturas marinhas. Você pode 
+tentar se comunicar com criaturas aquáticas 
+utilizando sons e ondas sonoras. Essa 
+comunicação não significa que as criaturas 
+sejam obrigadas a obedecê-la. Sua reação 
+depende de sua inteligência, comportamento
+
+=== PÁGINA 66 ===
+
+66
+
+e 
+disposição. 
+O 
+Mestre 
+determina 
+as 
+informações que podem ser transmitidas ou 
+compreendidas. Você não pode utilizar esta 
+habilidade para se comunicar com Reis dos 
+Mares.
+
+Pernas: Ao completar 30 anos, sua cauda se 
+divide em duas, permitindo que você 
+caminhe em terra. Enquanto estiver fora da 
+água, 
+você 
+pode 
+utilizar 
+suas 
+pernas 
+normalmente, 
+aumentando 
+seu 
+Deslocamento para 10,5 metros. Ao entrar 
+novamente na água, você pode unir as duas 
+partes da cauda e recuperar sua forma 
+aquática. Essa transformação não exige uma 
+habilidade especial e faz parte naturalmente 
+da biologia das Sereias.
+
+O mundo de One Piece é formado por 
+inúmeras raças e povos diferentes. Embora 
+muitas comunidades permaneçam isoladas, 
+indivíduos de raças distintas podem formar 
+famílias e gerar descendentes que carregam 
+características de ambas as linhagens. Esses 
+indivíduos são conhecidos como Mestiços.
+
+Um personagem mestiço pode apresentar 
+características físicas, culturais e biológicas de 
+suas duas raças de origem. Alguns se parecem 
+quase 
+completamente 
+com 
+uma 
+delas, 
+enquanto outros possuem uma combinação 
+evidente das características de ambas.
+
+Um 
+mestiço 
+não 
+é 
+necessariamente 
+reconhecido como pertencente a apenas uma 
+raça. Dependendo de sua aparência e de sua 
+história, pode ser aceito por ambas as 
+linhagens, por nenhuma delas ou possuir 
+uma identidade própria. A aparência de um 
+personagem mestiço deve ser definida pelo 
+jogador de acordo com suas raças de origem e 
+com a aprovação do Mestre.
+
+Criando Uma Nova
+
+Ao escolher Raça Mestiça, selecione duas 
+raças que farão parte da linhagem do 
+personagem. Essas raças são chamadas de:
+
+• Raça Principal
+
+• Raça Secundária
+
+A Raça Principal determina as características 
+físicas básicas do personagem. A Raça 
+Secundária representa a segunda linhagem 
+herdada. O Mestre possui a decisão final 
+sobre quais combinações de raças são 
+possíveis na campanha.
+
+Características
+
+Um personagem mestiço não recebe todas as 
+características de suas duas raças. Ao criar 
+um personagem mestiço, siga os passos 
+abaixo.
+
+1. Escolha uma Raça Principal: Você recebe 
+da Raça Principal:
+
+• Deslocamento;
+
+• Tamanho;
+
+=== PÁGINA 67 ===
+
+67
+
+• Pontos de Vida no Nível 1;
+
+• Idiomas.
+
+2. Escolha Características Raciais: Escolha:
+
+• Uma 
+característica 
+racial 
+da 
+Raça
+
+Principal;
+
+• Uma 
+característica 
+racial 
+da 
+Raça
+
+Secundária.
+
+3. Características Menores: Escolha duas 
+dentre esses tipos:
+
+• Treinamento em uma perícia;
+
+• Comunicação específica;
+
+• Voo:
+
+• Resistência a um tipo de dano;
+
+• Deslocamento especializado;
+
+• Uma habilidade narrativa;
+
+• Tamanho Grande:
+
+• Outra habilidade de Raça.
+
+Aparência Mestiça
+
+O 
+jogador 
+pode 
+decidir 
+como 
+as 
+características de suas raças aparecem. Por 
+exemplo, 
+um 
+personagem 
+Humano 
+e 
+Homem-Peixe pode possuir:
+
+• Aparência predominantemente humana;
+
+• Guelras;
+
+• Escamas;
+
+• Dentes afiados;
+
+• Barbatanas;
+
+• Características de uma espécie marinha.
+
+As características visuais não precisam 
+corresponder exatamente às características 
+mecânicas escolhidas. Um personagem pode 
+possuir 
+asas 
+visualmente, 
+mas 
+não
+
+necessariamente ser capaz de voar, caso não 
+tenha herdado essa característica racial.
+

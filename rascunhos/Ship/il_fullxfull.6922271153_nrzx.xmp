@@ -1,0 +1,42 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 7.0-c000 1.000000, 0000/00/00-00:00:00        ">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:exif="http://ns.adobe.com/exif/1.0/"
+    xmlns:tiff="http://ns.adobe.com/tiff/1.0/"
+    xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
+    xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+    xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+    xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/"
+   exif:ExifVersion="0231"
+   tiff:Orientation="1"
+   xmpMM:DocumentID="9B3FEDCA0791D006A8FD9D5C95EECB3C"
+   xmpMM:OriginalDocumentID="9B3FEDCA0791D006A8FD9D5C95EECB3C"
+   xmpMM:InstanceID="xmp.iid:72b65ef4-af78-8c4c-a012-a820e445cd3d"
+   dc:format="image/avif"
+   xmp:MetadataDate="2025-12-24T11:42:45-03:00"
+   crs:HasSettings="False"
+   crs:HasCrop="False"
+   crs:AlreadyApplied="False"
+   photoshop:SidecarForExtension="AVIF"
+   photoshop:EmbeddedXMPDigest="00000000000000000000000000000000">
+   <xmpMM:History>
+    <rdf:Seq>
+     <rdf:li
+      stEvt:action="saved"
+      stEvt:instanceID="xmp.iid:4bffba01-b1d6-b447-9c68-249b2243344d"
+      stEvt:when="2025-12-24T11:42:06-03:00"
+      stEvt:softwareAgent="Adobe Photoshop Camera Raw 16.0 (Windows)"
+      stEvt:changed="/metadata"/>
+     <rdf:li
+      stEvt:action="saved"
+      stEvt:instanceID="xmp.iid:72b65ef4-af78-8c4c-a012-a820e445cd3d"
+      stEvt:when="2025-12-24T11:42:45-03:00"
+      stEvt:softwareAgent="Adobe Photoshop Camera Raw 16.0 (Windows)"
+      stEvt:changed="/metadata"/>
+    </rdf:Seq>
+   </xmpMM:History>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

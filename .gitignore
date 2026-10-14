@@ -1,0 +1,10 @@
+# Arquivos temporários do Windows e Word
+desktop.ini
+~$*
+*.tmp
+~*
+
+# Python e caches
+__pycache__/
+*.pyc
+.gemini/

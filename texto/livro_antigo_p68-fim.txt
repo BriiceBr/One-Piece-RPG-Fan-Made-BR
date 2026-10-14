@@ -1,0 +1,6486 @@
+=== PÁGINA 68 ===
+
+68
+
+=== PÁGINA 69 ===
+
+69
+
+Em um mundo cheio de 
+perigos, as armas e armaduras 
+são 
+essências 
+para 
+a 
+sobrevivência. Cada pessoa 
+tem 
+sua 
+arma 
+preferida 
+portanto escolha a sua.
+
+Definição 
+das 
+Propriedades
+
+• Acuidade: Você pode usar 
+Precisão (Agilidade) com 
+a arma para rolagens de 
+ataque.
+
+• Versátil (dado): Você pode 
+usar a arma com uma ou 
+duas mãos. Se usar com 
+duas, o dado de dano 
+aumenta para o que está 
+em parênteses.
+
+• Recarga (X tiros): Você 
+pode disparar X vezes 
+antes de precisar gastar 
+uma Ação (ou Ação extra, 
+com a habilidade Rápido 
+no 
+Gatilho) 
+para 
+recarregar.
+
+• Recarga 
+(Ação): 
+Você 
+gasta uma Ação para 
+recarregar 
+esta 
+arma
+
+após cada disparo. (Isso 
+se aplica às Bestas, que 
+são 
+mais 
+lentas 
+que 
+Arcos).
+
+• Duas Mãos: Requer as 
+duas 
+mãos 
+para 
+ser 
+usada.
+
+• Leve: Quando você usa 
+sua Ação de Ataque e 
+ataca com uma arma Leve 
+que esteja empunhando, 
+você pode usar sua Ação 
+extra para atacar com 
+outra arma Leve que você 
+esteja segurando na outra 
+mão. Você não adiciona 
+seu 
+modificador 
+de 
+atributo ao dano deste 
+ataque bônus.
+
+• Arremesso (X/Y): Pode 
+ser 
+arremessada. 
+O 
+primeiro número é o 
+alcance 
+normal, 
+o 
+segundo 
+é 
+o 
+alcance 
+longo 
+(com 
+desvantagem).
+
+• Alcance: 
+Aumenta 
+seu 
+alcance de ataque corpo-
+
+=== PÁGINA 70 ===
+
+70
+
+a-corpo para o valor 
+listado.
+
+Armas Corpo a Corpo
+
+Arma 
+Dano 
+Propriedades
+
+Canivete (L) 
+1d4 perfurante 
+Acuidade, Leve, Arremesso (6/12m)
+
+Estrela Ninja (L) 
+1d4 perfurante 
+Acuidade, Arremesso (6/18m)
+
+Bastão (L ou M) 
+1d6 concussão 
+Acuidade, Versátil (1d8)
+
+Foice (L)  
+1d6 cortante 
+Acuidade, Leve
+
+Machadinha (L) 
+1d6 cortante 
+Leve, Arremesso (6/18m)
+
+Martelo Leve (L) 
+1d6 concussão 
+Leve, Arremesso (6/18m)
+
+Adaga (L) 
+1d6 perfurante 
+Acuidade, Leve, Arremesso (6/18m)
+
+Chicote (M) 
+1d6 cortante 
+Acuidade, Alcance (4,5m)
+
+Machado (M ou P) 
+1d8 cortante 
+Versátil (1d10)
+
+Lança (M ou P) 
+1d8 perfurante 
+Alcance (3m), Versátil (1d10), 9/21m
+
+Florete (M) 
+1d10 perfurante 
+Acuidade
+
+Sabre (M) 
+1d10 cortante 
+Acuidade
+
+Katana (P) 
+1d10 cortante 
+Versátil (1d12)
+
+Tridente (P) 
+1d10 perfurante 
+Versátil (1d12), Arremesso (9/15m)
+
+Foice (P) 
+1d12 cortante 
+Duas Mãos
+
+Malho (P) 
+1d12 concussão 
+Duas Mãos
+
+=== PÁGINA 71 ===
+
+71
+
+Todo personagem começa 
+no nível 1 e para passar de 
+nível foi criado um sistema 
+para isso, onde o nível é 
+dividido em dois Fragmentos:
+
+• Fragmento de Sonho (Narrativo): Reflete
+
+ao role play e a evolução da história do
+
+personagem e do mundo. Quando seu
+
+personagem ou o grupo, realizam um feito
+
+grandioso que faça você(s) avançarem no
+
+próprio objetivo, ganha um Fragmento de
+
+Sonho.
+
+• Fragmento de Ameaça (Combate): Reflete
+
+ao combate e mecânica. Quando você ou
+
+seu grupo derrotarem um inimigo acima
+
+do seu nível, ganha um Fragmento de
+
+Ameaça.
+
+Os 
+dois 
+fragmentos 
+representam 
+duas 
+partes 
+importantes da aventura e 
+quando o personagem ganha
+
+Armas a Distância
+
+Arma 
+Dano 
+Propriedades
+
+Dardo (L) 
+1d4 perfurante 
+Arremesso (6/18m)
+
+Zarabatana (L) 
+1d6 perfurante 
+Duas Mãos, Distância (18/36m)
+
+Estilingue (L) 
+1d8 concussão 
+Duas Mãos, Distância (15/30m)
+
+Arco (M) 
+1d8 perfurante 
+Duas Mãos, Distância (45/180m)
+
+Besta (L) 
+1d8 perfurante 
+Recarga (Ação), Distância (21/90m)
+
+Pistola (L) 
+1d10 perfurante 
+Recarga (6 tiros), Distância (30/120m)
+
+Besta (M) 
+1d12 perfurante 
+Duas Mãos, Recarga (Ação), Distância (30/120m)
+
+Rifle (M) 
+1d12 perfurante 
+Duas Mãos, Recarga (5 tiros), Distância (180/360m)
+
+Bacamarte Pequeno (L) 
+3d6 perfurante 
+Duas Mãos, Recarga (1 tiro), Distância (6/12m)
+
+Bacamarte Longo (M) 
+4d6 perfurante 
+Duas Mãos, Recarga (1 tiro), Distância (18/24m)
+
+=== PÁGINA 72 ===
+
+72
+
+esses dois Fragmentos, ele 
+sobe de nível.
+
+As recompensas ao subir de 
+nível são as seguintes:
+
+• Atributos: 
+A 
+cada 
+3 
+níveis, 
+seu
+
+personagem recebe +1 ponto em atributo
+
+para distribuir como quiser (Limitado a 5
+
+por atributo). Ex: 3º Nível, 6º Nível, 9º
+
+Nível...
+
+•
+
+• Habilidades e Dados de Vida: A partir do
+
+nível 2, todo personagem recebe uma
+
+habilidade por nível e o aumento de vida
+
+descrito no nome da habilidade em dados
+
+de vida, você pode escolher rolar o dado
+
+de vida ou pegar a média na tabela e no
+
+final da escolha, somar seu atributo mais
+
+alto. Toda habilidade que tiver um *,
+
+significa que pode ser escolhida mais de
+
+uma vez.
+
+•
+
+• Haki: A partir no nível 8, os Haki do
+
+Armamento e Haki da Observação, são
+
+liberados para escolha, você gasta um
+
+ponto de habilidade para escolher o Haki
+
+que desejar. No nível 14, é liberado a
+
+escolha de Haki do Rei, que também é
+
+gasto ponto de habilidade para ter.
+
+•
+
+• Bônus de Treinamento: A cada 5 níveis, o
+
+Bônus de Treinamento aumenta em +1,
+
+que começa em +2 no nível 1. Ex: 1º Nível
+
++2, 5º Nível +3, 10º Nível +4, 15º Nível +5,
+
+20º Nível +6...
+
+•
+
+• Escalonamento de Habilidades: A partir
+
+do 5º Nível, toda Habilidade que tiver
+
+escalonamento, aumenta o dado de
+
+dano/cura a cada 6 níveis. No 5º nível você
+
+já soma mais um.
+
+•
+
+Algumas habilidades precisam 
+de requisitos mínimos para 
+serem escolhidas, que estão 
+escritos 
+em 
+vermelho. 
+Algumas habilidades mudam o 
+dado de dano em ataques 
+desarmados, ao escolher 2 
+habilidades 
+distintas 
+que 
+possuem 
+essas 
+características, 
+não 
+será 
+somado os dados no dano, mas 
+deve 
+ser 
+declarado 
+qual 
+técnica ou postura será usado 
+no ataque.
+
+Dado
+
+de 
+Vida
+
+Média
+
+1d6 
+4 
+1d8 
+5 
+1d10 
+6 
+1d12 
+7
+
+=== PÁGINA 73 ===
+
+73
+
+Habilidades
+
+*Arte Do Tempo (1d6): 
+Usando a arma Clima-Tact, 
+você pode possuir as seguintes 
+habilidades:
+
+NECESSÁRIO A ARMA CLIMA-
+TACT E A ORIGEM NAVEGADOR
+
+Nuvens Artificiais: Custo: 1 
+Ação - Alcance: 18 metros - 
+Duração: 1 hora (ou até serem 
+dissipadas)
+
+Você usa o Clima-Tact para 
+criar até 3 "nuvens pequenas" 
+em pontos que possa ver 
+dentro do alcance. Com uma 
+Ação extra, você pode mover 
+qualquer número de nuvens 
+que você controla até 9 metros, 
+ou juntar 3 nuvens pequenas 
+adjacentes para formar uma 
+Nuvem 
+Grande. 
+A 
+Nuvem 
+Grande ocupa uma área fixa de 
+4,5 metros cúbicos (um cubo 
+de 4,5m). Com uma Ação, você
+
+pode fazer a Nuvem Grande 
+começar a chover em sua área, 
+criando um terreno levemente 
+escorregadio.
+
+Névoa Ilusória: Custo: 1 Ação - 
+Alcance: 18 metros (a névoa) / 
+9 metros (a ilusão) - Usos: Um 
+número de vezes igual ao seu 
+Mod. de Intelecto (mínimo 1). 
+Recupera os usos em um 
+descanso total.
+
+Você escolhe um dos dois 
+efeitos abaixo:
+
+1. Criar Névoa: Você cria uma 
+névoa densa em um raio fixo de 
+12 metros, centrado em um 
+ponto dentro do alcance. A 
+névoa dura 1 minuto. Ela 
+concede Vantagem em testes 
+de 
+Furtividade 
+e 
+impõe 
+Desvantagem em todos os 
+ataques à distância feitos de, 
+para, ou através dela.
+
+2. Criar Ilusão: Você cria uma 
+ilusão visual sua (sem som ou 
+odor) em um ponto dentro do 
+alcance. Você pode usar sua 
+Ação extra para mover a
+
+=== PÁGINA 74 ===
+
+74
+
+ilusão. Ela se dissipa se for 
+atacada ou tocada.
+
+Relâmpago: Custo: 1 Ação - 
+Alcance: 18 metros
+
+Você lança um raio do Clima-
+Tact. O alvo deve fazer um teste 
+de Resistência de Acrobacia 
+(Agilidade) 
+(CD 
+10 
++ 
+Treinamento + Mod. Intelecto). 
+Se falhar, ele recebe 2d6 + 
+Intelecto de dano elétrico.
+
+Escalonamento: O dano desta 
+habilidade aumenta para 3d6 
+no Nível 5, 4d6 no Nível 11 e 5d6 
+no Nível 17.
+
+Combo: Você pode usar sua 
+Ação para atirar eletricidade 
+em uma Nuvem Grande (da 
+habilidade Nuvens Artificiais) 
+que esteja a até 18 metros de 
+você, 
+transformando-a 
+em 
+uma Nuvem Tempestuosa por 1 
+minuto. Enquanto a nuvem 
+estiver ativa, você pode usar 
+sua Ação extra em cada um 
+dos seus turnos para fazer um 
+raio cair dela em um oponente 
+a até 18 metros da nuvem. O
+
+alvo deve fazer um teste de 
+Resistência de Agilidade (CD 10 
++ Bônus de Treinamento + Mod. 
+Intelecto). Se falhar, ele recebe 
+1d10 
++ 
+Intelecto 
+de 
+dano 
+elétrico, ou metade desse dano 
+se passar. A nuvem se dissipa 
+após disparar 4 raios ou após 1 
+minuto, o que vier primeiro. 
+Você pode criar uma Nuvem 
+Tempestuosa um número de 
+vezes igual ao seu Mod. de 
+Intelecto 
+(mínimo 
+1), 
+recuperando os usos após um 
+Descanso total.
+
+Bolhas: 
+Custo: 
+1 
+Ação 
+– 
+Alcance: 12 metros
+
+Você lança um jato de bolhas 
+quentes ou frias. O alvo deve 
+fazer um teste de Resistência 
+de 
+Agilidade 
+(CD 
+10 
++ 
+Treinamento + Mod. Intelecto). 
+Se falhar, ele recebe 2d6 + 
+Intelecto de dano ígneo OU 
+gélido (à sua escolha). – 
+Escalonamento: O dano desta 
+habilidade aumenta para 3d6 
+no Nível 5, 4d6 no Nível 11 e 5d6 
+no Nível 17.
+
+=== PÁGINA 75 ===
+
+75
+
+Tornado: Custo: 1 Ação - 
+Alcance: 9 metros - Duração: 1 
+minuto - Usos: Um número de 
+vezes igual ao seu Mod. de 
+Intelecto (mínimo 1). Recupera 
+os usos em um descanso total.
+
+Você cria um pequeno tornado 
+em um espaço de 1,5m que 
+você possa ver. O tornado dura 
+1 minuto. Com uma Ação extra, 
+você pode mover o tornado 9 
+metros. Qualquer inimigo que 
+terminar o turno a 1,5m do 
+tornado deve fazer um teste de 
+Resistência de Físico (CD 10 + 
+Treinamento + Mod. Intelecto). 
+Se 
+falhar, 
+ele 
+recebe 
+Desvantagem na sua próxima 
+rolagem de ataque.
+
+Você pode usar sua Ação para 
+Aprimorar 
+um 
+tornado 
+já 
+existente, fazendo-o puxar os 
+ar. Inimigos a até 4,5m do 
+tornado devem fazer um teste 
+de 
+Resistência 
+de 
+Físico 
+(mesma CD). Se falharem, são 
+puxados 3 metros em direção 
+ao centro do tornado.
+
+Ataque Extra (1d10): Agora 
+quando em um turno você 
+realizar a ação de ataque, você 
+pode atacar mais de uma vez. 
+É preciso realizar uma nova 
+rolagem para cada ataque.
+
+ESSA HABILIDA SÓ PODE SER 
+ESCOLHIDA NOS NÍVEIS 5, 10, 
+15, E ASSIM EM DIANTE.
+
+Ambidestro (1d6): Agora 
+você 
+pode 
+adicionar 
+seu 
+modificador de atributo ao 
+dano do seu ataque de Ação 
+extra. Você pode usar armas 
+que não tenham a propriedade 
+"Leve" para lutar com duas 
+armas.
+
+*Mestre 
+Espadachim 
+(1d12): 
+Se 
+torna 
+um 
+combatente 
+com 
+armas 
+cortantes. 
+Um 
+mestre 
+espadachim 
+pode 
+cortar 
+qualquer coisa, até mesmo o 
+aço.
+
+=== PÁGINA 76 ===
+
+76
+
+NECESSÁRIO USAR ALGUMA 
+ARMA CORTANTE.
+
+Fatiar Balas: Você recebe +2 
+em sua Defesa de Bloqueio 
+quando empunha uma arma 
+cortante, e agora pode usar 
+seu Bloqueio para se defender 
+de ataques à distância (como 
+balas).
+
+Onda Cortante: Custo: 1 Ação - 
+Alcance: Cone de 9 metros - 
+Usos: Um número de vezes 
+igual ao seu Mod. de Físico 
+(mínimo 1). Recupera os usos 
+em um descanso parcial.
+
+Você lança uma onda cortante. 
+Inimigos na área devem fazer 
+um teste de Resistência de 
+Agilidade (CD 10 + Treinamento 
++ Mod. Físico). Se falharem, 
+recebem 3d10 + Físico de dano 
+cortante, 
+ou 
+metade 
+se 
+passarem.
+
+Escalonamento: O dano desta 
+habilidade aumenta para 4d10 
+no Nível 5, 5d10 no Nível 11 e 
+6d10 no Nível 17.
+
+Dança Da Espada: +2 em Luta 
+(Físico) 
+usando 
+armas 
+cortantes.
+
+Conquistador De Lâminas: Em 
+uma ação de ataque no seu 
+turno, você recebe +1 dado de 
+dano 
+usando 
+uma 
+arma 
+cortante. 
+Isso 
+é 
+aplicado 
+apenas no primeiro ataque que 
+acertar.
+
+Tecnica Secreta: Cortador De 
+Fogo: Você aprendeu a técnica 
+de cortar o fogo. Sempre que 
+tiver alguma barreira de fogo 
+ou labaredas na sua frente, 
+você pode cortar o fogo, 
+dissipando-a. 
+Permite 
+usar 
+uma 
+Reação 
+para 
+ganhar 
+Resistência (metade do dano) 
+contra um ataque de fogo.
+
+Casca-Grossa (1d12): Sua 
+pele é densa e resistente. Você 
+ganha Redução de Dano igual 
+ao seu Bônus de Treinamento 
+contra um tipo de dano físico 
+(Contundente, Perfurante ou 
+Cortante). (Por exemplo, se seu
+
+=== PÁGINA 77 ===
+
+77
+
+Bônus de Treinamento é +3 e 
+você sofre 10 de dano cortante, 
+você subtrai 3 e sofre 7 de 
+dano), porém, o mínimo de 
+dano que você recebe é 1.
+
+*Origem Extra (1d8): Você 
+tem uma história de vida 
+complexa 
+e 
+multifacetada. 
+Escolha uma Origem adicional. 
+Você 
+ganha 
+a 
+Habilidade 
+principal 
+(como 
+"Rango 
+Revigorante" do Cozinheiro ou 
+"Vontade 
+Inquebrável" 
+do 
+Escravo Libertado) dessa nova 
+Origem. Você recebe somente 
+uma das Perícias, mas não os 
+Equipamentos 
+ou 
+Riqueza 
+inicial dela.
+
+*Treinamento 
+Básico 
+(1d10): Você passou por um 
+treinamento militar, de milícia 
+ou de autoaperfeiçoamento, 
+aprendendo os fundamentos 
+básicos de uma função.
+
+Combatente Ágil: Você aprende 
+a lutar com leveza e agilidade, 
+escolha duas dessas perícias 
+para 
+ter 
+Treinamento: 
+Furtividade, Prestidigitação ou 
+Acrobacia. Se você já tiver 
+Treinamento 
+com 
+elas, 
+aumente 
+o 
+bônus 
+de 
+Treinamento delas em +2.
+
+Muralha: Você é treinado para 
+ser a linha de frente. Você 
+aumenta a Defesa Passiva em 
++2 e diminui o dano de dano 
+físico também em 2 (recebe no 
+mínimo 1 de dano).
+
+Especialista: Seu treinamento 
+foi focado em utilidade e 
+conhecimento, 
+não 
+em 
+combate. 
+Você 
+ganha 
+Treinamento em duas perícias 
+de utilidade à sua escolha (Não 
+pode 
+ser 
+Luta, 
+Precisão, 
+Fortitude ou Acrobacia). Além 
+disso, você aprende um novo 
+idioma.
+
+Combatente 
+Nato: 
+Seu 
+treinamento 
+foi 
+focado 
+puramente em agressão. Uma 
+vez por turno, quando você
+
+=== PÁGINA 78 ===
+
+78
+
+rolar o dano de um ataque 
+(seja 
+com 
+arma 
+ou 
+desarmado), você pode rolar 
+novamente um dos dados de 
+dano que resultou em 1. Você 
+deve usar a nova rolagem.
+
+Lealdade a Arma: Escolha uma 
+arma. Ex: Machado (não pode 
+ser ataques desarmados). Ela 
+se torna sua arma favorita, e 
+jura lealdade a ela, quando 
+atingir um inimigo, você causa 
+1d4 a mais de dano físico, esse 
+dano não aumenta com críticos 
+e nem de outra forma. Sempre 
+que derrotar um inimigo que 
+for de um nível mais alto que o 
+seu, com essa arma, ganha 1 
+Força De Vontade.
+
+Defesa Elemental (1d12): 
+Seu 
+corpo 
+se 
+adaptou 
+a 
+ambientes hostis. Escolha dois 
+tipos de dano da lista: Fogo, 
+Elétrico, Veneno, Ácido ou 
+Gélido. Você ganha Resistência 
+(metade do dano) contra os 
+tipos 
+escolhidos. 
+Esta
+
+habilidade não funciona contra 
+ataques imbuídos com Haki. No 
+Nível 14, você pode escolher 
+um terceiro tipo de dano da 
+lista para ganhar Resistência.
+
+*Rokushiki (1d8): É uma 
+técnica que 
+transforma 
+o 
+corpo humano em uma arma 
+letal. Seu aprendizado requer 
+que o usuário passe por um 
+longo período de treinamento.
+
+Shigan: Seus dedos são armas. 
+Seus 
+ataques 
+desarmados 
+podem, à sua escolha, causar 
+1d10 
++ 
+Físico 
+de 
+dano 
+perfurante.
+
+Kami-E: Custo: 1 Reação
+
+Seu corpo se torna leve como 
+um papel. Quando um inimigo 
+faz um ataque corpo-a-corpo 
+contra você, você pode usar 
+sua 
+Reação 
+para 
+impor 
+Desvantagem na rolagem de 
+ataque dele. Se o ataque errar, 
+você pode se mover 1,5m para 
+qualquer direção sem provocar 
+ataques de oportunidade. Você
+
+=== PÁGINA 79 ===
+
+79
+
+também é imune a dano de 
+queda.
+
+Escalonamento: No nível 10, 
+são 2 desvantagens e no nível 
+17 são 3.
+
+Geppo: Você chuta o ar para 
+pular mais alto, ganhando um 
+deslocamento de voo igual ao 
+seu deslocamento terrestre 
+normal.
+
+Rankyaku: Custo: 1  Ação 
+- 
+Alcance: Linha de 18 metros
+
+Você dispara um chute de ar 
+cortante. Todos na linha devem 
+fazer um teste de Resistência 
+de 
+Agilidade 
+(CD 
+10 
++ 
+Treinamento + Mod. Agilidade). 
+Se falharem, recebem 2d12 + 
+Agilidade de dano cortante, ou 
+metade se passarem. O dano 
+desta habilidade aumenta para 
+3d12 no Nível 5, 4d12 no Nível 11 
+e 5d12 no Nível 17.
+
+Tekkai: Custo: 1 Ação extra - 
+Duração: 1 minuto (ou até você 
+se mover)
+
+Você endurece seus músculos 
+como ferro. Pela duração, seu
+
+Deslocamento se torna 0 e 
+você não pode ser movido. Em 
+troca, seus inimigos recebem 
+duas 
+desvantagens 
+em 
+ataques corpo-a-corpo contra 
+você, e seu corpo reflete 
+metade do dano desarmado.
+
+Soru: Custo: 1 Ação extra
+
+Você se move em velocidade 
+extrema. 
+Você 
+pode 
+imediatamente usar a Ação de 
+Disparada 
+(ganhando 
+movimento adicional igual ao 
+seu deslocamento) como uma 
+Ação extra, além disso, na 
+próxima vez que usar esquiva, 
+você adiciona +2.
+
+Rokuogan: Custo: 1 Ação - 
+Alcance: Toque - Usos: Um 
+número de vezes igual ao seu 
+Mod. de Físico (mínimo 1). 
+Recupera os usos em um 
+descanso total.
+
+Você desfere um golpe de 
+impacto interno devastador. 
+Faça um ataque desarmado 
+contra um alvo. Se acertar, o 
+ataque causa o dano normal do
+
+=== PÁGINA 80 ===
+
+80
+
+seu ataque desarmado + 3d10 
+de dano Corrupto. O alvo 
+também deve fazer um teste de 
+Resistência de Físico (CD 10 + 
+Treinamento + Mod. Físico) ou 
+ficará Atordoado por 1 rodada.
+
+Escalonamento: O dano desta 
+habilidade (apenas os dados 
+3d10) aumenta para 4d10 no 
+Nível 7, 5d10 no Nível 11 e 6d10 
+no Nível 17.
+
+Forte Como Um Touro 
+(1d12): 
+Sua 
+robustez 
+é 
+lendária. Seus Pontos de Vida 
+máximos aumentam em um 
+valor igual ao seu Nível de 
+personagem. Por exemplo, se 
+você pegar esta habilidade no 
+Nível 4, você ganha 4 PV extras 
+imediatamente, e ganhará 1 PV 
+adicional sempre que subir de 
+nível.
+
+*Kowadaken-Ryu (1d12): 
+Você usa os próprios punhos 
+para o trabalho sujo. Ao
+
+escolher esta habilidade, você 
+desbloqueia 
+Punhos 
+Esmagadores.
+
+Punhos Esmagadores: Seus 
+socos agora causam 2d6 + 
+Físico de Dano de concussão. 
+No nível 4, quando realizar um 
+ataque de soco, você pode usar 
+a sua ação extra para realizar 
+um ataque extra.
+
+Galaxy Impact: Custo: 1 Ação – 
+Alcance: Raio de 9 metros – 
+Usos: Mod. de Físico (mín. 1) 
+você recupera os usos em um 
+descanso total.
+
+Você 
+canaliza 
+energia 
+no 
+punho e golpeia o ar, causando 
+um dano massivo em área. 
+Inimigos na área devem fazer 
+um teste de Resistência de 
+Acrobacia ou Fortitude (CD 10 + 
+Treinamento + Mod. Físico). Se 
+falharem, recebem 4d10 + 
+Físico de dano de concussão. 
+Se passarem, recebem metade 
+do dano. A área do impacto se 
+torna terreno difícil.
+
+=== PÁGINA 81 ===
+
+81
+
+Escalonamento: O dano desta 
+habilidade aumenta para 5d10 
+(concussão) no Nível 5, 6d10 no 
+Nível 11, e 7d10 no Nível 17.
+
+Hasai Handoru: Custo: 1 Ação 
+extra – Alcance: Toque – Usos: 
+Mod. de Físico (mín. 1) Você 
+precisa estar agarrando um 
+inimigo 
+para 
+usar 
+esta 
+habilidade. Você recupera os 
+usos em um descanso total.
+
+Você aperta o alvo, causando 
+2d8 + Físico de dano de 
+concussão. O alvo também 
+deve 
+fazer 
+um 
+teste 
+de 
+Fortitude (CD 10 + Treinamento 
++ 
+Mod. 
+Físico) 
+ou 
+ficará 
+Atordoado por 1 rodada.
+
+Escalonamento: O dano desta 
+habilidade (apenas os dados) 
+aumenta para 3d8 no Nível 5, 
+4d8 no Nível 11 e 5d8 no Nível 
+17.
+
+Blue Hole: Custo: 1 Ação – 
+Alcance: Toque – Usos: Mod. de 
+Físico (mín. 1)
+
+Você 
+agarra 
+um 
+inimigo 
+fazendo um ataque contra a
+
+defesa dele, salta (usando seu 
+deslocamento) e arremessa o 
+inimigo violentamente ao chão. 
+O alvo sofre 2d10 + Físico de 
+dano de concussão e fica Caído 
+se não passar em um teste de 
+Fortitude (Físico).
+
+Escalonamento: O dano desta 
+habilidade (apenas os dados) 
+aumenta para 3d10 no Nível 5, 
+4d10 no Nível 11 e 5d10 no Nível 
+17.
+
+Kōka shita Ken: Custo: 1 Ação 
+extra – Usos: Mod. de Físico 
+(mín. 1)
+
+Você tensiona seus músculos 
+para a defesa. Você recupera 
+os usos em um descanso 
+parcial. Até o início do seu 
+próximo turno, você ganha +2 
+em bloqueio.
+
+Chō Kōka shita Ken:  Se você 
+não estiver vestindo nenhuma 
+armadura 
+ou 
+escudo, 
+sua 
+Defesa Passiva base se torna 
+12 + Instinto.
+
+=== PÁGINA 82 ===
+
+82
+
+*Cyborg (1d12): Seja por 
+acidente ou propositalmente, 
+você teve que trocar suas 
+partes 
+humanas 
+por 
+mecânicas e isso fez com que 
+ganhasse 
+novas 
+características. Aqui você vai 
+encontrar 
+várias 
+características, 
+mas 
+pode 
+combinar com seu mestre de 
+fazer como quiser.
+
+NECESSÁRIO TER A ORIGEM 
+CIENTISTA OU CARPINTEIRO 
+OU CONHECER UM DESSES 
+PARA CONTRUÍ-LO.
+
+OBRIGATÓRIA: 
+Combustível: 
+Suas 
+partes 
+mecânicas 
+precisam de energia. Escolha 
+um combustível (refrigerante, 
+álcool, eletricidade, etc.). Você 
+tem 
+100% 
+de 
+energia. 
+Habilidades consomem essa 
+energia. Ao chegar a 0%, você 
+não pode usar habilidades de 
+Cyborg e tem 12 horas para 
+recarregar 
+ou 
+ficará 
+inconsiente.
+
+Power-Bank: 
+Sua 
+energia 
+máxima aumenta em 50% 
+(Total: 150%). No Nível 12, ela 
+aumenta em mais 50% (Total: 
+200%). No Nível 16, você instala 
+um painel solar, e habilidades 
+de Cyborg consomem metade 
+da energia sob luz solar direta.
+
+Metralhadoras 
+Embutidas: 
+Custo: 1 Ação – Alcance: Cone 
+de 9 metros – Custo de 
+Energia: 10%
+
+Você dispara uma saraivada de 
+balas do seu corpo. Inimigos no 
+cone devem fazer um teste de 
+Resistência de Agilidade (CD 10 
++ 
+Treinamento 
++ 
+Mod. 
+Intelecto). 
+Se 
+falharem, 
+recebem 3d8 + Intelecto de 
+dano perfurante, ou metade se 
+passarem.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 5d8 no Nível 5, 7d8 no 
+Nível 11 e 9d8 no Nível 17.
+
+Lançador De Membros: Custo: 1 
+Ação – Alcance: 18 metros – 
+Custo de Energia: 5%
+
+=== PÁGINA 83 ===
+
+83
+
+Você lança uma parte do seu 
+corpo (como sua mão) presa 
+por cabos. Faça um ataque de 
+Precisão (usando seu Mod. de 
+Intelecto). Se acertar, o alvo 
+recebe 2d12 + Intelecto de dano 
+de concussão. Se acertar, você 
+também 
+pode 
+(sem 
+custo 
+adicional) tentar Agarrar o 
+alvo. Faça uma Disputa de 
+Atletismo (Físico) contra o 
+Atletismo ou Acrobacia do alvo. 
+Se vencer, você pode puxá-lo 
+4,5 metros em sua direção.
+
+Escalonamento: 
+O 
+dano 
+aumenta para 3d12 no Nível 5, 
+4d12 no Nível 11 e 5d12 no Nível 
+17.
+
+Reparo Automático: Custo: 1 
+Ação – Custo de Energia: 20%
+
+Você usa ferramentas internas 
+para se soldar, recuperando 
+2d12 + Intelecto Pontos de Vida.
+
+Escalonamento: 
+A 
+cura 
+aumenta para 3d12 no Nível 5, 
+4d12 no Nível 11 e 5d12 no Nível 
+17.
+
+Propulsores: Custo de Energia: 
+10% (para ativar) + 5% (por 
+rodada)
+
+Você ganha um deslocamento 
+de 
+voo 
+igual 
+ao 
+seu 
+deslocamento terrestre. Você 
+gasta 10% para ativar (como 
+Ação extra) e 5% no início de 
+cada turno seu para se manter 
+no ar.
+
+Corpo Metálico: Você ganha 
+Resistência (metade do dano) 
+contra 
+dano 
+cortante, 
+perfurante e concussão de 
+armas que não sejam de 
+Oceanite ou imbuídas com 
+Haki. No entanto, seu corpo é 
+um para-raios. Você sofre 
+Vulnerabilidade 
+(dano 
+dobrado) a dano elétrico.
+
+Mísseis: 
+Custo: 
+1 
+Ação 
+– 
+Alcance: 36 metros – Custo de 
+Energia: 20%
+
+Você 
+lança 
+mísseis 
+incendiários em um ponto que 
+possa ver. Inimigos em um raio 
+de 6 metros desse ponto 
+devem fazer um teste de
+
+=== PÁGINA 84 ===
+
+84
+
+Resistência de Agilidade (CD 10 
++ 
+Treinamento 
++ 
+Mod. 
+Intelecto). 
+Se 
+falharem, 
+recebem 2d6 + Intelecto de 
+dano de energia e 2d4 de dano 
+de fogo. Se passarem, recebem 
+metade do dano.
+
+Escalonamento: 
+O 
+dano 
+aumenta para 3d6 (energia) e 
+3d4 (fogo) no Nível 5, 4d6 e 4d4 
+no Nível 11, e 5d6 e 5d4 no Nível 
+17.
+
+Instinto 
+Aprimorada: 
+Você 
+ganha Vantagem em testes de 
+Percepção 
+(Instinto) 
+e 
+Investigação 
+(Intelecto), 
+e 
+ganha Instinto no Escuro (você 
+enxerga no escuro em tons de 
+cinza).
+
+Sobreaquecer: Custo: 1 Ação 
+extra – Duração: 1 minuto – 
+Custo de Energia: 20%
+
+Você 
+sobrecarrega 
+seus 
+motores. Pela duração, você 
+ganha Vantagem em testes de 
+Atletismo (Físico) e Fortitude 
+(Físico). Além disso, uma vez 
+por turno, seu primeiro ataque
+
+desarmado que acertar causa 
+1d10 de dano ígneo adicional. 
+Você pode encerrar este efeito 
+como uma Ação extra.
+
+*Auras Celestiais (1d6): 
+Você aprende a canalizar sua 
+fé em auras tangíveis. As auras 
+custam 1 Ação extra para ativar 
+e duram 1 minuto, não pode 
+ativar mais de uma aura ao 
+mesmo tempo. Você pode usar 
+um número total de Auras 
+igual ao seu Mod. de Instinto 
+(mínimo 1). Você recupera 
+todos 
+os 
+usos 
+após 
+um 
+descanso total.
+
+NECESSÁRIO TER A ORIGEM 
+RELIGIOSO OU +3 DE INSTINTO.
+
+Aura Vermelha: Um círculo de 
+9m de raio surge centrado em 
+você. Você e aliados dentro da 
+aura ganham Vantagem em 
+testes de resistência de um 
+atributo à sua escolha (Físico, 
+Agilidade, 
+Intelecto 
+ou 
+Instinto).
+
+=== PÁGINA 85 ===
+
+85
+
+Escalonamento: 
+O 
+raio 
+aumenta para 6 metros no 
+Nível 5, 7,5 metros no Nível 11 e 
+9 metros no Nível 17.
+
+Aura Amarela: Escolha um 
+número de aliados que você 
+possa ver (igual ao seu Mod. de 
+Instinto). Eles recebem Pontos 
+de Vida Temporários iguais a 
+2d6 + seu Mod. de Instinto pela 
+duração.
+
+Escalonamento: Os Pontos de 
+Vida aumentam para 3d6 no 
+Nível 5, 4d6 no Nível 11 e 5d6 no 
+Nível 17.
+
+Aura Verde: Os aliados numa 
+área circular com 9m de raio 
+centrada em você, recuperam 
+uma quantidade de Vida igual 
+ao modificador de Instinto no 
+início de cada turno.
+
+Escalonamento: No nível 10, 
+some o atributo na cura 2 
+vezes.
+
+Aura 
+Roxa: 
+Escolha 
+um 
+número de aliados que você 
+possa ver (igual ao seu Mod. de 
+Instinto). O primeiro ataque
+
+que cada um deles acertar 
+antes do fim da aura causará 
+1d8 de dano extra (do tipo 
+escolhido: 
+ígneo, 
+gélido, 
+veneno ou elétrico).
+
+Escalonamento: 
+O 
+dano 
+aumenta para 2d8 no Nível 5, 
+3d8 no Nível 11 e 4d8 no Nível 
+17.
+
+Aura 
+Preta: 
+Escolha 
+um 
+número de aliados que você 
+possa ver (igual ao seu Mod. de 
+Instinto). O primeiro ataque 
+que cada um deles acertar 
+antes do fim da aura, cura o 
+atacante em metade do dano 
+causado.
+
+*Atirador (1d6): Se torna 
+um 
+mestre 
+das 
+longas 
+distancias. Com capacidade de 
+acertar inimigos de distancias 
+inimagináveis.
+
+NECESSÁRIO TER ARMAS DE 
+LONGA DISTANCIA.
+
+=== PÁGINA 86 ===
+
+86
+
+Olho de Águia: +2 em Precisão 
+(Agilidade) usando armas de 
+longo alcance.
+
+Mira Mortal: Em uma ação de 
+ataque no seu turno, você 
+recebe +1 dado de dano usando 
+uma arma de longo alcance. 
+Isso é aplicado apenas no 
+primeiro ataque que acertar.
+
+Sniper: A distância normal e 
+máxima de todas as suas 
+armas à distância é dobrada. 
+No Nível 15, você não tem mais 
+Desvantagem ao atirar além da 
+distância normal da arma.
+
+Rápido No Gatilho: Você pode 
+recarregar qualquer arma de 
+fogo ou besta como uma Ação 
+extra. (Está habilidade não se 
+aplica a Canhões).
+
+Canhoneiro: Você recebe +5 em 
+rolagens de ataque feitas com 
+Canhões. Além disso, você 
+pode recarregar um canhão 
+como uma Ação extra.
+
+Pop Greens: Custo: 1 Ação – 
+Usos: Mod. Agilidade + Mod. 
+Instinto Você usa um estilingue
+
+para 
+atirar 
+sementes 
+especiais. Você recupera os 
+usos em um descanso total. A 
+CD para todas as Pop Greens é 
+10 + Treinamento + Mod. 
+Agilidade.
+
+A) Genso Hana: Custo: 1 Uso. 
+Você 
+atira 
+uma 
+semente 
+elemental. Escolha um tipo de 
+dano (ígneo, elétrico, gélido ou 
+venenoso). O alvo deve fazer 
+um teste de Resistência de 
+Fortitude. Se falhar, ele sofre o 
+efeito do tipo escolhido por 1 
+minuto (Queimando [dano Mod. 
+Agilidade], 
+Paralisado 
+[elétrico], Congelado [gélido] 
+ou Envenenado [dano Mod. 
+Agilidade]). O alvo pode refazer 
+o teste no final de cada turno 
+dele para encerrar o efeito.
+
+B) Kurukuru Tsuru: Custo: 1 
+Uso. Você atira uma semente 
+que explode em cipós em uma 
+área de 6 metros de raio. 
+Inimigos na área devem fazer 
+um teste de Resistência de 
+Atletismo ou Acrobacia. Se 
+falharem, ficam Agarrados. Se
+
+=== PÁGINA 87 ===
+
+87
+
+passarem, 
+têm 
+seu 
+deslocamento reduzido pela 
+metade por 1 rodada. Um alvo 
+Agarrado pode usar sua Ação 
+para refazer o teste e tentar se 
+soltar.
+
+C) Makibishi Bochi: Custo: 1 
+Uso. Você atira sementes que 
+cobrem o chão com espinhos 
+em um raio de 6 metros. A área 
+se 
+torna 
+terreno 
+difícil. 
+Qualquer inimigo que entrar na 
+área ou começar seu turno 
+nela sofre 1d6 + Agilidade de 
+dano perfurante e tem seu 
+deslocamento reduzido pela 
+metade (este efeito acumula 
+com o terreno difícil). Um teste 
+de Resistência de Acrobacia 
+bem-sucedido anula o dano e a 
+lentidão.
+
+*Arte Da Mistura (1d6): 
+Você é capaz de criar poções, 
+remédios 
+e 
+comidas 
+com 
+efeitos especiais. Você precisa 
+de ingredientes e um Kit
+
+apropriado para criar estes 
+itens.
+
+NECESSÁRIO TER A ORIGEM 
+MÉDICO, 
+COZINHEIRO 
+OU 
+ALQUIMISTA
+
+Droga Analgésica: Custo: 1 
+Ação (para consumir)
+
+Você cria um consumível capaz 
+de aliviar dores. Ele recupera 
+2d10 + Intelecto/Instinto Pontos 
+de Vida.
+
+Escalonamento: 
+A 
+cura 
+aumenta para 3d10 no Nível 5, 
+4d10 no Nível 11 e 5d10 no Nível 
+17.
+
+Droga Estimulante: Custo: 1 
+Ação 
+(para 
+consumir) 
+– 
+Duração: 1 minuto
+
+Uma bebida estimulante que 
+aumenta 
+as 
+capacidades 
+físicas. Ao consumir, o alvo 
+ganha Vantagem em testes de 
+Físico e Agilidade, e ganha seu 
+Intelecto ou Instinto x 5 em 
+Pontos de Vida Temporários. 
+Se um Mink tomar, ele pode 
+entrar no modo Sulong.
+
+=== PÁGINA 88 ===
+
+88
+
+Rei Da Mistura: Sua perícia é 
+incomparável. 
+Você 
+ganha 
+Vantagem 
+em 
+testes 
+de 
+Medicina 
+(Intelecto), 
+Ofício 
+(Médico, 
+Alquimista 
+ou 
+Cozinheiro) e Sobrevivência 
+(Instinto).
+
+Droga Energética: Custo: 1 
+Ação 
+(para 
+consumir) 
+– 
+Duração: 1 minuto
+
+Quem ingerir este consumível 
+energético fica mais ágil. Pela 
+duração, o alvo pode usar a 
+Ação 
+de 
+Disparada 
+ou 
+Desengajar como uma Ação 
+extra, e seu deslocamento 
+aumenta em 1,5 metros para 
+cada 
+ponto 
+seu 
+em 
+Intelecto/Instinto.
+
+Estrela Flamejante: Custo: 1 
+Ação (para arremessar) – 
+Alcance: 18 metros
+
+Você arremessa uma pequena 
+bomba que explode em um raio 
+de 3 metros. Alvos na área 
+devem fazer um teste de 
+Resistência de Agilidade (CD 10 
++ 
+Treinamento 
++ 
+Mod.
+
+Intelecto/Instinto). 
+Se 
+falharem, 
+recebem 
+4d8 
++ 
+Intelecto/Instinto 
+de 
+dano 
+ígneo, ou metade se passarem.
+
+Escalonamento: 
+O 
+dano 
+aumenta para 5d8 no Nível 5, 
+6d8 no Nível 11 e 7d8 no Nível 
+17.
+
+Droguitas Pesaditas: Custo: 1 
+Ação (para arremessar) – 
+Duração: 1 hora
+
+Você arremessa um frasco em 
+um alvo. Você pode aplicar um 
+efeito sensorial positivo (como 
+Instinto no Escuro) em um 
+aliado, ou um efeito negativo 
+(como Cegueira ou Surdez 
+temporária) em um inimigo se 
+ele falhar em um teste de 
+Resistência de Fortitude (CD 10 
++ 
+Treinamento 
++ 
+Mod. 
+Intelecto/Instinto)
+
+Droga Saudável: Custo: 1 Ação 
+(para consumir) Você cria um 
+consumível 
+que 
+concede 
+Modificador de Intelecto x 5 em 
+Pontos de Vida Temporários.
+
+=== PÁGINA 89 ===
+
+89
+
+Estes PVs duram até o próximo 
+descanso total.
+
+*Demônio 
+Carismático 
+(1d6): 
+Suas 
+habilidades 
+carismáticas, manipuladoras e 
+persuasivas, fez com que você 
+recebesse 
+algumas 
+características a mais.
+
+NECESSÁRIO TER NO MÍNIMO 
++2 
+DE 
+INTELECTO 
+OU 
+A 
+ORIGEM MENTIROSO/GRANDE 
+NEGOCIADOR/MÚSICO.
+
+Esse é o Cara: Você ganha 
+Treinamento em testes de 
+Persuasão (Intelecto), se já 
+tiver você recebe o dobro da 
+Treinamento.
+
+Encantador: Custo: 1 minuto de 
+conversa
+
+Se você conversar com um 
+alvo que não seja hostil por 1 
+minuto, ele deve fazer um teste 
+de Resistência de Intuição (CD 
+10 + Treinamento + Mod. 
+Intelecto). Se falhar, ele fica 
+Encantado por você. O alvo tem
+
+três Desvantagens em testes 
+sociais e evita o máximo se 
+tornar hostil, contra você. O 
+efeito termina se atacar o alvo 
+ou após 24 horas.
+
+Aura De Rei: Custo: 1 Reação – 
+Usos: 1 por combate
+
+Você pode usar essa habilidade 
+quando alguém atacar você ou 
+um aliado. O ofensor deve 
+realizar 
+um 
+teste 
+de 
+Determinação 
+(CD 
+10 
++ 
+Treinamento + Intelecto). Ao 
+falhar, ele fica amedrontado 
+por 
+ti, 
+ele 
+recebe 
+duas 
+Desvantagens, em rolagens de 
+ataque 
+sempre 
+que 
+tiver 
+Instinto de você e não pode se 
+aproximar de ti. Todo final de 
+turno, o inimigo deve realizar o 
+teste novamente para retirar o 
+efeito.
+
+Hipnotizar: Custo: 1 Ação – 
+Alcance: 12 metros – Duração: 1 
+minuto 
+– 
+Usos: 
+Mod. 
+de 
+Intelecto (min 1).
+
+Você usa um pêndulo ou 
+movimentos rítmicos. Inimigos
+
+=== PÁGINA 90 ===
+
+90
+
+que puderem te ver dentro do 
+alcance devem fazer um teste 
+de 
+Resistência 
+de 
+Determinação 
+(CD 
+10 
++ 
+Treinamento + Mod. Intelecto). 
+Se falharem, caem em um sono 
+profundo 
+(ficam 
+Inconscientes). O sono termina 
+se o alvo sofrer dano ou se 
+alguém usar uma Ação para 
+acordá-lo. No Nível 14, você 
+pode usar sua Ação extra para 
+controlar 
+mentalmente 
+os 
+alvos hipnotizados, forçando-
+os a usar o movimento e a 
+Ação deles como você quiser.
+
+Estilo De Dança: Você aprende 
+a lutar dançando. Você ganha 
+Treinamento 
+nas 
+perícias 
+Acrobacia e Performance. Se 
+você já possui Treinamento em 
+uma delas, você ganha metade 
+da Treinamento a mais nas 
+perícias. Além disso, você não 
+sofre 
+penalidades 
+de 
+movimento por terreno difícil.
+
+Ler a Mesa: Custo: 1 Ação extra
+
+Você analisa um inimigo que 
+possa ver. Faça uma Disputa de
+
+Intuição (Instinto) contra a 
+Enganação (Intelecto) do alvo. 
+Se vencer, você antecipa as 
+ações dele, ganhando +2 na 
+sua próxima Defesa contra 
+aquele inimigo. Essa habilidade 
+também pode ser usada em 
+jogos, role 1d100. Se você tirar 
+um valor igual ou menor que o 
+seu nível, descobre qual vai ser 
+a próxima jogada do oponente 
+e se ele está “roubando”.
+
+*Ninja (1d6): 
+Habilidades 
+furtivas, rápidas e também 
+astutas, usadas para missões 
+secretas ou por assassinos. 
+São usadas por ninjas do país 
+de Wano, mas depois de 
+tempos, eles se espalharam 
+pelo mundo.
+
+NECESSÁRIO TER NO MÍNIMO 
++3 DE AGILIDADE OU A ORIGEM 
+LADRÃO.
+
+Ajuste Perfeito: Quando você 
+usa a Ação de Ataque com uma 
+arma de Acuidade, você pode 
+usar sua Ação extra para fazer
+
+=== PÁGINA 91 ===
+
+91
+
+um ataque a distância com 
+uma 
+arma 
+de 
+Arremesso. 
+Recebe um bônus de +5 em 
+testes 
+para 
+encontrar 
+as 
+armas arremessadas.
+
+Assassinar: Você é rápido em 
+agir. Você ganha Vantagem em 
+testes de Iniciativa. Além disso, 
+sempre 
+que 
+atacar 
+um 
+oponente que ainda não agiu 
+no combate, surpreendido ou 
+atacar 
+furtivamente, 
+seu 
+ataque causa 2d6 de dano 
+extra.
+
+Escalonamento: O dano extra 
+aumenta para 3d6 no Nível 5, 
+4d6 no Nível 11 e 5d6 no Nível 
+17.
+
+Ninja 
+Das 
+Sombras: 
+Você 
+ganha 
+Treinamento 
+nas 
+perícias 
+Furtividade 
+e 
+Prestidigitação. Se você já 
+possui Treinamento em uma 
+delas, você recebe o dobro de 
+Treinamento.
+
+Arte Da Substituição: Custo: 1 
+Reação – Alcance: 9 metros – 
+Usos: Bônus de Treinamento
+
+Quando você for alvo de um 
+ataque, você pode usar sua 
+Reação para trocar de lugar 
+com um objeto de tamanho 
+similar que esteja dentro do 
+alcance ou um alvo voluntario. 
+Você recupera os usos em um 
+descanso total.
+
+Jutsu Da Paralisação:  Custo: 1 
+Ação extra (após acertar um 
+ataque furtivo) – Usos: Mod. de 
+Agilidade (mín 1)
+
+Quando você acerta um inimigo 
+com 
+um 
+ataque 
+furtivo 
+(enquanto estava escondido), 
+você pode usar sua Ação extra 
+para forçá-lo a fazer um teste 
+de Resistência de Fortitude (CD 
+10 + Treinamento + Mod. 
+Agilidade). Se falhar, o alvo fica 
+Atordoado por 1 rodada. Você 
+recupera os usos em um 
+descanso total.
+
+Jutsu Do Clone Das Sombras: 
+Custo: 1 Ação – Duração: 1 
+minuto 
+– 
+Usos: 
+Mod. 
+de 
+Intelecto (mín 1)
+
+=== PÁGINA 92 ===
+
+92
+
+Você cria clones visuais de si 
+mesmo. O número de clones é 
+igual ao seu Mod. de Agilidade. 
+Eles têm 1 PV, não podem 
+atacar 
+e 
+imitam 
+seus 
+movimentos. Inimigos devem 
+fazer um teste Investigação 
+(CD 10 + Treinamento + Mod. 
+Intelecto) para identificar o 
+verdadeiro. Você recupera os 
+usos em um descanso total.
+
+Jutsu Da Bola De Fogo: Custo: 1 
+Ação – Alcance: Cone de 12 
+metros 
+– 
+Usos: 
+Mod. 
+de 
+Intelecto (mín 1)
+
+Você precisa de uma pequena 
+chama. Você assopra, criando 
+uma bola de fogo. Inimigos no 
+cone devem fazer um teste de 
+Resistência de Agilidade (CD 10 
++ 
+Treinamento 
++ 
+Mod. 
+Agilidade). 
+Se 
+falharem, 
+recebem 3d10 + Agilidade de 
+dano ígneo, ou metade se 
+passarem. Você recupera os 
+usos em um descanso total.
+
+Escalonamento: 
+O 
+dano 
+aumenta para 4d10 no Nível 5,
+
+5d10 no Nível 11 e 6d10 no Nível 
+17.
+
+Sombra Fugaz: Você age mais 
+rápido que os outros. Você 
+pode 
+usar 
+as 
+ações 
+de 
+Disparada, 
+Desengajar 
+ou 
+Esconder como uma Ação 
+extra.
+
+*Karatê/Jujutsu 
+Homem-Peixe 
+(1d10): 
+Essa é uma técnica criada 
+pelos homens peixes. Com ela, 
+você 
+precisa 
+primeiro 
+aprender o Karatê para depois 
+aprender 
+as 
+técnicas 
+verdadeiras, 
+capaz 
+de 
+controlar a água e o corpo. Ao 
+escolher está habilidade, você 
+desbloqueia Correnteza Forte 
+e Pistola de Água.
+
+NECESSÁRIO SER UM HOMEM-
+PEIXE OU SER TREINADO POR 
+UM, 
+ALÉM 
+DE 
+TER 
+A 
+HABILIDADE KARATE.
+
+Correnteza 
+Forte: 
+Você 
+aprende a lutar com a fluidez
+
+=== PÁGINA 93 ===
+
+93
+
+da 
+água. 
+Seus 
+ataques 
+desarmados 
+ganham 
+a 
+propriedade Acuidade (você 
+pode usar Precisão (Agilidade) 
+para rolagens de ataque e 
+dano, em vez de Luta (Físico)). 
+Além disso, você pode usar 
+Acrobacia 
+(Agilidade) 
+para 
+rolar sua Disputa de Bloqueio, 
+em vez de Luta (Físico).
+
+Pistola da Água: Custo: 1 Ação 
+– Alcance: 18 metros – Usos: 
+Bônus de Treinamento
+
+Você dispara gotas de água 
+condensada como balas. Você 
+recupera os usos em um 
+descanso parcial. Faça um 
+ataque de Reflexos (Agilidade) 
+ou Luta (Físico) contra um alvo. 
+Se acertar, o alvo recebe 2d12 + 
+seu Mod. de Atributo (Fís ou 
+Des) de dano perfurante.
+
+Escalonamento: 
+O 
+dano 
+aumenta para 3d12 no Nível 5, 
+4d12 no Nível 11 e 5d12 no Nível 
+17.
+
+Concha Do Crustáceo:  Custo: 1 
+Ação extra – Usos: Bônus de 
+Treinamento
+
+Você se prepara para um 
+ataque 
+iminente. 
+Você 
+recupera os usos em um 
+descanso parcial. Você ganha 
+Vantagem na sua próxima 
+Disputa de Bloqueio que fizer 
+antes do início do seu próximo 
+turno.
+
+Juízo do Mar: Você aprende a 
+atacar duas vezes. Quando 
+você usa a Ação de Ataque no 
+seu turno, você pode atacar 
+duas vezes, em vez de uma.
+
+Ermitão: Custo: 1 Ação extra – 
+Duração: 1 minuto – Usos: 1 por 
+descanso total
+
+Você se envolve em um véu de 
+água corrente. Pela duração, 
+você 
+ganha 
+Resistência 
+(metade do dano) a dano de 
+Fogo, 
+mas 
+sofre 
+Vulnerabilidade 
+(dano 
+dobrado) a dano Elétrico. Se 
+você for um Homem-Peixe e 
+estiver submerso ou na chuva,
+
+=== PÁGINA 94 ===
+
+94
+
+seus 
+ataques 
+desarmados 
+causam 
+1d6 
+de 
+dano 
+de 
+concussão 
+extra 
+enquanto 
+essa habilidade durar.
+
+Explosão Oceânica: Custo: 1 
+Ação extra – Usos: 1 por 
+descanso total
+
+Você condensa moléculas de 
+água em seu golpe. O próximo 
+ataque desarmado que você 
+acertar neste turno causa o 
+dobro de dano.
+
+Dança 
+Das 
+Correntes 
+Marítimas: Custo: 1 Ação – 
+Alcance: Raio de 6m – Duração: 
+1 minuto – Usos: Mod. de 
+Físico/Agilidade (mín 1)
+
+Você cria um vórtice de água 
+ao seu redor. Você recupera os 
+usos em um descanso total. A 
+área se torna terreno difícil 
+para seus inimigos. Inimigos 
+que 
+entram 
+na 
+área 
+ou 
+começam 
+seu 
+turno 
+nela 
+devem fazer um teste de 
+Resistência de Físico (CD 10 + 
+Treinamento + Mod. Fís/Des). 
+Se falharem, recebem 2d12 +
+
+seu Mod. de Atributo (Fís ou 
+Des) de dano de concussão. 
+Com uma Ação extra, você 
+pode puxar ou empurrar todos 
+os alvos na área 4,5 metros.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 3d12 no Nível 5, 4d12 no 
+Nível 11 e 5d12 no Nível 17.
+
+Garra Do Tubarão: Custo: 1 
+Ação extra (após acertar um 
+ataque) 
+– Usos: 
+Mod. de 
+Físico/Agilidade (mín 1)
+
+Você recupera os usos em um 
+descanso total. Quando você 
+acerta um ataque desarmado, 
+você pode usar sua Ação extra 
+para forçar o alvo a fazer um 
+teste 
+de 
+Resistência 
+de 
+Fortitude (CD 10 + Treinamento 
++ Mod. Fís/Des). Se falhar, o 
+alvo fica Atordoado por 1 
+rodada.
+
+*Dragão Do Mar (1d8): 
+Você aprende a manipular a 
+própria água ao seu redor
+
+=== PÁGINA 95 ===
+
+95
+
+como uma extensão do seu 
+corpo.
+
+NECESSÁRIO SER UM HOMEM-
+PEIXE OU SER TREINADO POR 
+UM.
+
+Dividir Água: Custo: 1 Ação – 
+Duração: 1 minuto – Usos: 1 por 
+descanso total
+
+Você escolhe uma área de água 
+que você possa ver, com até 9 
+metros de comprimento, 3 
+metros de largura e 3 metros 
+de profundidade. A água nessa 
+área se divide, criando uma 
+trincheira seca. A água forma 
+paredes de 
+cada 
+lado. A 
+trincheira 
+permanece 
+pela 
+duração, e então a 
+água 
+preenche lentamente o local.
+
+Inundar: 
+Custo: 
+1 
+Ação 
+– 
+Duração: 1 minuto – Usos: 1 por 
+descanso total
+
+Você escolhe uma área de água 
+de até 9 metros de raio que 
+possa ver. Você faz o nível da 
+água subir até 6 metros. Se a 
+área incluir uma margem, a 
+inundação irá transbordar para
+
+a terra seca. O nível da água 
+permanece elevado até você 
+usar uma Ação extra para 
+dissipá-lo, 
+ou 
+a 
+duração 
+acabar.
+
+Redirecionar Fluxo: Custo: 1 
+Ação – Duração: 10 minutos – 
+Usos: Bônus de Treinamento
+
+Você recupera os usos em um 
+descanso total. Você faz com 
+que o fluxo da água em uma 
+área 
+(como 
+um 
+rio 
+ou 
+correnteza) 
+se 
+mova 
+na 
+direção que você escolher, 
+mesmo que a água tenha que 
+fluir sobre obstáculos ou subir 
+muros. A água se move a uma 
+velocidade de 3 metros por 
+rodada.
+
+Redemoinho: Custo: 1 Ação – 
+Duração: 1 minuto – Usos: 1 por 
+descanso total
+
+Você precisa de um corpo de 
+água de pelo menos 9m de raio 
+e 7,5m de profundidade. Você 
+cria um redemoinho no centro. 
+Inimigos a até 7,5 metros do 
+vórtice são puxados 3 metros
+
+=== PÁGINA 96 ===
+
+96
+
+em direção a ele no início de 
+cada turno deles. Um inimigo 
+pode tentar nadar para longe 
+com um teste de Atletismo 
+(Físico) (CD 10 + Treinamento + 
+Mod. Fís/Des). Quem entrar no 
+vórtice ou começar seu turno 
+lá, deve fazer um teste de 
+Resistência de Físico (mesma 
+CD). Se falhar, sofre 2d8 de 
+dano de concussão.
+
+Karatê (1d10): Seus socos, 
+chutes e cotoveladas causam 
+1d12 
++ 
+Físico 
+de 
+dano 
+contundente. (Este dano base 
+não aumenta com o nível). Você 
+pode usar a perícia Precisão 
+(Agilidade) em vez de Luta 
+(Físico) para suas rolagens de 
+ataque desarmado e dano (o 
+dano continua sendo 1d12 + 
+Agilidade). Além disso, você 
+pode usar sua Disputa de 
+Bloqueio mesmo sem estar 
+segurando uma arma.
+
+*Okama Kempô (1d10): 
+Para aprender o Okama Kempô 
+é necessário que você aprenda 
+Ballet, depois Karatê, para 
+então aprender esta técnica 
+única do povo Okama. Ela 
+consiste em uma série de 
+golpes com chutes, giros e 
+beleza.
+
+NECESSÁRIO 
+TER 
+AS 
+HABILIDADE 
+KARATÊ 
+E 
+DANÇARINO.
+
+Golpe Lacrador: Custo: 1 Ação 
+extra 
+– 
+Usos: 
+Bônus 
+de 
+Treinamento
+
+Você se move com uma graça 
+mortal. Você recupera os usos 
+em um descanso parcial. Você 
+pode se mover até 4,5 metros 
+sem 
+provocar 
+ataques 
+de 
+oportunidade e, em seguida, 
+fazer 
+um 
+único 
+ataque 
+desarmado.
+
+Explosão Glamourosa: Custo: 1 
+Ação – Usos: 1 por descanso 
+total
+
+Você ataca com uma rajada de 
+golpes graciosos. Você faz três
+
+=== PÁGINA 97 ===
+
+97
+
+ataques 
+desarmados 
+imediatamente. 
+Você 
+deve 
+rolar 
+o 
+ataque 
+(Xd20 
++ 
+Treinamento) separadamente 
+para cada golpe.
+
+Death Wink: Custo: 1 Ação – 
+Alcance: Cone de 9 metros – 
+Usos: Mod. de Agilidade (mín 1)
+
+Você dispara uma piscadela 
+explosiva. Você recupera os 
+usos em um descanso total. 
+Inimigos no cone devem fazer 
+um teste de Resistência de 
+Agilidade (CD 10 + Treinamento 
++ Mod. Agilidade). Se falharem, 
+recebem 3d10 + Agilidade de 
+dano de energia, ou metade se 
+passarem.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 4d10 no Nível 5, 5d10 no 
+Nível 11 e 6d10 no Nível 17.
+
+Chute Do Amor Ardente: Custo: 
+1 Ação extra (após acertar um 
+ataque) 
+– Usos: Mod. de 
+Intelecto (mín 1)
+
+Você recupera os usos em um 
+descanso total. Quando você
+
+acerta um ataque desarmado, 
+você pode usar sua Ação extra 
+para tentar seduzir o alvo. O 
+alvo deve fazer um teste de 
+Resistência de Intuição (CD 10 
++ 
+Treinamento 
++ 
+Mod. 
+Agilidade). 
+Se 
+falhar, 
+fica 
+Encantado por você por 1 
+minuto ou até você ou seus 
+aliados o atacarem.
+
+Dança Do Cisne Divino: Seu 
+estilo de luta é fluído. Seu 
+deslocamento 
+terrestre 
+aumenta em 3 metros e você 
+ganha Vantagem em todos os 
+testes de Acrobacia (Agilidade)
+
+Borboleto: Custo: 1 Reação – 
+Usos: 1 por descanso total Se 
+um 
+oponente 
+do 
+mesmo 
+gênero que o seu acertar você 
+com um ataque, você pode 
+usar sua Reação para cancelar 
+todo o dano desse ataque.
+
+*Estilo 
+Perna 
+Negra 
+(1d10): Esse estilo de luta, 
+transforma suas pernas em 
+armas letais. Com uma mistura
+
+=== PÁGINA 98 ===
+
+98
+
+de capoeira e taekwondo, o 
+estilo perna negra foi feito para 
+se usar somente as pernas no 
+combate, mas isso depende do 
+usuário.
+
+Perna De Aço: Seus chutes 
+desarmados causam 1d10 + 
+Físico de dano contundente. 
+Você pode usar a perícia 
+Precisão (Agilidade) em vez de 
+Luta 
+(Físico) 
+para 
+suas 
+rolagens de ataque desarmado 
+e dano. Além disso, você pode 
+usar sua Disputa de Bloqueio 
+usando suas pernas (sem 
+precisar de arma).
+
+Mutton Shot: Uma vez por 
+turno, se você já acertou pelo 
+menos um chute desarmado 
+em um alvo, o próximo chute 
+desarmado que você acertar 
+no mesmo alvo neste turno 
+causa 1d12 de dano extra.
+
+Sky Walk: Você aprende a 
+chutar o ar para voar (Geppo). 
+Você ganha um deslocamento 
+de 
+voo 
+igual 
+ao 
+seu 
+deslocamento terrestre. Além 
+disso, você tem Vantagem em
+
+todos os testes de Acrobacia 
+(Agilidade) 
+que 
+envolvam 
+pulos.
+
+Party Table Kick: Custo: 1 Ação 
+– Alcance: Raio de 1,5m – Usos: 
+Mod. de Agilidade (mín 1)
+
+Você gira e chuta todos ao seu 
+redor. Você recupera os usos 
+em 
+um 
+descanso 
+parcial. 
+Inimigos na área devem fazer 
+um teste de Resistência de 
+Agilidade (CD 10 + Treinamento 
++ Mod. Fís/Des). Se falharem, 
+recebem 2d12 + seu Mod. de 
+Atributo (Fís ou Des) de dano 
+contundente, ou metade se 
+passarem.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 3d12 no Nível 5, 4d12 no 
+Nível 11 e 5d12 no Nível 17.
+
+Diable Jambe: Custo: 1 Ação 
+extra – Duração: 1 minuto – 
+Usos: Mod. de Físico/Agilidade 
+(mín 1)
+
+Você aquece sua perna com 
+fricção. Você recupera os usos 
+em um descanso total. Pela
+
+=== PÁGINA 99 ===
+
+99
+
+duração, todos os seus chutes 
+causam 1d8 de dano ígneo 
+extra. A habilidade é cancelada 
+se você ficar imóvel
+
+Chefe 
+De 
+Cozinha: 
+NECESSÁRIO TER A ORIGEM 
+COZINHEIRO. Seu instinto de 
+proteger seus companheiros é 
+afiado. Quando um aliado a até 
+12 metros de você for alvo de 
+um ataque, você pode usar sua 
+Reação para se mover até 
+metade do seu deslocamento 
+em direção àquele aliado e ele 
+recebe 1d4 de defesa extra.
+
+Escalonamento: 
+A 
+defesa 
+aumenta para 1d6 no Nível 5, 
+1d8 no Nível 11 e 1d10 no Nível 
+17.
+
+Semei 
+Kikkan 
+(1d10): 
+Custo: 1 Ação extra – Duração: 
+10 minutos – Usos: 1 por 
+descanso total
+
+Você altera temporariamente 
+sua forma física. Você ganha 
+Pontos de Vida Temporários 
+iguais a 1d8 + seu Nível de
+
+personagem e escolhe um dos 
+seguintes 
+benefícios 
+pela 
+duração:
+
+1. Forma de Músculo: Seus 
+ataques de Luta (Físico) 
+causam dano adicional 
+igual ao seu Bônus de 
+Treinamento.
+
+2. Forma 
+Ágil: 
+Seu 
+deslocamento 
+aumenta 
+em 1,5 metros x Agilidade 
+e você ganha Vantagem 
+em testes de Acrobacia 
+(Agilidade).
+
+3. Forma Intelectual: Recebe 
+Vantagem e Treinamento 
+com todas as perícias de 
+Intelecto.
+
+*Criticalizador (1d6): Sua 
+precisão é mortal. A margem 
+de acerto crítico de todos os 
+seus ataques aumenta em 1 
+(ex: 20 se torna 19-20). Você 
+pode escolher está habilidade 
+múltiplas 
+vezes, 
+até 
+um 
+máximo de três vezes. O efeito
+
+=== PÁGINA 100 ===
+
+100
+
+acumula (19-20, depois 18-20, 
+depois 17-20).
+
+Expansão De Domínio 
+(1d8): Custo: 1 Ação – Alcance: 
+9 metros – Usos: Mod. de 
+Instinto (min 1). – Duração: Até 
+passar no teste.
+
+Você tenta prender um inimigo 
+que possa ver em um domínio 
+mental. O alvo deve fazer um 
+teste 
+de 
+Resistência 
+de 
+Determinação 
+(CD 
+10 
++ 
+Treinamento + Mod. Instinto). 
+Se 
+falhar, 
+você 
+cria 
+um 
+ambiente hostil na mente dele, 
+a sua escolha, como por 
+exemplo, magma saindo do 
+chão, monstros ou animais 
+perseguindo-o, 
+inundação, 
+inimigos, 
+etc. 
+Os 
+efeitos 
+nocivos causam 1d8+Instinto 
+de dano psíquico, ele deve 
+realizar o teste novamente nos 
+finais do turno dele. Se você 
+derrotar o alvo antes dele sair 
+desse domínio mental e ele 
+tiver mais vida máxima que seu
+
+personagem, 
+você 
+recebe 
+resquícios 
+da 
+energia 
+espiritual dele, aumentando 
+sua vida permanentemente em 
+2% da vida máxima do alvo 
+(mín. 1).
+
+NECESSÁRIO TER O HAKI DO 
+REI.
+
+*Herança Genética (1d6): 
+Você 
+herdou 
+uma 
+característica única. Escolha 
+uma 
+habilidade 
+racial 
+de 
+qualquer 
+outra 
+raça 
+(exemplos: Eletro do Mink, 
+Força Bruta do Bukaneiro, ou 
+Corpo Venenoso do Homem-
+Peixe Baiacu).
+
+Mr. Prince (1d8): Custo: 1 
+Reação
+
+Quando um aliado a até 1,5 x 
+Agilidade metros de você for 
+alvo de um ataque, você pode 
+usar sua Reação para se 
+mover (sem provocar ataques 
+de oportunidade) e se colocar
+
+=== PÁGINA 101 ===
+
+101
+
+no lugar, tornando-se o novo 
+alvo do ataque. Se o fizer, você 
+ganha 
+Pontos 
+de 
+Vida 
+Temporários iguais a 5 + seu 
+Mod. de Intelecto até o final 
+desse ataque.
+
+Tem o Vento a Favor 
+(1d6): 
+Usos: 
+Bônus 
+de 
+Treinamento
+
+Sua sorte é descomunal. Você 
+recupera os usos em um 
+descanso total. Quando você 
+falhar em uma rolagem de 
+ataque, teste de perícia, você 
+pode usar esta habilidade (sem 
+custo de ação) para rolar 
+novamente. Você deve usar a 
+nova rolagem.
+
+Espectro 
+Do 
+Capitão 
+Sparrow (1d6): Usos: 1 vez 
+por descanso total
+
+Quando 
+for 
+alvo 
+de 
+uma 
+habilidade que exige teste de 
+resistência, você invoca um 
+espectro pirata que surge do
+
+chão com os mesmos atributos 
+que você. Role dois testes 
+separados:
+
+• Se apenas um passar, você resiste
+
+normalmente.
+
+• Se ambos passarem, o espectro invade o
+
+corpo do inimigo, impedindo-o de usar
+
+aquela 
+habilidade 
+até 
+realizar 
+um
+
+descanso total.
+
+• Se ambos falharem, o espectro possui você
+
+no próximo turno, podendo agir de forma
+
+imprevisível.
+
+Usos Adicionais: Você ganha 
+um 
+uso 
+adicional 
+desta 
+habilidade nos Níveis 10 e 20.
+
+Pacto De Troca (1d8): 
+Custo: 1 Ação extra – Alcance: 
+Toque – Duração: 1 minuto – 
+Usos: Mod. de Intelecto (mín 1)
+
+Você recupera os usos em um 
+descanso total. Após atacar ou 
+tocar dois alvos distintos, pela 
+duração, você pode usar sua 
+Ação extra, ambas devem fazer 
+um teste de Resistência de 
+Investigação 
+(CD 
+10 
++ 
+Treinamento + Mod. Intelecto). 
+Se ambas falharem, você pode
+
+=== PÁGINA 102 ===
+
+102
+
+trocar 
+os 
+Bônus 
+de 
+Treinamento 
+delas 
+pela 
+duração, um alvo pode ser 
+voluntario. (Ex: Um Nível 20 
+[BM +6] troca com um Nível 1 
+[BM +2]).
+
+*Ressaca (1d10): O álcool 
+faz muito mal a sua saúde, mas 
+também vai fazer mal ao seu 
+inimigo.
+
+NECESSÁRIO TER A ORIGEM 
+ALCOÓLATRA.
+
+Vômito: 
+Custo: 
+1 
+Ação 
+– 
+Alcance: Área de 1,5m (a até 
+4,5m de você) – Duração: 1 
+minuto – Usos: Mod. de Físico 
+(mín 1)
+
+Você recupera os usos em um 
+descanso total. Você vomita 
+um líquido ácido. A área se 
+torna terreno difícil. Inimigos 
+que 
+entram 
+na 
+área 
+ou 
+começam seu turno lá sofrem 
+1d6 + Físico de dano ácido. Um 
+inimigo 
+que 
+for 
+atingido 
+diretamente pelo vômito deve 
+fazer um teste de Resistência
+
+de 
+Fortitude 
+(CD 
+10 
++ 
+Treinamento + Mod. Físico) ou 
+sofrerá 
+Desvantagem 
+em 
+testes de Agilidade até usar 
+uma Ação para se limpar.
+
+Peidorreira: Custo: 1 Ação – 
+Alcance: Linha de 9 metros – 
+Usos: Mod. de Físico (mín 1)
+
+Você recupera os usos em um 
+descanso total. Você se lança 
+em linha reta 9 metros (este 
+movimento provoca ataques de 
+oportunidade). 
+Inimigos 
+em 
+uma área de 1,5m de onde você 
+começou devem fazer um teste 
+de Resistência de Fortitude (CD 
+10 + Treinamento + Mod. Físico) 
+ou ficam Atordoados por 1 
+rodada. A linha que você 
+percorreu fica contaminada 
+por 1 rodada, causando 1d6 + 
+Físico de dano ácido a quem 
+entrar nela
+
+Demônio de Cavendish 
+Hakuba (1d10): Custo: 1 Ação 
+extra – Duração: 1 minuto – 
+Usos: 1 por descanso total
+
+=== PÁGINA 103 ===
+
+103
+
+Você desmaia e libera uma 
+personalidade 
+alternativa 
+sanguinária. Pela duração, seu 
+deslocamento é dobrado e 
+você pode fazer um ataque 
+adicional como parte da sua 
+Ação de Ataque (similar à 
+habilidade Juízo Do Mar). Você 
+também ganha Pontos de Vida 
+Temporários iguais a 5 x seu 
+Nível de personagem.
+
+Quando a duração termina (ou 
+os PVs Temporários acabam), 
+você cai inconsciente por 1 
+minuto. 
+Se 
+for 
+acordado 
+durante esse tempo, você fica 
+Exausto (sofre -5 em todos os 
+testes e rolagens de ataques) 
+até completar um descanso 
+parcial.
+
+Acendendo 
+o 
+Pavio! 
+(1d8): Você se torna um 
+especialista 
+em 
+bombas. 
+Usando matérias adequados 
+como pólvora ou composto 
+químico, um recipiente e um 
+mecanismo 
+de 
+gatilho 
+ou
+
+ativação, junto de um kit de 
+ferramentas, você fabrica uma 
+bomba caseira como: uma 
+bomba de ativação, explosivo 
+ou mina terrestre (demora 5-
+Intelecto 
+minutos 
+para 
+fabricar, se caso chegar a 0, 
+pode fabricar com uma ação). 
+Além do tempo de fabricação, é 
+necessário um teste de Ofício 
+(Intelecto) CD igual a 15:
+
+A) Sucesso = Explosivo criado 
+normalmente
+
+B) Sucesso Crítico = Explosivo 
+causa o dobro de dano.
+
+C) Falha = Explosivo é instável.
+
+D) Falha Crítica = Explode na 
+hora da criação.
+
+A bomba é igual a um item 
+médio (ou pesado, se for um 
+sucesso crítico). Pode ser 
+lançado com um teste de 
+Precisão 
+usando 
+o 
+seu 
+intelecto. Se o explosivo foi 
+criado com um sucesso crítico, 
+os dados de dano serão 
+dobrados. 
+Além 
+disso, 
+as 
+bombas e os equipamentos
+
+=== PÁGINA 104 ===
+
+104
+
+podem 
+ser 
+atualizados 
+e 
+melhorados, 
+conforme 
+o 
+Jogador 
+e 
+o 
+Mestre 
+combinarem.
+
+NECESSÁRIO TER NO MÍNIMO 
++2 DE INTELECTO.
+
+Mina terrestre: Custo: 1 Ação 
+(para plantar)
+
+Você enterra uma mina. Ela 
+explode quando um inimigo 
+pisa nela. Inimigos em um raio 
+de 3 metros devem fazer um 
+teste 
+de 
+Resistência 
+de 
+Agilidade. 
+Se 
+falharem, 
+recebem 2d12 + Intelecto de 
+dano de energia, ou metade se 
+passarem.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 3d12 no Nível 5, 4d12 no 
+Nível 11 e 5d12 no Nível 17.
+
+Bomba de ativação: Custo: 1 
+Ação (para arremessar) – 
+Alcance: 18 metros
+
+Você arremessa uma bomba 
+que 
+gruda 
+no 
+alvo 
+ou 
+superfície. Você pode detoná-
+la como uma Ação extra
+
+(enquanto estiver a até 36m 
+dela). Inimigos em um raio de 3 
+metros devem fazer um teste 
+de Resistência de Agilidade. Se 
+falharem, 
+recebem 
+3d8 
++ 
+Intelecto de dano de energia, 
+ou metade se passarem.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 4d8 no Nível 5, 5d8 no 
+Nível 11 e 6d8 no Nível 17.
+
+Explosivo: Custo: 1 Ação (para 
+arremessar) – Alcance: 18 
+metros
+
+Você arremessa um explosivo 
+de 
+fragmentação 
+ou 
+incendiário. Inimigos em um 
+raio de 3 metros devem fazer 
+um teste de Resistência de 
+Agilidade. 
+Se 
+falharem, 
+recebem 2d6 + Intelecto de 
+dano perfurante ou ígneo, ou 
+metade se passarem.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 3d6 no Nível 5, 4d6 no 
+Nível 11 e 5d6 no Nível 17.
+
+=== PÁGINA 105 ===
+
+105
+
+Botas Galvanizadas: Você cria 
+botas especiais. Você não sofre 
+dano 
+das 
+suas 
+próprias 
+bombas e pode usá-las para se 
+impulsionar (se movendo 15m 
+metros em qualquer direção 
+como parte da explosão).
+
+*Barba 
+Branca 
+dos 
+Mares 
+(1d12): 
+Sua 
+experiência 
+em 
+batalhas 
+navais 
+o 
+tornou 
+um 
+combatente 
+oportunista 
+e 
+mortal a bordo de um navio. 
+Você usa o ambiente do mar a 
+seu favor.
+
+NECESSÁRIO TER A ORIGEM 
+NAVEGADOR/CARPINTEIRO/EX
+. 
+MARINHEIRO/EREMITA/PIRAT
+A APOSENTADO.
+
+Pé de Mar: Você se sente em 
+casa no convés. Você ignora 
+terreno difícil em navio, ganha 
+Vantagem em rolagens de 
+ataque com Canhões e ganha 
+Vantagem 
+em 
+teste 
+de 
+Percepção. No Nível 10, você
+
+ganha Vantagem em testes de 
+Acrobacia 
+(Agilidade) 
+ou 
+Atletismo (Físico) feitos em um 
+navio.
+
+Luta Suja: Custo: 1 Ação extra – 
+Alcance: 1,5 metros
+
+Você joga areia, bebida ou água 
+do mar nos olhos de um 
+inimigo. O alvo deve fazer um 
+teste 
+de 
+Resistência 
+de 
+Fortitude (CD 10 + Treinamento 
++ Seu atributo mais alto). Se 
+falhar, ele sofre Desvantagem 
+em sua próxima rolagem de 
+ataque.
+
+Ataque 
+com 
+Arpéu/Ancora: 
+Você ganha Treinamento no 
+uso de Arpéus (1d8 perfurante, 
+Acuidade, Arremesso 7,5/12m) 
+e Ancoras (1d12 concussão, 
+Duas Mãos, requer Físico +2). 
+Ao atacar com um Arpéu, em 
+vez de causar dano, você pode 
+forçar o alvo a uma Disputa de 
+Atletismo (Físico) contra seu 
+ataque. Se falhar, você o puxa 
+4,5 metros ou o derruba.
+
+=== PÁGINA 106 ===
+
+106
+
+BARRIL! Custo: 1 Ação – 
+Alcance: 9 metros
+
+Se houver um barril ou objeto 
+pesado similar por perto, você 
+pode arremessá-lo em uma 
+área de 3x3 metros. Inimigos 
+na área devem fazer um teste 
+de Resistência de Acrobacia 
+(CD 10 + Treinamento + Mod. 
+Físico). Se falharem, recebem 
+3d8 de dano de concussão e 
+ficam Caídos. Se passarem, 
+recebem metade do dano e não 
+caem.
+
+Dividir o Tesouro: Custo: 10 
+minutos (durante um Descanso 
+parcial)
+
+Você descreve as glórias que 
+aguardam a tripulação. Você e 
+seus aliados ganham Pontos 
+de Vida Temporários iguais a 5 
+x Seu atributo mais alto e 
+ganham +1 de Força de Vontade 
+por 1 hora.
+
+Ninguém Fica Para Trás: Custo: 
+1 Reação
+
+Se um aliado a até 9 metros de 
+você for alvo de um ataque
+
+corpo a corpo, você pode usar 
+sua Reação para permitir que 
+ele se mova a até 3 metros 
+para qualquer direção sem 
+provocar 
+ataques 
+de 
+oportunidade, para tentar sair 
+do alcance do inimigo que não 
+vai conseguir acerta-lo.
+
+*Estilo Esgrima (1d10): 
+Você trilha o caminho da 
+lâmina desembainhada, onde 
+um único golpe pode decidir o 
+combate. Sua velocidade e 
+precisão 
+são 
+lendárias, 
+transformando o ato de sacar a 
+espada em uma arte mortal.
+
+NECESSÁRIO USAR ARMAS DE 
+ACUIDADE E TER NO MÍNIMO 
++3 DE AGILIDADE.
+
+Saque 
+Relâmpago: 
+Sua 
+velocidade para sacar a arma é 
+incomparável. 
+Você 
+ganha 
+Vantagem 
+em 
+testes 
+de 
+Iniciativa. Além disso, se você 
+atacar na primeira rodada de 
+um combate, seu primeiro
+
+=== PÁGINA 107 ===
+
+107
+
+ataque com esta arma causa 
+1d8 de dano extra.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 2d8 no Nível 5, 3d8 no 
+Nível 11 e 4d8 no Nível 17.
+
+Estocada Gélida: Custo: 1 Ação 
+extra – Usos: Mod. de Agilidade 
+(mín 1)
+
+Você recupera os usos em um 
+descanso parcial. Você pode 
+imbuir sua lâmina com uma 
+energia 
+gélida. 
+O 
+próximo 
+ataque que você acertar neste 
+turno causa 1d6 de dano gélido 
+adicional, e ele deve fazer um 
+teste de Fortitude (Físico) ou 
+ficará Congelado.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 2d6 no Nível 5, 3d6 no 
+Nível 11 e 4d6 no Nível 17.
+
+Lâmina Defensora: Você usa o 
+movimento de sacar e guardar 
+a espada como uma defesa. 
+Enquanto estiver empunhando 
+apenas uma arma de Acuidade
+
+(e nada na outra mão), você 
+ganha +2 em Bloqueio.
+
+Focar Ponto Vital: Custo: 1 Ação
+
+Você assume uma postura 
+focada, com a mão no cabo da 
+espada, e não pode se mover 
+neste turno. Se o fizer, o 
+primeiro ataque que você fizer 
+no seu próximo turno com esta 
+arma terá sua margem de 
+crítico aumentada em 2 (ex: 20 
+se torna 18-20). Esta habilidade 
+acumula com Criticalizador. 
+Essa habilidade não proíbe o 
+uso de ação extra desde que 
+não se mova.
+
+Postura da Morte Certa: Usos: 
+Mod. Agilidade (min 1)
+
+Em uma rolagem de ataque 
+você 
+respira 
+fundo 
+e 
+desacelera o seu batimento 
+cardíaco 
+para 
+um 
+golpe 
+certeiro. Você recebe +5 na 
+rolagem de ataque.
+
+*Cirurgião Pirata (1d8): 
+Para você, o campo de batalha
+
+=== PÁGINA 108 ===
+
+108
+
+é uma mesa de operação. Seu 
+conhecimento 
+profundo 
+de 
+anatomia não serve apenas 
+para curar, mas também para 
+incapacitar seus inimigos com 
+precisão cirúrgica.
+
+NECESSÁRIO TER A ORIGEM 
+MÉDICO OU CIENTISTA.
+
+Análise Anatômica: Custo: 1 
+Ação – Alcance: 18 metros – 
+Usos: 1 por descanso total
+
+Você analisa um alvo que 
+possa ver. Você descobre um 
+ponto fraco. Pelo próximo 
+minuto, todos os ataques feitos 
+contra esse alvo (por você e 
+seus aliados) causam dano 
+adicional igual ao seu Mod. de 
+Intelecto.
+
+Usos Adicionais: Você ganha 
+um 
+uso 
+adicional 
+desta 
+habilidade nos Níveis 10 e 17.
+
+Sutura de Emergência: Custo: 1 
+Ação – Alcance: Toque – Usos: 
+Mod. de Intelecto (mín 1) Você 
+recupera os usos em um 
+descanso total.
+
+Você usa um Kit Médico para 
+curar rapidamente um aliado, 
+que recupera 2d8 + Intelecto 
+Pontos de Vida.
+
+Escalonamento: 
+A 
+cura 
+(apenas os dados) aumenta 
+para 3d8 no Nível 5, 4d8 no 
+Nível 11 e 5d8 no Nível 17.
+
+Golpe Incapacitante: Custo: 1 
+Ação – Usos: 1 por descanso 
+total
+
+Você mira em um nervo ou 
+músculo específico. Faça um 
+ataque com arma. Se acertar, o 
+alvo deve fazer um teste de 
+Resistência de Fortitude (CD 10 
++ 
+Treinamento 
++ 
+Mod. 
+Intelecto). Se falhar, você pode 
+aplicar uma das seguintes 
+condições por 1 minuto (o alvo 
+pode refazer o teste no final de 
+cada turno dele):
+
+A) 
+Braço 
+Debilitado: 
+Desvantagem em ataques que 
+usam os braços.
+
+B) 
+Perna 
+Lenta: 
+O 
+deslocamento é reduzido pela 
+metade.
+
+=== PÁGINA 109 ===
+
+109
+
+C) 
+Desmaio: 
+O 
+alvo 
+fica 
+Atordoado por 2 rodadas.
+
+Usos Adicionais: Você ganha 
+um 
+uso 
+adicional 
+desta 
+habilidade nos Níveis 10 e 17.
+
+Reanimação de Campo: Custo: 
+1 Ação – Alcance: Toque
+
+Se um aliado caiu a 0 Pontos de 
+Vida, você pode usar sua Ação 
+e 
+um 
+Kit 
+Médico 
+para 
+estabilizá-lo automaticamente; 
+o aliado volta com 1 PV.
+
+*Trovador 
+Dos 
+Mares 
+(1d8): Sua arma não é a 
+espada ou a pistola, mas a 
+alma expressa em sua arte. 
+Seja através de uma canção 
+que incendeia o coração dos 
+seus 
+companheiros, 
+uma 
+história que 
+paralisa 
+uma 
+multidão ou uma melodia que 
+abala o espírito de um inimigo, 
+você é o coração pulsante da 
+tripulação.
+
+NECESSÁRIO TER A ORIGEM 
+MUSICO.
+
+Inspiração: Custo: 1 Reação ou 1 
+Ação extra – Alcance: 18 
+metros 
+– 
+Usos: 
+Mod. 
+de 
+Intelecto (mín 1) Você recupera 
+os usos em um descanso 
+parcial.
+
+Você usa sua música para 
+inspirar um aliado (podendo 
+ser você). O alvo rola 1d6 e 
+adiciona o resultado a uma 
+rolagem de ataque, teste de 
+perícia ou Disputa que acabou 
+de fazer.
+
+Escalonamento: O dado de 
+inspiração se torna 1d8 no 
+Nível 8, 1d10 no Nível 12 e 1d12 
+no Nível 16.
+
+Despedaçar: Custo: 1 Ação – 
+Alcance: Cone de 9 metros – 
+Usos: Mod. de Intelecto (mín 1) 
+Você 
+precisa 
+de 
+um 
+instrumento. Você recupera os 
+usos em um descanso total.
+
+Você toca uma nota destrutiva. 
+Inimigos no cone devem fazer 
+um teste de Resistência de 
+Fortitude (CD 10 + Treinamento
+
+=== PÁGINA 110 ===
+
+110
+
++ Mod. Intelecto). Se falharem, 
+recebem 2d8 + Intelecto de 
+dano trovejante e ficam Surdos 
+por 1 rodada. Se passarem, 
+recebem metade do dano.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 3d8 no Nível 5, 4d8 no 
+Nível 11 e 5d8 no Nível 17.
+
+Senhoras & Senhores: Durante 
+um descanso parcial, você 
+pode fazer uma Performance. 
+Aliados 
+que 
+assistirem 
+(incluindo 
+você) recuperam 
+Pontos 
+de 
+Vida 
+adicionais 
+iguais a 1d8 + seu Mod. de 
+Intelecto. Pontos de Vida que 
+passarem 
+do 
+máximo 
+se 
+tornam PVs Temporários.
+
+Astro do Rock: Você ganha 
+Vantagem 
+em 
+testes 
+de 
+Performance (Intelecto). Além 
+disso, uma vez por dia, após 
+uma 
+Performance 
+bem-
+sucedida, 
+você 
+ganha 
+Vantagem 
+em 
+testes 
+de 
+Persuasão e Enganação por 1 
+hora.
+
+Sinfonia Da Batalha: Seus 
+instrumentos 
+musicais 
+são 
+suas armas (Flautas contam 
+como 
+Adagas, 
+Violões/Guitarras 
+como 
+Machados, 
+Tambores 
+como 
+Martelos de Guerra) . Além 
+disso, uma vez por turno, 
+quando 
+você 
+acertar 
+um 
+ataque com seu instrumento, 
+ele 
+causa 
+1d6 
+de 
+dano 
+trovejante extra.
+
+Badalas Da Fúria: Custo: 1 Ação 
+extra – Usos: Mod. de Intelecto 
+(mín 1) Você recupera os usos 
+em um descanso total.
+
+Imediatamente após causar 
+dano com Sinfonia da Batalha 
+ou Despedaçar, você pode usar 
+sua Ação extra para causar 
+dano trovejante adicional (igual 
+ao seu Mod. de Intelecto) a um 
+dos alvos.
+
+Acordes Sombrios: Custo: 1 
+Ação – Usos: Mod. de Intelecto 
+(mín 1) Você recupera os usos 
+em um descanso total.
+
+=== PÁGINA 111 ===
+
+111
+
+Você toca uma melodia que 
+afeta a mente. A CD para todos 
+os acordes é 10 + Treinamento 
++ Mod. Intelecto. Você escolhe 
+um dos efeitos:
+
+A) Dó (Angústia): Um alvo a 9m 
+deve 
+fazer 
+um 
+teste 
+de 
+Resistência de Determinação. 
+Se falhar, fica Amedrontado 
+por 1 minuto (pode refazer o 
+teste no final de cada turno).
+
+B) Ré (Dissonância): Inimigos 
+em um raio de 4,5m devem 
+fazer um teste de Resistência 
+de Determinação. Se falharem, 
+têm Desvantagem em suas 
+rolagens de ataque por 1 
+minuto (podem refazer o teste 
+no final de cada turno).
+
+C) Mi (Desequilíbrio): Um alvo a 
+9m deve fazer um teste de 
+Resistência de Fortitude. Se 
+falhar, ele se move 6 metros 
+em uma direção aleatória (role 
+1d4) e fica Caído.
+
+D) Fá (Perdição): Um alvo a 9m 
+deve 
+fazer 
+um 
+teste 
+de 
+Resistência de Fortitude. Se
+
+falhar, seus ataques causam 
+metade do dano até o final do 
+seu próximo turno.
+
+E) Sol (Intensidade): Um aliado 
+a 9m ganha Vantagem no 
+próximo ataque e causa dano 
+ígneo extra (igual ao seu Mod. 
+de Intelecto).
+
+F) Lá (Lentidão): Um alvo a 9m 
+tem 
+seu 
+deslocamento 
+reduzido pela metade e não 
+pode pular por 1 minuto (sem 
+teste).
+
+G) Sí (Silêncio): Um alvo a 9m 
+deve 
+fazer 
+um 
+teste 
+de 
+Resistência de Fortitude. Se 
+falhar, fica Surdo por 1 minuto.
+
+Cântico da Guerra: Custo: 1 
+Ação – Alcance: Raio de 3m 
+(centrado em você) – Usos: 
+Mod. de Intelecto (mín 1) Você 
+recupera os usos em um 
+descanso total.
+
+Inimigos na área devem fazer 
+um teste de Resistência de 
+Fortitude (CD 10 + Treinamento 
++ Mod. Intelecto). Se falharem, 
+recebem 3d6 + Intelecto de
+
+=== PÁGINA 112 ===
+
+112
+
+dano trovejante, ou metade se 
+passarem
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 4d6 no Nível 5, 5d6 no 
+Nível 11 e 6d6 no Nível 17.
+
+*Estilo Colossal (1d12): 
+Você domina a arte de usar o 
+peso e o poder avassalador de 
+armas grandes para esmagar 
+seus oponentes e controlar o 
+campo de batalha. Seus golpes 
+são lentos, mas cada um tem a 
+força de um canhão.
+
+NECESSÁRIO 
+USAR 
+UMA 
+ARMA DE DUAS MÃOS.
+
+Abalo Sísmico: Custo: 1 Ação – 
+Alcance: Raio de 3m (centrado 
+em você) – Usos: Mod. de 
+Físico (mín 1) Você recupera os 
+usos em um descanso parcial.
+
+Você golpeia o chão com força 
+total. Inimigos na área devem 
+fazer um teste de Resistência 
+de 
+Acrobacia 
+(CD 
+10 
++ 
+Treinamento + Mod. Físico). Se
+
+falharem, recebem 2d8 + Físico 
+de dano de concussão e ficam 
+Caídos. Se passarem, recebem 
+metade do dano e não caem. A 
+área se torna terreno difícil
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 3d8 no Nível 5, 4d8 no 
+Nível 11 e 5d8 no Nível 17.
+
+Colosso: Uma vez por turno, 
+quando 
+você 
+acertar 
+um 
+ataque com uma arma de duas 
+mãos, você pode adicionar um 
+dado de dano extra (do mesmo 
+tipo da arma).
+
+Postura Inabalável: Custo: 1 
+Ação extra – Duração: 1 minuto 
+– Usos: Mod. de Físico (mín 1)
+
+Você usa o peso da sua arma 
+para se firmar no chão. Você 
+recupera os usos em um 
+descanso 
+parcial. 
+Pela 
+duração, seu deslocamento se 
+torna 0 e você não pode usar 
+Esquiva. Em troca, você ganha 
++2 em Bloqueio e Vantagem em 
+testes para resistir a ser 
+empurrado ou derrubado.
+
+=== PÁGINA 113 ===
+
+113
+
+Baluarte de Aço: Custo: 1 
+Reação – Usos: Mod. de Físico 
+(mín 1) Você recupera os usos 
+em um descanso parcial.
+
+Quando um aliado a até 1,5 
+metros de você é alvo de um 
+ataque, você pode usar sua 
+Reação para se mover na 
+frente dele, tornando-se o 
+novo alvo do ataque. Ao fazer 
+isso, você pode usar seu 
+Bloqueio 
+como 
+parte 
+da 
+mesma Reação
+
+Golpe Esmaga Crânio: Custo: 1 
+Ação extra (após acertar um 
+ataque) – Usos: 1 por descanso 
+parcial
+
+Quando você acerta um ataque 
+com arma de duas mãos, você 
+pode usar sua Ação extra para 
+tentar atordoar o alvo. O alvo 
+deve 
+fazer 
+um 
+teste 
+de 
+Resistência de Fortitude (CD 10 
++ Treinamento + Mod. Físico). 
+Se falhar, ele fica Atordoado 
+por 1 rodada
+
+Impacto Brutal: Custo: 1 Ação – 
+Alcance: Cone de 4,5 metros –
+
+Usos: Mod. de Físico (mín 1) 
+Você recupera os usos em um 
+descanso total.
+
+Você gira sua arma em um 
+arco 
+amplo, 
+sofrendo 
+Desvantagem na rolagem de 
+ataque. 
+Faça 
+uma 
+única 
+rolagem de Ataque. Compare 
+este resultado com a Defesa de 
+cada inimigo no cone. Todos 
+que 
+você 
+acertar 
+são 
+empurrados 3 metros para 
+trás e recebem o dano de um 
+ataque.
+
+Gigante Da Tempestade: Custo: 
+1 Ação extra – Duração: 1 
+minuto – Usos: 1 por descanso 
+total
+
+Seu 
+tamanho 
+dobra. 
+Pela 
+duração, seu alcance corpo-a-
+corpo aumenta em 1,5 metros 
+e, uma vez por turno, seu 
+primeiro ataque que acertar 
+causa 1d4 de dano extra.
+
+Usos Adicionais: Você ganha 
+um 
+uso 
+adicional 
+desta 
+habilidade no Nível 15
+
+=== PÁGINA 114 ===
+
+114
+
+Protagonista 
+(1d6): 
+O 
+universo tem um senso de 
+humor estranho, e ele parece 
+gostar de você. Às vezes, 
+quando a situação está no seu 
+pior, o destino intervém da 
+maneira 
+mais 
+bizarra 
+e 
+inesperada 
+possível. Assim 
+que completar um descanso 
+total, role 1d4-1 (mínimo de 1 
+uso), isso determina quantas 
+vezes no dia poderá acontecer 
+um Karma mágico para livrar-
+lhe das piores situações que 
+você enfrentará, por exemplo: 
+Assim que for alvo de um 
+ataque fatal, um caranguejo 
+pode voar na cara do inimigo 
+fazendo ele interromper o 
+ataque; Quando for cair de uma 
+grande altura, você cai sobre 
+uma carroça cheia de palha; 
+Pode acontecer qualquer coisa 
+desde que o Mestre permita. 
+Você deve combinar com o 
+Mestre após a rolagem: quem 
+vai 
+escolher 
+quando 
+este 
+Karma 
+será 
+ativado. 
+Esse 
+poder só vai durar até o 
+próximo descanso total.
+
+*Ferreiro 
+Dos 
+Mares 
+(1d10): 
+Você 
+não 
+apenas 
+empunha uma arma, você a 
+compreende. Cada peça de 
+metal, cada ponto de solda, 
+cada fraqueza estrutural. Para 
+você, o campo de batalha é 
+apenas uma extensão da sua 
+forja, e seus inimigos são 
+meros pedaços de metal a 
+serem moldados, consertados 
+ou quebrados.
+
+NECESSÁRIO TER A ORIGEM 
+ARTESÃO, +2 DE INTELECTO E 
+FÍSICO.
+
+Martelo da Forja: Sua técnica 
+com martelos é incomparável. 
+Você pode usar seu Ofício 
+(Intelecto) em vez de Luta 
+(Físico) para as rolagens de 
+ataque e Disputas de Bloqueio 
+com 
+armas 
+da 
+categoria 
+Martelo (Martelo de Guerra, 
+Martelo Leve). Além disso, uma 
+vez por turno, quando você 
+acertar um ataque com essas
+
+=== PÁGINA 115 ===
+
+115
+
+armas, ele causa 1d6 de dano 
+extra.
+
+Bênção do Ferreiro: Custo: 1 
+Ação extra – Duração: 1 minuto 
+– Usos: Mod. de Intelecto (mín 
+1) Você recupera os usos em 
+um descanso total.
+
+Você 
+toca 
+uma 
+arma 
+ou 
+armadura. Escolha um dos 
+efeitos:
+
+A) Arma Afiada: A arma recebe 
+um bônus de +1 nas rolagens 
+de ataque.
+
+B) Armadura Temperada: A 
+armadura ou escudo concede 
++1 na Defesa Passiva e nas 
+rolagens 
+de 
+Disputa 
+de 
+Bloqueio
+
+Ponto Fraco: Custo: 1 Ação – 
+Usos: 1 por combate
+
+Você analisa o equipamento de 
+um inimigo que possa ver. Faça 
+uma 
+Disputa 
+de 
+Ofício 
+(Intelecto) contra a Defesa de 
+Bloqueio do alvo. Se você 
+vencer, você encontra uma 
+brecha. O próximo ataque feito
+
+contra esse alvo (por você ou 
+um aliado) tem Vantagem.
+
+Reparo de Combate: Custo: 1 
+Ação – Alcance: Toque
+
+Você 
+usa 
+um 
+Kit 
+de 
+Ferramentas para fazer um 
+reparo rápido em um aliado 
+usando armadura ou em um 
+Cyborg. O alvo recebe Pontos 
+de Vida Temporários em valor 
+igual a 5 x seu Mod. de 
+Intelecto
+
+Coração da Fornalha: Custo: 1 
+Ação extra – Usos: Mod. de 
+Físico (mín 1)
+
+Você recupera os usos em um 
+descanso total. Você recebe 
+Resistência (metade do dano) a 
+dano Ígneo. No Nível 15, você se 
+torna Imune a dano Ígneo. Você 
+pode usar sua Ação extra para 
+aquecer seu sangue; o próximo 
+ataque que você acertar neste 
+turno 
+causa 
+dano 
+Ígneo 
+adicional igual ao seu Mod. de 
+Intelecto, e o alvo deve fazer 
+um teste de Resistência de 
+Fortitude (CD 10 + Treinamento
+
+=== PÁGINA 116 ===
+
+116
+
++ Mod. Intelecto). Se falhar, ele 
+fica Incendiado (sofrendo Mod. 
+Intelecto de dano ígneo no 
+início de cada turno dele) por 1 
+minuto, ou até usar uma Ação 
+para apagar
+
+Mestre da Armadura: Seu 
+trabalho é impecável. Quando 
+você usa a habilidade Bênção 
+do 
+Ferreiro 
+(Armadura 
+Temperada), 
+o 
+bônus 
+concedido é +2, em vez de +1.
+
+Esse é o Seu Fim (1d6): 
+Custo: Ao realizar um Ataque – 
+Usos: Bônus de Treinamento.
+
+Quando realizar um ataque 
+contra um alvo, antes de o 
+Mestre dizer se o ataque 
+acertar ou não. Você pode 
+escolher receber +5 no acerto 
+do ataque.
+
+*Estilo 
+Multilâminas 
+(1d12): 
+Você 
+aprendeu 
+a 
+coordenar múltiplas armas ao 
+mesmo tempo, superando os
+
+limites 
+convencionais 
+do 
+combate para atacar e se 
+defender como um verdadeiro 
+demônio das espadas.
+
+NECESSÁRIO 
+TER 
+A 
+HABILIDADE AMBIDESTRO E 
+TER NO MÍNIMO +3 DE FÍSICO 
+OU AGILIDADE.
+
+Estilo Multilâminas: Você pode 
+empunhar mais de apenas 
+duas armas simultaneamente. 
+Se possuir uma terceira arma 
+adequada, pode empunhá-la 
+(por exemplo, na boca).
+
+Postura da Lâmina Cruzada: 
+Custo: 1 Ação extra.
+
+Você cruza suas lâminas em 
+uma postura defensiva rígida. 
+Você recebe +2 de Bloqueio e 
+ignora 
+completamente 
+as 
+Vantagens de ataques inimigos 
+até o início do seu próximo 
+turno.
+
+Tornado de Lâminas: Custo: 1 
+Ação - Alcance: Raio de 1,5m ao 
+seu redor - Usos: Mod. de 
+Físico/Agilidade (mín 1). Você
+
+=== PÁGINA 117 ===
+
+117
+
+recupera os usos em um 
+descanso total.
+
+Você gira como um furacão 
+cortante. Inimigos na área 
+devem fazer um teste de 
+Resistência de Agilidade (CD 10 
++ Treinamento + Mod. Fís/Des). 
+Se falharem, recebem 2d8 + 
+seu Mod. de Atributo de dano 
+cortante, 
+ou 
+metade 
+se 
+passarem.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 3d8 no Nível 5, 4d8 no 
+Nível 11 e 5d8 no Nível 17.
+
+Avanço Selvagem: Custo: 1 
+Ação - Alcance: Uma linha reta 
+igual ao seu deslocamento - 
+Usos: Mod. de Físico/Agilidade 
+(mín 1). Você recupera os usos 
+em um descanso total.
+
+Você 
+avança 
+loucamente 
+gastando 
+todo 
+seu 
+deslocamento, e parando em 
+um espaço adjacente livre. 
+Todos na área dessa linha de 
+ataque devem realizar um 
+teste de acrobacia (Agilidade).
+
+Se falharem, recebem 2d10 + 
+Atributo de dano cortante, ou 
+metade se passarem.
+
+Escalonamento: 
+O 
+dano 
+(apenas os dados) aumenta 
+para 3d8 no Nível 5, 4d8 no 
+Nível 11 e 5d8 no Nível 17.
+
+Estrategista de Batalha 
+(1d8): Sua mente é a sua 
+maior arma. Você observa o 
+campo de batalha como um 
+tabuleiro de xadrez, ditando o 
+ritmo do combate e explorando 
+as 
+fraquezas 
+dos 
+seus 
+oponentes para garantir a 
+vitória da sua tripulação.
+
+NECESSÁRIO TER NO MÍNIMO 
++3 DE INTELECTO.
+
+Ordem Tática: Custo: 1 Ação 
+extra - Alcance: 18 metros - 
+Usos: Mod. de Intelecto (mín 1). 
+Você recupera os usos em um 
+descanso total.
+
+Você grita uma ordem vital 
+para o grupo. Um aliado que 
+possa ouvi-lo pode usar a
+
+=== PÁGINA 118 ===
+
+118
+
+Reação dele imediatamente 
+para realizar um ataque básico 
+com arma ou se mover até 
+metade do seu deslocamento 
+sem 
+provocar 
+ataques 
+de 
+oportunidade.
+
+Prever Movimentos: Custo: 1 
+Reação - Alcance: 18 metros - 
+Usos: Mod. de Intelecto (mín 1). 
+Você recupera os usos em um 
+descanso total.
+
+Quando um inimigo a até 18 
+metros que você possa ver 
+declarar um ataque contra um 
+aliado, você pode gritar um 
+aviso tático. O aliado ganha um 
+bônus numérico igual ao seu 
+Mod. de Intelecto na Defesa 
+(Passiva, Bloqueio ou Esquiva) 
+contra esse ataque específico.
+
+=== PÁGINA 119 ===
+
+119
+
+“Haki é um poder que está
+
+adormecido em todas as
+
+entidades do mundo... 
+‘Presença’, ‘Espírito de Luta’ e 
+‘Intimidação’... Não é diferente
+
+dos sentidos humanos... No
+
+entanto, a maioria das 
+pessoas não percebem este 
+poder dentro de si, ou talvez... 
+Ao tentar desperta-lo acabam
+
+morrendo... ‘O ato de não
+
+duvidar’. Isso faz a
+
+força!” Silvers
+
+Rayleigh...
+
+Ao chegar no nível 10, 
+você começa a despertar o seu 
+Haki. Comece escolhendo o 
+Haki 
+da 
+Observação 
+ou 
+Armamento iniciante, depois 
+você segue o caminho que 
+desejar. Lembrando! O Haki Do 
+Rei só pode ser liberado ao 
+atingir +4 no atributo de 
+Instinto. O nível Rei, só pode 
+ser obtido após um nível
+
+=== PÁGINA 120 ===
+
+120
+
+extremo de adrenalina em 
+batalha, 
+quando 
+tiver 
+o 
+determinado Haki no nível 
+Mestre.
+
+Iniciante. Você se torna capaz 
+de atingir usuários de Logia 
+com seus ataques armado e 
+desarmados de curto ou longo 
+alcance. Aumenta seu Bloqueio 
+igual a sua Instinto.
+
+Intermediário. 
+Pode 
+imbuir 
+seus ataques (tanto armados 
+como desarmados) com um 
+Haki mais forte, somando seu 
+atributo de Instinto em seu 
+dano.
+
+Avançado. 
+Recebe 
+Defesa 
+Passiva igual a sua Instinto. 
+você pode emitir seus ataques 
+corpo a corpo a até 1,5 metros.
+
+Mestre. Seus ataques agora, 
+atingem o alvo de dentro para 
+fora, ignorando resistências 
+(imunidades não) e nos seus 
+turnos, quando você rola um 1 
+ou 2 num dado de dano, você 
+pode rolar de novo (deve ficar 
+com o segundo resultado). 
+Você causa o dobro de dano em 
+objetos.
+
+Rei 
+Do 
+Armamento. 
+Sua 
+resistência 
+aumenta, 
+reduzindo todo dano recebido 
+igual a sua 
+Instinto. Sua 
+emissão de haki se torna 1,5 
+metros X Instinto.
+
+=== PÁGINA 121 ===
+
+121
+
+Iniciante. A percepção passiva 
+recebe o dobro de percepção. 
+Você 
+sempre 
+sabe 
+a 
+localização de criaturas vivas a 
+15 metros x Instinto, pode 
+tentar 
+localizar 
+elas 
+mais 
+longe, caso você passar em um 
+teste de determinação.
+
+Intermediário. 
+Recebe 
+um 
+bônus em Esquiva igual a 
+Instinto. Não é penalizado pela 
+distância máxima da arma e 
+dobra a distância máxima.
+
+Avançado. Consegue sentir a 
+presença de outras pessoas, 
+fica 
+imune 
+a 
+cegueira, 
+escuridão e sente pessoas 
+invisíveis 
+perto 
+de 
+você.
+
+Recebe 
+vantagem 
+em 
+testes 
+contra 
+ilusões 
+e 
+efeitos 
+mentais.
+
+Mestre. 
+Você 
+vê 
+alguns 
+segundos no futuro. Uma vez 
+por rodada, você pode refazer 
+uma rolagem de Ataque, Teste 
+ou Defesa que tenha falhado, 
+utilizando apenas 1d20, mas 
+ainda com os modificadores. 
+Você deve aceitar o segundo 
+resultado.
+
+Rei Da Observação. Recebe 
+Reações igual a sua Instinto. 
+Uma vez por dia, você pode ver 
+através dos olhos de outra 
+pessoa voluntaria por 1 minuto, 
+além 
+de 
+conseguir 
+se 
+comunicar por ela, a distância 
+é limitada a 5km.
+
+Haki Da
+
+=== PÁGINA 122 ===
+
+122
+
+Iniciante. 
+Com uma 
+Ação, 
+você libera uma onda de 
+vontade. Inimigos num raio de 
+9m x Instinto devem fazer um 
+teste de Determinação CD 10 + 
+Intimidação 
++ 
+Instinto. 
+Se 
+falharem, desmaiam (se forem 
+de Nível com metade ou menos 
+que 
+o 
+seu) 
+ou 
+ficam 
+Amedrontados por 1 minuto.
+
+Intermediário. 
+Sua 
+vontade 
+afeta a matéria. Você pode 
+causar dano em objetos e 
+estruturas 
+apenas 
+com 
+a 
+presença. 
+Como 
+Reação, 
+quando alguém te ataca, você 
+impõe sua vontade. O inimigo 
+subtrai -5 da rolagem de 
+ataque dele devido ao medo 
+instintivo.
+
+Avançado. Você reveste seus 
+golpes com Haki do Rei (raios 
+negros). Seus ataques causam 
++2 dados de dano. Se você
+
+colidir
+
+com 
+outro 
+usuário 
+de 
+Haki 
+do Rei, o ambiente ao redor 
+sofre dano.
+
+Mestre. Você se reveste com a 
+aura. 
+Você 
+ganha 
+PV 
+Temporários 
+no 
+início 
+do 
+combate iguais a 5 x Instinto, 
+além disso, você pode tentar 
+nocautear alguém a 1km de 
+distância, sem afetar quem 
+estiver em volta.
+
+Rei Dos Reis. Todos os seus 
+ataques físicos tem o dano do 
+tipo Corruptor. Além disso, 
+dissipar 
+efeitos 
+mentais, 
+ilusórios e de Akuma no mi, 
+imediatamente.
+
+=== PÁGINA 123 ===
+
+123
+
+As Frutas do Diabo ou 
+Akuma No Mi são frutas 
+misteriosas 
+e 
+especiais 
+espalhadas por todo o mundo, 
+conhecidas por conceder aos 
+seus consumidores poderes 
+sobre-humanos permanentes, 
+no entanto o usuário se torna 
+permanentemente incapaz de 
+nadar.
+
+Como um todo, as Frutas 
+do Diabo abrangem centenas 
+de poderes diferentes, desde 
+os simples até os capazes de 
+destruição em massa. Elas são 
+amplamente agrupadas em 
+três categorias: Paramecia, 
+Logia e Zoan. As Frutas do 
+Diabo são a fonte de poder dos 
+indivíduos mais importantes do 
+mundo, especialmente entre 
+os Três Grandes Poderes. Isso, 
+junto com sua raridade geral, 
+faz com que elas sejam muito 
+procuradas; frutas individuais
+
+podem 
+ser 
+avaliadas 
+em 
+centenas de milhões em Belly, 
+e grandes esforços têm sido 
+feitos para produzir versões 
+artificiais em massa para uso 
+bélico. 
+Com 
+apenas 
+uma 
+exceção notável, um indivíduo 
+só pode adquirir os poderes de 
+uma única Fruta do Diabo e 
+sobreviver.
+
+=== PÁGINA 124 ===
+
+124
+
+Frutas 
+Logia 
+concedem 
+a 
+habilidade de criar, controlar e 
+se 
+transformar 
+em 
+um 
+elemento natural. O usuário 
+pode 
+se 
+tornar 
+intangível, 
+tornando 
+ataques 
+físicos 
+ineficazes sem o uso de Haki
+
+ou outra fraqueza 
+natural. 
+É 
+considerado 
+o 
+tipo 
+mais 
+destrutivo e perigoso, devido à 
+sua capacidade de atacar em 
+larga escala e de evitar danos 
+com facilidade.
+
+=== PÁGINA 125 ===
+
+125
+
+Esse tipo concede ao usuário 
+habilidades únicas e variadas, 
+que não seguem um padrão 
+fixo. As habilidades podem 
+envolver a modificação do
+
+próprio corpo, a criação ou 
+manipulação de substâncias, 
+ou a alteração do ambiente ao 
+redor. É o tipo mais comum de 
+Akuma no Mi, e seus poderes
+
+geralmente 
+não 
+tornam 
+o 
+usuário intangível, mas podem 
+ser extremamente versáteis e 
+criativos.
+
+=== PÁGINA 126 ===
+
+126
+
+As frutas Zoan permitem ao 
+usuário se transformar em um 
+animal específico, além de uma 
+forma híbrida entre o animal e 
+sua forma original. Esse tipo de 
+fruta melhora naturalmente a 
+força 
+física, 
+velocidade 
+e 
+resistência do usuário. Zoans 
+são especialmente úteis em 
+combate 
+corpo 
+a 
+corpo. 
+Existem variações desse tipo 
+de Akuma No Mi:
+
+Zoan Comum. São as frutas 
+que permitem ao usuário se 
+transformar em um animal
+
+real. O usuário possui três 
+formas: 
+humana, 
+animal 
+completa e uma forma híbrida 
+(meio-humano, meio-animal). 
+Essas frutas aumentam as 
+capacidades físicas do usuário 
+e são bastante úteis em 
+combate. Exemplos: Ushi Ushi 
+no Mi: Modelo Búfalo (Dalton), 
+Tori Tori no Mi: Modelo Falcão 
+(Pell)
+
+Zoan Carnívora. Esse é um 
+subtipo das Zoans comuns, 
+mas com foco em animais 
+predadores. 
+Os 
+usuários 
+costumam ser mais violentos e 
+perigosos, especialmente em
+
+=== PÁGINA 127 ===
+
+127
+
+combate corpo a corpo, devido 
+ao 
+instinto 
+caçador 
+das 
+entidades. 
+Exemplos: 
+Neko 
+Neko no Mi: Modelo Leopardo 
+(Rob Lucci), Inu Inu no Mi: 
+Modelo Lobo (Jabra)
+
+Zoan Ancestral (Ancient Zoan). 
+Permitem que o usuário se 
+transforme 
+em 
+entidades 
+extintas, como dinossauros ou
+
+mamutes. São conhecidas por 
+sua força física absurda e 
+resistência acima do normal. 
+São bem mais raras que as 
+Zoans comuns. Exemplos: Ryu 
+Ryu no Mi: Modelo Allosaurus 
+(X Drake), Zou Zou no Mi: 
+Modelo Mamute (Jack)
+
+Zoan Mítica (Mythical Zoan). 
+Essas são as mais raras e
+
+poderosas 
+entre 
+todas 
+as 
+Zoans. 
+Permitem 
+a 
+transformação em entidades 
+mitológicas, 
+e 
+geralmente 
+concedem 
+habilidades 
+especiais 
+únicas, 
+como 
+manipular fogo, regenerar o 
+corpo ou voar com asas de 
+chamas. Exemplos: Tori Tori no 
+Mi: Modelo Fênix (Marco), Uo
+
+Uo no Mi: Modelo Seiryu 
+(Kaido), Hito Hito no Mi: Modelo 
+Daibutsu (Sengoku), Hito Hito 
+no Mi: Modelo Nika (Luffy)
+
+Quando 
+comer 
+uma 
+Akuma No Mi, você receberá 
+habilidades de acordo com a
+
+Habilidades De
+
+=== PÁGINA 128 ===
+
+128
+
+tabela de níveis, onde poderá 
+escolher entre habilidades de 
+fruta 
+ou 
+as 
+habilidades 
+comuns. O Jogador e o Mestre 
+devem agir em conjunto para 
+decidir as habilidades e o 
+balanceamento, 
+já 
+que 
+os 
+poderes das frutas não são 
+predefinidos, 
+mas 
+sim 
+originados da criatividade do 
+usuário. Alguém que comeu a 
+fruta 
+da 
+luz, 
+não 
+necessariamente 
+terá 
+os 
+mesmos poderes de outro 
+usuário dela.
+
+Para 
+auxiliar 
+no 
+balanceamento 
+das 
+habilidades, o mestre usa o 
+sistema de Pontos De Esforço, 
+estes que são calculados da 
+seguinte forma:
+
+PdE = 4 + Atributo Principal +
+
+Nível + Treinamento
+
+Usar uma habilidade forte 
+consome mais PdE, mais fraca 
+consome menos. A duração de 
+uma 
+habilidade 
+ou 
+forma 
+hibrida/completa de uma Zoan, 
+também impacta no gasto de
+
+PdE. Aqui está uma ideia de 
+consumo de PdE por cada tipo 
+de habilidade:
+
+Ação 
+PdE 
+CD 
+Da
+
+Básica 
+0 
+10 + Atributo 
+Dan
+desarm
+
+Comum 
+2 
+8 + Prof + Atributo 
+2 dados
+o
+
+Forte 
+4 
+10 + Prof + Atributo 
+4 da
+médi
+
+Mortal 
+8 
+12 + Prof + Atributo 
+6 da
+grand
+
+Suprema 
+12 
+15 + Prof + Atributo 
+8 dad
+
+Forma 
+Híbrida 
+2/min 
+- 
+Vant
+
+Forma 
+Completa 4/min 
+- 
+PV ex
+
+Atrib
+
+Intangível 
+- 
+- 
+Imun
+
+Os pontos de vida serão do 
+mesmo padrão que os das 
+habilidades, podendo escolher 
+a média. O Mestre terá que 
+escolher o mais apropriado 
+para a fruta, considerando 
+força, agilidade, resistência, 
+defesa, dano, etc. Que a fruta 
+do 
+diabo 
+proporciona 
+ao
+
+=== PÁGINA 129 ===
+
+129
+
+usuário. A mérito de exemplo: 
+um usuário de uma fruta Zoan 
+de um animal de grande porte, 
+terá mais vida que um animal 
+de 
+muita 
+agilidade 
+e 
+de 
+pequeno porte; usuário da fruta 
+do diamante receberá mais 
+vida que o usuário da fruta da 
+eletricidade, que proporciona 
+grande 
+agilidade 
+e 
+poder 
+destrutivo. 
+O 
+intuito 
+do 
+balanceamento 
+é 
+deixar 
+divertido para todos e não 
+conceder 
+mais 
+ou 
+menos 
+protagonismo para o Jogador. 
+Veja alguns exemplos de como 
+balancear as habilidades das 
+frutas.
+
+Exemplos
+
+Exemplo 1: Mera Mera no Mi 
+(Fruta do Fogo - Logia)
+
+Pontos De Vida: 2d6
+
+Explosão 
+Ígnea 
+(Habilidade 
+Básica) 
+O usuário lança uma pequena 
+rajada de fogo com as mãos. 
+Custo: 0 PdE
+
+Muralha 
+de 
+Chamas 
+(Habilidade 
+Comum) 
+Cria um escudo de fogo ao 
+redor do corpo para bloquear 
+ataques físicos ou de projéteis. 
+Custo: 2 PdE
+
+Pilar Flamejante (Habilidade 
+Forte) 
+Dispara uma coluna de fogo em 
+área, queimando tudo ao redor. 
+Custo: 4 PdE
+
+Sol 
+Final 
+(Técnica 
+Especial/Definitiva) 
+O usuário concentra todo seu 
+poder em uma esfera solar e a 
+arremessa. 
+Custo: 12 PdE
+
+Exemplo 2: Inu Inu no Mi – 
+Modelo: Lobo (Zoan Carnívora)
+
+Pontos De Vida: 2d10
+
+Garras 
+Rápidas 
+(Habilidade 
+Básica) 
+Usa as garras com velocidade 
+ampliada 
+em 
+ataques 
+sucessivos. 
+Custo: 0 PdE
+
+=== PÁGINA 130 ===
+
+130
+
+Forma Híbrida (Transformação 
+Parcial) 
+Parte do corpo se transforma 
+em lobo, aumentando força e 
+faro. 
+Custo: 2 PdE por minuto
+
+Uivo Intimidador (Habilidade 
+Média) 
+Um 
+uivo 
+que 
+abala 
+emocionalmente 
+inimigos 
+próximos, forçando testes de 
+Vontade. 
+Custo: 3 PdE
+
+Forma 
+Completa 
+de 
+Lobo 
+Gigante 
+O usuário vira um enorme lobo 
+de 
+combate. 
+Custo: 4 PdE por minuto
+
+Caçador da Lua Cheia (Técnica 
+Mortal) 
+Salto feroz e ataque giratório 
+em 
+alta 
+velocidade. 
+Custo: 8 PdE
+
+Exemplo 3: Denki Denki no Mi 
+(Fruta 
+da 
+Eletricidade 
+- 
+Paramecia)
+
+Pontos De Vida: 2d6
+
+Toque 
+Eletrocutante 
+(Habilidade 
+Fraca) 
+Encosta em alguém causando 
+dano 
+elétrico 
+direto. 
+Custo: 2 PdE
+
+Corrente Estática (Habilidade 
+Média) 
+Lança uma corrente elétrica 
+em linha reta. Pode paralisar 
+por 
+1 
+turno. 
+Custo: 5 PdE
+
+Campo 
+Elétrico 
+(Habilidade 
+Forte) 
+Área ao redor se enche de 
+eletricidade pulsante que afeta 
+todos os inimigos próximos. 
+Custo: 9 PdE
+
+Raio 
+do 
+Juízo 
+(Técnica 
+Especial) 
+Cria um raio que cai do céu 
+com dano massivo em um alvo. 
+Custo: 11 PdE
+
+=== PÁGINA 131 ===
+
+131
+
+Existem uma série de 
+itens usados no dia a dia, assim 
+como 
+nas 
+aventuras 
+que 
+podem ser uteis para muitas 
+situações. Aqui tem uma lista 
+com várias bugigangas que
+
+oferecem uma ajuda extra.
+
+Além disso, os itens tem 
+um peso. Pesado (P), Médio (M) 
+e Leve (L), isso serve para 
+classificar e organizar quantos 
+itens você consegue levar por 
+vez. Alguns itens podem ser 
+tão 
+leves 
+que 
+nem 
+são 
+considerados, como moedas, 
+algum tipo de ingrediente, 
+plantas... Desde que você tenha 
+algum bolso ou coisa parecida. 
+Nem 
+todos 
+itens 
+são 
+classificados, portanto use sua
+
+intuição e logica para o peso do 
+item, e certifique-se de avisar 
+o Mestre.
+
+Você poderá carregar 10 
+itens leves (aumentando em 5 
+por cada ponto em Físico), 5 
+itens médios (aumentando em 
+3) e 1 item pesado (aumentando 
+em 1). Se você tiver 5 mesmos
+
+itens leves, você pode junta-
+los para formar 1 médio, e 
+funciona do mesmo jeito com 
+os médios.
+
+Armas 
+leves 
+podem 
+ocupar 3 espaços Leves sem 
+contar peso, armas Médias 2, e 
+Pesadas 1 sem contar espaço.
+
+Lista de Itens
+
+Comuns
+
+=== PÁGINA 132 ===
+
+132
+
+Algemas (L a P). Elas são 
+usadas para prender as mãos 
+de alguém. Podem ser de ferro 
+ou de Oceanite. Alguém que 
+esteja preso, pode fazer um 
+teste de Atletismo (Físico) para 
+se soltar, o CD é 25 se for de 
+ferro e 30 se for de Oceanite. 
+Peso varia, pois depende do 
+tamanho. 500 berries de ferro, 
+50.000 de Oceanite.
+
+Algibeira (L). Uma algibeira é 
+capaz de carregar até 3 itens 
+leves como se fosse 1, ou 
+carregar até 20 pedrinhas 
+como se fosse 1 leve. Custa 300 
+berries.
+
+Aljava (M). Carrega 20 flechas 
+como 1 item leve. 800 berries.
+
+Ancora Pequena (P). Ancora 
+usada para navios de porte 
+pequeno, e pode ser carregada. 
+Custa 500.000 berries.
+
+Armadilha de Caça (M). Usada 
+para prender e dar dano a 
+alvos 
+despercebidos. 
+Você 
+demora 1 minuto para instalar 
+e deve fazer um teste de
+
+Sobrevivência 
+(Instinto), 
+o 
+valor mais alto vai ser o valor 
+que outra pessoa deve ter em 
+Percepção Passiva ou em um 
+teste de Percepção (Instinto) 
+para vê-la, caso percebida, 
+pode usar um kit de ladrão 
+para desarma-la. Causa um 
+dado igual a 3d6 de dano 
+cortante e o alvo fica preso, ele 
+pode sair se passar em um 
+teste de Atletismo (Físico) com 
+CD 15. Custa 1.400 berries.
+
+Arpéu (M). Uma corda com uma 
+garra na ponta, usado para 
+escaladas ou para se segurar 
+em algo. Ao usar, o arpéu 
+concede vantagem em testes 
+de Atletismo (Físico) usado 
+para escaladas. Custa 1.000 
+berries.
+
+Bala de Canhão (P). É usada 
+para carregar o canhão. Feita 
+de ferro maciço. Custa 2.000 
+berries.
+
+Bandeira (M). Uma bandeira 
+em branco que pode ser usada 
+para pintar uma Jolly Roger de 
+um bando pirata ou outro
+
+=== PÁGINA 133 ===
+
+133
+
+símbolo. Isso transmite algo na 
+área 
+como 
+determinação, 
+esperança, 
+intimidação, 
+presença ou outra coisa.
+
+Barra de Oceanite (M). Um 
+minério muito raro e valioso, 
+usado para muitas coisas, 
+fundir com armas ou objetos, 
+ou colocar nos cascos de 
+navios. Ela afasta rei dos 
+mares e não deixa usuários de 
+frutas usarem seus poderes e 
+deixam eles exaustos. Custa 
+500.000 berries.
+
+Barril Pequeno (P cheio, M 
+vazio). Usado para guardar 10L 
+de bebida e as vezes comida. 
+Custa 600 berries.
+
+Baú (P cheio, M vazio). Com o 
+baú, você pode guardar 2 itens 
+M como 1 ou 10 itens L como 1 
+M. Custa 800 berries.
+
+Bigorna Pequena (P). Uma 
+bigorna para ferreiros, móvel. 
+Com as ferramentas certas, 
+você pode criar armas ou 
+fundi-las com Oceanite. Custa 
+100.000 berries.
+
+Bolso (L). Um bolso pode 
+carregar 2 item leves como 1. 
+Vem juntamente com a roupa
+
+Bússola 
+(L). 
+Usada 
+por 
+navegadores 
+para 
+se 
+localizarem 
+em 
+alto 
+mar, 
+sempre apontada para o norte. 
+Custa 75 berries.
+
+Caixa 
+de 
+Fogo 
+(L). 
+Esse 
+pequeno recipiente detém uma 
+pederneira, isqueiro e um 
+pavio (um pano geralmente 
+seco embebido em óleo) usado 
+para acender uma fogueira. 
+Usá-lo para 
+acender uma 
+tocha – ou qualquer outra coisa 
+exposta a um combustível 
+abundante – leva uma ação. 
+Acender qualquer outro fogo 
+leva 1 minuto. Custa 25 berries.
+
+Cantil (L). Pode carregar até 1L 
+de bebida gelada. Custa 50 
+berries.
+
+Clima-Tact (L). Um bastão 
+retrátil usado para criar bolhas 
+de ar quente e frio, além de 
+poder conduzir e controlar
+
+=== PÁGINA 134 ===
+
+134
+
+eletricidade. Custa 1.000.000 de 
+berries.
+
+Corda (L a P). Usada para fazer 
+nós (CD sobrevivência 13), ou 
+para outras coisas. Até 15 
+metros é leve e até 20 é médio, 
+passando 
+disso, 
+se 
+torna 
+pesado.
+
+Denden Mushi (Comum) (M). 
+Um caracol tele comunicador, 
+ele consegue se comunicar 
+com outros caracóis discando 
+um 
+número. 
+Custa 
+2.000 
+berries.
+
+Denden Mushi (Espião) (L). Um 
+caracol 
+tele 
+comunicador 
+filhote, usado por um canal 
+especifico entre 1 e 7, ele 
+funciona 
+somente 
+a 
+uma 
+distância igual à da ilha. Ele 
+também 
+pode 
+interceptar 
+outros caracóis ou entrar na 
+linha e se infiltrar na conversa. 
+Não é vendido.
+
+Eternal Pose (L). Uma espécie 
+de bússola, que fica apontando 
+eternamente para uma ilha da 
+Grand Line. Os Eternal Pose
+
+são raros e valiosos com um 
+podendo chegar na casa das 
+dezenas de milhar ou milhões, 
+dependendo do destino.
+
+Fantasia (L). Um conjunto de 
+roupas especifico para se 
+passar por algo ou alguém. 
+Pode ser uma fantasia de 
+monstro, de um objeto, de 
+alguém ou um álter ego do seu 
+personagem.
+
+Flecha (L). Munição para Arcos 
+e Bestas. Custa 10 berries.
+
+Forja Pequena (P). É usada 
+para derreter materiais, e é 
+móvel. Custa 6.000 berries.
+
+Gazua (L). Com uma gazua 
+você pode abrir um cadeado ou 
+fechadura, faça um teste de 
+Prestidigitação (Agilidade) com 
+CD a critério do mestre. Custa 
+100 berries.
+
+Lanterna 
+(L). 
+Usada 
+para 
+iluminação 
+e 
+ajudar 
+na 
+exploração. Sua bateria dura 1 
+dia. Custa 100 berries.
+
+Livro/Diário 
+(L). 
+Pode 
+ser 
+usada para fazer anotações, ou
+
+=== PÁGINA 135 ===
+
+135
+
+contém 
+uma 
+história 
+ou 
+informação. Custa 50 berries.
+
+Livros de Navegação (L). Os 
+navegadores com um livro de 
+navegação, recebem um bônus 
+de +5 em todos os testes 
+relacionados a navegar. Custa 
+125 berries.
+
+Log Pose (L). É uma bussola 
+usada na Grand Line, ela 
+aponta para a próxima ilha que 
+se deve ir, porem antes ela 
+precisa estabelecer um vínculo 
+com o campo magnético da 
+ilha, 
+somente 
+navegadores 
+podem 
+usá-la. 
+Custa 
+800 
+berries.
+
+Luneta (L). A luneta serve para 
+ver navios, ilhas ou qualquer 
+outra coisa a longas distancias. 
+Ela concede um bônus de +5 
+em 
+testes 
+de 
+Percepção 
+(Instinto) ao tentar ver algo 
+longe. Custa 450 berries.
+
+Mapa (L). Mostra um desenho 
+de um determinado local. O 
+custo varia, pois depende de 
+qual lugar o mapa é.
+
+Mochila (P cheia, M vazia). A 
+mochila é usada para carregar 
+mais itens. Com ela você pode 
+carregar +10 itens leves e +3 
+itens médios. Além disso, se 
+você tiver com uma corda, ela 
+diminui uma categoria de peso. 
+Custa 1.250 berries.
+
+Munição (L). Usada por rifles, 
+pistolas, bacamarte pequeno e 
+longo. Custa 40 berries.
+
+Pá (P). Ferramenta usada para 
+cavar 
+buracos 
+na 
+terra. 
+Também pode ser usada como 
+arma, causando 1d6 de dano 
+contundente. 
+Custa 
+650 
+berries.
+
+Pé de Cabra (M). Ferramenta 
+usada para arrancar tabuas de 
+barricadas ou arrombar baús, 
+portas, manivelas, etc. Custa 
+750 berries.
+
+Pedra de Amolar (M). Usada 
+para afiar armas cortantes. 
+Ferreiros que usarem a pedra 
+podem dar efeitos a mais. 
+Custa 400 berries.
+
+=== PÁGINA 136 ===
+
+136
+
+Pedrinhas (L). São usadas 
+como munição do Estilingue. 
+Podem ser achadas no chão.
+
+Picareta 
+(P). 
+Ferramenta 
+usada para extrair minérios 
+das rochas ou quebrar pedras. 
+Assim como a pa, ela pode ser 
+usada como arma causando 
+1d6 de dano perfurante. Custa 
+900 berries.
+
+Rede de Pesca (M). A rede de 
+pesca é usada para pescar, 
+porém ela pode ser usada para 
+capturar algum alvo. Ele fica 
+imóvel e para se soltar é 
+necessário 
+um 
+teste 
+de 
+Fortitude (Físico) CD 20.
+
+Tinta (L). Além de pintar coisas 
+com a tinta, com mais uns 
+trapos e um teste de Ofício 
+(Intelecto), você pode criar 
+uma fantasia ou um disfarce. 
+Custa 35 berries cada cor.
+
+Vara de Pesca (M). Pode ser 
+usada para pescar ou para 
+puxar um alvo ou objeto para 
+perto. Custa 150 berries.
+
+Dials 
+(L). 
+Os 
+dials 
+são 
+dispositivos 
+especiais 
+encontrados nas ilhas do céu. 
+Eles 
+armazenam 
+diversos 
+tipos de substancias e energia 
+e podem ser usados em 
+combate 
+ou 
+no 
+dia-a-dia. 
+Raros na terra, comuns nos 
+céus, 
+seu 
+preço 
+varia 
+dependendo do lugar. Esses 
+são os tipos de dials que você 
+pode encontrar.
+
+Impact 
+Dial 
+– 
+Armazena 
+impacto físico e libera de volta 
+quando 
+ativado. 
+Pode 
+ser 
+usado numa reaçã.
+
+Reject Dial – Uma versão mais 
+forte do Impact Dial, mas 
+também machuca o usuário.
+
+Flame Dial – Armazena e solta 
+fogo.
+
+Heat Dial – Gera calor, usado 
+para 
+cozinhar ou aquecer 
+armas.
+
+Jet Dial – Solta ar comprimido 
+com mais força que o Breath 
+Dial, impulsionando barcos e 
+pessoas.
+
+=== PÁGINA 137 ===
+
+137
+
+Breath Dial – Armazena e 
+libera ar, útil para velas de 
+barcos.
+
+Tone Dial – Grava e reproduz 
+sons, como uma fita cassete.
+
+Vision Dial – Grava imagens e 
+as reproduz depois.
+
+Axe Dial – Solta um corte de 
+energia, como uma lâmina.
+
+Milky Dial – Cria nuvens 
+usadas como caminhos no céu.
+
+Lista de 
+Instrumentos
+
+Flauta (L). Uma peça simples e 
+leve, perfeita para viajantes e 
+músicos de rua. Seu som pode 
+acalmar feras e encantar o 
+público. 250 berries.
+
+Tambor (P ou M). O coração do 
+ritmo! Pequenos tambores são 
+fáceis de carregar, enquanto os 
+médios garantem um som 
+mais forte e profundo. 600 
+berries.
+
+Viola (M). Um instrumento 
+versátil, 
+comum 
+entre 
+músicos. 
+Produz 
+melodias 
+harmoniosas e pode ser usada 
+para tocar canções alegres ou 
+melancólicas. 700 berries.
+
+Guitarra (P). Popular entre 
+piratas e viajantes, seu som 
+vibrante 
+ecoa 
+nos 
+mares. 
+Perfeita 
+para 
+animar 
+tripulações e contar histórias 
+épicas. 1.700 berries.
+
+Piano (Não é carregável). Um 
+instrumento 
+majestoso 
+e 
+imponente. Seu som preenche 
+qualquer ambiente, mas devido 
+ao tamanho, só é encontrado 
+em locais fixos. Custa 10.000 
+berries.
+
+Sanfona (P). Um clássico dos 
+marinheiros, ideal para festas 
+e 
+celebrações. 
+Seu 
+som 
+animado pode levantar o ânimo 
+de qualquer um. 1.000 berries.
+
+Trombeta (L). Instrumento de 
+som 
+marcante, 
+capaz 
+de 
+comandar 
+a 
+atenção 
+de 
+multidões. Usado tanto em
+
+=== PÁGINA 138 ===
+
+138
+
+música quanto para sinais de 
+batalha. 600 berries.
+
+Violino (M). Um instrumento 
+refinado, 
+cujo 
+som 
+pode 
+emocionar 
+ou 
+inspirar 
+coragem. 
+Preferido 
+por 
+músicos 
+talentosos 
+e 
+compositores. 1.500 berries.
+
+Lista de Kits
+
+Bolsa de Ingredientes (M). Uma 
+bolsa especifica para guardar 
+componentes 
+de 
+poções, 
+remédios ou ingredientes para 
+culinária. Com ela você pode 
+guardar até 40 itens desses 
+ocupando apenas 1 espaço de 
+itens 
+médios. 
+Custa 
+2.000 
+berries.
+
+Kit: Cartografo (L). Um kit com 
+papeis, canetas, borrachas, 
+usado por Navegadores para 
+desenhar mapas. Custa 1.000 
+berries.
+
+Cozinha (P). O kit é usado para 
+culinária, com ele você tem 
+vantagem em testes de Ofício
+
+(Intelecto) 
+e 
+Sobrevivência 
+(Instinto) 
+relacionados 
+a 
+cozinhar, além de sempre vir 
+com 1x bussola. Custa 2.000 
+berries.
+
+Ferramentas (P). O kit vem 
+com itens como alicates, fios, 
+martelos, pregos, etc. Usado 
+por Ferreiros, Carpinteiros, 
+Cientistas, 
+Alfaiates, 
+entre 
+outros, para criar maquinários, 
+itens, tecnologias, roupas ou 
+fantasias e reparar estruturas 
+ou navios. Custa 6.000 berries.
+
+Ladrão (M). O kit é usado para 
+abrir fechaduras de portas, 
+baus, cofres ou para desarmar 
+armadilhas. 
+Custa 
+3.000 
+berries.
+
+Médico (M). O kit médico é 
+usado 
+por 
+médicos 
+para 
+recuperar 
+PV. 
+Apenas 
+um 
+médico pode usar o kit com 
+Treinamento, sua cura é de 1d12 
+para 
+cada 
+Nível 
+de 
+personagem 
+do 
+médico 
+e 
+demora 10 minutos para ser 
+usado, além disso, o médico 
+não precisa rolar um teste
+
+=== PÁGINA 139 ===
+
+139
+
+para estabilizar o paciente. Se 
+quem estiver usando não for 
+um médico, deve ser feito um 
+teste de Medicina (Intelecto) 
+CD 15. Se for um sucesso, ele 
+recupera apenas 5xIntelecto 
+de PVs e é usado em 1 minuto. 
+Custa 14.500 berries.
+
+Navios são os principais 
+meio de locomoção no mundo 
+de One Piece. Alguns tem 
+tecnologias 
+que 
+permitem 
+voar, se mover mais rápido, 
+alguns tem até canhões de
+
+energia. Portanto, é importante 
+ter um carpinteiro hábil para 
+construir e reparar navios.
+
+O navio é dividido em 
+partes principais, como casco, 
+mastro, leme e velas. Cada 
+parte tem sua própria vida que
+
+representa sua resistência e 
+qualidade. 
+Quanto 
+melhor 
+construída, maior a vida dessa 
+parte. Durante o jogo, as partes 
+podem 
+receber 
+dano 
+individualmente, afetando o
+
+=== PÁGINA 140 ===
+
+140
+
+desempenho do navio — por 
+exemplo, o casco danificado 
+pode fazer o navio afundar, 
+enquanto o mastro quebrado 
+reduz a velocidade.
+
+Para 
+construir 
+ou 
+melhorar navios, os jogadores 
+gastam materiais (madeira, 
+ferro, etc.) e tempo. Durante a 
+construção do navio, serão 
+realizados testes de Ofício 
+(intelecto) 
+relacionados 
+a 
+carpintaria, para cada parte do 
+navio, 
+isso 
+vai 
+ocasionar 
+mudança na vida do navio, 
+podendo melhorar ou piorar a
+
+qualidade total do navio.
+
+Para construir uma parte 
+do navio, faça um Teste de 
+Carpintaria com CD 20 (o 
+Mestre pode alterar se for 
+necessário). 
+O 
+resultado
+
+modifica a vida da peça: cada 
+ponto acima de 20 concede 
++5% de PV, enquanto cada 
+ponto 
+abaixo 
+resulta 
+-5%. 
+Personagens que não são da 
+classe Carpinteiro recebem 
+uma penalidade de -10 no teste, 
+e a falta de um Kit de 
+Ferramentas 
+impõe 
+desvantagem.
+
+Cada parte do navio tem uma 
+função diferente e é crucial 
+para ele funcionar de forma 
+correta. Caso uma das partes 
+fique com metade da vida
+
+máxima, 
+o 
+navio 
+recebe 
+desvantagem 
+em 
+alguma 
+característica. 
+A 
+tabela 
+mostras as partes do navio, a 
+sua função e a desvantagem ao 
+ficar com metade da vida, com
+
+Qualidade PVs 
+Materiais 
+Tempo Por Parte 
+Rústico 
+50 
+Madeira comum 
+1 hora 
+Bom 
+100  
+Madeira + Aço 
+5 horas 
+Excelente 
+150 
+Madeira + Aço + Tecido Reforçado 
+10 horas 
+Especial 
+150+ 
+Materiais Especiais 
+10+ horas
+
+=== PÁGINA 141 ===
+
+141
+
+exceção do casco, que ao zerar 
+o navio afunda.
+
+Navegar pela Grand Line exige 
+mais do que um bom navio e 
+um Log Pose. Exige estômagos 
+cheios. O oceano é vasto, 
+impiedoso e, muitas vezes, as 
+viagens 
+entre 
+as 
+ilhas 
+demoram muito mais do que o 
+esperado.
+
+Para 
+representar 
+a 
+necessidade vital de comida e 
+água doce sem transformar o 
+jogo 
+em 
+um 
+simulador
+
+exaustivo, utilizamos o sistema 
+de Suprimentos.
+
+Um 
+Suprimento 
+representa 
+uma porção de comida, água 
+fresca e nutrientes básicos 
+(como frutas cítricas para 
+evitar 
+doenças) 
+suficientes 
+para 
+alimentar 
+toda 
+a 
+tripulação por um dia inteiro.
+
+• Armazenamento: 
+A 
+quantidade máxima que 
+um navio pode carregar é 
+definida pelo tamanho do
+
+Parte Do Navio 
+Descrição 
+Desvantagem
+
+Casco 
+Protege o navio 
+Zerar a vida faz o navio
+
+afundar
+
+Mastro/Velas 
+Impulsionam o navio 
+Navio fica lento
+
+Leme 
+Controle da direção 
+Perda da direção
+
+Convés 
+Área principal 
+A movimentação pelo navio
+
+se torna mais difícil
+
+Máquinas 
+Opcional, concede ao navio
+
+características únicas
+
+Ocorrência de erros nas
+
+máquinas
+
+Outros 
+Canhões/Cabines/Armazém 
+Desvantagens variadas
+
+=== PÁGINA 142 ===
+
+142
+
+seu 
+armazém. 
+Navios 
+com 
+armazéns 
+aprimorados 
+por 
+um 
+Carpinteiro podem viajar 
+por meses.
+
+• Consumo Diário: Ao final 
+de cada dia de viagem, o 
+grupo reduz 1 Suprimento 
+da despensa do navio. Se 
+a 
+tripulação 
+tiver 
+membros gigantes (como 
+Bukaneiros) ou muitos 
+passageiros, 
+o 
+Mestre 
+pode 
+aumentar 
+o 
+consumo para 2 ou mais 
+diários. Um padrão seria: 
+1 Suprimento a cada 5 
+tripulantes.
+
+O Desespero da Fome
+
+Quando 
+os 
+Suprimentos 
+chegam a zero, a verdadeira 
+provação começa. Viajar com 
+fome 
+não 
+mata 
+instantaneamente, mas quebra 
+o corpo e a mente dos piratas.
+
+A cada dia que a tripulação 
+passar 
+no 
+mar 
+com 
+0 
+Suprimentos, 
+todos 
+os
+
+membros a bordo adquirem 
+níveis crescentes da condição 
+Exausto.
+
+• Terceiro Dia de Fome e 
+Sede: O deslocamento de 
+todos cai pela metade e 
+recebem a penalidade de 
+-5 em todas as rolagens 
+de 
+ataque, 
+testes 
+e 
+disputas.
+
+• Quarto Dia de Fome e 
+Sede: 
+A 
+fraqueza 
+é 
+extrema. Os jogadores 
+não conseguem focar o 
+espírito 
+e 
+perdem 
+a 
+capacidade de usar Haki e 
+Pontos de Esforço (PdE).
+
+• Quinto Dia de Fome e 
+Sede: 
+Os 
+personagens 
+desmaiam. A Vida cai para 
+0 e a tripulação fica à 
+mercê 
+das 
+correntes 
+marítimas, torcendo por 
+um 
+resgate 
+ou 
+um 
+milagre.
+
+Nota: Diferente do cansaço 
+comum, a exaustão causada 
+por fome não pode ser curada
+
+=== PÁGINA 143 ===
+
+143
+
+apenas com descansos curtos 
+ou longos. É estritamente 
+necessário ingerir alimentos 
+reais para remover essas 
+penalidades. Além disso, o 
+Mestre pode optar por testes 
+de 
+Fortitude 
+(Físico) 
+para 
+resistir a essa exaustão.
+
+A Arte da Pesca
+
+Se a comida acabar e não 
+houver ilhas à vista, o mar 
+ainda 
+oferece 
+uma 
+última 
+chance. 
+A 
+mecânica 
+de 
+pescaria 
+é 
+baseada 
+em 
+arriscar 
+a 
+própria 
+sorte: 
+quanto mais tempo a isca fica 
+na água, maior o peixe, mas 
+maior o risco de arrebentar a 
+linha.
+
+Como funciona:
+
+O jogador responsável pela 
+vara de pesca rola os dados 
+para acumular pontos. Sempre 
+que cair um número novo (que 
+ainda 
+não 
+saiu 
+naquela
+
+pescaria), o valor é somado à 
+sua pontuação total.
+
+Porém, se rolar um número 
+repetido (um par), a linha 
+arrebenta, o peixe escapa e o 
+jogador ganha 0 pontos. O 
+jogador pode declarar Puxar 
+Linha! a qualquer momento 
+entre 
+as 
+rolagens 
+para 
+encerrar a pesca e garantir os 
+pontos acumulados.
+
+Dependendo 
+da 
+pontuação 
+garantida antes de puxar a 
+linha, 
+o 
+jogador 
+pesca 
+criaturas 
+de 
+tamanhos 
+diferentes, 
+que 
+são 
+imediatamente convertidas em 
+PS para o navio.
+
+A Qualidade da Vara de Pescar:
+
+O equipamento dita o limite da 
+sua pescaria.
+
+• Vara Improvisada: Usa o 
+dado 
+d4 
+(Máximo 
+possível: 10 pontos).
+
+• Vara Básica: Usa o dado 
+d6 (Máximo possível: 21 
+pontos).
+
+=== PÁGINA 144 ===
+
+144
+
+• Vara Reforçada: Usa o 
+dado 
+d8 
+(Máximo
+
+possível: 36 pontos).
+
+• Vara Profissional: Usa o 
+dado 
+d10 
+(Máximo 
+possível: 55 pontos).
+
+• Vara Obra-Prima: Usa o 
+dado 
+d12 
+(Máximo 
+possível: 78 pontos).
+
+Tabela 
+de 
+Capturas 
+e 
+Suprimentos:
+
+A Vantagem do Cozinheiro: Se 
+a 
+tripulação 
+possuir 
+um 
+personagem com a origem 
+Cozinheiro, 
+o 
+grupo 
+não 
+desperdiça nenhuma espinha. 
+O Cozinheiro pode fazer um 
+teste de Ofício (Intelecto). Em
+
+caso de sucesso, ele extrai 
+mais 
+carne 
+do 
+peixe,
+
+adicionando 
++1 
+Suprimento 
+extra a qualquer captura de 
+tamanho Pequeno ou superior.
+
+Pontos 
+Categoria de
+
+Captura 
+Rendimentos por Categoria
+
+1-4 
+Isca/Peixe
+
+Minúsculo 
+Sem rendimentos. +1 em pontos por categoria de captura (+1 a +6).
+
+5-10 
+Pequeno 
+1 Suprimento.
+
+11-21 
+Médio 
+2 Suprimentos.
+
+22-36 
+Grande 
+4 Suprimentos.
+
+37-55 
+Gigante 
+Enche metade do armazém.
+
+56-78 
+Colossal 
+Enche o armazém inteiro.
+
+=== PÁGINA 145 ===
+
+145
+
+=== PÁGINA 146 ===
+
+146
+
+0
+
+RAÇA 
+ORIGEM 
+NÍVEL
+
+FÍSICO 
+AGILIDADE 
+INTELECTO 
+INSTINTO
+
+PERÍCIAS
+
+Acrobacia [Des]
+
+Atletismo [Fís]
+
+Conhecimento [Int]
+
+Determinação [Vis]
+
+Enganação [Int]
+
+Fortitude [Fís]
+
+Furtividade [Des]
+
+Intimidação [Vis]
+
+Intuição [Vis]
+
+Investigação [Int]
+
+Luta [Fís]
+
+Medicina [Int]
+
+Performance [Int]
+
+Percepção [Vis]
+
+Persuasão [Int]
+
+Precisão [Des]
+
+Prestidigitação [Des]
+
+Ofício [Int]
+
+Sobrevivência [Vis]
+
+Adestrar Animais [Vis]
+
+Treiname
+nto
+
+Bônus
+
+Desloc.
+
+Percepção
+
+Passiva
+
+Bônus De 
+Treinament
+
+ATAQUES
+
+ITENS E EQUIPAMENTOS 
+BAINHA
+
+Armas 
+Dano 
+Leve 
+Médio 
+Pesado
+
+PONTOS DE VIDA
+
+DEFESA
+
+Passiva
+
+Esquiva
+
+Bloqueio
+
+EXTRAS
+
+FORÇA DE
+
+VONTADE
+
+CARACTERÍSTICAS
+
+HAKI
+
+INFLUÊNCIA
+
+PI
+
+Justiça 
+Liberdade 
+Egoísmo 
+Altruísmo
+
+PI
+
+B$
+
+=== PÁGINA 147 ===
+
+147
+
+HABILIDADES
+
+HISTÓRIA DE PERSONAGEM  
+NAVIO E TRIPULAÇÃO
+
+PE
+
