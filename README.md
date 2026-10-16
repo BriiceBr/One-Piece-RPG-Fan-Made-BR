@@ -1,4 +1,3 @@
-One Piece RPG - Sistema e Recursos
 Seja bem-vindo ao repositório do projeto de RPG de One Piece!
 
 📖 Livro Principal
