@@ -42,3 +42,13 @@ Lista viva de itens a corrigir, decisões pendentes e conversões a realizar.
   - Substituir o antigo Bônus de Treinamento e custos antigos por custos de PE e Atributos fixos.
 - [ ] **Haki e Akuma no Mi:** Adequar as frutas e poderes aos graus de perícia e PE.
 - [ ] **Itens, Dials e Regras Navais:** Revisar CDs e estatísticas de navios.
+
+---
+
+## 4. Aplicativo ImpelDown Archives
+
+- [x] **PV máximo separado do PV atual:** `ficha_frame.py` passou a ter `pv_max`/`pe_max`; mudar Nível ou Atributo não cura mais o dano (e o dano sobrevive a salvar/reabrir).
+- [x] **Dano e cura no Combat Tracker:** menu de contexto (⚔️/💚/💀) e botões rápidos aplicam PV na ficha aberta e no banco, com PV `atual/máximo` e cor por gravidade na lista.
+- [ ] **Menu de condições do Tracker:** hoje só tem Envenenado, Fadigado, Haki Exausto e Protegido. Faltam os estados de Morrendo do sistema novo (Ferimento Letal, Trauma Grave, Nocaute, Por um Fio, Inabalável).
+- [ ] **PE no Tracker:** o dano/cura rápida cobre só PV; avaliar se PE também precisa de botões.
+- [ ] **Fichas de exemplo:** `inicializar_arvore_padrao` cria Arlong e Rei dos Mares só com `nome/pv/pe/agi/nivel`, sem Físico, Intelecto e Instinto. Completar ou gerar os campos derivados na criação.

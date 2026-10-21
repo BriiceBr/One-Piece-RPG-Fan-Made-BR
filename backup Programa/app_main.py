@@ -23,6 +23,45 @@ TEMAS = {
 
 FONTES_DISPONIVEIS = ["Segoe UI", "Helvetica", "Consolas", "Roboto", "Courier New", "Comic Sans MS"]
 
+class ToolTip:
+    def __init__(self, widget):
+        self.widget = widget
+        self.tip_window = None
+
+    def show_tip(self, text, x_root, y_root):
+        self.hide_tip()
+        if not text: return
+        self.tip_window = tw = tk.Toplevel(self.widget)
+        tw.wm_overrideredirect(True)
+        tw.wm_geometry(f"+{x_root + 15}+{y_root + 10}")
+        label = tk.Label(
+            tw, text=text, justify=tk.LEFT,
+            background="#2b2b2b", foreground="#ffffff",
+            relief=tk.SOLID, borderwidth=1,
+            font=("Segoe UI", 10), padx=8, pady=4
+        )
+        label.pack()
+
+    def hide_tip(self):
+        if self.tip_window:
+            self.tip_window.destroy()
+            self.tip_window = None
+
+class CTkPopUpInput:
+    @staticmethod
+    def pedir_texto(titulo, mensagem):
+        dialog = ctk.CTkInputDialog(text=mensagem, title=titulo)
+        res = dialog.get_input()
+        return res.strip() if res else None
+
+    @staticmethod
+    def pedir_numero(titulo, mensagem):
+        dialog = ctk.CTkInputDialog(text=mensagem, title=titulo)
+        res = dialog.get_input()
+        if res and res.isdigit():
+            return int(res)
+        return None
+    
 try:
     import ctypes
     ctypes.windll.shcore.SetProcessDpiAwareness(1)
@@ -407,12 +446,22 @@ class FichaPersonagemFrame(ctk.CTkFrame):
     def calcular_derivados(self, *args):
         try:
             nivel_str = self.var_nivel.get()
-            nivel = max(0, int(nivel_str)) if nivel_str.isdigit() else 0
+            nivel = max(1, int(nivel_str)) if nivel_str.isdigit() else 1
             fis = max(0, self.var_fis.get())
             agi = max(0, self.var_agi.get())
-            maior_attr = max(fis, agi, self.var_int.get(), self.var_inst.get())
+            intel = max(0, self.var_int.get())
+            inst = max(0, self.var_inst.get())
+            maior_attr = max(fis, agi, intel, inst)
             luta = max(0, self.var_luta.get())
             acro = max(0, self.var_acro.get())
+
+            # CÁLCULO OFICIAL DE PV E PE (One Piece RPG)
+            # Nível 1: Base Humana (12) + Físico. Níveis extras: Média do Dado de Vida (6) + Maior Atributo.
+            pv_calculado = (12 + fis) + ((nivel - 1) * (6 + maior_attr))
+            pe_calculado = 4 + nivel + maior_attr
+
+            self.pv_atual.set(pv_calculado)
+            self.pe_atual.set(pe_calculado)
 
             passiva = 10 + agi + self.mod_passiva.get()
             bloq = 10 + fis + (2 * luta) + self.mod_bloq.get()
@@ -424,11 +473,10 @@ class FichaPersonagemFrame(ctk.CTkFrame):
             pass
 
     def rolar_dano(self):
-        dano = simpledialog.askstring("Rolar Dano", "Digite a rolagem (ex: 2d8+3):", parent=self)
+        dano = CTkPopUpInput.pedir_texto("Rolar Dano", "Digite a rolagem (ex: 2d8+3):")
         if dano:
             try:
                 resultado = rolar_dados_seguro(dano)
-                # Removido o pop up chato! Agora vai tudo para o Log!
                 self.app_master.registrar_log(f"⚔️ [{self.var_nome.get()}] Atacou: {dano} ➔ {resultado}")
             except Exception as e:
                 messagebox.showerror("Expressão Inválida", str(e), parent=self)
@@ -1272,6 +1320,8 @@ class GerenciadorAmeasApp:
         self.container_principal = ctk.CTkFrame(self.root, fg_color="transparent")
         self.container_principal.pack(fill=tk.BOTH, expand=True)
 
+        self.tooltip = ToolTip(self.root) # Inicia o sistema de Hover
+
         self.frame_tree = ctk.CTkFrame(self.container_principal, width=280, fg_color=self.tema_atual["bg_sidebar"], corner_radius=0)
         self.frame_tree.pack_propagate(False)
         self.frame_tree.pack(side=tk.LEFT, fill=tk.Y)
@@ -1287,9 +1337,14 @@ class GerenciadorAmeasApp:
         self.tree = ttk.Treeview(self.frame_tree, selectmode="browse", show="tree")
         self.tree.pack(fill=tk.BOTH, expand=True, padx=10)
 
+        # Binds de Eventos, Atalhos e Hover na Árvore
         self.tree.bind("<ButtonPress-1>", self.iniciar_drag_tree)
         self.tree.bind("<ButtonRelease-1>", self.soltar_drag_tree)
         self.tree.bind("<Button-3>", self.abrir_menu_contexto)
+        self.tree.bind("<Delete>", lambda e: self.deletar_item())
+        self.tree.bind("<Motion>", self.hover_treeview)
+        self.tree.bind("<Leave>", lambda e: self.tooltip.hide_tip())
+        self.tree.bind("<Double-1>", self.ao_dar_duplo_clique)
         self.item_arrastado = None
 
         f_botoes = ctk.CTkFrame(self.frame_tree, fg_color="transparent")
@@ -1301,14 +1356,14 @@ class GerenciadorAmeasApp:
         ctk.CTkButton(f_botoes, text="✖ Deletar", command=self.deletar_item, fg_color="transparent", hover_color="#5c2b29", text_color="#e06c75").grid(row=1, column=1, padx=2, pady=2, sticky="ew")
         f_botoes.columnconfigure(0, weight=1)
         f_botoes.columnconfigure(1, weight=1)
-        
-        self.tree.bind("<Double-1>", self.ao_dar_duplo_clique)
 
         self.notebook_frame = ctk.CTkFrame(self.container_principal, fg_color=self.tema_atual["bg_main"], corner_radius=0)
         self.notebook_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         
         self.notebook = DraggableNotebook(self.notebook_frame)
         self.notebook.pack(fill=tk.BOTH, expand=True)
+        # Atalho: Click com botão do Meio/Scroll fecha a aba
+        self.notebook.bind("<Button-2>", self.fechar_aba_com_click_meio)
         self.abas_abertas = {}
 
         self.frame_tracker = ctk.CTkFrame(self.container_principal, width=280, fg_color=self.tema_atual["bg_sidebar"], corner_radius=0)
@@ -1317,7 +1372,11 @@ class GerenciadorAmeasApp:
         
         self.lista_iniciativa = tk.Listbox(self.frame_tracker, bg=self.tema_atual["bg_sidebar"], fg=self.tema_atual["text"], font=self.get_font('main'), selectbackground=self.tema_atual["accent"], bd=0, highlightthickness=0)
         self.lista_iniciativa.pack(fill=tk.BOTH, expand=True, padx=15, pady=5)
+        
+        # Binds do Tracker
         self.lista_iniciativa.bind("<Button-3>", self.menu_condicoes_tracker)
+        self.lista_iniciativa.bind("<Motion>", self.hover_tracker)
+        self.lista_iniciativa.bind("<Leave>", lambda e: self.tooltip.hide_tip())
         
         f_trk_btn = ctk.CTkFrame(self.frame_tracker, fg_color="transparent")
         f_trk_btn.pack(fill=tk.X, padx=15, pady=5)
@@ -1325,12 +1384,12 @@ class GerenciadorAmeasApp:
         ctk.CTkButton(f_trk_btn, text="🎲 Rolar Pasta", command=self.rolar_iniciativa_pasta, fg_color="#363636", hover_color="#4a4a4a", text_color="#dcddde").pack(fill=tk.X, pady=2)
         ctk.CTkButton(f_trk_btn, text="Limpar Tracker", command=self.limpar_tracker, fg_color="transparent", hover_color="#5c2b29", text_color="#e06c75").pack(fill=tk.X, pady=2)
 
-        # NOVO: Interface do Dice Log
-        ctk.CTkLabel(self.frame_tracker, text="HISTÓRICO DE ROLAGENS", font=("Segoe UI", 10, "bold"), text_color="#8b8c8f", anchor="w").pack(fill=tk.X, padx=20, pady=(10, 0))
-        self.caixa_log = ctk.CTkTextbox(self.frame_tracker, height=130, fg_color="#262626", text_color="#dcddde", font=self.get_font('small'), border_width=0, corner_radius=6)
+        ctk.CTkLabel(self.frame_tracker, text="HISTÓRICO DE ROLAGENS", font=("Segoe UI", 11, "bold"), text_color="#8b8c8f", anchor="w").pack(fill=tk.X, padx=20, pady=(10, 0))
+        # Fonte aumentada de small para main e altura ajustada para o Log
+        self.caixa_log = ctk.CTkTextbox(self.frame_tracker, height=145, fg_color="#262626", text_color="#dcddde", font=self.get_font('main'), border_width=0, corner_radius=6)
         self.caixa_log.pack(fill=tk.X, padx=15, pady=(5, 15))
         self.caixa_log.configure(state="disabled")
-
+        
     def inicializar_arvore_padrao(self):
         cat_m = self.tree.insert("", "end", text=" Monstros", open=True, tags=("pasta",))
         cat_v = self.tree.insert("", "end", text=" Vilões", open=True, tags=("pasta",))
@@ -1343,10 +1402,18 @@ class GerenciadorAmeasApp:
 
     def abrir_menu_contexto(self, event):
         item = self.tree.identify_row(event.y)
-        if item and "ficha" in self.tree.item(item, "tags"):
+        if item:
             self.tree.selection_set(item)
+            tags = self.tree.item(item, "tags")
             menu = tk.Menu(self.root, tearoff=0, bg="#262626", fg="#dcddde", bd=0)
-            menu.add_command(label="Duplicar Ficha", command=lambda: self.duplicar_ficha(item))
+            menu.add_command(label="✎ Renomear", command=self.renomear_item)
+            if "ficha" in tags:
+                menu.add_command(label="📋 Duplicar Ficha", command=lambda: self.duplicar_ficha(item))
+            elif "pasta" in tags:
+                menu.add_command(label="📁 Nova Pasta", command=self.adicionar_pasta)
+                menu.add_command(label="📄 Nova Ficha", command=self.adicionar_personagem)
+            menu.add_separator()
+            menu.add_command(label="✖ Deletar (Del)", command=self.deletar_item)
             menu.post(event.x_root, event.y_root)
 
     def duplicar_ficha(self, item_id):
@@ -1429,8 +1496,17 @@ class GerenciadorAmeasApp:
         sel = self.tree.selection()
         if sel and "ficha" in self.tree.item(sel[0], "tags"):
             item_id = sel[0]
-            nome = self.tree.item(item_id, "text").strip()
-            ini = simpledialog.askinteger("Iniciativa", f"Iniciativa de {nome}:")
+            
+            # Prioriza a aba aberta, depois o banco interno e por fim o texto limpo da árvore
+            if item_id in self.abas_abertas:
+                nome = self.abas_abertas[item_id].var_nome.get()
+            elif item_id in self.dados_banco and "nome" in self.dados_banco[item_id]:
+                nome = self.dados_banco[item_id]["nome"]
+            else:
+                texto_arvore = self.tree.item(item_id, "text").strip()
+                nome = re.sub(r" \[Lv\. .*?\]$", "", texto_arvore)
+
+            ini = CTkPopUpInput.pedir_numero("Iniciativa", f"Iniciativa de {nome}:")
             if ini is not None:
                 self.tracker_data.append({"ini": ini, "id": item_id, "nome": nome, "status": ""})
                 self.atualizar_tracker_view()
@@ -1445,12 +1521,19 @@ class GerenciadorAmeasApp:
         pasta_id = sel[0]
         for child in self.tree.get_children(pasta_id):
             if "ficha" in self.tree.item(child, "tags"):
-                dados = self.dados_banco.get(child, {})
+                if child in self.abas_abertas:
+                    dados = self.abas_abertas[child].get_dados()
+                else:
+                    dados = self.dados_banco.get(child, {})
+                    
+                nome = dados.get("nome", re.sub(r" \[Lv\. .*?\]$", "", self.tree.item(child, "text").strip()))
                 agi = dados.get("agi", 0)
                 rolagem = random.randint(1, 20) + agi
-                nome = self.tree.item(child, "text").strip()
+                
                 self.tracker_data.append({"ini": rolagem, "id": child, "nome": nome, "status": ""})
                 self.registrar_log(f"Iniciativa: {nome} ➔ {rolagem}")
+        
+        self.atualizar_tracker_view()
         
         self.atualizar_tracker_view()
 
@@ -1479,13 +1562,26 @@ class GerenciadorAmeasApp:
         self.lista_iniciativa.delete(0, tk.END)
         self.tracker_data.sort(key=lambda x: x["ini"], reverse=True)
         for t in self.tracker_data:
-            linha = f"  [{t['ini']:02d}]   {t['nome']}  {t['status']}"
+            nome_exib = t['nome']
+            if len(nome_exib) > 16:
+                nome_exib = nome_exib[:14] + "..."
+            linha = f"  [{t['ini']:02d}]   {nome_exib}  {t['status']}"
             self.lista_iniciativa.insert(tk.END, linha)
-            
+
     def sync_nome_ficha(self, item_id, novo_nome, nivel="1"):
+        # Atualiza o texto na árvore
         self.tree.item(item_id, text=f" {novo_nome} [Lv. {nivel}]")
+        
+        # Sincroniza a alteração no banco interno em tempo real
+        if item_id in self.dados_banco:
+            self.dados_banco[item_id]["nome"] = novo_nome
+            self.dados_banco[item_id]["nivel"] = nivel
+            
+        # Atualiza o título da aba se estiver aberta
         if item_id in self.abas_abertas:
             self.notebook.tab(self.abas_abertas[item_id].master, text=f"   {novo_nome}   ")
+            
+        # Atualiza o nome de entradas já existentes no Tracker
         for i, t in enumerate(self.tracker_data):
             if t['id'] == item_id:
                 self.tracker_data[i]['nome'] = novo_nome
@@ -1605,19 +1701,16 @@ class GerenciadorAmeasApp:
         item_id = sel[0]
         tags = self.tree.item(item_id, "tags")
         
-        # Puxa o nome limpo do banco (ignora o "[Lv. 10]" pra não bugar a caixa de edição)
         if "ficha" in tags:
             nome_atual = self.dados_banco.get(item_id, {}).get("nome", "Inimigo")
-            tipo = "a Ficha"
+            tipo = "Ficha"
         else:
             nome_atual = self.tree.item(item_id, "text").strip()
-            tipo = "a Pasta"
+            tipo = "Pasta"
             
-        novo_nome = simpledialog.askstring("Renomear", f"Digite um novo nome para {tipo}:", initialvalue=nome_atual)
+        novo_nome = CTkPopUpInput.pedir_texto(f"Renomear {tipo}", f"Digite um novo nome para {tipo}:")
         
-        if novo_nome and novo_nome.strip():
-            novo_nome = novo_nome.strip()
-            
+        if novo_nome:
             if "ficha" in tags:
                 nivel_atual = self.dados_banco.get(item_id, {}).get("nivel", "1")
                 self.tree.item(item_id, text=f" {novo_nome} [Lv. {nivel_atual}]")
@@ -1688,6 +1781,34 @@ class GerenciadorAmeasApp:
             self.dados_banco[item_id] = aba.get_dados() 
             self.notebook.forget(aba.master)
             aba.master.destroy()
+
+    def fechar_aba_com_click_meio(self, event):
+        try:
+            index = self.notebook.index(f"@{event.x},{event.y}")
+            tab_id = self.notebook.tabs()[index]
+            for item_id, aba in list(self.abas_abertas.items()):
+                if str(aba.master) == str(tab_id):
+                    self.fechar_aba(item_id)
+                    break
+        except tk.TclError:
+            pass
+
+    def hover_treeview(self, event):
+        item = self.tree.identify_row(event.y)
+        if item:
+            texto = self.tree.item(item, "text").strip()
+            self.tooltip.show_tip(texto, event.x_root, event.y_root)
+        else:
+            self.tooltip.hide_tip()
+
+    def hover_tracker(self, event):
+        idx = self.lista_iniciativa.nearest(event.y)
+        if idx >= 0 and idx < len(self.tracker_data):
+            info = self.tracker_data[idx]
+            texto_completo = f"{info['nome']} (Iniciativa: {info['ini']}) {info['status']}"
+            self.tooltip.show_tip(texto_completo, event.x_root, event.y_root)
+        else:
+            self.tooltip.hide_tip()
 
 if __name__ == "__main__":
     ctk.set_appearance_mode("dark")
