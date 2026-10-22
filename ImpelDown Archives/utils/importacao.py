@@ -37,7 +37,7 @@ def validar_ficha(dados: dict[str, Any]) -> dict[str, Any]:
     for campo in ATRIBUTOS:
         ficha[campo] = max(0, min(5, _inteiro(ficha.get(campo, 1), 1)))
     for campo in GRAUS:
-        ficha[campo] = max(-1, min(4, _inteiro(ficha.get(campo, 0), 0)))
+        ficha[campo] = max(0, min(3, _inteiro(ficha.get(campo, 0), 0)))
     return ficha
 
 

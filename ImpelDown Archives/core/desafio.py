@@ -22,7 +22,7 @@ FAIXAS: tuple[tuple[int, int, str], ...] = (
     (10**9, 60, "Suprema"),
 )
 
-MUITO_FACIL = "Muito Fácil"
+MUITO_FACIL = "Fácil"
 DESAFIADOR = "Desafiador"
 MORTAL = "Mortal"
 
@@ -96,6 +96,6 @@ def analisar(jogadores: int, nivel_medio: int, hp_total: int) -> dict:
         "rodadas_inteiras": rodadas_inteiras,
         "rotulo": rotulo,
         "cor": cor,
-        "resumo": f"{rotulo} — {rodadas_inteiras} rodada(s) ({hp_total} HP ÷ {dano_party}/rodada)",
+        "resumo": f"{rotulo} · {rodadas_inteiras} rodada(s) · {hp_total}÷{dano_party}",
         "sugestoes": sugestoes,
     }

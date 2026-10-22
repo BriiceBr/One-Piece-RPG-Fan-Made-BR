@@ -90,8 +90,6 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         self.var_nivel.trace_add("write", self._sincronizar_arvore)
         
         self.var_recompensa = tk.StringVar(value="0")
-        self.var_pv_max_texto = tk.StringVar(value="0")
-        self.var_pe_max_texto = tk.StringVar(value="0")
 
         gatilhos = [
             self.var_nivel, self.var_fis, self.var_agi, self.var_int, self.var_inst, 
@@ -125,28 +123,12 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         nums = re.sub(r"\D", "", self.var_recompensa.get())
         self.var_recompensa.set(f"{int(nums):,}".replace(",", ".") if nums else "0")
 
-    def _base_sem_bonus(self) -> dict[str, int]:
-        """Derivados sem os bônus manuais, para calcular o que o máximo digitado ajusta."""
-        return calcular_atributos_derivados(
-            self._nivel_texto(), self.var_fis.get(), self.var_agi.get(), self.var_int.get(), self.var_inst.get(),
-            self.var_luta.get(), self.var_acro.get(), self.mod_passiva.get(), self.mod_bloq.get(),
-            self.mod_esq.get(), self.mod_cd.get(), bonus_pv=0, bonus_pe=0,
-        )
-
-    def _aplicar_max_digitado(self, alvo: str) -> None:
-        """Permite digitar o PV/PE máximo; a diferença vira bônus no mod."""
-        texto = self.var_pv_max_texto.get() if alvo == "pv" else self.var_pe_max_texto.get()
-        digitos = re.sub(r"\D", "", texto)
-        if not digitos:
-            self.sincronizar_agora()
-            return
-        desejado = max(1, int(digitos))
-        base = self._base_sem_bonus()
-        if alvo == "pv":
-            self.mod_pv.set(desejado - base["pv"])
-        else:
-            self.mod_pe.set(desejado - base["pe"])
-        self.sincronizar_agora()
+    def _atualizar_labels_recurso(self, *args) -> None:
+        """Mostra PV e PE no formato único ``atual / máximo``."""
+        if hasattr(self, "lbl_pv"):
+            self.lbl_pv.configure(text=f"{self.pv_atual.get()} / {self.pv_max.get()}")
+        if hasattr(self, "lbl_pe"):
+            self.lbl_pe.configure(text=f"{self.pe_atual.get()} / {self.pe_max.get()}")
 
     def _sincronizar_arvore(self, *args):
         self.sync_nome_callback(self.var_nome.get(), self._nivel_texto())
@@ -163,33 +145,23 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         f_inner = ctk.CTkFrame(frame_topo, fg_color="transparent")
         f_inner.pack(fill=tk.X, padx=20, pady=10)
 
+        # PV: rótulo → − → "atual / máx" → +
         ctk.CTkLabel(f_inner, text="PV:", text_color=COR_TEXTO_SUAVE, font=self.app_master.get_font('title')).pack(side=tk.LEFT, padx=(0, 6))
         ctk.CTkButton(f_inner, text="-", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pv_atual.set(self.pv_atual.get()-1)).pack(side=tk.LEFT)
-        ctk.CTkEntry(f_inner, textvariable=self.pv_atual, width=70, height=36, font=self.app_master.get_font('number'), text_color=COR_PERIGO, justify="center", border_width=0, fg_color="transparent").pack(side=tk.LEFT)
-        ctk.CTkLabel(f_inner, text="/", text_color=COR_PERIGO, font=self.app_master.get_font('bold')).pack(side=tk.LEFT, padx=(0, 2))
-        self.entry_pv_max = ctk.CTkEntry(
-            f_inner, textvariable=self.var_pv_max_texto, width=46, height=30,
-            font=self.app_master.get_font('bold'), text_color=COR_PERIGO,
-            justify="center", border_width=0, fg_color=self.tema["bg_input"],
-        )
-        self.entry_pv_max.pack(side=tk.LEFT, padx=(0, 4))
-        self.entry_pv_max.bind("<Return>", lambda e: self._aplicar_max_digitado("pv"))
-        self.entry_pv_max.bind("<FocusOut>", lambda e: self._aplicar_max_digitado("pv"))
-        ctk.CTkButton(f_inner, text="+", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pv_atual.set(self.pv_atual.get()+1)).pack(side=tk.LEFT, padx=(0, 15))
+        self.lbl_pv = ctk.CTkLabel(f_inner, text="0 / 0", width=120, height=34, text_color=COR_PERIGO, font=self.app_master.get_font('number'))
+        self.lbl_pv.pack(side=tk.LEFT, padx=6)
+        ctk.CTkButton(f_inner, text="+", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pv_atual.set(self.pv_atual.get()+1)).pack(side=tk.LEFT, padx=(0, 18))
 
+        # PE: mesmo padrão, alinhado ao lado.
         ctk.CTkLabel(f_inner, text="PE:", text_color=COR_TEXTO_SUAVE, font=self.app_master.get_font('title')).pack(side=tk.LEFT, padx=(0, 6))
         ctk.CTkButton(f_inner, text="-", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pe_atual.set(self.pe_atual.get()-1)).pack(side=tk.LEFT)
-        ctk.CTkEntry(f_inner, textvariable=self.pe_atual, width=70, height=36, font=self.app_master.get_font('number'), text_color=COR_INFO, justify="center", border_width=0, fg_color="transparent").pack(side=tk.LEFT)
-        ctk.CTkLabel(f_inner, text="/", text_color=COR_INFO, font=self.app_master.get_font('bold')).pack(side=tk.LEFT, padx=(0, 2))
-        self.entry_pe_max = ctk.CTkEntry(
-            f_inner, textvariable=self.var_pe_max_texto, width=46, height=30,
-            font=self.app_master.get_font('bold'), text_color=COR_INFO,
-            justify="center", border_width=0, fg_color=self.tema["bg_input"],
-        )
-        self.entry_pe_max.pack(side=tk.LEFT, padx=(0, 4))
-        self.entry_pe_max.bind("<Return>", lambda e: self._aplicar_max_digitado("pe"))
-        self.entry_pe_max.bind("<FocusOut>", lambda e: self._aplicar_max_digitado("pe"))
-        ctk.CTkButton(f_inner, text="+", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pe_atual.set(self.pe_atual.get()+1)).pack(side=tk.LEFT, padx=(0, 20))
+        self.lbl_pe = ctk.CTkLabel(f_inner, text="0 / 0", width=120, height=34, text_color=COR_INFO, font=self.app_master.get_font('number'))
+        self.lbl_pe.pack(side=tk.LEFT, padx=6)
+        ctk.CTkButton(f_inner, text="+", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pe_atual.set(self.pe_atual.get()+1)).pack(side=tk.LEFT, padx=(0, 18))
+
+        for var_recurso in (self.pv_atual, self.pv_max, self.pe_atual, self.pe_max):
+            var_recurso.trace_add("write", self._atualizar_labels_recurso)
+        self._atualizar_labels_recurso()
 
         self.lbl_defesas = ctk.CTkLabel(f_inner, text="Def: -- | Bloq: -- | Esq: -- | CD: --", text_color=COR_DESTAQUE, font=self.app_master.get_font('main'))
         self.lbl_defesas.pack(side=tk.LEFT)
@@ -299,8 +271,8 @@ class FichaPersonagemFrame(ctk.CTkFrame):
 
         frame_pericias = ctk.CTkFrame(tab_attr, fg_color="transparent")
         frame_pericias.pack(fill=tk.X, pady=(15, 5))
-        criar_mini_contador(frame_pericias, "Grau Luta", self.var_luta, width_val=22, minimo=-1, maximo=4)
-        criar_mini_contador(frame_pericias, "Grau Acro", self.var_acro, width_val=22, minimo=-1, maximo=4)
+        criar_mini_contador(frame_pericias, "Grau Luta", self.var_luta, width_val=22, minimo=0, maximo=3)
+        criar_mini_contador(frame_pericias, "Grau Acro", self.var_acro, width_val=22, minimo=0, maximo=3)
         criar_mini_contador(frame_pericias, "+PV Máx", self.mod_pv, width_val=22)
         criar_mini_contador(frame_pericias, "+PE Máx", self.mod_pe, width_val=22)
         
@@ -378,10 +350,12 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         self.texto_historia = ctk.CTkTextbox(tab_bg, fg_color=self.tema["bg_input"], text_color=self.tema["text"], font=self.app_master.get_font('main'), wrap=tk.WORD, border_width=0, corner_radius=6)
         self.texto_historia.pack(fill=tk.BOTH, expand=True)
 
-        ctk.CTkLabel(tab_bando, text="Arraste fichas para cá · duplo clique abre a ficha", text_color=COR_TEXTO_SUAVE, font=self.app_master.get_font('small')).pack(pady=(0,2))
+        ctk.CTkLabel(tab_bando, text="Bando compartilhado entre fichas · duplo clique abre a ficha", text_color=COR_TEXTO_SUAVE, font=self.app_master.get_font('small')).pack(pady=(0,2))
         self.listbox_bando = ListaBando(
             tab_bando, self.app_master, self.tema,
             ao_abrir=self._abrir_ficha_do_bando,
+            fonte=self.app_master.bando_global,
+            ao_alterar=self.app_master._bando_alterado,
         )
         self.listbox_bando.pack(fill=tk.BOTH, expand=True, padx=2, pady=2)
 
@@ -502,9 +476,6 @@ class FichaPersonagemFrame(ctk.CTkFrame):
                 self.pe_atual.set(res["pe"])
             else:
                 self.pe_atual.set(min(self.pe_atual.get(), res["pe"]))
-            if hasattr(self, "var_pv_max_texto"):
-                self.var_pv_max_texto.set(str(res["pv"]))
-                self.var_pe_max_texto.set(str(res["pe"]))
             self.lbl_defesas.configure(
                 text=f"Def: {res['passiva']} | Bloq: {res['bloqueio']} | Esq: {res['esquiva']} | CD: {res['cd']}"
             )
@@ -1047,6 +1018,12 @@ class FichaPersonagemFrame(ctk.CTkFrame):
     
         self.var_nome.set(f"{nome} {titulo}")
 
+    def _abrir_ficha_do_bando(self, nome: str) -> None:
+        """Duplo clique em um membro do bando abre a ficha dele na árvore."""
+        abrir = getattr(self.app_master, "abrir_ficha_por_nome", None)
+        if callable(abrir):
+            abrir(nome)
+
     def lancar_bando_tracker(self):
         membros = list(self.listbox_bando.get(0, tk.END))
         if not membros:
@@ -1059,13 +1036,19 @@ class FichaPersonagemFrame(ctk.CTkFrame):
             "chefe",
         )
 
+        # Iniciativa 1d20 + Agilidade: conveniência de mesa (não é regra do livro).
         ini_chefe = random.randint(1, 20) + self.var_agi.get()
-        self.app_master.tracker_data.append({"ini": ini_chefe, "id": item_id, "nome": self.var_nome.get(), "status": [], "papel": "👑"})
-        self.app_master.registrar_log(f"Iniciativa 👑 [{self.var_nome.get()}]: {ini_chefe}")
+        nome_chefe = self.var_nome.get()
+        ja_no_tracker = getattr(self.app_master, "_ja_esta_no_tracker", None)
+        if ja_no_tracker is None or not ja_no_tracker(item_id, nome_chefe):
+            self.app_master.tracker_data.append({"ini": ini_chefe, "id": item_id, "nome": nome_chefe, "status": [], "papel": "👑"})
+            self.app_master.registrar_log(f"Iniciativa 👑 [{nome_chefe}]: {ini_chefe}")
 
         for m in membros:
             ini_bando = random.randint(1, 20)
             nome_limpo = re.sub(r" \[Lv\. .*?\]$", "", m)
+            if ja_no_tracker is not None and ja_no_tracker("bando", nome_limpo):
+                continue
             self.app_master.tracker_data.append({"ini": ini_bando, "id": "bando", "nome": nome_limpo, "status": [], "papel": "🛡️"})
             self.app_master.registrar_log(f"Iniciativa 🛡️ [{nome_limpo}]: {ini_bando}")
             
@@ -1368,12 +1351,12 @@ class FichaPersonagemFrame(ctk.CTkFrame):
             "pv_max": self.pv_max.get(),
             "pe_max": self.pe_max.get(),
             "nivel": self._nivel_texto(),
-            "fis": self.var_fis.get(),
-            "agi": self.var_agi.get(),
-            "int": self.var_int.get(),
-            "inst": self.var_inst.get(),
-            "luta": self.var_luta.get(),
-            "acro": self.var_acro.get(),
+            "fis": min(5, max(0, self.var_fis.get())),
+            "agi": min(5, max(0, self.var_agi.get())),
+            "int": min(5, max(0, self.var_int.get())),
+            "inst": min(5, max(0, self.var_inst.get())),
+            "luta": min(3, max(0, self.var_luta.get())),
+            "acro": min(3, max(0, self.var_acro.get())),
             "mod_passiva": self.mod_passiva.get(),
             "mod_bloq": self.mod_bloq.get(),
             "mod_esq": self.mod_esq.get(),
@@ -1415,12 +1398,12 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         self.var_recompensa.set(f"{int(recomp_salva):,}".replace(",", ".") if recomp_salva else "0")
         
         self.var_nivel.set(d.get("nivel", "1"))
-        self.var_fis.set(d.get("fis", 1))
-        self.var_agi.set(d.get("agi", 1))
-        self.var_int.set(d.get("int", 1))
-        self.var_inst.set(d.get("inst", 1))
-        self.var_luta.set(d.get("luta", 0))
-        self.var_acro.set(d.get("acro", 0))
+        self.var_fis.set(max(0, min(5, int(d.get("fis", 1) or 1))))
+        self.var_agi.set(max(0, min(5, int(d.get("agi", 1) or 1))))
+        self.var_int.set(max(0, min(5, int(d.get("int", 1) or 1))))
+        self.var_inst.set(max(0, min(5, int(d.get("inst", 1) or 1))))
+        self.var_luta.set(max(0, min(3, int(d.get("luta", 0) or 0))))
+        self.var_acro.set(max(0, min(3, int(d.get("acro", 0) or 0))))
         
         self.mod_passiva.set(d.get("mod_passiva", 0))
         self.mod_bloq.set(d.get("mod_bloq", 0))
@@ -1449,10 +1432,12 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         self.texto_historia.insert(tk.END, d.get("historia", ""))
         self.texto_loot.insert(tk.END, d.get("loot", ""))
         
-        self.listbox_bando.delete(0, tk.END)
+        # Bando compartilhado: fichas antigas contribuem com seus membros, mas
+        # nunca apagam o bando global ao abrir.
         for minion in d.get("bando", []):
-            self.listbox_bando.insert(tk.END, minion)
-
+            if minion not in self.app_master.bando_global:
+                self.app_master.bando_global.append(minion)
+        self.listbox_bando.recarregar()
         if d.get("imagem") and os.path.exists(d["imagem"]):
             try:
                 self.caminho_imagem_salva = d["imagem"]

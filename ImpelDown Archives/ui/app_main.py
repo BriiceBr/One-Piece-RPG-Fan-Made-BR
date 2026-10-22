@@ -11,7 +11,7 @@ from config import TEMAS, FONTES_DISPONIVEIS, NOME_SISTEMA
 from ui.popups import ToolTip, CTkPopUpInput
 from ui.widgets_custom import DraggableNotebook
 from ui.ficha_frame import FichaPersonagemFrame
-from core.combate import calcular_dificuldade_encontro, nivel_seguro
+from core.combate import nivel_seguro
 from core.condicoes import CONDICOES, icone as icone_condicao, nome as nome_condicao, resumo as resumo_condicao
 from core.regras import calcular_atributos_derivados
 from core.paleta import (
@@ -33,7 +33,7 @@ from core.paleta import (
 from core.desafio import analisar as analisar_desafio
 from utils.arquivos import exportar_ficha_json, importar_ficha_json, salvar_banco_sqlite, carregar_banco_sqlite
 from utils.loot import normalizar_faccao
-from utils.encontros import encontrar_para_alvo, sugerir_encontros
+from utils.encontros import encontrar_para_alvo, perfil_lacaio, sugerir_encontros
 from utils.importacao import ler_lote
 
 #: Duração padrão (em turnos) ao aplicar uma condição no Tracker.
@@ -434,6 +434,23 @@ class GerenciadorAmeasApp:
         percorrer("", "")
         return resultado
 
+    def abrir_ficha_por_nome(self, nome: str) -> None:
+        """Abre a ficha cujo nome bate (exato ou início), usada pelo bando."""
+        alvo = str(nome or "").strip().lower()
+        if not alvo:
+            return
+        fichas = self._fichas_para_busca()
+        escolhida = next((f for f in fichas if f[1].lower() == alvo), None)
+        if escolhida is None:
+            escolhida = next((f for f in fichas if f[1].lower().startswith(alvo)), None)
+        if escolhida is None:
+            messagebox.showinfo("Bando", f"Ficha '{nome}' não encontrada na árvore.", parent=self.root)
+            return
+        item_id, nome_ficha, _faccao = escolhida
+        self.tree.selection_set(item_id)
+        self.tree.see(item_id)
+        self.abrir_aba_personagem(item_id, nome_ficha)
+
     def abrir_busca_global(self, event=None):
         """Ctrl+K: procura qualquer ficha pelo nome e abre direto."""
         janela = getattr(self, "_janela_busca", None)
@@ -498,6 +515,60 @@ class GerenciadorAmeasApp:
         )
         return novo_id
 
+    def abrir_calculadora_dano(self) -> None:
+        """Calculadora de desafio por dano médio da party."""
+        top = ctk.CTkToplevel(self.root)
+        top.title("Calculadora de Dano")
+        top.geometry("420x520")
+        top.transient(self.root)
+        top.attributes("-topmost", True)
+        top.configure(fg_color=self.tema_atual["bg_main"])
+
+        ctk.CTkLabel(top, text="🧮 Calculadora de Dano", font=self.get_font('title'), text_color=self.tema_atual["accent"]).pack(pady=(14, 6))
+
+        var_jogadores = tk.StringVar(value=str(self._inteiro_positivo(self.var_jogadores, 4)))
+        var_nivel = tk.StringVar(value=str(self._inteiro_positivo(self.var_nivel_grupo, 1)))
+        var_inimigos = tk.StringVar(value="4")
+        var_hp = tk.StringVar(value="40")
+        campos = (
+            ("Jogadores", var_jogadores),
+            ("Nível médio da party", var_nivel),
+            ("Quantidade de inimigos", var_inimigos),
+            ("HP médio dos inimigos", var_hp),
+        )
+        for rotulo, var in campos:
+            ctk.CTkLabel(top, text=rotulo, font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
+            ctk.CTkEntry(top, textvariable=var, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20, pady=(0, 4))
+
+        resultado = ctk.CTkTextbox(top, height=190, fg_color=self.tema_atual["bg_card"], text_color=self.tema_atual["text"], border_width=0, font=self.get_font('small'))
+        resultado.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+
+        def calcular() -> None:
+            def inteiro(var: tk.StringVar, padrao: int) -> int:
+                texto = str(var.get()).strip()
+                return int(texto) if texto.isdigit() and int(texto) > 0 else padrao
+
+            jogadores = inteiro(var_jogadores, 4)
+            nivel = inteiro(var_nivel, 1)
+            inimigos = inteiro(var_inimigos, 1)
+            hp_medio = inteiro(var_hp, 1)
+            dados = analisar_desafio(jogadores, nivel, inimigos * hp_medio)
+            linhas = [
+                f"Patamar: {dados['patamar']} ({dados['dano_jogador']}/jogador)",
+                f"Dano da party: {dados['dano_party']}/rodada",
+                f"HP total: {dados['hp_total']}",
+                f"Rodadas: {dados['rodadas']:.1f} → {dados['rodadas_inteiras']}",
+                f"Desafio: {dados['rotulo']}",
+                "",
+            ]
+            linhas += [f"• {s}" for s in dados["sugestoes"]]
+            resultado.configure(state="normal")
+            resultado.delete("1.0", tk.END)
+            resultado.insert("1.0", "\n".join(linhas))
+            resultado.configure(state="disabled")
+
+        ctk.CTkButton(top, text="Calcular", command=calcular, fg_color=self.tema_atual["accent"], text_color="white").pack(fill=tk.X, padx=20, pady=(0, 14))
+
     def abrir_gerador_encontros(self) -> None:
         """Sugere composições de encontro e permite criá-las no cofre."""
         top = ctk.CTkToplevel(self.root)
@@ -515,9 +586,9 @@ class GerenciadorAmeasApp:
             ctk.CTkLabel(top, text=rotulo, font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
             ctk.CTkEntry(top, textvariable=var, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20, pady=(0, 4))
 
-        var_alvo = tk.StringVar(value="Médio")
+        var_alvo = tk.StringVar(value="Desafiador")
         ctk.CTkLabel(top, text="Dificuldade desejada", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
-        ctk.CTkOptionMenu(top, variable=var_alvo, values=["Fácil", "Médio", "Difícil", "Mortal"], fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], button_color=self.tema_atual["accent"]).pack(fill=tk.X, padx=20)
+        ctk.CTkOptionMenu(top, variable=var_alvo, values=["Fácil", "Desafiador", "Mortal"], fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], button_color=self.tema_atual["accent"]).pack(fill=tk.X, padx=20)
 
         resultado = ctk.CTkTextbox(top, height=150, fg_color=self.tema_atual["bg_card"], text_color=self.tema_atual["text"], border_width=0, font=self.get_font('small'))
         resultado.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
@@ -530,6 +601,15 @@ class GerenciadorAmeasApp:
             sugestoes = sugerir_encontros(jogadores, nivel)
             resultado.configure(state="normal")
             resultado.delete("1.0", tk.END)
+
+            hp_tracker = 0
+            for linha in self.tracker_data:
+                if not self._item_e_jogador(linha.get("id", "")):
+                    hp_tracker += self.obter_pv(linha.get("id", ""))[0]
+            if hp_tracker > 0:
+                atual = analisar_desafio(jogadores, nivel, hp_tracker)
+                resultado.insert(tk.END, f"Tracker atual: {hp_tracker} HP → {atual['resumo']}\n\n")
+
             for sugestao in sugestoes:
                 resultado.insert(tk.END, f"• {sugestao.resumo}\n")
             escolhida = encontrar_para_alvo(jogadores, nivel, var_alvo.get())
@@ -581,50 +661,55 @@ class GerenciadorAmeasApp:
         self.mudar_tema(tema)
         self.registrar_log(f"🎨 Tema da facção aplicado manualmente: {tema}")
 
-    def abrir_bestiario(self) -> None:
-        """Cria Chefe, Elite ou Capanga por Nível com um clique."""
+    def abrir_gerador_inimigo(self) -> None:
+        """Cria um inimigo por Nível e classe (Balanceado/Atiradores/Vanguarda)."""
         top = ctk.CTkToplevel(self.root)
-        top.title("Bestiário")
-        top.geometry("360x360")
+        top.title("Gerar Inimigo")
+        top.geometry("380x360")
         top.transient(self.root)
         top.attributes("-topmost", True)
         top.configure(fg_color=self.tema_atual["bg_main"])
 
-        ctk.CTkLabel(top, text="🐲 Bestiário", font=self.get_font('title'), text_color=self.tema_atual["accent"]).pack(pady=(14, 6))
+        ctk.CTkLabel(top, text="🐲 Gerar Inimigo", font=self.get_font('title'), text_color=self.tema_atual["accent"]).pack(pady=(14, 6))
 
         ctk.CTkLabel(top, text="Nome", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
-        var_nome = tk.StringVar(value="Chefe Pirata")
+        var_nome = tk.StringVar(value="Inimigo")
         ctk.CTkEntry(top, textvariable=var_nome, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20)
 
         ctk.CTkLabel(top, text="Nível", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20, pady=(6, 0))
         var_nivel = tk.StringVar(value="5")
         ctk.CTkEntry(top, textvariable=var_nivel, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20)
 
-        ctk.CTkLabel(top, text="Papel", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20, pady=(6, 0))
-        var_papel = tk.StringVar(value="Chefe")
-        ctk.CTkOptionMenu(top, variable=var_papel, values=["Capanga", "Elite", "Chefe"], fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], button_color=self.tema_atual["accent"]).pack(fill=tk.X, padx=20)
+        ctk.CTkLabel(top, text="Classe", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20, pady=(6, 0))
+        classes = {
+            "Balanceado": "Esquadrão Balanceado",
+            "Atiradores": "Bando de Atiradores",
+            "Vanguarda": "Vanguarda Pesada",
+        }
+        var_classe = tk.StringVar(value="Balanceado")
+        ctk.CTkSegmentedButton(
+            top, variable=var_classe, values=list(classes),
+            fg_color=self.tema_atual["bg_input"], selected_color=self.tema_atual["accent"],
+            selected_hover_color=self.tema_atual.get("accent_hover", self.tema_atual["accent"]),
+            unselected_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"],
+        ).pack(fill=tk.X, padx=20)
 
         def criar() -> None:
             nivel = int(var_nivel.get()) if var_nivel.get().isdigit() else 1
             selecao = self.tree.selection()
             pai = selecao[0] if selecao and "pasta" in self.tree.item(selecao[0], "tags") else ""
             faccao = normalizar_faccao(self.tree.item(pai, "text") if pai else "")
-            self._criar_arquetipo(pai, var_nome.get().strip() or "Arquétipo", nivel, var_papel.get(), faccao)
+            arquetipo = classes[var_classe.get()]
+            self._gerar_inimigo(pai, var_nome.get().strip() or "Inimigo", max(1, nivel), arquetipo, faccao)
             top.destroy()
 
         ctk.CTkButton(top, text="Criar", command=criar, fg_color=self.tema_atual["accent"], text_color="white").pack(fill=tk.X, padx=20, pady=16)
 
-    def _criar_arquetipo(self, pai: str, nome: str, nivel: int, papel: str, faccao: str) -> None:
-        base = "Vanguarda Pesada" if papel == "Chefe" else "Esquadrão Balanceado"
-        perfil = self._perfil_lacaio(max(1, nivel), base, 1)
-        if papel in ("Elite", "Chefe"):
-            maior = max(("fis", "agi", "intel", "inst"), key=lambda chave: perfil[chave])
-            perfil[maior] = min(5, perfil[maior] + (2 if papel == "Chefe" else 1))
-            perfil["luta"] = min(3, perfil["luta"] + 1)
-        bonus_pv = {"Capanga": 0, "Elite": 5, "Chefe": 15}[papel]
-        bonus_pe = {"Capanga": 0, "Elite": 2, "Chefe": 4}[papel]
-        self._inserir_ficha(pai, nome, max(1, nivel), perfil, bonus_pv, bonus_pe)
-        self.registrar_log(f"🐲 {papel} '{nome}' (Nv {nivel}) criado em {faccao}.")
+    def _gerar_inimigo(self, pai: str, nome: str, nivel: int, arquetipo: str, faccao: str) -> None:
+        """Cria o inimigo usando o mesmo perfil de arquétipo dos lacaios."""
+        perfil = self._perfil_lacaio(nivel, arquetipo, 1)
+        self._inserir_ficha(pai, nome, nivel, perfil)
+        self.registrar_log(f"🐲 Inimigo '{nome}' (Nv {nivel}, {arquetipo}) criado em {faccao}.")
 
     def importar_lote(self) -> None:
         """Importa várias fichas de um JSON/CSV, validando cada uma."""
@@ -680,8 +765,9 @@ class GerenciadorAmeasApp:
         self.menu_ferramentas = tk.Menu(self.menu_bar, tearoff=0, bg=self.tema_atual["bg_card"], fg=self.tema_atual["text"], bd=0)
         self.menu_ferramentas.add_command(label="📊 Estatísticas da Campanha", command=self.exibir_estatisticas_campanha)
         self.menu_ferramentas.add_command(label="👥 Gerar Lacaios em Massa", command=self.gerar_lacaios_massa)
-        self.menu_ferramentas.add_command(label="🐲 Bestiário (Chefe/Elite/Capanga)", command=self.abrir_bestiario)
+        self.menu_ferramentas.add_command(label="🐲 Gerar Inimigo", command=self.abrir_gerador_inimigo)
         self.menu_ferramentas.add_command(label="🎯 Gerador de Encontros", command=self.abrir_gerador_encontros)
+        self.menu_ferramentas.add_command(label="🧮 Calculadora de Dano", command=self.abrir_calculadora_dano)
         self.menu_ferramentas.add_separator()
         self.menu_ferramentas.add_command(label="📥 Importar Ficha (.json)", command=self.importar_ficha_individual)
         self.menu_ferramentas.add_command(label="📦 Importar em Lote (JSON/CSV)", command=self.importar_lote)
@@ -716,6 +802,13 @@ class GerenciadorAmeasApp:
         self.btn_toggle_tracker = ctk.CTkButton(self.barra_ferramentas, text="≡ Tracker", command=self.toggle_tracker, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"], width=100)
         self.btn_toggle_tracker.pack(side=tk.RIGHT)
         self._botoes_barra.append(self.btn_toggle_tracker)
+
+        # Status discreto do último salvamento (manual ou automático).
+        self.lbl_status = ctk.CTkLabel(
+            self.barra_ferramentas, text="",
+            font=self.get_font('small'), text_color=COR_TEXTO_SUAVE,
+        )
+        self.lbl_status.pack(side=tk.RIGHT, padx=(0, 12))
         self.tracker_visivel = False
 
     def mapear_arvore_completa(self, node=""):
@@ -840,6 +933,8 @@ class GerenciadorAmeasApp:
         self.abas_abertas = {}
         #: Fichas fechadas ficam em cache para reabrir instantaneamente.
         self._abas_cache: dict[str, tuple[ctk.CTkFrame, FichaPersonagemFrame]] = {}
+        #: Bando compartilhado por todas as fichas (persistido no cofre).
+        self.bando_global: list[str] = []
 
         self.frame_tracker = ctk.CTkFrame(self.container_principal, width=280, fg_color=self.tema_atual["bg_sidebar"], corner_radius=0)
         self.frame_tracker.pack_propagate(False)
@@ -885,6 +980,7 @@ class GerenciadorAmeasApp:
         
         self.lista_iniciativa.bind("<Button-3>", self.menu_condicoes_tracker)
         self.lista_iniciativa.bind("<Button-1>", self.clicar_tracker_vazio)
+        self.lista_iniciativa.bind("<Delete>", self.remover_do_tracker)
         self.lista_iniciativa.bind("<Motion>", self.hover_tracker)
         self.lista_iniciativa.bind("<Leave>", self.sair_do_tracker)
         
@@ -1089,29 +1185,7 @@ class GerenciadorAmeasApp:
     @staticmethod
     def _perfil_lacaio(nivel: int, arquetipo: str, indice: int) -> dict[str, int]:
         """Atributos/Graus coerentes com o Nível, moldados pelo arquétipo."""
-        maior = min(5, 2 + (nivel - 1) // 3)
-        secundario = min(4, 1 + (nivel - 1) // 5)
-        grau = min(3, (nivel - 1) // 3)
-
-        if arquetipo == "Bando de Atiradores":
-            return {
-                "fis": max(0, secundario - 1), "agi": maior, "intel": secundario,
-                "inst": max(1, secundario), "luta": max(0, grau - 1), "acro": grau,
-            }
-        if arquetipo == "Vanguarda Pesada":
-            return {
-                "fis": maior, "agi": secundario, "intel": 1,
-                "inst": secundario, "luta": grau, "acro": 0,
-            }
-        troca = indice % 2 == 0
-        return {
-            "fis": maior if troca else secundario,
-            "agi": secundario if troca else maior,
-            "intel": max(1, secundario - 1),
-            "inst": secundario,
-            "luta": grau,
-            "acro": max(0, grau - 1) if troca else grau,
-        }
+        return perfil_lacaio(nivel, arquetipo, indice)
 
     def _criar_lacaios(self, pai: str, base: str, quantidade: int, arquetipo: str,
                        faccao: str, nivel: int = 1) -> None:
@@ -1346,6 +1420,19 @@ class GerenciadorAmeasApp:
             "• utils/ — persistência, loot, história, cartaz e golpes",
         )
 
+    def remover_do_tracker(self, event=None):
+        """Delete: tira a linha selecionada (ou o turno atual) do Tracker."""
+        selecao = self.lista_iniciativa.curselection()
+        indice = selecao[0] if selecao else self.turno_atual_idx
+        if not 0 <= indice < len(self.tracker_data):
+            return "break"
+        removido = self.tracker_data.pop(indice)
+        if self.turno_atual_idx >= len(self.tracker_data):
+            self.turno_atual_idx = max(0, len(self.tracker_data) - 1)
+        self.atualizar_tracker_view()
+        self.registrar_log(f"🗑️ {removido['nome']} removido do Tracker.")
+        return "break"
+
     def alternar_log(self) -> None:
         """Mostra/oculta o histórico flutuando sobre o rodapé do Tracker."""
         if not self.tracker_visivel:
@@ -1378,10 +1465,16 @@ class GerenciadorAmeasApp:
         y_root = self.tree.winfo_rooty() + event.y
         widget_sob_mouse = self.root.winfo_containing(x_root, y_root)
         
-        if widget_sob_mouse and hasattr(widget_sob_mouse, 'bando_tag'):
+        # Procura a lista de bando subindo na hierarquia (rótulo/botão -> linha -> lista).
+        alvo_bando = widget_sob_mouse
+        while alvo_bando is not None and not hasattr(alvo_bando, "bando_tag"):
+            alvo_bando = getattr(alvo_bando, "master", None)
+        if alvo_bando is not None:
             if "ficha" in self.tree.item(self.item_arrastado, "tags"):
-                nome_arrastado = self.tree.item(self.item_arrastado, "text").strip()
-                widget_sob_mouse.insert(tk.END, nome_arrastado)
+                nome_arrastado = re.sub(
+                    r" \[Lv\. .*?\]$", "", self.tree.item(self.item_arrastado, "text").strip()
+                )
+                alvo_bando.insert(tk.END, nome_arrastado)
             self.item_arrastado = None
             return
 
@@ -1437,6 +1530,20 @@ class GerenciadorAmeasApp:
             i += 1
         return f"{nome_base} ({i})"
 
+    def _ja_esta_no_tracker(self, item_id, nome) -> bool:
+        """Evita duplicar a mesma ficha (ou lacaio) na iniciativa."""
+        return any(
+            linha.get("id") == item_id and linha.get("nome") == nome
+            for linha in self.tracker_data
+        )
+
+    def _bando_alterado(self, origem) -> None:
+        """Mantém todas as abas abertas sincronizadas com o bando compartilhado."""
+        for ficha in self.abas_abertas.values():
+            lista = getattr(ficha, "listbox_bando", None)
+            if lista is not None and lista is not origem:
+                lista.recarregar()
+
     def add_tracker(self):
         sel = self.tree.selection()
         if sel and "ficha" in self.tree.item(sel[0], "tags"):
@@ -1449,6 +1556,10 @@ class GerenciadorAmeasApp:
             else:
                 texto_arvore = self.tree.item(item_id, "text").strip()
                 nome = re.sub(r" \[Lv\. .*?\]$", "", texto_arvore)
+
+            if self._ja_esta_no_tracker(item_id, nome):
+                self.registrar_log(f"⚠️ {nome} já está no Tracker.")
+                return
 
             ini = CTkPopUpInput.pedir_numero("Iniciativa", f"Iniciativa de {nome}:")
             if ini is not None:
@@ -1471,7 +1582,11 @@ class GerenciadorAmeasApp:
                     dados = self.dados_banco.get(child, {})
                     
                 nome = dados.get("nome", re.sub(r" \[Lv\. .*?\]$", "", self.tree.item(child, "text").strip()))
+                if self._ja_esta_no_tracker(child, nome):
+                    self.registrar_log(f"⚠️ {nome} já estava no Tracker (ignorado).")
+                    continue
                 agi = dados.get("agi", 0)
+                # Iniciativa 1d20 + Agilidade: conveniência de mesa (não é regra do livro).
                 rolagem = random.randint(1, 20) + agi
                 
                 self.tracker_data.append({"ini": rolagem, "id": child, "nome": nome, "status": []})
@@ -1527,10 +1642,12 @@ class GerenciadorAmeasApp:
                 marcado = "✓ "
             else:
                 prazo, marcado = "", "      "
-            submenu.add_command(label=f"{marcado}{icone} {nome}{prazo}", command=lambda c=chave: self.alternar_condicao(idx, c))
+            submenu.add_command(label=f"{marcado}{icone} {nome}{prazo}", command=lambda c=chave: self._aplicar_condicao_com_duracao(idx, c))
         submenu.add_separator()
         submenu.add_command(label="⏱ +1 turno nas condições", command=lambda: self.ajustar_turnos_condicoes(idx, 1))
         submenu.add_command(label="⏱ -1 turno nas condições", command=lambda: self.ajustar_turnos_condicoes(idx, -1))
+        submenu.add_command(label="⏱ +1 minuto (10 turnos)", command=lambda: self.ajustar_turnos_condicoes(idx, 10))
+        submenu.add_command(label="⏱ -1 minuto (10 turnos)", command=lambda: self.ajustar_turnos_condicoes(idx, -10))
         submenu.add_command(label="❌ Limpar todas as condições", command=lambda: self.limpar_condicoes(idx))
         menu.add_cascade(label="🩹 Condições", menu=submenu)
         self._postar_menu(menu, x, y)
@@ -1581,6 +1698,63 @@ class GerenciadorAmeasApp:
 
         alvo["status"] = ativas
         self._atualizar_linha(index)
+
+    def _aplicar_condicao_com_duracao(self, index: int, chave: str) -> None:
+        """Abre a escolha de duração (turnos ou minutos) antes de aplicar."""
+        if not 0 <= index < len(self.tracker_data):
+            return
+        alvo = self.tracker_data[index]
+        if chave in [cond["chave"] for cond in self._condicoes_linha(alvo)]:
+            self.alternar_condicao(index, chave)
+            return
+
+        top = ctk.CTkToplevel(self.root)
+        top.title("Duração da condição")
+        top.geometry("360x250")
+        top.transient(self.root)
+        top.attributes("-topmost", True)
+        top.configure(fg_color=self.tema_atual["bg_main"])
+
+        ctk.CTkLabel(
+            top, text=f"{icone_condicao(chave)} {nome_condicao(chave)}",
+            font=self.get_font('title'), text_color=self.tema_atual["accent"],
+        ).pack(pady=(14, 4))
+        ctk.CTkLabel(top, text="Duração", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
+
+        var_modo = tk.StringVar(value="Turnos")
+        var_valor = tk.StringVar(value=str(TURNOS_PADRAO))
+        linha = ctk.CTkFrame(top, fg_color="transparent")
+        linha.pack(fill=tk.X, padx=20, pady=(4, 6))
+        ctk.CTkSegmentedButton(
+            linha, variable=var_modo, values=["Turnos", "Minutos"],
+            fg_color=self.tema_atual["bg_input"], selected_color=self.tema_atual["accent"],
+            selected_hover_color=self.tema_atual.get("accent_hover", self.tema_atual["accent"]),
+            unselected_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"],
+        ).pack(side=tk.LEFT, expand=True, fill=tk.X)
+        ctk.CTkEntry(linha, textvariable=var_valor, width=60, fg_color=self.tema_atual["bg_input"],
+                     text_color=self.tema_atual["text"], border_width=0, justify="center").pack(side=tk.LEFT, padx=(8, 0))
+
+        ctk.CTkLabel(top, text="1 minuto = 10 turnos (1 turno = 6 s)", font=self.get_font('small'),
+                     text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
+
+        def confirmar() -> None:
+            texto = str(var_valor.get()).strip()
+            if not texto.isdigit() or int(texto) <= 0:
+                messagebox.showwarning("Duração", "Informe um número maior que zero.", parent=top)
+                return
+            valor = int(texto)
+            if var_modo.get() == "Minutos":
+                turnos = valor * 10
+                self.registrar_log(f"⏱ {valor} min = {turnos} turnos")
+            else:
+                turnos = valor
+            self.alternar_condicao(index, chave, turnos)
+            top.destroy()
+
+        botoes = ctk.CTkFrame(top, fg_color="transparent")
+        botoes.pack(fill=tk.X, padx=20, pady=12)
+        ctk.CTkButton(botoes, text="Aplicar", command=confirmar, fg_color=self.tema_atual["accent"], text_color="white").pack(side=tk.LEFT, expand=True, fill=tk.X)
+        ctk.CTkButton(botoes, text="Sem prazo (∞)", command=lambda: (self.alternar_condicao(index, chave, None), top.destroy()), fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"]).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=(6, 0))
 
     def ajustar_turnos_condicoes(self, index: int, delta: int) -> None:
         """Soma ou tira 1 turno de todas as condições com prazo da linha."""
@@ -1644,12 +1818,6 @@ class GerenciadorAmeasApp:
             texto, cor, morto = self._render_linha(i, t)
             self.lista_iniciativa.insert(tk.END, texto)
             self.lista_iniciativa.itemconfig(i, fg=cor)
-            if i == self.turno_atual_idx:
-                # Quem está caído continua legível mesmo com o destaque do turno.
-                self.lista_iniciativa.itemconfig(
-                    i, bg=self.tema_atual["accent"],
-                    fg=COR_PERIGO_CLARO if morto else "white",
-                )
             self._mapa_tracker.setdefault(t.get("id", ""), []).append(i)
 
         if selecionado is not None:
@@ -1696,11 +1864,6 @@ class GerenciadorAmeasApp:
         self.lista_iniciativa.delete(indice)
         self.lista_iniciativa.insert(indice, texto)
         self.lista_iniciativa.itemconfig(indice, fg=cor, bg=self.tema_atual["bg_sidebar"])
-        if indice == self.turno_atual_idx:
-            self.lista_iniciativa.itemconfig(
-                indice, bg=self.tema_atual["accent"],
-                fg=COR_PERIGO_CLARO if morto else "white",
-            )
         for i in selecao:
             if i < self.lista_iniciativa.size():
                 self.lista_iniciativa.selection_set(i)
@@ -1796,12 +1959,11 @@ class GerenciadorAmeasApp:
         for linha in inimigos:
             item_id = linha.get("id", "")
             if item_id in self.abas_abertas or item_id in self.dados_banco:
-                hp_total += self.obter_pv(item_id)[1]
+                # PV atual: mede quantas rodadas faltam para zerar o combate.
+                hp_total += self.obter_pv(item_id)[0]
 
         if hp_total <= 0:
-            # Sem HP vinculado (lacaios genéricos): cai no cálculo por Nível.
-            texto, cor = calcular_dificuldade_encontro(inimigos, self.dados_banco, jogadores, nivel)
-            return f"{texto} (sem HP)", cor
+            return "Inimigos derrotados", COR_TEXTO_SUAVE
 
         dados = analisar_desafio(jogadores, nivel, hp_total)
         return dados["resumo"], dados["cor"]
@@ -1913,6 +2075,7 @@ class GerenciadorAmeasApp:
             return
         self.arquivo_atual = None
         self.dados_banco.clear()
+        self.bando_global.clear()
         self._fechar_todas_as_abas()
         self.tree.delete(*self.tree.get_children())
         self.limpar_tracker()
@@ -1956,6 +2119,7 @@ class GerenciadorAmeasApp:
         return {
             "jogadores": self._inteiro_positivo(self.var_jogadores, 4),
             "nivel_grupo": self._inteiro_positivo(self.var_nivel_grupo, 1),
+            "bando": list(self.bando_global),
         }
 
     def _aplicar_configuracao(self, config: dict) -> None:
@@ -1967,6 +2131,9 @@ class GerenciadorAmeasApp:
         nivel_grupo = config.get("nivel_grupo")
         if str(nivel_grupo).isdigit():
             self.var_nivel_grupo.set(str(nivel_grupo))
+        bando = config.get("bando")
+        if isinstance(bando, list):
+            self.bando_global = [str(nome).strip() for nome in bando if str(nome).strip()]
         self.atualizar_dificuldade()
 
     def _gravar_banco(self, caminho: str) -> bool:
@@ -2001,6 +2168,7 @@ class GerenciadorAmeasApp:
                 salvar_banco_sqlite(
                     self.arquivo_atual, estrutura, self.dados_banco, self._configuracao_sessao()
                 )
+                self._marcar_status_salvo(auto=True)
                 self.registrar_log("💾 Salvamento automático concluído.")
         except Exception as erro:
             self.registrar_log(f"⚠️ Falha no salvamento automático: {erro}")
@@ -2011,11 +2179,22 @@ class GerenciadorAmeasApp:
             except tk.TclError:
                 pass
 
+    def _marcar_status_salvo(self, auto: bool = False) -> None:
+        """Rodapé discreto com a hora do último salvamento."""
+        try:
+            from datetime import datetime
+            hora = datetime.now().strftime("%H:%M")
+            self.lbl_status.configure(text=f"💾 {'auto' if auto else 'salvo'} {hora}")
+        except (tk.TclError, AttributeError):
+            pass
+
     def salvar_banco(self) -> bool:
         if not self.arquivo_atual:
             return self.salvar_como_banco()
         if self._gravar_banco(self.arquivo_atual):
             self.registrar_log(f"💾 Cofre salvo em {self.arquivo_atual}")
+            self._marcar_status_salvo()
+            messagebox.showinfo("Salvo", f"Cofre salvo com sucesso em:\n{self.arquivo_atual}", parent=self.root)
             return True
         return False
 
@@ -2027,6 +2206,8 @@ class GerenciadorAmeasApp:
             self.arquivo_atual = caminho
             self.atualizar_titulo()
             self.registrar_log(f"💾 Cofre salvo em {caminho}")
+            self._marcar_status_salvo()
+            messagebox.showinfo("Salvo", f"Cofre salvo com sucesso em:\n{caminho}", parent=self.root)
             return True
         return False
 
@@ -2051,6 +2232,15 @@ class GerenciadorAmeasApp:
         self.tree.delete(*self.tree.get_children())
         self.limpar_tracker()
         self._aplicar_configuracao(config)
+        # Fichas antigas guardavam o bando individualmente: junta tudo no bando
+        # compartilhado, sem duplicar nomes.
+        for dados in fichas.values():
+            membros = dados.get("bando", []) if isinstance(dados, dict) else []
+            if not isinstance(membros, list):
+                continue
+            for nome in membros:
+                if nome and nome not in self.bando_global:
+                    self.bando_global.append(nome)
 
         def restaurar(pai, nos):
             for n in nos:

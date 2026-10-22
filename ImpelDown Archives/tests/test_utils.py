@@ -63,7 +63,7 @@ class TestImportacao(unittest.TestCase):
         self.assertEqual(ficha["nome"], "X")
         self.assertEqual(ficha["nivel"], "3")
         self.assertEqual(ficha["fis"], 5)
-        self.assertEqual(ficha["luta"], -1)
+        self.assertEqual(ficha["luta"], 0)
 
     def test_ficha_sem_nome_falha(self) -> None:
         with self.assertRaises(ValueError):
@@ -124,6 +124,19 @@ class TestPersistencia(unittest.TestCase):
             self.assertEqual(estrutura, [])
             self.assertEqual(fichas, {})
             self.assertEqual(config, {})
+
+    def test_backup_rotativo(self) -> None:
+        with tempfile.TemporaryDirectory() as pasta:
+            caminho = os.path.join(pasta, "cofre.db")
+            estrutura: list = []
+            fichas: dict = {}
+            for _ in range(4):
+                salvar_banco_sqlite(caminho, estrutura, fichas, {})
+
+            self.assertTrue(os.path.exists(caminho + ".bak"))
+            self.assertTrue(os.path.exists(caminho + ".bak.1"))
+            self.assertTrue(os.path.exists(caminho + ".bak.2"))
+            self.assertFalse(os.path.exists(caminho + ".bak.3"))
 
 
 if __name__ == "__main__":

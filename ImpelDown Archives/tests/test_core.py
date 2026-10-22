@@ -16,6 +16,7 @@ from core.combate import (  # noqa: E402
     poder_do_grupo,
 )
 from core.regras import calcular_atributos_derivados  # noqa: E402
+from core.desafio import analisar as analisar_desafio  # noqa: E402
 from utils.encontros import encontrar_para_alvo, sugerir_encontros  # noqa: E402
 
 
@@ -88,16 +89,48 @@ class TestEncontros(unittest.TestCase):
                 self.assertEqual(sugestao.classificacao, sugestao.rotulo)
                 self.assertGreaterEqual(sugestao.chefe_nivel, 1)
                 self.assertGreaterEqual(sugestao.lacaios, 0)
+                self.assertGreater(sugestao.hp_total, 0)
+                self.assertGreaterEqual(sugestao.rodadas, 1)
 
     def test_alvo_encontrado(self) -> None:
-        sugestao = encontrar_para_alvo(4, 5, "Médio")
+        sugestao = encontrar_para_alvo(4, 5, "Desafiador")
         self.assertIsNotNone(sugestao)
-        self.assertEqual(sugestao.classificacao, "Médio")
+        self.assertEqual(sugestao.classificacao, "Desafiador")
 
-    def test_razao_dentro_da_faixa(self) -> None:
-        limites = {"Fácil": 0.60, "Médio": 1.00, "Difícil": 1.40, "Mortal": 99.0}
+    def test_rodadas_por_classe(self) -> None:
+        faixas = {"Fácil": (1, 2), "Desafiador": (3, 4), "Mortal": (5, 99)}
         for sugestao in sugerir_encontros(4, 5):
-            self.assertLessEqual(sugestao.razao, limites[sugestao.rotulo])
+            minimo, maximo = faixas[sugestao.rotulo]
+            self.assertGreaterEqual(sugestao.rodadas, minimo)
+            self.assertLessEqual(sugestao.rodadas, maximo)
+
+
+class TestDesafioPorDano(unittest.TestCase):
+    def test_dano_por_patamar(self) -> None:
+        self.assertEqual(analisar_desafio(4, 2, 100)["dano_jogador"], 12)
+        self.assertEqual(analisar_desafio(4, 5, 100)["dano_jogador"], 20)
+        self.assertEqual(analisar_desafio(4, 10, 100)["dano_jogador"], 32)
+        self.assertEqual(analisar_desafio(4, 15, 100)["dano_jogador"], 60)
+
+    def test_rodadas_e_classes(self) -> None:
+        # 4 jogadores Nv 5 = 80 de dano por rodada
+        self.assertEqual(analisar_desafio(4, 5, 160)["rodadas_inteiras"], 2)
+        self.assertEqual(analisar_desafio(4, 5, 160)["rotulo"], "Fácil")
+        self.assertEqual(analisar_desafio(4, 5, 320)["rotulo"], "Desafiador")
+        self.assertEqual(analisar_desafio(4, 5, 480)["rotulo"], "Mortal")
+
+    def test_sugestoes_para_faixa(self) -> None:
+        rapido = analisar_desafio(4, 5, 80)
+        self.assertIn("Rápido", rapido["sugestoes"][0])
+        letal = analisar_desafio(4, 5, 800)
+        self.assertIn("Letal", letal["sugestoes"][0])
+        ok = analisar_desafio(4, 5, 280)
+        self.assertIn("Faixa desejada", ok["sugestoes"][0])
+
+    def test_sem_hp(self) -> None:
+        dados = analisar_desafio(4, 5, 0)
+        self.assertEqual(dados["rotulo"], "Sem HP")
+        self.assertEqual(dados["rodadas_inteiras"], 0)
 
 
 if __name__ == "__main__":

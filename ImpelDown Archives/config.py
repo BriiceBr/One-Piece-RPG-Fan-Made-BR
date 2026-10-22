@@ -1,8 +1,5 @@
-import customtkinter as ctk
-
-# Configurações globais do CustomTkinter
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("dark-blue")
+# Configurações globais do projeto (temas, fontes e nome do sistema).
+# O modo de aparência do CustomTkinter é definido em main.py, na inicialização.
 
 # --- TEMAS DINÂMICOS PROFUNDOS E SUAVES ---
 TEMAS = {

@@ -331,3 +331,123 @@ Registro contínuo de tarefas executadas no projeto.
   - `ImpelDown Archives/tests/test_utils.py`
   - `anotacoes/pendencias.md`
 
+---
+
+### [22/10/2026] – Desafio por dano, calculadora, bando com ✖ e exclusão no Tracker
+- **Responsável:** DeepSeek + Usuário
+- **Ações Realizadas:**
+  - **Novo cálculo de desafio (`core/desafio.py`):** dano por jogador conforme o patamar (12/20/32/60), dano da party por rodada, HP total dos inimigos e rodadas. Classificação: 1–2 **Muito Fácil**, 3–4 **Desafiador**, 5+ **Mortal** (arredondando para cima).
+  - **Tracker usa o novo cálculo:** soma o PV máximo dos inimigos vinculados e mostra, por exemplo, `Muito Fácil · 1 rodada(s) · 36÷48`.
+  - **Jogadores fora da conta:** fichas em pasta `Player`, `Players`, `Jogador(es)`, `Party`, `Grupo` ou `Aliados` não entram no HP dos inimigos nem na classificação.
+  - **Calculadora de Dano:** novo item em Ferramentas, com jogadores, Nível, quantidade e HP médio, mostrando dano, rodadas, classe e sugestões.
+  - **Mensagem de salvo:** ao salvar (menu ou Ctrl+S) aparece confirmação; no canto da barra fica um status pequeno `💾 salvo HH:MM` ou `💾 auto HH:MM`.
+  - **Bando com ✖ por linha:** o `tk.Listbox` virou `ListaBando` (frame rolável); cada membro tem seu botão de remover e **duplo clique abre a ficha** do membro.
+  - **Delete no Tracker:** remove a linha selecionada (ou o turno atual) da iniciativa.
+- **Testes:** `py -m unittest discover -s tests` → **29 testes OK**; smoke do app cobrindo exclusão de jogador do desafio, Delete no tracker, calculadora, bando com ✖, duplo clique abrindo ficha, drop de ficha no bando e mensagem/status de salvamento.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/core/desafio.py` (novo)
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/ui/widgets_custom.py`
+  - `ImpelDown Archives/tests/test_core.py`
+  - `anotacoes/pendencias.md`
+
+---
+
+### [22/10/2026] – Auditoria: correções de alta prioridade (rodada 1)
+- **Responsável:** DeepSeek + Usuário
+- **Implementado (sem alterar regras de RPG):**
+  - **Tracker sem duplicados:** `_ja_esta_no_tracker` checa (id, nome) antes de adicionar. Vale para `add_tracker`, `rolar_iniciativa_pasta` e `lancar_bando_tracker`.
+  - **Removida a regra de três antiga do fallback:** quando não há HP vinculado, o Tracker mostra `Sem HP vinculado aos inimigos` em vez de chamar `calcular_dificuldade_encontro`.
+  - **Rolagem testável:** `rolar_dados_seguro` ganhou parâmetro `rng` (injeção de gerador).
+  - **Novos testes:** `tests/test_dados.py` (graus, Poça de d20, Vantagem/Desvantagem, menor-quando-zera, dano determinístico). Suíte subiu de 29 para **41 testes**.
+  - **Persistência:** leitura SQLite usa `PRAGMA table_info` (não mais exceção genérica) para detectar a coluna `config`.
+  - **Config limpo:** `set_appearance_mode`/`set_default_color_theme` saíram de `config.py` e foram para `main.py` (sem efeito colateral no import).
+- **Pendências de regra (aguardando o Mestre):** fórmula de PV, fórmula de CD e faixa de Graus (−1..4 vs 0..3). Ver `anotacoes/pendencias.md`.
+- **Testes:** `py -m unittest discover -s tests` → 41 OK; smoke do app confirmando dedupe de bando (3 nomes únicos) e mensagem "Sem HP vinculado".
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/core/dados.py`
+  - `ImpelDown Archives/utils/arquivos.py`
+  - `ImpelDown Archives/config.py`
+  - `ImpelDown Archives/main.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/tests/test_dados.py` (novo)
+  - `anotacoes/auditoria_2026-10-22.md`
+
+---
+
+### [22/10/2026] – Auditoria: rodada 2 (backup rotativo, anti-lock e documentação)
+- **Responsável:** DeepSeek + Usuário
+- **Implementado:**
+  - **Backup rotativo:** `fazer_backup` agora mantém `.db.bak`, `.db.bak.1` e `.db.bak.2` (histórico de 3 versões), sem apagar o cofre original.
+  - **Anti-lock defensivo:** `PRAGMA busy_timeout = 5000` nas conexões de gravação e leitura.
+  - **Documentação da iniciativa:** comentário em `rolar_iniciativa_pasta` e `lancar_bando_tracker` marcando `1d20 + Agilidade` como conveniência de mesa (não é regra do livro).
+  - **Evidência de arquitetura:** varredura na pasta `ui/` confirmou que não há fórmula de regra embutida (só a linha de iniciativa, já documentada). Fórmulas vivem em `core/regras.py` e `core/dados.py`.
+- **Testes:** `py -m unittest discover -s tests` → **42 testes OK** (novo `test_backup_rotativo`).
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/utils/arquivos.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/tests/test_utils.py`
+  - `anotacoes/auditoria_2026-10-22.md`
+
+---
+
+### [22/10/2026] – Fases 3 e 10.4 concluídas (decisões do Mestre)
+- **Responsável:** DeepSeek + Usuário
+- **Regras aplicadas:**
+  - **PV confirmado:** `PV = PV de Raça + (Nível × Físico) + 5 × (Nível − 1) + ajuste manual`. Novo campo **PV Raça** (padrão 12, Base Humana) na ficha.
+  - **CD manual:** o Mestre digita a CD (campo **CD** na ficha, padrão 10); o cálculo automático só permanece como fallback para fichas antigas sem `cd` salvo.
+  - **Graus 0..3:** regras, importação e contadores da ficha voltaram ao oficial (Leigo a Mestre).
+- **Migração sem perda:** fichas antigas sem `pv_raca` têm o modificador derivado do PV máximo salvo (ex.: Arlong 36 PV → PV Raça 14, PV continua 36); `cd` antiga é preservada como CD manual.
+- **Gerador de Encontros (10.4):** passou a usar HP/rodadas (`core.desafio`), sem regra de três. O PV de cada inimigo é estimado pela fórmula oficial + arquétipos, e o Tracker usa o **PV atual** dos inimigos.
+- **Testes:** 44 testes OK; smoke confirmando PV Raça (+5 → 34→39), CD manual 25, graus clampados 0..3, migração 36→36, gerador em 1,5/3,5/5,5 rodadas e Tracker usando PV atual (39→10).
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/core/regras.py`
+  - `ImpelDown Archives/core/desafio.py`
+  - `ImpelDown Archives/core/combate.py` (marcado como legado)
+  - `ImpelDown Archives/utils/encontros.py`
+  - `ImpelDown Archives/utils/importacao.py`
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/tests/test_core.py`
+  - `ImpelDown Archives/tests/test_utils.py`
+  - `anotacoes/relatorio_final_auditoria.md`
+
+---
+
+### [22/10/2026] – Reversões e ajustes de mesa
+- **Responsável:** DeepSeek + Usuário
+- **Implementado:**
+  - **PV/CD voltaram ao anterior:** PV = `(12 + Físico) + (Nível − 1) × (6 + maior Atributo)`; CD automática = `10 + maior + Nível//2`, com bônus manual `+CD`. Removidos os campos PV de Raça e CD manual.
+  - **Clareza de recursos:** a ficha mostra **PV atual / máx** e **PE atual / máx**.
+  - **Bando compartilhado:** um único bando para todas as fichas, persistido no cofre (`config["bando"]`). Bandos antigos por ficha são mesclados ao carregar, e todas as abas abertas sincronizam ao adicionar/remover.
+  - **"Bestiário" virou "Gerar Inimigo":** o Mestre informa Nome, Nível e Classe (Balanceado, Atiradores, Vanguarda).
+  - **Condições com duração escolhida:** turnos **ou** minutos (1 minuto = 10 turnos; 1 turno = 6 s), com atalhos de ±1 turno e ±1 minuto no menu.
+  - **Tracker sem contorno colorido:** o turno atual é indicado apenas pela flecha `▶`, sem fundo roxo.
+- **Testes:** 42 testes OK; smoke confirmando PV 36/CD 15 (+2 → 17), bando visível e sincronizado entre duas fichas, ausência de destaque colorido, condição de 20 turnos (2 min), geração de inimigo Atirador e janela de duração.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/core/regras.py`
+  - `ImpelDown Archives/utils/encontros.py`
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/ui/widgets_custom.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/tests/test_core.py`
+  - `anotacoes/pendencias.md`
+
+---
+
+### [22/10/2026] – Refatoração visual de PV/PE na ficha
+- **Responsável:** DeepSeek + Usuário
+- **Implementado:**
+  - Layout agrupado: **PV:** → botão **−** → label única **`atual / máx`** → botão **+**.
+  - Mesmo padrão ao lado para **PE:**.
+  - Removidas as caixas de edição separadas de PV atual, PV máx, PE atual e PE máx; os valores agora aparecem numa única Label (`36 / 36`, `11 / 11`).
+  - A Label é atualizada automaticamente por *trace* quando PV/PE mudam (inclusive dano/cura pelo Tracker).
+  - Ajustes de máximo continuam pelos contadores **+PV Máx** e **+PE Máx** na aba Atributos.
+- **Testes:** 42 testes OK; smoke confirmando `36 / 36`, `−6 → 30 / 36`, `PE 3 → 3 / 11` e dano pelo Tracker refletindo no label (`25 / 36`). Captura em `anotacoes/captura_pvpe.png`.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `anotacoes/pendencias.md`
+

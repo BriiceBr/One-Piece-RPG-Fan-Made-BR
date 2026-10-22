@@ -43,12 +43,13 @@ class ListaBando(ctk.CTkFrame):
     tem seu próprio botão de remover.
     """
 
-    def __init__(self, master, app_master, tema, ao_abrir=None):
+    def __init__(self, master, app_master, tema, ao_abrir=None, fonte=None, ao_alterar=None):
         super().__init__(master, fg_color=tema["bg_input"], corner_radius=6)
         self.app_master = app_master
         self.tema = tema
         self._ao_abrir = ao_abrir
-        self._itens: list[str] = []
+        self._ao_alterar = ao_alterar
+        self._itens: list[str] = fonte if fonte is not None else []
         self._linhas: list[ctk.CTkFrame] = []
         self.bando_tag = True
 
@@ -63,22 +64,18 @@ class ListaBando(ctk.CTkFrame):
         self._canvas.bind("<Configure>", lambda e: self._canvas.itemconfig(self._janela, width=e.width))
 
         self._vazio = ctk.CTkLabel(
-            self._interior, text="Arraste fichas para cá",
+            self._interior, text="Bando compartilhado: arraste fichas para cá",
             text_color=COR_TEXTO_SUAVE, font=app_master.get_font('small'),
         )
         self._vazio.pack(pady=12)
+        self.recarregar()
 
-    def insert(self, index, texto) -> None:
-        nome = str(texto).strip()
-        if not nome:
-            return
-        self._itens.append(nome)
+    def _criar_linha(self, nome: str) -> None:
         if self._vazio.winfo_manager():
             self._vazio.pack_forget()
 
         linha = ctk.CTkFrame(self._interior, fg_color=self.tema["bg_card"], corner_radius=4)
         linha.pack(fill=tk.X, padx=4, pady=2)
-        linha.bando_tag = True
         self._linhas.append(linha)
 
         rotulo = ctk.CTkLabel(
@@ -95,6 +92,25 @@ class ListaBando(ctk.CTkFrame):
             command=lambda n=nome, l=linha: self._remover(n, l),
         ).pack(side=tk.RIGHT, padx=(0, 4))
 
+    def recarregar(self) -> None:
+        """Redesenha as linhas a partir da lista compartilhada."""
+        for linha in self._linhas:
+            linha.destroy()
+        self._linhas.clear()
+        for nome in list(self._itens):
+            self._criar_linha(nome)
+        if not self._itens:
+            self._vazio.pack(pady=12)
+
+    def insert(self, index, texto) -> None:
+        nome = str(texto).strip()
+        if not nome or nome in self._itens:
+            return
+        self._itens.append(nome)
+        self._criar_linha(nome)
+        if self._ao_alterar is not None:
+            self._ao_alterar(self)
+
     def _abrir(self, nome: str) -> None:
         if self._ao_abrir is not None:
             self._ao_abrir(nome)
@@ -107,6 +123,8 @@ class ListaBando(ctk.CTkFrame):
         linha.destroy()
         if not self._itens:
             self._vazio.pack(pady=12)
+        if self._ao_alterar is not None:
+            self._ao_alterar(self)
 
     def delete(self, first, last=None) -> None:
         for linha in self._linhas:
@@ -114,6 +132,8 @@ class ListaBando(ctk.CTkFrame):
         self._linhas.clear()
         self._itens.clear()
         self._vazio.pack(pady=12)
+        if self._ao_alterar is not None:
+            self._ao_alterar(self)
 
     def get(self, first, last=None):
         return tuple(self._itens)

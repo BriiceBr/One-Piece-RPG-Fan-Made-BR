@@ -165,3 +165,71 @@ Lista viva de itens a corrigir, decisões pendentes e conversões a realizar.
 - [ ] O cache reaproveita a ficha fechada e sincroniza só nome/Nível/PV/PE; mudanças externas em História/Habilidades exigiriam reabrir pela árvore e recarregar.
 - [ ] Imagens ficam em memória por caminho; se o arquivo mudar no disco, o cache continua com a versão antiga até reiniciar.
 
+### 4.9 Desafio por dano e Tracker (22/10/2026)
+
+- [x] Cálculo de desafio por dano médio da party (rodadas + classes Muito Fácil/Desafiador/Mortal).
+- [x] Jogadores não contam no desafio (pastas Player/Jogadores/Party/Grupo/Aliados).
+- [x] Calculadora de Dano no menu Ferramentas.
+- [x] Mensagem de salvo manual + status discreto (salvo/auto).
+- [x] Bando com ✖ por membro e duplo clique para abrir a ficha.
+- [x] Delete remove linha do Combat Tracker.
+- [ ] O desafio por HP só funciona para inimigos com ficha vinculada; lacaios genéricos caem no cálculo antigo por Nível e aparecem como "(sem HP)".
+- [ ] Pastas de jogadores fora dos nomes reconhecidos contam como inimigos; basta renomear para Player/Jogadores.
+- [ ] Delete no Tracker não tem Ctrl+Z (o desfazer atual cobre PV e condições).
+- [ ] A calculadora de dano é uma janela de consulta; não salva o cálculo no cofre.
+- [ ] O cálculo usa o HP máximo, não o HP atual (mede o encontro cheio).
+
+### 5.0 Auditoria — estado (22/10/2026)
+
+- [x] A1 — Tracker sem participantes duplicados.
+- [x] A3 — Fallback da dificuldade sem regra de três antiga.
+- [x] M3/M4 — Testes da rolagem + injeção de RNG no dano.
+- [x] B1 — Efeito visual do CustomTkinter movido para `main.py`.
+- [x] B2 — Leitura SQLite com `PRAGMA table_info`.
+- [ ] A2 — Gerador de encontros ainda usa a regra de três antiga (depende de uma tabela de HP por Nível, a confirmar).
+- [ ] C1 — Fórmula de PV: confirmar a versão oficial antes de mudar.
+- [ ] C2 — Fórmula de CD: confirmar (automática vs manual).
+- [ ] M1 — Graus −1..4 vs oficial 0..3: decisão pendente.
+- [ ] M2 — Iniciativa 1d20+Agi: documentar como ferramenta opcional.
+- [ ] B3 — Backup `.db.bak` único (sem histórico rotativo).
+
+### 5.1 Auditoria — rodada 2 (22/10/2026)
+
+- [x] B3 — Backup rotativo `.db.bak` + `.bak.1` + `.bak.2`.
+- [x] Anti-lock defensivo (`busy_timeout`) na persistência.
+- [x] M2 — Iniciativa documentada como conveniência de mesa.
+- [x] Evidência de que a UI não embute fórmulas de regra.
+- [ ] A2 — Gerador de encontros: aguarda tabela de HP por Nível (ou decisão do Mestre).
+- [ ] C1 — Fórmula de PV: confirmar a versão oficial.
+- [ ] C2 — Fórmula de CD: confirmar (automática vs manual).
+- [ ] M1 — Graus −1..4 vs oficial 0..3: decisão pendente.
+
+### 5.2 Fases 3 e 10.4 concluídas (22/10/2026)
+
+- [x] C1 — PV = PV de Raça + Nível×Físico + 5×(Nível−1); campo PV Raça (padrão 12).
+- [x] C2 — CD manual (campo CD), com fallback automático só para fichas antigas.
+- [x] M1 — Graus de Perícia 0..3 (UI, regras e importação).
+- [x] A2 — Gerador de Encontros por HP/rodadas; `core.combate` marcado como legado.
+- [x] Migração de fichas antigas preserva PV e CD.
+- [ ] O PV de Raça padrão 12 é uma compatibilidade (Base Humana); raças específicas ainda não têm valor próprio.
+- [ ] O Gerador estima o PV pelos arquétipos e pela fórmula; os lacaios criados variam ±1 Atributo, então o HP real pode diferir um pouco do previsto.
+- [ ] `core.combate` continua no repositório apenas para compatibilidade/testes.
+
+### 5.3 Ajustes de mesa (22/10/2026)
+
+- [x] PV voltou à fórmula anterior; CD automática com bônus (+CD).
+- [x] Ficha indica PV/PE **atual** e **máx**.
+- [x] Bando compartilhado entre todas as fichas, salvo no cofre.
+- [x] "Bestiário" renomeado para **Gerar Inimigo** (Nível + Classe).
+- [x] Condições com duração em turnos **ou** minutos (1 min = 10 turnos).
+- [x] Removido o destaque colorido do turno no Tracker (só a flecha ▶).
+- [ ] Bandos antigos são mesclados ao carregar; nomes repetidos não duplicam.
+- [ ] O inimigo gerado usa os arquétipos existentes (Atirador pode ter Físico 0 em Níveis baixos).
+
+### 5.4 Layout de PV/PE (22/10/2026)
+
+- [x] PV/PE em uma única Label `atual / máx`, com − e + agrupados.
+- [x] Removidas as caixas de edição soltas do cabeçalho.
+- [x] Label sincronizada com dano/cura do Tracker.
+- [ ] PV/PE atual e máximo não são mais digitáveis no cabeçalho (máximo pelos contadores +PV Máx/+PE Máx; atual pelos botões ou Tracker).
+

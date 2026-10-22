@@ -1,6 +1,10 @@
 """Dificuldade do encontro no Combat Tracker.
 
-A conta agora é relativa ao grupo: compara o "poder" dos inimigos com o poder
+LEGADO: o Tracker e o Gerador de Encontros agora usam o cálculo por dano/rodada
+(``core.desafio``). Este módulo é mantido apenas para compatibilidade com dados
+antigos e para os testes; não é mais usado pela interface.
+
+A conta antiga era relativa ao grupo: compara o "poder" dos inimigos com o poder
 da party (jogadores × nível médio) e classifica por porcentagem. Também aplica
 um multiplicador de horda quando há mais inimigos do que jogadores.
 """

@@ -70,12 +70,26 @@ def importar_ficha_json(caminho: str) -> dict[str, Any]:
     return dados
 
 
+#: Quantos backups rotativos ficam guardados (`.bak`, `.bak.1`, `.bak.2`).
+MAX_BACKUPS = 3
+
+
 def fazer_backup(caminho_db: str) -> str | None:
-    """Copia o cofre atual para ``.db.bak``; devolve o caminho do backup."""
+    """Gira os backups e copia o cofre atual para ``.db.bak``.
+
+    Mantém um pequeno histórico: ``.bak`` (última versão), ``.bak.1`` e
+    ``.bak.2`` (versões anteriores). Nunca apaga o cofre original.
+    """
     if not os.path.exists(caminho_db):
         return None
-    destino = f"{caminho_db}.bak"
     try:
+        # .bak.2 <- .bak.1 <- .bak  (o mais novo avança uma posição para baixo)
+        for i in range(MAX_BACKUPS - 1, 0, -1):
+            origem = f"{caminho_db}.bak.{i - 1}" if i > 1 else f"{caminho_db}.bak"
+            destino = f"{caminho_db}.bak.{i}"
+            if os.path.exists(origem):
+                shutil.copy2(origem, destino)
+        destino = f"{caminho_db}.bak"
         shutil.copy2(caminho_db, destino)
         return destino
     except OSError:
@@ -102,6 +116,7 @@ def salvar_banco_sqlite(
 
     try:
         with closing(sqlite3.connect(temporario)) as conn:
+            conn.execute("PRAGMA busy_timeout = 5000")
             with conn:
                 conn.execute(_CREATE_TABELA)
                 _garantir_coluna_config(conn)
@@ -131,17 +146,19 @@ def carregar_banco_sqlite(
 
     linha = None
     with closing(sqlite3.connect(f"file:{caminho_db}?mode=ro", uri=True)) as conn:
+        conn.execute("PRAGMA busy_timeout = 5000")
         try:
-            linha = conn.execute(
-                "SELECT estrutura, fichas, config FROM dados_rpg WHERE id=1"
-            ).fetchone()
+            colunas = {col[1] for col in conn.execute("PRAGMA table_info(dados_rpg)")}
         except sqlite3.OperationalError:
-            try:
-                linha = conn.execute(
-                    "SELECT estrutura, fichas FROM dados_rpg WHERE id=1"
-                ).fetchone()
-            except sqlite3.OperationalError:
-                return None, None, {}
+            return None, None, {}
+
+        if not {"estrutura", "fichas"} <= colunas:
+            return None, None, {}
+
+        selecao = "estrutura, fichas" + (", config" if "config" in colunas else "")
+        linha = conn.execute(
+            f"SELECT {selecao} FROM dados_rpg WHERE id=1"
+        ).fetchone()
 
     if not linha:
         return None, None, {}

@@ -30,12 +30,13 @@ NOME_DO_GRAU: dict[int, str] = {0: "Leigo", 1: "Treinado", 2: "Especialista", 3:
 MAX_DADOS_EXPRESSAO: int = 100
 
 
-def rolar_dados_seguro(expressao: str) -> str:
+def rolar_dados_seguro(expressao: str, rng: random.Random | None = None) -> str:
     """Rola uma expressão somada (ex.: ``2d8+3``) e devolve o total detalhado.
 
     Usado para dano e ataques. Não confundir com :func:`rolar_teste_pericia`,
     que é a Poça de d20 dos Testes de Perícia.
     """
+    gerador = rng if rng is not None else random
     texto = re.sub(r"\s+", "", expressao).lower()
     if not texto:
         raise ValueError("Informe uma expressão de dados.")
@@ -63,7 +64,7 @@ def rolar_dados_seguro(expressao: str) -> str:
             if not 2 <= lados <= 1000:
                 raise ValueError("Limite: dados de 2 a 1000 faces.")
 
-            rolagens = [random.randint(1, lados) for _ in range(qtd)]
+            rolagens = [gerador.randint(1, lados) for _ in range(qtd)]
             total += sum(rolagens) * sinal
             sinal_texto = "-" if sinal < 0 else "+"
             detalhes.append(f"{sinal_texto}({'+'.join(map(str, rolagens))})")
