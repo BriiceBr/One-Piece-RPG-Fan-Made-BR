@@ -49,6 +49,21 @@ Lista viva de itens a corrigir, decisões pendentes e conversões a realizar.
 
 - [x] **PV máximo separado do PV atual:** `ficha_frame.py` passou a ter `pv_max`/`pe_max`; mudar Nível ou Atributo não cura mais o dano (e o dano sobrevive a salvar/reabrir).
 - [x] **Dano e cura no Combat Tracker:** menu de contexto (⚔️/💚/💀) e botões rápidos aplicam PV na ficha aberta e no banco, com PV `atual/máximo` e cor por gravidade na lista.
-- [ ] **Menu de condições do Tracker:** hoje só tem Envenenado, Fadigado, Haki Exausto e Protegido. Faltam os estados de Morrendo do sistema novo (Ferimento Letal, Trauma Grave, Nocaute, Por um Fio, Inabalável).
+- [x] **Condições do Tracker conforme o livro:** `core/condicoes.py` traz as 15 condições (p. 28 a 31), com ícone, nome e resumo; o menu virou submenu com ✓ e permite várias condições na mesma linha.
+- [x] **Fichas de exemplo:** `inicializar_arvore_padrao` agora cria Arlong (Nv 3, PV 36) e Rei dos Mares (Nv 5, PV 61) com todos os Atributos, Graus e recursos.
+- [ ] **Estados de Morrendo:** Ferimento Letal, Trauma Grave, Nocaute, Por um Fio e Inabalável têm regras próprias de Morte e Inconsciência, não são Condições. Decidir se entram no Tracker como painel separado.
 - [ ] **PE no Tracker:** o dano/cura rápida cobre só PV; avaliar se PE também precisa de botões.
-- [ ] **Fichas de exemplo:** `inicializar_arvore_padrao` cria Arlong e Rei dos Mares só com `nome/pv/pe/agi/nivel`, sem Físico, Intelecto e Instinto. Completar ou gerar os campos derivados na criação.
+- [ ] **Duração das condições:** o livro exige que a fonte informe a duração; hoje o Tracker marca a condição sem prazo. Estudar um contador de Turnos por condição.
+- [ ] **Loot sem equipamento:** os itens gerados têm tipo descritivo (arma, tesouro etc.), mas não alteram Atributos nem Defesas. Falta a tabela de equipamento do sistema novo.
+- [ ] **História gerada sem Habilidades:** `utils/historia.py` usa Atributos, Graus, Nível e recompensa, mas ainda ignora as Habilidades da ficha e a imagem.
+- [ ] **Ícones das condições:** no Tk eles saem monocromáticos e alguns emojis (🔥, ⬇️) não renderizam; os atuais foram trocados por símbolos compatíveis, mas vale revisar em outros temas.
+
+### 4.1 Mesa ao Vivo (21/10/2026)
+
+- [ ] **Soundboard fora da interface (22/10):** os botões de Canhão/Navio/Impacto/Haki e o mudo foram removidos do Tracker a pedido. `utils/sons.py` e a pasta `sons/` continuam no projeto, sem uso; se voltar, precisa de botão e de arquivos WAV.
+- [ ] **Janela do histórico:** abre no canto inferior direito no momento do clique; se a janela principal for movida depois, o log não acompanha. Avaliar reposicionar em `<Configure>`.
+- [ ] **Duração padrão das condições:** hoje 3 turnos fixos ao aplicar. Decidir se o padrão deve variar por condição (ex.: Atordoado 1, Envenenado 5) ou se o Mestre define no momento.
+- [ ] **Golpes usam a tabela de PE da nota interna:** custos, limites e dados por patamar vêm de `anotacoes/regras_pe_transmutacao.md`, não do PDF. Precisa bater com a versão final do livro.
+- [ ] **Cartaz WANTED:** usa fontes do Windows (Arial/Georgia/Segoe UI) com fallback para a fonte padrão do Pillow; em outra máquina pode mudar o desenho. Falta opção de papel "pergaminho" claro.
+- [ ] **Atalhos × menus:** `Espaço` e letras são globais; se um dia houver menu aberto, o Tk pode consumir a tecla antes. Testar com menus abertos quando surgir necessidade.
+- [ ] **Fluxos de UX:** as propostas de `anotacoes/ux_fluxos.md` (Ctrl+E exportar, Ctrl+L loot, busca global Ctrl+K, modo combate) ainda não foram implementadas.

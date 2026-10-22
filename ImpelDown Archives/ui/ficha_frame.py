@@ -11,6 +11,10 @@ from core.regras import calcular_atributos_derivados
 from ui.popups import CTkPopUpInput
 from ui.widgets_custom import HabilidadeBloco
 from utils.loot import gerar_loot_aleatorio
+from utils.historia import gerar_historia
+from utils.arquivos import exportar_ficha_markdown
+from utils.cartaz import gerar_cartaz_png
+from utils.golpes import gerar_golpe, PATAMARES as PATAMARES_GOLPE, CATEGORIAS as CATEGORIAS_GOLPE, SABORES as SABORES_GOLPE
 
 #: Grau digitado no menu -> grau numérico usado pela Poça de d20.
 MAPA_GRAUS_TESTE: dict[str, int] = {
@@ -97,7 +101,12 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         self.recompensa_bloqueio = False
 
     def _sincronizar_arvore(self, *args):
-        self.sync_nome_callback(self.var_nome.get(), self.var_nivel.get())
+        self.sync_nome_callback(self.var_nome.get(), self._nivel_texto())
+
+    def _nivel_texto(self) -> str:
+        """Nível como texto numérico; campos vazios ou inválidos viram "1"."""
+        texto = str(self.var_nivel.get()).strip()
+        return texto if texto.isdigit() else "1"
 
     def montar_interface(self):
         frame_topo = ctk.CTkFrame(self, fg_color=self.tema["bg_card"], corner_radius=0, height=50)
@@ -106,28 +115,25 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         f_inner = ctk.CTkFrame(frame_topo, fg_color="transparent")
         f_inner.pack(fill=tk.X, padx=20, pady=10)
 
-        ctk.CTkLabel(f_inner, text="PV:", text_color="#8b8c8f", font=self.app_master.get_font('bold')).pack(side=tk.LEFT, padx=(0, 5))
-        ctk.CTkButton(f_inner, text="-", width=28, fg_color=self.tema["bg_input"], command=lambda: self.pv_atual.set(self.pv_atual.get()-1)).pack(side=tk.LEFT)
-        ctk.CTkEntry(f_inner, textvariable=self.pv_atual, width=50, font=self.app_master.get_font('title'), text_color="#e06c75", justify="center", border_width=0, fg_color="transparent").pack(side=tk.LEFT)
-        self.lbl_pv_max = ctk.CTkLabel(f_inner, text="/ --", text_color="#e06c75", font=self.app_master.get_font('small'))
+        ctk.CTkLabel(f_inner, text="PV:", text_color="#8b8c8f", font=self.app_master.get_font('title')).pack(side=tk.LEFT, padx=(0, 6))
+        ctk.CTkButton(f_inner, text="-", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pv_atual.set(self.pv_atual.get()-1)).pack(side=tk.LEFT)
+        ctk.CTkEntry(f_inner, textvariable=self.pv_atual, width=70, height=36, font=self.app_master.get_font('number'), text_color="#e06c75", justify="center", border_width=0, fg_color="transparent").pack(side=tk.LEFT)
+        self.lbl_pv_max = ctk.CTkLabel(f_inner, text="/ --", text_color="#e06c75", font=self.app_master.get_font('bold'))
         self.lbl_pv_max.pack(side=tk.LEFT, padx=(0, 2))
-        ctk.CTkButton(f_inner, text="+", width=28, fg_color=self.tema["bg_input"], command=lambda: self.pv_atual.set(self.pv_atual.get()+1)).pack(side=tk.LEFT, padx=(0, 15))
+        ctk.CTkButton(f_inner, text="+", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pv_atual.set(self.pv_atual.get()+1)).pack(side=tk.LEFT, padx=(0, 15))
 
-        ctk.CTkLabel(f_inner, text="PE:", text_color="#8b8c8f", font=self.app_master.get_font('bold')).pack(side=tk.LEFT, padx=(0, 5))
-        ctk.CTkButton(f_inner, text="-", width=28, fg_color=self.tema["bg_input"], command=lambda: self.pe_atual.set(self.pe_atual.get()-1)).pack(side=tk.LEFT)
-        ctk.CTkEntry(f_inner, textvariable=self.pe_atual, width=50, font=self.app_master.get_font('title'), text_color="#56b6c2", justify="center", border_width=0, fg_color="transparent").pack(side=tk.LEFT)
-        self.lbl_pe_max = ctk.CTkLabel(f_inner, text="/ --", text_color="#56b6c2", font=self.app_master.get_font('small'))
+        ctk.CTkLabel(f_inner, text="PE:", text_color="#8b8c8f", font=self.app_master.get_font('title')).pack(side=tk.LEFT, padx=(0, 6))
+        ctk.CTkButton(f_inner, text="-", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pe_atual.set(self.pe_atual.get()-1)).pack(side=tk.LEFT)
+        ctk.CTkEntry(f_inner, textvariable=self.pe_atual, width=70, height=36, font=self.app_master.get_font('number'), text_color="#56b6c2", justify="center", border_width=0, fg_color="transparent").pack(side=tk.LEFT)
+        self.lbl_pe_max = ctk.CTkLabel(f_inner, text="/ --", text_color="#56b6c2", font=self.app_master.get_font('bold'))
         self.lbl_pe_max.pack(side=tk.LEFT, padx=(0, 2))
-        ctk.CTkButton(f_inner, text="+", width=28, fg_color=self.tema["bg_input"], command=lambda: self.pe_atual.set(self.pe_atual.get()+1)).pack(side=tk.LEFT, padx=(0, 20))
+        ctk.CTkButton(f_inner, text="+", width=34, height=34, font=self.app_master.get_font('bold'), fg_color=self.tema["bg_input"], command=lambda: self.pe_atual.set(self.pe_atual.get()+1)).pack(side=tk.LEFT, padx=(0, 20))
 
-        self.lbl_defesas = ctk.CTkLabel(f_inner, text="Pass: -- | Bloq: -- | Esq: -- | CD: --", text_color="#e5c07b", font=self.app_master.get_font('main'))
+        self.lbl_defesas = ctk.CTkLabel(f_inner, text="Def: -- | Bloq: -- | Esq: -- | CD: --", text_color="#e5c07b", font=self.app_master.get_font('main'))
         self.lbl_defesas.pack(side=tk.LEFT)
 
         self.btn_rolar_dano = ctk.CTkButton(f_inner, text="🎲 Rolar", command=self.rolar_dano, fg_color=self.tema["accent"], text_color="white", width=80)
         self.btn_rolar_dano.pack(side=tk.RIGHT, padx=(5,0))
-        
-        ctk.CTkButton(f_inner, text="📝 Exportar .md", command=self.exportar_markdown, fg_color=self.tema["bg_input"], hover_color="#4a4a4a", text_color=self.tema["text"], width=100).pack(side=tk.RIGHT, padx=(5,0))
-        ctk.CTkButton(f_inner, text="🖥️ Tela Jogador", command=self.abrir_modo_jogador, fg_color=self.tema["bg_input"], hover_color="#4a4a4a", text_color=self.tema["text"], width=110).pack(side=tk.RIGHT)
 
         self.container_ficha = ctk.CTkFrame(self, fg_color="transparent")
         self.container_ficha.pack(fill=tk.BOTH, expand=True, pady=15, padx=15)
@@ -299,7 +305,7 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         frame_hab_topo = ctk.CTkFrame(self.painel_direito, fg_color="transparent")
         frame_hab_topo.pack(side=tk.TOP, fill=tk.X, pady=(0, 15), padx=10)
         
-        ctk.CTkLabel(frame_hab_topo, text="Lista de Habilidades e Ações", text_color=self.tema["text"], font=self.app_master.get_font('title')).pack(side=tk.LEFT)
+        ctk.CTkLabel(frame_hab_topo, text="Habilidades", text_color=self.tema["text"], font=self.app_master.get_font('title')).pack(side=tk.LEFT)
         
         self.btn_add_hab = ctk.CTkButton(frame_hab_topo, text="➕ Adicionar ▼", fg_color=self.tema["bg_input"], hover_color="#4a4a4a", text_color=self.tema["text"], font=self.app_master.get_font('bold'))
         self.menu_hab = tk.Menu(self.btn_add_hab, tearoff=0, bg=self.tema["bg_card"], fg=self.tema["text"], bd=0, activebackground=self.tema["accent"])
@@ -308,10 +314,13 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         self.btn_add_hab.configure(command=lambda: self.menu_hab.post(self.btn_add_hab.winfo_rootx(), self.btn_add_hab.winfo_rooty() + self.btn_add_hab.winfo_height()))
         self.btn_add_hab.pack(side=tk.RIGHT)
 
+        self.btn_golpe = ctk.CTkButton(frame_hab_topo, text="✨ Golpe", fg_color=self.tema["bg_input"], hover_color="#4a4a4a", text_color=self.tema["text"], font=self.app_master.get_font('bold'), width=70, command=self.abrir_gerador_golpe)
+        self.btn_golpe.pack(side=tk.RIGHT, padx=(0, 6))
+
         self.var_filtro_hab = ctk.StringVar(value="Todas")
         opcoes_filtro = ["Todas", "Básica", "Média", "Forte", "Suprema", "1 Ação", "Reação", "Livre"]
-        self.menu_filtro = ctk.CTkOptionMenu(frame_hab_topo, variable=self.var_filtro_hab, values=opcoes_filtro, command=self.filtrar_habilidades, fg_color=self.tema["bg_input"], text_color=self.tema["text"], width=110)
-        self.menu_filtro.pack(side=tk.RIGHT, padx=(10, 10))
+        self.menu_filtro = ctk.CTkOptionMenu(frame_hab_topo, variable=self.var_filtro_hab, values=opcoes_filtro, command=self.filtrar_habilidades, fg_color=self.tema["bg_input"], text_color=self.tema["text"], width=92, font=self.app_master.get_font('small'))
+        self.menu_filtro.pack(side=tk.RIGHT, padx=(8, 8))
 
         self.canvas_hab = tk.Canvas(self.painel_direito, bg=self.tema["bg_main"], highlightthickness=0)
         self.scroll_hab = ttk.Scrollbar(self.painel_direito, orient="vertical", command=self.canvas_hab.yview)
@@ -325,23 +334,15 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         self.canvas_hab.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         self.scroll_hab.pack(side=tk.RIGHT, fill=tk.Y)
         
-        self.canvas_hab.bind("<Enter>", lambda e: self.canvas_hab.bind_all("<MouseWheel>", self._on_mousewheel_canvas))
-        self.canvas_hab.bind("<Leave>", lambda e: self.canvas_hab.unbind_all("<MouseWheel>"))
+        for alvo in (self.canvas_hab, self.frame_lista_hab):
+            alvo.bind("<MouseWheel>", self._on_mousewheel_canvas)
         self.blocos_habilidades = []
 
-    def _on_mousewheel_canvas(self, event):
-        try:
-            x, y = self.winfo_pointerxy()
-            widget = self.winfo_containing(x, y)
-            if not widget or str(self.painel_direito) not in str(widget):
-                return
-            if isinstance(widget, tk.Text):
-                return
-            delta = event.delta if hasattr(event, 'delta') else 0
-            if delta != 0:
-                self.canvas_hab.yview_scroll(int(-1 * (delta / 120)), "units")
-        except Exception:
-            pass
+    def _on_mousewheel_canvas(self, event) -> None:
+        """Rola a lista de habilidades (o vínculo é local, não global)."""
+        delta = getattr(event, "delta", 0)
+        if delta:
+            self.canvas_hab.yview_scroll(int(-delta / 120), "units")
 
     def calcular_derivados(self, *args):
         try:
@@ -376,9 +377,10 @@ class FichaPersonagemFrame(ctk.CTkFrame):
                 self.lbl_pv_max.configure(text=f"/ {res['pv']}")
                 self.lbl_pe_max.configure(text=f"/ {res['pe']}")
             self.lbl_defesas.configure(
-                text=f"Pass: {res['passiva']}  |  Bloq: {res['bloqueio']}  |  Esq: {res['esquiva']}  |  CD: {res['cd']}"
+                text=f"Def: {res['passiva']} | Bloq: {res['bloqueio']} | Esq: {res['esquiva']} | CD: {res['cd']}"
             )
-        except Exception:
+        except (ValueError, TypeError, tk.TclError):
+            # Campo sendo digitado (vazio, texto solto): mantém os últimos valores.
             pass
 
     def _limitar_pv(self, *args) -> None:
@@ -919,45 +921,35 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         membros = list(self.listbox_bando.get(0, tk.END))
         if not membros:
             return
-        
+
+        # Se esta ficha está aberta em uma aba, usa o id real para o Tracker
+        # conseguir ler e alterar o PV dela.
+        item_id = next(
+            (chave for chave, frame in self.app_master.abas_abertas.items() if frame is self),
+            "chefe",
+        )
+
         ini_chefe = random.randint(1, 20) + self.var_agi.get()
-        self.app_master.tracker_data.append({"ini": ini_chefe, "id": "chefe", "nome": self.var_nome.get(), "status": "👑 Chefe"})
+        self.app_master.tracker_data.append({"ini": ini_chefe, "id": item_id, "nome": self.var_nome.get(), "status": [], "papel": "👑"})
         self.app_master.registrar_log(f"Iniciativa 👑 [{self.var_nome.get()}]: {ini_chefe}")
 
         for m in membros:
             ini_bando = random.randint(1, 20)
             nome_limpo = re.sub(r" \[Lv\. .*?\]$", "", m)
-            self.app_master.tracker_data.append({"ini": ini_bando, "id": "bando", "nome": nome_limpo, "status": "🛡️ Lacaio"})
+            self.app_master.tracker_data.append({"ini": ini_bando, "id": "bando", "nome": nome_limpo, "status": [], "papel": "🛡️"})
             self.app_master.registrar_log(f"Iniciativa 🛡️ [{nome_limpo}]: {ini_bando}")
             
         self.app_master.atualizar_tracker_view()
 
-    def exportar_markdown(self):
+    def exportar_markdown(self) -> None:
         caminho = filedialog.asksaveasfilename(defaultextension=".md", filetypes=[("Markdown", "*.md")], title="Salvar Ficha Markdown")
         if not caminho:
             return
-        
-        dados = self.get_dados()
-        bounty_str = dados['recompensa'] + " Berries" if dados['recompensa'] else "0 Berries"
-        md = f"# {dados['nome']}\nNível: {dados['nivel']} | Recompensa: {bounty_str}\n"
-        md += f"PV: {dados['pv']} | PE: {dados['pe']}\n\n"
-        md += "## Atributos\n"
-        md += f"- Físico: {dados['fis']} | Agilidade: {dados['agi']} | Intelecto: {dados['int']} | Instinto: {dados['inst']}\n"
-        md += f"- Grau Luta: {dados['luta']} | Grau Acro: {dados['acro']}\n\n"
-        md += "## Loot e Drops\n" + dados['loot'] + "\n\n"
-        md += "## Habilidades\n"
-        for hab in dados['habilidades']:
-            md += f"### {hab['titulo']}\n"
-            md += f"Custo: {hab['custo']} | Limite: {hab['limite']} | Execução: {hab['execucao']} | Alcance: {hab['alcance']}\n"
-            md += f"{hab['conteudo']}\n\n"
-        md += "## Notas e História\n" + dados['historia']
-        
         try:
-            with open(caminho, "w", encoding="utf-8") as f:
-                f.write(md)
-            messagebox.showinfo("Sucesso", "Ficha exportada com sucesso!")
-        except Exception as e:
-            messagebox.showerror("Erro", f"Não foi possível salvar: {e}")
+            exportar_ficha_markdown(caminho, self.get_dados())
+            messagebox.showinfo("Sucesso", "Ficha exportada com sucesso!", parent=self)
+        except OSError as e:
+            messagebox.showerror("Erro", f"Não foi possível salvar: {e}", parent=self)
 
     def abrir_modo_jogador(self):
         top = ctk.CTkToplevel(self)
@@ -979,11 +971,80 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         else:
             ctk.CTkLabel(top, text="[ Sem Imagem ]", font=self.app_master.get_font('title'), text_color="#8b8c8f").pack(expand=True)
 
-    def gerar_ia_local(self):
-        prompt = f"Um inimigo chamado {self.var_nome.get()} focando em Físico {self.var_fis.get()}..."
-        bounty_str = self.var_recompensa.get() + " Berries"
-        historia_gerada = f"[{prompt}]\n\nNascido nos mares remotos, {self.var_nome.get()} desenvolveu uma força física formidável ({self.var_fis.get()}) lutando contra bestas marinhas. Sua recompensa de {bounty_str} reflete a ameaça que representa para os desavisados. Em combate, prefere usar abordagens brutais e táticas de força bruta para subjugar os inimigos antes que possam reagir."
-        self.texto_historia.insert(tk.END, "\n\n--- IA Gerada ---\n" + historia_gerada)
+    def gerar_ia_local(self) -> None:
+        """Gera (ou regera) a história do inimigo a partir dos dados da ficha."""
+        perfil = {
+            "nome": self.var_nome.get().strip() or "O desconhecido",
+            "nivel": self._nivel_texto(),
+            "fis": self.var_fis.get(),
+            "agi": self.var_agi.get(),
+            "int": self.var_int.get(),
+            "inst": self.var_inst.get(),
+            "luta": self.var_luta.get(),
+            "acro": self.var_acro.get(),
+            "recompensa": self.var_recompensa.get(),
+        }
+        historia = gerar_historia(perfil)
+
+        # Substitui o bloco gerado anteriormente, em vez de empilhar histórias.
+        if "inicio_ia" in self.texto_historia.mark_names():
+            self.texto_historia.delete("inicio_ia", tk.END)
+
+        inicio = self.texto_historia.index("end-1c")
+        self.texto_historia.insert(tk.END, "\n\n--- IA Gerada ---\n" + historia)
+        self.texto_historia.mark_set("inicio_ia", inicio)
+        self.texto_historia.mark_gravity("inicio_ia", tk.LEFT)
+        self.texto_historia.see(tk.END)
+        self.app_master.registrar_log(f"🧠 História gerada para {perfil['nome']}.")
+
+    def gerar_cartaz(self) -> None:
+        """Gera o cartaz WANTED em PNG e abre a pré-visualização."""
+        caminho = filedialog.asksaveasfilename(
+            initialfile=f"WANTED_{self.var_nome.get()}.png",
+            defaultextension=".png",
+            filetypes=[("Imagem PNG", "*.png")],
+            title="Salvar Cartaz de Procurado",
+        )
+        if not caminho:
+            return
+        try:
+            gerar_cartaz_png(self.get_dados(), caminho, self.tema, self.imagem_original)
+        except Exception as e:
+            messagebox.showerror("Erro", f"Não foi possível gerar o cartaz: {e}", parent=self)
+            return
+        self._mostrar_cartaz(caminho)
+        self.app_master.registrar_log(f"📜 Cartaz gerado para {self.var_nome.get()}.")
+
+    def _mostrar_cartaz(self, caminho: str) -> None:
+        """Pré-visualização do cartaz, com atalhos para abrir e copiar."""
+        top = ctk.CTkToplevel(self)
+        top.title("Cartaz de Procurado")
+        top.geometry("520x780")
+        top.attributes("-topmost", True)
+        top.configure(fg_color=self.tema["bg_main"])
+
+        foto = None
+        try:
+            imagem = Image.open(caminho)
+            imagem.thumbnail((470, 650))
+            foto = ImageTk.PhotoImage(imagem)
+        except OSError:
+            foto = None
+
+        if foto is not None:
+            rotulo = tk.Label(top, image=foto, bg=self.tema["bg_main"])
+            rotulo.image = foto
+            rotulo.pack(pady=12)
+
+        acoes = ctk.CTkFrame(top, fg_color="transparent")
+        acoes.pack(pady=6)
+        if hasattr(os, "startfile"):
+            ctk.CTkButton(acoes, text="📂 Abrir imagem", command=lambda: os.startfile(caminho)).pack(side=tk.LEFT, padx=4)
+        ctk.CTkButton(
+            acoes, text="📋 Copiar caminho",
+            command=lambda: (self.clipboard_clear(), self.clipboard_append(caminho), top.destroy()),
+        ).pack(side=tk.LEFT, padx=4)
+        ctk.CTkButton(acoes, text="✖ Fechar", command=top.destroy, fg_color="transparent", text_color="#e06c75", hover_color="#5c2b29").pack(side=tk.LEFT, padx=4)
 
     def carregar_imagem(self):
         caminho = filedialog.askopenfilename(filetypes=[("Imagens", "*.png;*.jpg;*.jpeg;*.webp")])
@@ -1028,6 +1089,41 @@ class FichaPersonagemFrame(ctk.CTkFrame):
             self.escala_imagem *= 0.9
         self.atualizar_imagem()
 
+    def abrir_gerador_golpe(self) -> None:
+        """Popup para montar um golpe por patamar, categoria e sabor."""
+        top = ctk.CTkToplevel(self)
+        top.title("Gerar Golpe")
+        top.geometry("320x340")
+        top.attributes("-topmost", True)
+        top.transient(self)
+        top.configure(fg_color=self.tema["bg_main"])
+
+        ctk.CTkLabel(top, text="✨ Gerar Golpe", font=self.app_master.get_font('title'), text_color=self.tema["accent"]).pack(pady=(14, 4))
+
+        var_patamar = tk.StringVar(value="Média")
+        var_categoria = tk.StringVar(value="Impacto")
+        var_sabor = tk.StringVar(value="Técnica marcial")
+
+        def adicionar_menu(rotulo: str, var: tk.StringVar, valores: list[str]) -> None:
+            ctk.CTkLabel(top, text=rotulo, font=self.app_master.get_font('small'), text_color="#8b8c8f").pack(anchor="w", padx=20, pady=(6, 0))
+            ctk.CTkOptionMenu(top, variable=var, values=valores, fg_color=self.tema["bg_input"], text_color=self.tema["text"], button_color=self.tema["accent"]).pack(fill=tk.X, padx=20)
+
+        adicionar_menu("Patamar", var_patamar, list(PATAMARES_GOLPE))
+        adicionar_menu("Categoria", var_categoria, list(CATEGORIAS_GOLPE))
+        adicionar_menu("Sabor", var_sabor, list(SABORES_GOLPE))
+
+        def gerar() -> None:
+            dados = gerar_golpe(var_patamar.get(), var_categoria.get(), var_sabor.get(), self.var_nome.get())
+            bloco = HabilidadeBloco(self.frame_lista_hab, dados, self.canvas_hab, self.painel_direito, self.app_master)
+            self.blocos_habilidades.append(bloco)
+            bloco.bind("<Destroy>", lambda evento, b=bloco: self._esquecer_bloco(evento, b))
+            self.var_filtro_hab.set("Todas")
+            self.filtrar_habilidades()
+            self.app_master.registrar_log(f"✨ Golpe '{dados['titulo']}' gerado.")
+            top.destroy()
+
+        ctk.CTkButton(top, text="Gerar", command=gerar, fg_color=self.tema["accent"], text_color="white").pack(fill=tk.X, padx=20, pady=16)
+
     def inserir_habilidade(self, patamar):
         templates = {
             "Básica": {"custo": "0 PE", "limite": "+2", "execucao": "1 Ação", "alcance": "Corpo a corpo"},
@@ -1041,8 +1137,14 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         dados["conteudo"] = ""
         bloco = HabilidadeBloco(self.frame_lista_hab, dados, self.canvas_hab, self.painel_direito, self.app_master)
         self.blocos_habilidades.append(bloco)
+        bloco.bind("<Destroy>", lambda evento, b=bloco: self._esquecer_bloco(evento, b))
         self.var_filtro_hab.set("Todas")
         self.filtrar_habilidades()
+
+    def _esquecer_bloco(self, evento, bloco: HabilidadeBloco) -> None:
+        """Remove da lista o bloco de habilidade que foi fechado pelo ✖."""
+        if evento.widget is bloco and bloco in self.blocos_habilidades:
+            self.blocos_habilidades.remove(bloco)
 
     def filtrar_habilidades(self, escolha=None):
         escolha = self.var_filtro_hab.get().lower()
@@ -1068,7 +1170,7 @@ class FichaPersonagemFrame(ctk.CTkFrame):
             "pe": self.pe_atual.get(),
             "pv_max": self.pv_max.get(),
             "pe_max": self.pe_max.get(),
-            "nivel": self.var_nivel.get(),
+            "nivel": self._nivel_texto(),
             "fis": self.var_fis.get(),
             "agi": self.var_agi.get(),
             "int": self.var_int.get(),
@@ -1090,12 +1192,13 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         }
 
     def carregar_dados(self, d):
+        # Copia antes de mexer nos campos: o trace de Nome/Nível grava de volta no
+        # dicionário original da árvore e acabaria apagando o Nível salvo.
+        d = dict(d)
         self.var_nome.set(d.get("nome", "Novo Inimigo"))
         recomp_salva = d.get("recompensa", "0")
         self.var_recompensa.set(f"{int(recomp_salva):,}".replace(",", ".") if str(recomp_salva).isdigit() else "0")
         
-        self.pv_atual.set(d.get("pv", 100))
-        self.pe_atual.set(d.get("pe", 20))
         self.var_nivel.set(d.get("nivel", "1"))
         self.var_fis.set(d.get("fis", 1))
         self.var_agi.set(d.get("agi", 1))
@@ -1108,6 +1211,13 @@ class FichaPersonagemFrame(ctk.CTkFrame):
         self.mod_bloq.set(d.get("mod_bloq", 0))
         self.mod_esq.set(d.get("mod_esq", 0))
         self.mod_cd.set(d.get("mod_cd", 0))
+
+        # PV e PE por último: os Atributos acima já recalcularam os máximos,
+        # então o valor salvo não é mais limitado por um máximo parcial.
+        pv_salvo = int(d.get("pv", self.pv_max.get()) or 0)
+        pe_salvo = int(d.get("pe", self.pe_max.get()) or 0)
+        self.pv_atual.set(max(0, min(pv_salvo, self.pv_max.get())))
+        self.pe_atual.set(max(0, min(pe_salvo, self.pe_max.get())))
 
         self.texto_historia.insert(tk.END, d.get("historia", ""))
         self.texto_loot.insert(tk.END, d.get("loot", ""))
