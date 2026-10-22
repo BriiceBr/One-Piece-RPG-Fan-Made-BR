@@ -118,11 +118,19 @@ LEMAS_POR_AMEACA = (
 )
 
 
+def _inteiro(valor: object, padrao: int = 0) -> int:
+    """Converte um campo da ficha em inteiro, sem estourar com texto."""
+    try:
+        return max(0, int(str(valor).strip()))
+    except (TypeError, ValueError):
+        return padrao
+
+
 def _maior_atributo(perfil: dict) -> tuple[str, int]:
     """Devolve (nome do Atributo, valor) do maior Atributo da ficha."""
     escolhido = ("Físico", 0)
     for chave, nome in MAPA_DE_ATRIBUTOS:
-        valor = int(perfil.get(chave, 0) or 0)
+        valor = _inteiro(perfil.get(chave, 0))
         if valor > escolhido[1]:
             escolhido = (nome, valor)
     return escolhido
@@ -130,9 +138,9 @@ def _maior_atributo(perfil: dict) -> tuple[str, int]:
 
 def _texto_de_combate(perfil: dict, nome: str, arquetipo: str) -> str:
     """Parágrafo de combate usando Graus de Perícia e o maior Atributo."""
-    luta = int(perfil.get("luta", 0) or 0)
-    acro = int(perfil.get("acro", 0) or 0)
-    valor = int(perfil.get(arquetipo_chave(arquetipo), 0) or 0)
+    luta = _inteiro(perfil.get("luta", 0))
+    acro = _inteiro(perfil.get("acro", 0))
+    valor = _inteiro(perfil.get(arquetipo_chave(arquetipo), 0))
 
     if luta > acro:
         arma = "nas mãos, nos punhos e no que estiver ao alcance"
@@ -179,7 +187,7 @@ def gerar_historia(perfil: dict, rng: random.Random | None = None) -> str:
     """Monta a apresentação do inimigo a partir dos dados da ficha."""
     gerador = rng if rng is not None else random
     nome = str(perfil.get("nome") or "O desconhecido").strip()
-    nivel = max(1, int(perfil.get("nivel", 1) or 1))
+    nivel = max(1, _inteiro(perfil.get("nivel", 1), 1))
     arquetipo, valor = _maior_atributo(perfil)
 
     origem = gerador.choice(ORIGENS)

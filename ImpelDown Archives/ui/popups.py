@@ -1,5 +1,7 @@
 import tkinter as tk
 import customtkinter as ctk
+
+from core.paleta import TOOLTIP_FUNDO, TOOLTIP_TEXTO
 from typing import Optional
 
 class ToolTip:
@@ -24,7 +26,7 @@ class ToolTip:
         tw.wm_overrideredirect(True)
         self._label = tk.Label(
             tw, text="", justify=tk.LEFT,
-            background="#2b2b2b", foreground="#ffffff",
+            background=TOOLTIP_FUNDO, foreground=TOOLTIP_TEXTO,
             relief=tk.SOLID, borderwidth=1,
             font=("Segoe UI", 10), padx=8, pady=4,
             wraplength=380,

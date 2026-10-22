@@ -3,6 +3,7 @@ import json
 import random
 import re
 import tkinter as tk
+from collections import Counter
 from tkinter import ttk, filedialog, messagebox
 import customtkinter as ctk
 
@@ -13,10 +14,44 @@ from ui.ficha_frame import FichaPersonagemFrame
 from core.combate import calcular_dificuldade_encontro, nivel_seguro
 from core.condicoes import CONDICOES, icone as icone_condicao, nome as nome_condicao, resumo as resumo_condicao
 from core.regras import calcular_atributos_derivados
+from core.paleta import (
+    TEXTO_SUAVE as COR_TEXTO_SUAVE,
+    INFO as COR_INFO,
+    DESTAQUE as COR_DESTAQUE,
+    PERIGO as COR_PERIGO,
+    PERIGO_CLARO as COR_PERIGO_CLARO,
+    AVISO as COR_AVISO,
+    SUCESSO as COR_SUCESSO,
+    HOVER as COR_HOVER,
+    BOTAO_PERIGO as COR_BOTAO_PERIGO,
+    BOTAO_PERIGO_HOVER as COR_BOTAO_PERIGO_HOVER,
+    BOTAO_PERIGO_TEXTO as COR_BOTAO_PERIGO_TEXTO,
+    BOTAO_SUCESSO as COR_BOTAO_SUCESSO,
+    BOTAO_SUCESSO_HOVER as COR_BOTAO_SUCESSO_HOVER,
+    BOTAO_SUCESSO_TEXTO as COR_BOTAO_SUCESSO_TEXTO,
+)
+from core.desafio import analisar as analisar_desafio
 from utils.arquivos import exportar_ficha_json, importar_ficha_json, salvar_banco_sqlite, carregar_banco_sqlite
+from utils.loot import normalizar_faccao
+from utils.encontros import encontrar_para_alvo, sugerir_encontros
+from utils.importacao import ler_lote
 
 #: Duração padrão (em turnos) ao aplicar uma condição no Tracker.
 TURNOS_PADRAO = 3
+#: Intervalo do salvamento automático (minutos).
+AUTOSAVE_MINUTOS = 3
+#: Tema aplicado automaticamente ao abrir ficha de cada facção.
+TEMAS_FACCAO: dict[str, str] = {
+    "marinha": "Marinha (Azul)",
+    "pirata": "Pirata (Amarelo)",
+    "fera": "Yonkou (Vermelho)",
+    "governo": "Obsidian (Padrão)",
+}
+
+#: Pastas cujas fichas são jogadores (não contam no desafio do encontro).
+PASTAS_JOGADOR: set[str] = {
+    "player", "players", "jogador", "jogadores", "party", "grupo", "aliados",
+}
 
 
 def montar_ficha(
@@ -29,21 +64,53 @@ def montar_ficha(
     luta: int = 0,
     acro: int = 0,
     recompensa: str = "0",
+    mod_pv: int = 0,
+    mod_pe: int = 0,
 ) -> dict:
     """Ficha completa, com Atributos e recursos já calculados.
 
     Evita o problema de fichas criadas "pela metade" (sem Físico/Intelecto), que
     depois abriam com PV limitado a um máximo calculado com Atributos zerados.
     """
-    res = calcular_atributos_derivados(nivel, fis, agi, intel, inst, luta, acro)
+    res = calcular_atributos_derivados(
+        nivel, fis, agi, intel, inst, luta, acro, bonus_pv=mod_pv, bonus_pe=mod_pe
+    )
     return {
         "nome": nome, "nivel": str(nivel), "recompensa": recompensa,
         "fis": fis, "agi": agi, "int": intel, "inst": inst,
         "luta": luta, "acro": acro,
         "pv": res["pv"], "pv_max": res["pv"],
         "pe": res["pe"], "pe_max": res["pe"],
+        "mod_pv": mod_pv, "mod_pe": mod_pe,
         "historia": "", "loot": "", "bando": [],
     }
+
+
+#: Perfis-base por arquétipo: cada lacaio sorteia um e varia ±1 nos Atributos.
+ARQUETIPOS_LACAIOS: dict[str, list[dict[str, int]]] = {
+    "Esquadrão Balanceado": [
+        {"fis": 2, "agi": 2, "intel": 1, "inst": 1, "luta": 1, "acro": 0},
+        {"fis": 1, "agi": 3, "intel": 1, "inst": 2, "luta": 0, "acro": 2},
+        {"fis": 3, "agi": 1, "intel": 1, "inst": 1, "luta": 2, "acro": 0},
+    ],
+    "Bando de Atiradores": [
+        {"fis": 1, "agi": 3, "intel": 1, "inst": 2, "luta": 0, "acro": 2},
+        {"fis": 1, "agi": 4, "intel": 1, "inst": 1, "luta": 0, "acro": 1},
+    ],
+    "Vanguarda Pesada": [
+        {"fis": 4, "agi": 1, "intel": 1, "inst": 1, "luta": 2, "acro": 0},
+        {"fis": 3, "agi": 1, "intel": 1, "inst": 2, "luta": 3, "acro": 0},
+    ],
+}
+
+#: Nomes temáticos conforme a facção (pasta) onde os lacaios nascem.
+NOMES_LACAIOS: dict[str, list[str]] = {
+    "marinha": ["Recruta da Marinha", "Fuzileiro", "Cabo de Patrulha"],
+    "pirata": ["Pirata de Abordagem", "Grumete", "Saqueador"],
+    "fera": ["Fera Menor", "Besta de Caça", "Filhote Marinho"],
+    "governo": ["Agente do Governo", "Guarda Nobre", "Escolta"],
+    "outros": ["Lacaio", "Capanga", "Comparsa"],
+}
 
 class GerenciadorAmeasApp:
     def __init__(self, root):
@@ -72,17 +139,25 @@ class GerenciadorAmeasApp:
         self._hover_arvore = None
         self._hover_tracker_chave = None
         self._log_linhas: list[str] = []
-        self.janela_log = None
         self.caixa_log = None
+        self._log_aberto = False
+        self._undo: list[dict] = []
 
         self.montar_menus()
         self.montar_layout_principal()
         self.inicializar_arvore_padrao()
         self.configurar_atalhos()
         self.root.protocol("WM_DELETE_WINDOW", self.ao_fechar)
+        self._agendar_autosave()
 
     def ao_fechar(self) -> None:
         """Pergunta se quer salvar antes de fechar (evita perder o progresso)."""
+        if getattr(self, "_autosave_id", None) is not None:
+            try:
+                self.root.after_cancel(self._autosave_id)
+            except tk.TclError:
+                pass
+            self._autosave_id = None
         tem_dados = bool(self.abas_abertas or self.tracker_data)
         if not tem_dados:
             self.root.destroy()
@@ -110,6 +185,8 @@ class GerenciadorAmeasApp:
         self.root.bind("<Control-s>", lambda e: self.salvar_banco())
         self.root.bind("<Control-n>", lambda e: self.adicionar_personagem())
         self.root.bind("<Control-f>", lambda e: self.focar_pesquisa())
+        self.root.bind("<Control-k>", self.abrir_busca_global)
+        self.root.bind("<Control-z>", self.desfazer)
         self.root.bind("<F5>", self._atalho_rolar_pasta)
         self.root.bind("<space>", self._atalho_proximo_turno)
         self.root.bind("<Key-d>", lambda e: self._atalho_pv(-1))
@@ -183,7 +260,7 @@ class GerenciadorAmeasApp:
         self.style.configure("Treeview", background=self.tema_atual["bg_sidebar"], foreground=self.tema_atual["text"], fieldbackground=self.tema_atual["bg_sidebar"], borderwidth=0, font=self.get_font('main'), rowheight=32)
         self.style.map("Treeview", background=[('selected', self.tema_atual["accent"])], foreground=[('selected', 'white')])
         self.style.configure("TNotebook", background=self.tema_atual["bg_sidebar"], borderwidth=0)
-        self.style.configure("TNotebook.Tab", background=self.tema_atual["bg_sidebar"], foreground="#8b8c8f", padding=[20, 8], font=self.get_font('main'), borderwidth=0)
+        self.style.configure("TNotebook.Tab", background=self.tema_atual["bg_sidebar"], foreground=COR_TEXTO_SUAVE, padding=[20, 8], font=self.get_font('main'), borderwidth=0)
         self.style.map("TNotebook.Tab", background=[('selected', self.tema_atual["bg_main"])], foreground=[('selected', self.tema_atual["text"])])
 
     def atualizar_titulo(self):
@@ -212,8 +289,8 @@ class GerenciadorAmeasApp:
         self.lbl_turno_nome.configure(text_color=self.tema_atual["accent"])
         self.lbl_turno_recursos.configure(text_color=self.tema_atual["text"])
         self.btn_log.configure(text_color=self.tema_atual["text"])
-        if self.janela_log is not None and self.janela_log.winfo_exists() and self.caixa_log is not None:
-            self.janela_log.configure(fg_color=self.tema_atual["bg_card"])
+        if self.caixa_log is not None and self.caixa_log.winfo_exists():
+            self.frame_log.configure(fg_color=self.tema_atual["bg_card"])
             self.caixa_log.configure(fg_color=self.tema_atual["bg_sidebar"], text_color=self.tema_atual["text"])
         for botao in getattr(self, "_botoes_barra", []):
             botao.configure(fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"])
@@ -225,65 +302,372 @@ class GerenciadorAmeasApp:
                 activebackground=self.tema_atual["accent"],
             )
         self.aplicar_tema_style()
-        self._reaplicar_cores_botoes(anterior)
-        self._reconstruir_abas()
+        self._reaplicar_visual(anterior)
+        self.atualizar_tracker_view()
 
-    def _reaplicar_cores_botoes(self, anterior: dict) -> None:
-        """Repinta botões das laterais que nasceram com as cores do tema antigo."""
-        mapa = {
-            anterior["accent"]: self.tema_atual["accent"],
-            anterior["bg_input"]: self.tema_atual["bg_input"],
-            anterior["bg_card"]: self.tema_atual["bg_card"],
-            anterior["bg_sidebar"]: self.tema_atual["bg_sidebar"],
-            "#363636": self.tema_atual["bg_input"],
-            "#4a4a4a": self.tema_atual["bg_input"],
-        }
-        mapa_texto = {anterior["text"]: self.tema_atual["text"], "#dcddde": self.tema_atual["text"]}
+    def _mapa_visual(self, anterior: dict) -> dict[str, str]:
+        """Cores do tema antigo -> cores equivalentes do tema novo."""
+        return {anterior[chave]: valor for chave, valor in self.tema_atual.items() if anterior.get(chave) != valor}
+
+    def _reaplicar_visual(self, anterior: dict) -> None:
+        """Repinta todos os widgets criados com as cores do tema antigo.
+
+        Evita fechar e reabrir as abas: percorre a árvore de widgets e troca
+        somente valores que batem com a paleta anterior.
+        """
+        mapa = self._mapa_visual(anterior)
 
         def repintar(widget: tk.Misc) -> None:
             for filho in widget.winfo_children():
-                if isinstance(filho, ctk.CTkButton):
-                    try:
-                        cor = filho.cget("fg_color")
-                        if isinstance(cor, str) and cor in mapa:
-                            filho.configure(fg_color=mapa[cor])
-                        cor_texto = filho.cget("text_color")
-                        if isinstance(cor_texto, str) and cor_texto in mapa_texto:
-                            filho.configure(text_color=mapa_texto[cor_texto])
-                    except (ValueError, tk.TclError):
-                        pass
+                self._repintar_widget(filho, mapa)
+                # CTkTabview esconde o botão segmentado fora de winfo_children.
+                interno = getattr(filho, "_segmented_button", None)
+                if interno is not None:
+                    self._repintar_widget(interno, mapa)
                 repintar(filho)
 
-        for raiz in (self.frame_tree, self.frame_tracker):
-            repintar(raiz)
+        repintar(self.root)
+
+    def _repintar_widget(self, widget: tk.Misc, mapa: dict[str, str]) -> None:
+        """Aplica o mapa de cores em todas as opções de cor que o widget tiver."""
+        for opcao in (
+            "fg_color", "text_color", "hover_color", "border_color",
+            "button_color", "bg_color", "progress_color",
+            "selected_color", "selected_hover_color",
+            "unselected_color", "unselected_hover_color",
+            "text_color_disabled", "dropdown_hover_color",
+            "bg", "fg", "background", "foreground", "selectbackground",
+            "highlightbackground", "activebackground",
+        ):
+            try:
+                valor = widget.cget(opcao)
+            except (tk.TclError, ValueError, TypeError):
+                continue
+            if isinstance(valor, str) and valor in mapa:
+                try:
+                    widget.configure(**{opcao: mapa[valor]})
+                except (tk.TclError, ValueError, TypeError):
+                    pass
 
     def mudar_fonte(self, escolha: str) -> None:
+        """Troca a família de fonte de todos os widgets, sem recriar abas."""
         self.current_font = escolha
         self.aplicar_tema_style()
         self.lista_iniciativa.configure(font=self.get_font('main'))
-        self._reconstruir_abas()
+        self._reaplicar_fonte(escolha)
 
-    def _reconstruir_abas(self) -> None:
-        """Fecha e reabre as abas para aplicar tema/fonte em todos os widgets.
+    def _reaplicar_fonte(self, familia: str) -> None:
+        def repintar(widget: tk.Misc) -> None:
+            for filho in widget.winfo_children():
+                self._trocar_fonte_widget(filho, familia)
+                interno = getattr(filho, "_segmented_button", None)
+                if interno is not None:
+                    self._trocar_fonte_widget(interno, familia)
+                repintar(filho)
 
-        O CustomTkinter não tem "herança" de tema: cada widget guarda as cores do
-        momento em que foi criado. Reabrir as abas é a forma barata de manter a
-        coerência sem um registro gigante de widgets.
-        """
-        if not self.abas_abertas:
+        repintar(self.root)
+
+    def _trocar_fonte_widget(self, widget: tk.Misc, familia: str) -> None:
+        """Mantém tamanho/estilo e troca só a família da fonte."""
+        try:
+            fonte = widget.cget("font")
+        except (tk.TclError, ValueError, TypeError):
             return
-        dados = {item_id: ficha.get_dados() for item_id, ficha in self.abas_abertas.items()}
-        self._fechar_todas_as_abas()
-        self.dados_banco.update(dados)
-        for item_id, info in dados.items():
-            if self.tree.exists(item_id):
-                self.abrir_aba_personagem(item_id, info.get("nome", "Ficha"))
+
+        try:
+            if isinstance(fonte, tuple) and len(fonte) >= 2:
+                widget.configure(font=(familia, *fonte[1:]))
+            elif isinstance(fonte, str) and fonte.strip():
+                partes = fonte.split()
+                widget.configure(font=" ".join([familia] + partes[1:]) if len(partes) > 1 else familia)
+            elif hasattr(fonte, "configure"):
+                fonte.configure(family=familia)
+        except (tk.TclError, ValueError, TypeError):
+            pass
+
+    def _registrar_undo(self, acao: dict) -> None:
+        """Empilha uma ação reversível (máximo de 50)."""
+        self._undo.append(acao)
+        if len(self._undo) > 50:
+            self._undo.pop(0)
+
+    def desfazer(self, event=None):
+        """Ctrl+Z: desfaz o último dano/cura ou mudança de condições."""
+        if not self._undo:
+            self.registrar_log("↩️ Nada para desfazer.")
+            return "break"
+
+        acao = self._undo.pop()
+        if acao["tipo"] == "pv":
+            item_id = acao["id"]
+            valor = acao["pv"]
+            aba = self.abas_abertas.get(item_id)
+            if aba is not None:
+                aba.pv_atual.set(valor)
+            self.dados_banco.setdefault(item_id, {})["pv"] = valor
+            for indice, linha in enumerate(self.tracker_data):
+                if linha.get("id") == item_id:
+                    self._atualizar_linha(indice)
+            self.registrar_log(f"↩️ PV de {acao['nome']} restaurado para {valor}.")
+
+        elif acao["tipo"] == "cond":
+            indice = acao["indice"]
+            if 0 <= indice < len(self.tracker_data):
+                self.tracker_data[indice]["status"] = [dict(c) for c in acao["status"]]
+                self._atualizar_linha(indice)
+                self.registrar_log(f"↩️ Condições de {acao['nome']} restauradas.")
+        return "break"
+
+    def _fichas_para_busca(self) -> list[tuple[str, str, str]]:
+        resultado: list[tuple[str, str, str]] = []
+
+        def percorrer(node: str, faccao: str) -> None:
+            for child in self.tree.get_children(node):
+                tags = self.tree.item(child, "tags")
+                texto = re.sub(r" \[Lv\. .*?\]$", "", self.tree.item(child, "text").strip())
+                if "pasta" in tags:
+                    percorrer(child, faccao or texto)
+                elif "ficha" in tags:
+                    resultado.append((child, texto, faccao or "Sem pasta"))
+                    percorrer(child, faccao)
+
+        percorrer("", "")
+        return resultado
+
+    def abrir_busca_global(self, event=None):
+        """Ctrl+K: procura qualquer ficha pelo nome e abre direto."""
+        janela = getattr(self, "_janela_busca", None)
+        if janela is not None and janela.winfo_exists():
+            janela.lift()
+            return "break"
+
+        top = ctk.CTkToplevel(self.root)
+        self._janela_busca = top
+        top.title("Busca global")
+        top.geometry("480x460")
+        top.transient(self.root)
+        top.attributes("-topmost", True)
+        top.configure(fg_color=self.tema_atual["bg_main"])
+
+        ctk.CTkLabel(top, text="🔎 Buscar ficha (Ctrl+K)", font=self.get_font('title'), text_color=self.tema_atual["accent"]).pack(anchor="w", padx=14, pady=(14, 4))
+        var = tk.StringVar()
+        entrada = ctk.CTkEntry(top, textvariable=var, placeholder_text="Nome da ficha...", fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0)
+        entrada.pack(fill=tk.X, padx=14, pady=(0, 8))
+
+        lista = tk.Listbox(top, bg=self.tema_atual["bg_card"], fg=self.tema_atual["text"], selectbackground=self.tema_atual["accent"], bd=0, highlightthickness=0, exportselection=False)
+        lista.pack(fill=tk.BOTH, expand=True, padx=14, pady=(0, 10))
+
+        fichas = self._fichas_para_busca()
+        resultados: list[str] = []
+
+        def filtrar(*_args) -> None:
+            termo = var.get().strip().lower()
+            resultados.clear()
+            lista.delete(0, tk.END)
+            for item_id, nome, faccao in fichas:
+                if termo in nome.lower():
+                    resultados.append(item_id)
+                    lista.insert(tk.END, f"{nome}   ·   {faccao}")
+
+        def abrir(_evento=None) -> None:
+            selecao = lista.curselection()
+            if not selecao:
+                return
+            item_id = resultados[selecao[0]]
+            self.tree.selection_set(item_id)
+            self.tree.see(item_id)
+            self.abrir_aba_personagem(item_id, self.tree.item(item_id, "text").strip())
+            top.destroy()
+
+        var.trace_add("write", filtrar)
+        lista.bind("<Double-Button-1>", abrir)
+        lista.bind("<Return>", abrir)
+        entrada.bind("<Return>", lambda e: (lista.selection_set(0), abrir()) if lista.size() else None)
+        top.bind("<Escape>", lambda e: top.destroy())
+        filtrar()
+        entrada.focus_set()
+        return "break"
+
+    def _inserir_ficha(self, pai: str, nome: str, nivel: int, perfil: dict[str, int],
+                       mod_pv: int = 0, mod_pe: int = 0) -> str:
+        """Cria ficha na árvore já com os recursos calculados."""
+        nome_unico = self.gerar_nome_unico(nome, pai)
+        novo_id = self.tree.insert(pai, "end", text=f" {nome_unico} [Lv. {nivel}]", tags=("ficha",))
+        self.dados_banco[novo_id] = montar_ficha(
+            nome_unico, nivel, **perfil, mod_pv=mod_pv, mod_pe=mod_pe
+        )
+        return novo_id
+
+    def abrir_gerador_encontros(self) -> None:
+        """Sugere composições de encontro e permite criá-las no cofre."""
+        top = ctk.CTkToplevel(self.root)
+        top.title("Gerador de Encontros")
+        top.geometry("430x480")
+        top.transient(self.root)
+        top.attributes("-topmost", True)
+        top.configure(fg_color=self.tema_atual["bg_main"])
+
+        ctk.CTkLabel(top, text="🎯 Gerador de Encontros", font=self.get_font('title'), text_color=self.tema_atual["accent"]).pack(pady=(14, 6))
+
+        var_jogadores = tk.StringVar(value=str(self._inteiro_positivo(self.var_jogadores, 4)))
+        var_nivel = tk.StringVar(value=str(self._inteiro_positivo(self.var_nivel_grupo, 1)))
+        for rotulo, var in (("Jogadores", var_jogadores), ("Nível médio do grupo", var_nivel)):
+            ctk.CTkLabel(top, text=rotulo, font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
+            ctk.CTkEntry(top, textvariable=var, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20, pady=(0, 4))
+
+        var_alvo = tk.StringVar(value="Médio")
+        ctk.CTkLabel(top, text="Dificuldade desejada", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
+        ctk.CTkOptionMenu(top, variable=var_alvo, values=["Fácil", "Médio", "Difícil", "Mortal"], fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], button_color=self.tema_atual["accent"]).pack(fill=tk.X, padx=20)
+
+        resultado = ctk.CTkTextbox(top, height=150, fg_color=self.tema_atual["bg_card"], text_color=self.tema_atual["text"], border_width=0, font=self.get_font('small'))
+        resultado.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+
+        sugestao_atual: dict[str, object] = {}
+
+        def calcular() -> None:
+            jogadores = int(var_jogadores.get()) if var_jogadores.get().isdigit() else 4
+            nivel = int(var_nivel.get()) if var_nivel.get().isdigit() else 1
+            sugestoes = sugerir_encontros(jogadores, nivel)
+            resultado.configure(state="normal")
+            resultado.delete("1.0", tk.END)
+            for sugestao in sugestoes:
+                resultado.insert(tk.END, f"• {sugestao.resumo}\n")
+            escolhida = encontrar_para_alvo(jogadores, nivel, var_alvo.get())
+            sugestao_atual["valor"] = escolhida
+            resultado.configure(state="disabled")
+
+        def criar() -> None:
+            escolhida = sugestao_atual.get("valor")
+            if escolhida is None:
+                messagebox.showinfo("Encontro", "Clique em Calcular primeiro.", parent=top)
+                return
+            selecao = self.tree.selection()
+            pai = selecao[0] if selecao and "pasta" in self.tree.item(selecao[0], "tags") else ""
+            faccao = normalizar_faccao(self.tree.item(pai, "text") if pai else "")
+            self._criar_encontro(pai, escolhida, faccao)
+            top.destroy()
+
+        botoes = ctk.CTkFrame(top, fg_color="transparent")
+        botoes.pack(fill=tk.X, padx=20, pady=(0, 14))
+        ctk.CTkButton(botoes, text="Calcular", command=calcular, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"]).pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 4))
+        ctk.CTkButton(botoes, text="Criar no cofre", command=criar, fg_color=self.tema_atual["accent"], text_color="white").pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(4, 0))
+
+    def _criar_encontro(self, pai: str, sugestao, faccao: str) -> None:
+        """Cria uma pasta de encontro com subpastas de chefes e lacaios."""
+        nome_pasta = self.gerar_nome_unico(f"Encontro Gerado — {sugestao.classificacao}", pai)
+        pasta = self.tree.insert(pai, "end", text=f" {nome_pasta}", open=True, tags=("pasta",))
+        pasta_chefes = self.tree.insert(pasta, "end", text=" Chefes", open=True, tags=("pasta",))
+        pasta_lacaios = self.tree.insert(pasta, "end", text=" Lacaios", open=True, tags=("pasta",))
+
+        perfil_chefe = self._perfil_lacaio(sugestao.chefe_nivel, "Vanguarda Pesada", 1)
+        self._inserir_ficha(
+            pasta_chefes, f"Chefe (Nv {sugestao.chefe_nivel})", sugestao.chefe_nivel, perfil_chefe, mod_pv=10
+        )
+        base = NOMES_LACAIOS.get(faccao, ["Lacaio"])[0]
+        for indice in range(1, sugestao.lacaios + 1):
+            perfil = self._perfil_lacaio(sugestao.lacaio_nivel, "Esquadrão Balanceado", indice)
+            self._inserir_ficha(pasta_lacaios, f"{base} {indice:02d}", sugestao.lacaio_nivel, perfil)
+
+        self.tree.item(pasta, open=True)
+        self.registrar_log(f"🎯 {nome_pasta}: {sugestao.resumo}")
+
+    def _aplicar_tema_faccao_item(self, item_id: str) -> None:
+        """Aplica o tema da facção só quando o Mestre pedir (menu de contexto)."""
+        faccao = normalizar_faccao(self.faccao_do_item(item_id))
+        tema = TEMAS_FACCAO.get(faccao)
+        if not tema:
+            messagebox.showinfo("Tema da facção", "Esta pasta não tem uma facção com tema definido.", parent=self.root)
+            return
+        self.mudar_tema(tema)
+        self.registrar_log(f"🎨 Tema da facção aplicado manualmente: {tema}")
+
+    def abrir_bestiario(self) -> None:
+        """Cria Chefe, Elite ou Capanga por Nível com um clique."""
+        top = ctk.CTkToplevel(self.root)
+        top.title("Bestiário")
+        top.geometry("360x360")
+        top.transient(self.root)
+        top.attributes("-topmost", True)
+        top.configure(fg_color=self.tema_atual["bg_main"])
+
+        ctk.CTkLabel(top, text="🐲 Bestiário", font=self.get_font('title'), text_color=self.tema_atual["accent"]).pack(pady=(14, 6))
+
+        ctk.CTkLabel(top, text="Nome", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
+        var_nome = tk.StringVar(value="Chefe Pirata")
+        ctk.CTkEntry(top, textvariable=var_nome, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20)
+
+        ctk.CTkLabel(top, text="Nível", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20, pady=(6, 0))
+        var_nivel = tk.StringVar(value="5")
+        ctk.CTkEntry(top, textvariable=var_nivel, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20)
+
+        ctk.CTkLabel(top, text="Papel", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20, pady=(6, 0))
+        var_papel = tk.StringVar(value="Chefe")
+        ctk.CTkOptionMenu(top, variable=var_papel, values=["Capanga", "Elite", "Chefe"], fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], button_color=self.tema_atual["accent"]).pack(fill=tk.X, padx=20)
+
+        def criar() -> None:
+            nivel = int(var_nivel.get()) if var_nivel.get().isdigit() else 1
+            selecao = self.tree.selection()
+            pai = selecao[0] if selecao and "pasta" in self.tree.item(selecao[0], "tags") else ""
+            faccao = normalizar_faccao(self.tree.item(pai, "text") if pai else "")
+            self._criar_arquetipo(pai, var_nome.get().strip() or "Arquétipo", nivel, var_papel.get(), faccao)
+            top.destroy()
+
+        ctk.CTkButton(top, text="Criar", command=criar, fg_color=self.tema_atual["accent"], text_color="white").pack(fill=tk.X, padx=20, pady=16)
+
+    def _criar_arquetipo(self, pai: str, nome: str, nivel: int, papel: str, faccao: str) -> None:
+        base = "Vanguarda Pesada" if papel == "Chefe" else "Esquadrão Balanceado"
+        perfil = self._perfil_lacaio(max(1, nivel), base, 1)
+        if papel in ("Elite", "Chefe"):
+            maior = max(("fis", "agi", "intel", "inst"), key=lambda chave: perfil[chave])
+            perfil[maior] = min(5, perfil[maior] + (2 if papel == "Chefe" else 1))
+            perfil["luta"] = min(3, perfil["luta"] + 1)
+        bonus_pv = {"Capanga": 0, "Elite": 5, "Chefe": 15}[papel]
+        bonus_pe = {"Capanga": 0, "Elite": 2, "Chefe": 4}[papel]
+        self._inserir_ficha(pai, nome, max(1, nivel), perfil, bonus_pv, bonus_pe)
+        self.registrar_log(f"🐲 {papel} '{nome}' (Nv {nivel}) criado em {faccao}.")
+
+    def importar_lote(self) -> None:
+        """Importa várias fichas de um JSON/CSV, validando cada uma."""
+        caminho = filedialog.askopenfilename(
+            filetypes=[("Fichas", "*.json *.csv"), ("JSON", "*.json"), ("CSV", "*.csv")],
+            title="Importar fichas em lote",
+        )
+        if not caminho:
+            return
+        try:
+            fichas, erros = ler_lote(caminho)
+        except Exception as erro:
+            messagebox.showerror("Importação", f"Falha ao ler o arquivo: {erro}")
+            return
+
+        selecao = self.tree.selection()
+        pai = selecao[0] if selecao and "pasta" in self.tree.item(selecao[0], "tags") else ""
+        for dados in fichas:
+            nivel = int(dados.get("nivel", 1))
+            base = montar_ficha(
+                dados["nome"], nivel, dados.get("fis", 1), dados.get("agi", 1),
+                dados.get("int", 1), dados.get("inst", 1),
+                dados.get("luta", 0), dados.get("acro", 0),
+                str(dados.get("recompensa", "0")),
+            )
+            base.update(dados)
+            base["nivel"] = str(nivel)
+            nome_unico = self.gerar_nome_unico(base["nome"], pai)
+            base["nome"] = nome_unico
+            novo_id = self.tree.insert(pai, "end", text=f" {nome_unico} [Lv. {nivel}]", tags=("ficha",))
+            self.dados_banco[novo_id] = base
+
+        resumo = f"{len(fichas)} ficha(s) importada(s)."
+        if erros:
+            resumo += "\n\nIgnoradas:\n" + "\n".join(erros[:8])
+        messagebox.showinfo("Importação em lote", resumo)
+        self.registrar_log(f"📥 Importação em lote: {len(fichas)} ficha(s), {len(erros)} erro(s).")
 
     def montar_menus(self):
-        self.menu_bar = tk.Menu(self.root, bg="#262626", fg="#dcddde", bd=0)
+        self.menu_bar = tk.Menu(self.root, bg=self.tema_atual["bg_card"], fg=self.tema_atual["text"], bd=0)
         self.root.config(menu=self.menu_bar)
 
-        self.menu_arq = tk.Menu(self.menu_bar, tearoff=0, bg="#262626", fg="#dcddde", bd=0)
+        self.menu_arq = tk.Menu(self.menu_bar, tearoff=0, bg=self.tema_atual["bg_card"], fg=self.tema_atual["text"], bd=0)
         self.menu_arq.add_command(label="Novo Cofre", command=self.novo_banco)
         self.menu_arq.add_command(label="Abrir Cofre...", command=self.carregar_banco)
         self.menu_arq.add_separator()
@@ -293,11 +677,20 @@ class GerenciadorAmeasApp:
         self.menu_arq.add_command(label="Sair", command=self.ao_fechar)
         self.menu_bar.add_cascade(label="Cofre", menu=self.menu_arq)
 
-        self.menu_ferramentas = tk.Menu(self.menu_bar, tearoff=0, bg="#262626", fg="#dcddde", bd=0)
+        self.menu_ferramentas = tk.Menu(self.menu_bar, tearoff=0, bg=self.tema_atual["bg_card"], fg=self.tema_atual["text"], bd=0)
         self.menu_ferramentas.add_command(label="📊 Estatísticas da Campanha", command=self.exibir_estatisticas_campanha)
         self.menu_ferramentas.add_command(label="👥 Gerar Lacaios em Massa", command=self.gerar_lacaios_massa)
+        self.menu_ferramentas.add_command(label="🐲 Bestiário (Chefe/Elite/Capanga)", command=self.abrir_bestiario)
+        self.menu_ferramentas.add_command(label="🎯 Gerador de Encontros", command=self.abrir_gerador_encontros)
+        self.menu_ferramentas.add_separator()
         self.menu_ferramentas.add_command(label="📥 Importar Ficha (.json)", command=self.importar_ficha_individual)
+        self.menu_ferramentas.add_command(label="📦 Importar em Lote (JSON/CSV)", command=self.importar_lote)
         self.menu_bar.add_cascade(label="Ferramentas", menu=self.menu_ferramentas)
+
+        self.menu_ajuda = tk.Menu(self.menu_bar, tearoff=0, bg=self.tema_atual["bg_card"], fg=self.tema_atual["text"], bd=0)
+        self.menu_ajuda.add_command(label="⌨️ Atalhos", command=self.mostrar_atalhos)
+        self.menu_ajuda.add_command(label="ℹ️ Sobre", command=self.mostrar_sobre)
+        self.menu_bar.add_cascade(label="Ajuda", menu=self.menu_ajuda)
 
         self.barra_ferramentas = ctk.CTkFrame(self.root, fg_color=self.tema_atual["bg_sidebar"], corner_radius=0)
         self.barra_ferramentas.pack(side=tk.TOP, fill=tk.X, padx=10, pady=8)
@@ -305,22 +698,22 @@ class GerenciadorAmeasApp:
         self._botoes_barra: list[ctk.CTkButton] = []
         self._menus_barra: list[ctk.CTkOptionMenu] = []
 
-        self.btn_toggle_tree = ctk.CTkButton(self.barra_ferramentas, text="≡ Pastas", command=self.toggle_tree, fg_color=self.tema_atual["bg_input"], hover_color="#4a4a4a", text_color=self.tema_atual["text"], width=100)
+        self.btn_toggle_tree = ctk.CTkButton(self.barra_ferramentas, text="≡ Pastas", command=self.toggle_tree, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"], width=100)
         self.btn_toggle_tree.pack(side=tk.LEFT)
         self._botoes_barra.append(self.btn_toggle_tree)
         self.tree_visivel = True
 
         self.var_tema = ctk.StringVar(value="Obsidian (Padrão)")
-        self.menu_temas = ctk.CTkOptionMenu(self.barra_ferramentas, variable=self.var_tema, values=list(TEMAS.keys()), command=self.mudar_tema, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], width=160)
+        self.menu_temas = ctk.CTkOptionMenu(self.barra_ferramentas, variable=self.var_tema, values=list(TEMAS.keys()), command=self.mudar_tema, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], button_color=self.tema_atual["accent"], width=160)
         self.menu_temas.pack(side=tk.LEFT, padx=(20, 10))
         self._menus_barra.append(self.menu_temas)
 
         self.var_fonte = ctk.StringVar(value="Segoe UI")
-        self.menu_fontes = ctk.CTkOptionMenu(self.barra_ferramentas, variable=self.var_fonte, values=FONTES_DISPONIVEIS, command=self.mudar_fonte, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], width=130)
+        self.menu_fontes = ctk.CTkOptionMenu(self.barra_ferramentas, variable=self.var_fonte, values=FONTES_DISPONIVEIS, command=self.mudar_fonte, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], button_color=self.tema_atual["accent"], width=130)
         self.menu_fontes.pack(side=tk.LEFT)
         self._menus_barra.append(self.menu_fontes)
 
-        self.btn_toggle_tracker = ctk.CTkButton(self.barra_ferramentas, text="≡ Tracker", command=self.toggle_tracker, fg_color=self.tema_atual["bg_input"], hover_color="#4a4a4a", text_color=self.tema_atual["text"], width=100)
+        self.btn_toggle_tracker = ctk.CTkButton(self.barra_ferramentas, text="≡ Tracker", command=self.toggle_tracker, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"], width=100)
         self.btn_toggle_tracker.pack(side=tk.RIGHT)
         self._botoes_barra.append(self.btn_toggle_tracker)
         self.tracker_visivel = False
@@ -408,14 +801,14 @@ class GerenciadorAmeasApp:
 
         topo_tree = ctk.CTkFrame(self.frame_tree, fg_color="transparent")
         topo_tree.pack(fill=tk.X, padx=15, pady=(15, 5))
-        ctk.CTkLabel(topo_tree, text="PASTAS", font=("Segoe UI", 12, "bold"), text_color="#8b8c8f").pack(side=tk.LEFT)
+        ctk.CTkLabel(topo_tree, text="PASTAS", font=("Segoe UI", 12, "bold"), text_color=COR_TEXTO_SUAVE).pack(side=tk.LEFT)
         
         self.var_pesquisa = tk.StringVar()
         self.var_pesquisa.trace_add("write", self.pesquisar_arvore)
-        self.entry_pesquisa = ctk.CTkEntry(topo_tree, textvariable=self.var_pesquisa, placeholder_text="🔍 Buscar (Ctrl+F)...", height=24, fg_color="#363636", border_width=0)
+        self.entry_pesquisa = ctk.CTkEntry(topo_tree, textvariable=self.var_pesquisa, placeholder_text="🔍 Buscar (Ctrl+F)...", height=24, fg_color=self.tema_atual["bg_input"], border_width=0)
         self.entry_pesquisa.pack(side=tk.RIGHT, fill=tk.X, expand=True, padx=(10,0))
         
-        self.tree = ttk.Treeview(self.frame_tree, selectmode="browse", show="tree")
+        self.tree = ttk.Treeview(self.frame_tree, selectmode="extended", show="tree")
         self.tree.pack(fill=tk.BOTH, expand=True, padx=10)
 
         self.tree.bind("<ButtonPress-1>", self.iniciar_drag_tree)
@@ -431,10 +824,10 @@ class GerenciadorAmeasApp:
         f_botoes = ctk.CTkFrame(self.frame_tree, fg_color="transparent")
         f_botoes.pack(fill=tk.X, pady=15, padx=15)
         
-        ctk.CTkButton(f_botoes, text="+ Pasta", command=self.adicionar_pasta, fg_color="#363636", hover_color="#4a4a4a", text_color="#dcddde").grid(row=0, column=0, padx=2, pady=2, sticky="ew")
-        ctk.CTkButton(f_botoes, text="+ Ficha", command=self.adicionar_personagem, fg_color="#363636", hover_color="#4a4a4a", text_color="#dcddde").grid(row=0, column=1, padx=2, pady=2, sticky="ew")
-        ctk.CTkButton(f_botoes, text="✎ Renomear", command=self.renomear_item, fg_color="#363636", hover_color="#4a4a4a", text_color="#dcddde").grid(row=1, column=0, padx=2, pady=2, sticky="ew")
-        ctk.CTkButton(f_botoes, text="✖ Deletar", command=self.deletar_item, fg_color="transparent", hover_color="#5c2b29", text_color="#e06c75").grid(row=1, column=1, padx=2, pady=2, sticky="ew")
+        ctk.CTkButton(f_botoes, text="+ Pasta", command=self.adicionar_pasta, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"]).grid(row=0, column=0, padx=2, pady=2, sticky="ew")
+        ctk.CTkButton(f_botoes, text="+ Ficha", command=self.adicionar_personagem, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"]).grid(row=0, column=1, padx=2, pady=2, sticky="ew")
+        ctk.CTkButton(f_botoes, text="✎ Renomear", command=self.renomear_item, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"]).grid(row=1, column=0, padx=2, pady=2, sticky="ew")
+        ctk.CTkButton(f_botoes, text="✖ Deletar", command=self.deletar_item, fg_color="transparent", hover_color=COR_BOTAO_PERIGO, text_color=COR_PERIGO).grid(row=1, column=1, padx=2, pady=2, sticky="ew")
         f_botoes.columnconfigure(0, weight=1)
         f_botoes.columnconfigure(1, weight=1)
 
@@ -445,18 +838,32 @@ class GerenciadorAmeasApp:
         self.notebook.pack(fill=tk.BOTH, expand=True)
         self.notebook.bind("<Button-2>", self.fechar_aba_com_click_meio)
         self.abas_abertas = {}
+        #: Fichas fechadas ficam em cache para reabrir instantaneamente.
+        self._abas_cache: dict[str, tuple[ctk.CTkFrame, FichaPersonagemFrame]] = {}
 
         self.frame_tracker = ctk.CTkFrame(self.container_principal, width=280, fg_color=self.tema_atual["bg_sidebar"], corner_radius=0)
         self.frame_tracker.pack_propagate(False)
         
         topo_trk = ctk.CTkFrame(self.frame_tracker, fg_color="transparent")
         topo_trk.pack(fill=tk.X, padx=20, pady=(15, 2))
-        ctk.CTkLabel(topo_trk, text="COMBAT TRACKER", font=("Segoe UI", 12, "bold"), text_color="#8b8c8f", anchor="w").pack(side=tk.LEFT)
+        ctk.CTkLabel(topo_trk, text="COMBAT TRACKER", font=("Segoe UI", 12, "bold"), text_color=COR_TEXTO_SUAVE, anchor="w").pack(side=tk.LEFT)
         self.btn_log = ctk.CTkButton(topo_trk, text="📜 Log", width=64, height=22, fg_color="transparent", hover_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], command=self.alternar_log)
         self.btn_log.pack(side=tk.RIGHT)
         
-        self.lbl_dificuldade = ctk.CTkLabel(self.frame_tracker, text="Encontro: Sem Inimigos", font=("Segoe UI", 10, "bold"), text_color="#8b8c8f", anchor="w")
-        self.lbl_dificuldade.pack(fill=tk.X, padx=20, pady=(0, 5))
+        self.lbl_dificuldade = ctk.CTkLabel(self.frame_tracker, text="Encontro: Sem Inimigos", font=("Segoe UI", 10, "bold"), text_color=COR_TEXTO_SUAVE, anchor="w", wraplength=250, justify="left")
+        self.lbl_dificuldade.pack(fill=tk.X, padx=20, pady=(0, 4))
+
+        # Contexto do grupo: sem isso a dificuldade era um número solto.
+        f_grupo = ctk.CTkFrame(self.frame_tracker, fg_color="transparent")
+        f_grupo.pack(fill=tk.X, padx=15, pady=(0, 4))
+        ctk.CTkLabel(f_grupo, text="Jogadores", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(side=tk.LEFT)
+        self.var_jogadores = tk.StringVar(value="4")
+        self.var_nivel_grupo = tk.StringVar(value="1")
+        ctk.CTkEntry(f_grupo, textvariable=self.var_jogadores, width=34, height=22, justify="center", fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(side=tk.LEFT, padx=(4, 8))
+        ctk.CTkLabel(f_grupo, text="Nível médio", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(side=tk.LEFT)
+        ctk.CTkEntry(f_grupo, textvariable=self.var_nivel_grupo, width=34, height=22, justify="center", fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(side=tk.LEFT, padx=(4, 0))
+        for var_grupo in (self.var_jogadores, self.var_nivel_grupo):
+            var_grupo.trace_add("write", lambda *_: self.atualizar_dificuldade())
 
         self.lbl_rodada = ctk.CTkLabel(self.frame_tracker, text="Rodada 1", font=("Segoe UI", 11, "bold"), text_color=self.tema_atual["accent"], anchor="w")
         self.lbl_rodada.pack(fill=tk.X, padx=20, pady=(0, 5))
@@ -468,9 +875,9 @@ class GerenciadorAmeasApp:
         self.lbl_turno_nome.pack(fill=tk.X, padx=10, pady=(5, 0))
         self.lbl_turno_recursos = ctk.CTkLabel(self.frame_turno, text="PV —    PE —", font=self.get_font('small'), text_color=self.tema_atual["text"], anchor="w")
         self.lbl_turno_recursos.pack(fill=tk.X, padx=10)
-        self.lbl_turno_defesas = ctk.CTkLabel(self.frame_turno, text="Def: — | Bloq: — | Esq: — | CD: —", font=self.get_font('small'), text_color="#8b8c8f", anchor="w")
+        self.lbl_turno_defesas = ctk.CTkLabel(self.frame_turno, text="Def: — | Bloq: — | Esq: — | CD: —", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE, anchor="w")
         self.lbl_turno_defesas.pack(fill=tk.X, padx=10)
-        self.lbl_turno_condicoes = ctk.CTkLabel(self.frame_turno, text="Sem condições.", font=self.get_font('small'), text_color="#e5b55e", anchor="w", justify="left", wraplength=230)
+        self.lbl_turno_condicoes = ctk.CTkLabel(self.frame_turno, text="Sem condições.", font=self.get_font('small'), text_color=COR_AVISO, anchor="w", justify="left", wraplength=230)
         self.lbl_turno_condicoes.pack(fill=tk.X, padx=10, pady=(0, 4))
 
         self.lista_iniciativa = tk.Listbox(self.frame_tracker, bg=self.tema_atual["bg_sidebar"], fg=self.tema_atual["text"], font=self.get_font('main'), selectbackground=self.tema_atual["accent"], bd=0, highlightthickness=0, exportselection=False, activestyle="none")
@@ -487,12 +894,34 @@ class GerenciadorAmeasApp:
 
         f_pv_btn = ctk.CTkFrame(f_trk_btn, fg_color="transparent")
         f_pv_btn.pack(fill=tk.X, pady=2)
-        ctk.CTkButton(f_pv_btn, text="⚔️ Dano", command=lambda: self.ajustar_pv_do_turno(-1), fg_color="#5c2b29", hover_color="#7a3a37", text_color="#ffdede").pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 3))
-        ctk.CTkButton(f_pv_btn, text="💚 Cura", command=lambda: self.ajustar_pv_do_turno(1), fg_color="#2f4a2f", hover_color="#3d5f3d", text_color="#e6ffe6").pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(3, 0))
+        ctk.CTkButton(f_pv_btn, text="⚔️ Dano", command=lambda: self.ajustar_pv_do_turno(-1), fg_color=COR_BOTAO_PERIGO, hover_color=COR_BOTAO_PERIGO_HOVER, text_color=COR_BOTAO_PERIGO_TEXTO).pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 3))
+        ctk.CTkButton(f_pv_btn, text="💚 Cura", command=lambda: self.ajustar_pv_do_turno(1), fg_color=COR_BOTAO_SUCESSO, hover_color=COR_BOTAO_SUCESSO_HOVER, text_color=COR_BOTAO_SUCESSO_TEXTO).pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(3, 0))
 
-        ctk.CTkButton(f_trk_btn, text="Adicionar Ficha", command=self.add_tracker, fg_color="#363636", hover_color="#4a4a4a", text_color="#dcddde").pack(fill=tk.X, pady=2)
-        ctk.CTkButton(f_trk_btn, text="🎲 Rolar Pasta", command=self.rolar_iniciativa_pasta, fg_color="#363636", hover_color="#4a4a4a", text_color="#dcddde").pack(fill=tk.X, pady=2)
-        ctk.CTkButton(f_trk_btn, text="Limpar Tracker", command=self.limpar_tracker, fg_color="transparent", hover_color="#5c2b29", text_color="#e06c75").pack(fill=tk.X, pady=2)
+        ctk.CTkButton(f_trk_btn, text="Adicionar Ficha", command=self.add_tracker, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"]).pack(fill=tk.X, pady=2)
+        ctk.CTkButton(f_trk_btn, text="🎲 Rolar Pasta", command=self.rolar_iniciativa_pasta, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"]).pack(fill=tk.X, pady=2)
+        ctk.CTkButton(f_trk_btn, text="Limpar Tracker", command=self.limpar_tracker, fg_color="transparent", hover_color=COR_BOTAO_PERIGO, text_color=COR_PERIGO).pack(fill=tk.X, pady=2)
+
+        # Histórico embutido (começa escondido; o botão 📜 Log mostra).
+        self.frame_log = ctk.CTkFrame(self.frame_tracker, fg_color=self.tema_atual["bg_card"], corner_radius=8, height=215)
+        topo_log = ctk.CTkFrame(self.frame_log, fg_color="transparent")
+        topo_log.pack(fill=tk.X, padx=8, pady=(6, 0))
+        ctk.CTkLabel(topo_log, text="Histórico", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(side=tk.LEFT)
+        ctk.CTkButton(topo_log, text="🧼", width=24, height=20, fg_color="transparent", hover_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], command=self.limpar_log).pack(side=tk.RIGHT)
+        self.caixa_log = ctk.CTkTextbox(self.frame_log, height=165, fg_color=self.tema_atual["bg_sidebar"], text_color=self.tema_atual["text"], font=self.get_font('small'), border_width=0, corner_radius=6)
+        self.caixa_log.pack(fill=tk.X, padx=8, pady=(4, 8))
+        self.caixa_log.configure(state="disabled")
+
+    def faccao_do_item(self, item_id: str | None) -> str:
+        """Nome da pasta de topo onde a ficha está (usado pelo loot contextual)."""
+        if not item_id or not self.tree.exists(item_id):
+            return ""
+        pai = self.tree.parent(item_id)
+        while pai:
+            avo = self.tree.parent(pai)
+            if not avo:
+                return self.tree.item(pai, "text").strip()
+            pai = avo
+        return ""
 
     def proximo_turno(self):
         if not self.tracker_data:
@@ -542,7 +971,7 @@ class GerenciadorAmeasApp:
         if item:
             self.tree.selection_set(item)
             tags = self.tree.item(item, "tags")
-            menu = tk.Menu(self.root, tearoff=0, bg="#262626", fg="#dcddde", bd=0)
+            menu = tk.Menu(self.root, tearoff=0, bg=self.tema_atual["bg_card"], fg=self.tema_atual["text"], bd=0)
             menu.add_command(label="✎ Renomear", command=self.renomear_item)
             if "ficha" in tags:
                 menu.add_command(label="📋 Duplicar Ficha", command=lambda: self.duplicar_ficha(item))
@@ -550,6 +979,7 @@ class GerenciadorAmeasApp:
             elif "pasta" in tags:
                 menu.add_command(label="📁 Nova Pasta", command=self.adicionar_pasta)
                 menu.add_command(label="📄 Nova Ficha", command=self.adicionar_personagem)
+            menu.add_command(label="🎨 Tema da facção", command=lambda: self._aplicar_tema_faccao_item(item))
             menu.add_separator()
             menu.add_command(label="✖ Deletar (Del)", command=self.deletar_item)
             self._postar_menu(menu, event.x_root, event.y_root)
@@ -594,55 +1024,229 @@ class GerenciadorAmeasApp:
         novo_id = self.tree.insert(pai, "end", text=f" {novo_nome} [Lv. {nivel}]", tags=("ficha",))
         self.dados_banco[novo_id] = novos_dados
 
-    def gerar_lacaios_massa(self):
+    def gerar_lacaios_massa(self) -> None:
+        """Abre o assistente de lacaios (nome, quantidade e arquétipo)."""
         sel = self.tree.selection()
         pai = sel[0] if sel and "pasta" in self.tree.item(sel[0], "tags") else ""
-        
-        nome_base = CTkPopUpInput.pedir_texto("Gerar Lacaios", "Nome base dos lacaios (ex: Marinheiro):")
-        if not nome_base:
-            return
-        qtd = CTkPopUpInput.pedir_numero("Quantidade", "Quantos lacaios criar?")
-        if not qtd:
-            return
+        pasta = self.tree.item(pai, "text").strip() if pai else ""
+        faccao = normalizar_faccao(pasta)
 
-        for i in range(1, qtd + 1):
-            nome_lacaio = f"{nome_base} {i:02d}"
-            novo_id = self.tree.insert(pai, "end", text=f" {nome_lacaio} [Lv. 1]", tags=("ficha",))
-            self.dados_banco[novo_id] = montar_ficha(nome_lacaio)
+        top = ctk.CTkToplevel(self.root)
+        top.title("Gerar Lacaios")
+        top.geometry("380x470")
+        top.transient(self.root)
+        top.attributes("-topmost", True)
+        top.configure(fg_color=self.tema_atual["bg_main"])
 
-        self.registrar_log(f"Gerados {qtd}x lacaios '{nome_base}'.")
+        ctk.CTkLabel(top, text="👥 Gerar Lacaios", font=self.get_font('title'), text_color=self.tema_atual["accent"]).pack(pady=(14, 6))
 
-    def exibir_estatisticas_campanha(self):
-        total_fichas = 0
+        ctk.CTkLabel(top, text="Nome base", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20)
+        var_nome = tk.StringVar(value=NOMES_LACAIOS.get(faccao, NOMES_LACAIOS["outros"])[0])
+        ctk.CTkEntry(top, textvariable=var_nome, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20)
+
+        ctk.CTkLabel(top, text="Quantidade", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20, pady=(8, 0))
+        var_qtd = tk.StringVar(value="4")
+        ctk.CTkEntry(top, textvariable=var_qtd, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20)
+
+        ctk.CTkLabel(top, text="Arquétipo", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20, pady=(8, 0))
+        arquetipos_curtos = {
+            "Balanceado": ("Esquadrão Balanceado", "Mistura de soldado, atirador e brute. Bom para qualquer situação."),
+            "Atiradores": ("Bando de Atiradores", "Agilidade/Instinto e Acrobacia altos; fraco no corpo a corpo."),
+            "Vanguarda": ("Vanguarda Pesada", "Físico e Luta altos; mais lento e sem Acrobacia."),
+        }
+        var_arquetipo = tk.StringVar(value="Balanceado")
+        lbl_descricao = ctk.CTkLabel(
+            top, text=arquetipos_curtos["Balanceado"][1], wraplength=320, justify="left",
+            font=self.get_font('small'), text_color=COR_TEXTO_SUAVE,
+        )
+        ctk.CTkSegmentedButton(
+            top, variable=var_arquetipo, values=list(arquetipos_curtos),
+            command=lambda escolha: lbl_descricao.configure(text=arquetipos_curtos[escolha][1]),
+            fg_color=self.tema_atual["bg_input"], selected_color=self.tema_atual["accent"],
+            selected_hover_color=self.tema_atual.get("accent_hover", self.tema_atual["accent"]),
+            unselected_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"],
+        ).pack(fill=tk.X, padx=20)
+        lbl_descricao.pack(fill=tk.X, padx=20, pady=(2, 0))
+
+        ctk.CTkLabel(top, text="Nível dos lacaios", font=self.get_font('small'), text_color=COR_TEXTO_SUAVE).pack(anchor="w", padx=20, pady=(8, 0))
+        var_nivel = tk.StringVar(value="1")
+        ctk.CTkEntry(top, textvariable=var_nivel, fg_color=self.tema_atual["bg_input"], text_color=self.tema_atual["text"], border_width=0).pack(fill=tk.X, padx=20)
+
+        def criar() -> None:
+            base = var_nome.get().strip() or "Lacaio"
+            texto_qtd = str(var_qtd.get()).strip()
+            if not texto_qtd.isdigit() or int(texto_qtd) <= 0:
+                messagebox.showwarning("Aviso", "Informe uma quantidade válida.", parent=top)
+                return
+            texto_nivel = str(var_nivel.get()).strip()
+            nivel = int(texto_nivel) if texto_nivel.isdigit() and int(texto_nivel) > 0 else 1
+            arquetipo = arquetipos_curtos[var_arquetipo.get()][0]
+            self._criar_lacaios(pai, base, int(texto_qtd), arquetipo, faccao, nivel)
+            top.destroy()
+
+        ctk.CTkButton(top, text="Gerar", command=criar, fg_color=self.tema_atual["accent"], text_color="white").pack(fill=tk.X, padx=20, pady=16)
+
+    @staticmethod
+    def _perfil_lacaio(nivel: int, arquetipo: str, indice: int) -> dict[str, int]:
+        """Atributos/Graus coerentes com o Nível, moldados pelo arquétipo."""
+        maior = min(5, 2 + (nivel - 1) // 3)
+        secundario = min(4, 1 + (nivel - 1) // 5)
+        grau = min(3, (nivel - 1) // 3)
+
+        if arquetipo == "Bando de Atiradores":
+            return {
+                "fis": max(0, secundario - 1), "agi": maior, "intel": secundario,
+                "inst": max(1, secundario), "luta": max(0, grau - 1), "acro": grau,
+            }
+        if arquetipo == "Vanguarda Pesada":
+            return {
+                "fis": maior, "agi": secundario, "intel": 1,
+                "inst": secundario, "luta": grau, "acro": 0,
+            }
+        troca = indice % 2 == 0
+        return {
+            "fis": maior if troca else secundario,
+            "agi": secundario if troca else maior,
+            "intel": max(1, secundario - 1),
+            "inst": secundario,
+            "luta": grau,
+            "acro": max(0, grau - 1) if troca else grau,
+        }
+
+    def _criar_lacaios(self, pai: str, base: str, quantidade: int, arquetipo: str,
+                       faccao: str, nivel: int = 1) -> None:
+        """Cria as fichas no Nível pedido, com variação de Atributos e Graus."""
+        nivel = max(1, nivel)
+        for i in range(1, quantidade + 1):
+            perfil = self._perfil_lacaio(nivel, arquetipo, i)
+            for chave in ("fis", "agi", "intel", "inst"):
+                variacao = random.choice((-1, 0, 0, 1))
+                perfil[chave] = max(0, min(5, perfil.get(chave, 1) + variacao))
+            for chave in ("luta", "acro"):
+                variacao = random.choice((-1, 0, 0, 1))
+                perfil[chave] = max(0, min(3, perfil.get(chave, 0) + variacao))
+
+            nome_lacaio = f"{base} {i:02d}"
+            novo_id = self.tree.insert(pai, "end", text=f" {nome_lacaio} [Lv. {nivel}]", tags=("ficha",))
+            self.dados_banco[novo_id] = montar_ficha(nome_lacaio, nivel, **perfil)
+
+        self.registrar_log(f"👥 Gerados {quantidade}x '{base}' Nv {nivel} ({arquetipo}, {faccao}).")
+
+    def _mostrar_relatorio(self, titulo: str, texto: str) -> None:
+        top = ctk.CTkToplevel(self.root)
+        top.title(titulo)
+        top.geometry("560x620")
+        top.transient(self.root)
+        top.configure(fg_color=self.tema_atual["bg_main"])
+        caixa = ctk.CTkTextbox(top, fg_color=self.tema_atual["bg_card"], text_color=self.tema_atual["text"], font=self.get_font('main'), border_width=0, corner_radius=8)
+        caixa.pack(fill=tk.BOTH, expand=True, padx=14, pady=14)
+        caixa.insert("1.0", texto)
+        caixa.configure(state="disabled")
+        ctk.CTkButton(top, text="Fechar", command=top.destroy, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"]).pack(pady=(0, 12))
+
+    def exibir_estatisticas_campanha(self) -> None:
+        """Relatório do cofre: facções, faixas de perigo, destaques e recursos."""
+        fichas: list[tuple[str, dict]] = []
         total_pastas = 0
-        soma_recompensas = 0
-        soma_niveis = 0
 
-        def percorrer(node):
-            nonlocal total_fichas, total_pastas, soma_recompensas, soma_niveis
+        def inteiro(valor, padrao: int = 0) -> int:
+            try:
+                return max(0, int(str(valor).strip()))
+            except (TypeError, ValueError):
+                return padrao
+
+        def percorrer(node: str, faccao: str) -> None:
+            nonlocal total_pastas
             for child in self.tree.get_children(node):
                 tags = self.tree.item(child, "tags")
                 if "pasta" in tags:
                     total_pastas += 1
+                    nome_pasta = re.sub(r" \[Lv\. .*?\]$", "", self.tree.item(child, "text").strip())
+                    percorrer(child, faccao or nome_pasta)
                 elif "ficha" in tags:
-                    total_fichas += 1
-                    dados = self.dados_banco.get(child, {})
-                    rec = int(re.sub(r"\D", "", str(dados.get("recompensa", 0))) or 0)
-                    niv = nivel_seguro(dados.get("nivel", 1))
-                    soma_recompensas += rec
-                    soma_niveis += niv
-                percorrer(child)
+                    dados = self.abas_abertas[child].get_dados() if child in self.abas_abertas else self.dados_banco.get(child, {})
+                    fichas.append((faccao or "Sem pasta", dados))
+                    percorrer(child, faccao)
 
-        percorrer("")
-        media_nivel = (soma_niveis / total_fichas) if total_fichas > 0 else 0
+        percorrer("", "")
 
-        msg = f"📊 Resumo do Cofre de Ameaças:\n\n"
-        msg += f"• Total de Ameaças: {total_fichas}\n"
-        msg += f"• Total de Pastas: {total_pastas}\n"
-        msg += f"• Nível Médio dos Inimigos: {media_nivel:.1f}\n"
-        msg += f"• Soma Total das Recompensas: {soma_recompensas:,} Berries\n".replace(",", ".")
+        if not fichas:
+            messagebox.showinfo("Estatísticas", "O cofre está vazio.")
+            return
 
-        messagebox.showinfo("Estatísticas da Campanha", msg)
+        por_faccao = Counter(faccao for faccao, _ in fichas)
+        faixas = {"Iniciantes (1–3)": 0, "Veteranos (4–8)": 0, "Elite (9–14)": 0, "Lendas (15+)": 0}
+        soma_niveis = soma_recompensas = soma_pv = soma_pe = 0
+        maior_nivel: tuple[str, int] | None = None
+        maior_recompensa: tuple[str, int] | None = None
+        total_habilidades = 0
+        execucoes: Counter = Counter()
+
+        for _faccao, dados in fichas:
+            nivel = nivel_seguro(dados.get("nivel", 1))
+            soma_niveis += nivel
+            if nivel <= 3:
+                faixas["Iniciantes (1–3)"] += 1
+            elif nivel <= 8:
+                faixas["Veteranos (4–8)"] += 1
+            elif nivel <= 14:
+                faixas["Elite (9–14)"] += 1
+            else:
+                faixas["Lendas (15+)"] += 1
+
+            recompensa = inteiro(re.sub(r"\D", "", str(dados.get("recompensa", 0))) or 0)
+            soma_recompensas += recompensa
+            soma_pv += inteiro(dados.get("pv_max") or dados.get("pv", 0))
+            soma_pe += inteiro(dados.get("pe_max") or dados.get("pe", 0))
+
+            nome = str(dados.get("nome", "?"))
+            if maior_nivel is None or nivel > maior_nivel[1]:
+                maior_nivel = (nome, nivel)
+            if maior_recompensa is None or recompensa > maior_recompensa[1]:
+                maior_recompensa = (nome, recompensa)
+
+            habilidades = dados.get("habilidades", []) or []
+            total_habilidades += len(habilidades)
+            for hab in habilidades:
+                execucoes[(hab.get("execucao") or "—").strip() or "—"] += 1
+
+        linhas = [
+            "📊 RESUMO DO COFRE",
+            "",
+            f"Fichas: {len(fichas)}    Pastas: {total_pastas}",
+            f"Nível médio: {soma_niveis / len(fichas):.1f}",
+            "",
+            "🏴 POR FACÇÃO",
+        ]
+        for faccao, quantidade in por_faccao.most_common():
+            linhas.append(f"• {faccao}: {quantidade}")
+
+        linhas += ["", "☠️ FAIXAS DE PERIGO"]
+        for rotulo, quantidade in faixas.items():
+            linhas.append(f"• {rotulo}: {quantidade}")
+
+        linhas += ["", "⭐ DESTAQUES"]
+        if maior_nivel:
+            linhas.append(f"• Maior Nível: {maior_nivel[0]} (Nv {maior_nivel[1]})")
+        if maior_recompensa:
+            linhas.append("• Maior Recompensa: " + f"{maior_recompensa[0]} (B$ {maior_recompensa[1]:,})".replace(",", "."))
+
+        linhas += ["", "✨ HABILIDADES", f"• Total cadastradas: {total_habilidades}"]
+        if execucoes:
+            comum, vezes = execucoes.most_common(1)[0]
+            linhas.append(f"• Execução mais comum: {comum} ({vezes}x)")
+            for execucao, quantidade in execucoes.most_common():
+                linhas.append(f"    - {execucao}: {quantidade}")
+
+        linhas += [
+            "",
+            "❤️ RECURSOS",
+            "• PV somados: " + f"{soma_pv:,}".replace(",", "."),
+            "• PE somados: " + f"{soma_pe:,}".replace(",", "."),
+            "• Recompensas somadas: B$ " + f"{soma_recompensas:,}".replace(",", "."),
+        ]
+
+        self._mostrar_relatorio("Estatísticas da Campanha", "\n".join(linhas))
 
     def iniciar_drag_tree(self, event):
         self._press_xy = (event.x, event.y)
@@ -655,10 +1259,12 @@ class GerenciadorAmeasApp:
         self.item_arrastado = item
 
     def ao_clicar_arvore(self, event):
-        """Abre a ficha da linha com um clique, sem abrir quando o clique foi arrasto."""
+        """Abre a ficha com um clique; Ctrl/Shift só selecionam (seleção múltipla)."""
         press = self._press_xy
         self._press_xy = None
         if press is not None and (abs(event.x - press[0]) > 5 or abs(event.y - press[1]) > 5):
+            return
+        if event.state & 0x0005:  # Shift (0x1) ou Control (0x4): não abre aba
             return
 
         item = self.tree.identify_row(event.y)
@@ -702,52 +1308,60 @@ class GerenciadorAmeasApp:
         if self.caixa_log is not None and self.caixa_log.winfo_exists():
             self.caixa_log.configure(state="normal")
             self.caixa_log.insert(tk.END, f"• {mensagem}\n")
+
+            # Mantém o widget no mesmo teto da lista (antes ele crescia sem fim).
+            total = int(self.caixa_log.index("end-1c").split(".")[0]) - 1
+            if total > 500:
+                self.caixa_log.delete("1.0", f"{total - 500 + 1}.0")
+
             self.caixa_log.see(tk.END)
             self.caixa_log.configure(state="disabled")
 
+    def mostrar_atalhos(self) -> None:
+        """Lista todos os atalhos em uma janela de leitura."""
+        atalhos = [
+            ("Ctrl + S", "Salvar o cofre"),
+            ("Ctrl + N", "Criar ficha nova"),
+            ("Ctrl + F", "Ir para a busca de fichas"),
+            ("F5", "Rolar iniciativa da pasta selecionada"),
+            ("Espaço", "Próximo turno no Combat Tracker"),
+            ("D", "Aplicar dano em quem está jogando (ou na linha selecionada)"),
+            ("C", "Curar quem está jogando (ou na linha selecionada)"),
+            ("1 – 9", "Selecionar a 1ª a 9ª linha do Tracker"),
+            ("Esc", "Limpar a seleção do Tracker"),
+            ("Clique", "Abrir a ficha na árvore"),
+            ("Clique direito", "Menu de dano, cura e condições no Tracker"),
+        ]
+        texto = "\n".join(f"{tecla:<16} {descricao}" for tecla, descricao in atalhos)
+        texto += "\n\nDicas:\n• Segure Ctrl ou Shift para selecionar várias fichas e apagar de uma vez.\n• No cabeçalho da ficha, digite a rolagem (ex.: 2d8+3) e clique em Rolar."
+        self._mostrar_relatorio("Atalhos", texto)
+
+    def mostrar_sobre(self) -> None:
+        self._mostrar_relatorio(
+            "Sobre",
+            "ImpelDown Archives — One Piece RPG\n\n"
+            "Gerenciador de fichas, banco de ameaças e Combat Tracker para o sistema "
+            "de One Piece RPG.\n\n"
+            "Camadas:\n• core/ — regras, dados e combate\n• ui/ — telas e widgets\n"
+            "• utils/ — persistência, loot, história, cartaz e golpes",
+        )
+
     def alternar_log(self) -> None:
-        """Abre/fecha o histórico de rolagens numa janela no canto da tela."""
-        if self.janela_log is not None and self.janela_log.winfo_exists():
-            if self.janela_log.winfo_viewable():
-                self.janela_log.withdraw()
-                self.btn_log.configure(text="📜 Log")
-                return
-            self._posicionar_janela_log()
-            self.janela_log.deiconify()
-            self.janela_log.lift()
-            self.btn_log.configure(text="📜 Fechar")
+        """Mostra/oculta o histórico flutuando sobre o rodapé do Tracker."""
+        if not self.tracker_visivel:
+            self.toggle_tracker()
+        if self._log_aberto:
+            self.frame_log.place_forget()
+            self._log_aberto = False
+            self.btn_log.configure(text="📜 Log")
             return
-
-        self._criar_janela_log()
+        # place (e não pack) para o painel não roubar espaço da lista nem
+        # ser empurrado para fora da janela em telas baixas.
+        self.frame_log.place(relx=0.0, rely=1.0, anchor="sw", relwidth=1.0)
+        self.frame_log.lift()
+        self._log_aberto = True
         self.btn_log.configure(text="📜 Fechar")
-
-    def _posicionar_janela_log(self) -> None:
-        """Encosta a janela do log no canto inferior direito do app."""
-        largura, altura = 420, 240
-        x = self.root.winfo_rootx() + self.root.winfo_width() - largura - 24
-        y = self.root.winfo_rooty() + self.root.winfo_height() - altura - 24
-        self.janela_log.geometry(f"{largura}x{altura}+{max(0, x)}+{max(0, y)}")
-
-    def _criar_janela_log(self) -> None:
-        self.janela_log = ctk.CTkToplevel(self.root)
-        self.janela_log.title("Histórico de Rolagens")
-        self.janela_log.transient(self.root)
-        self.janela_log.attributes("-topmost", True)
-        self.janela_log.configure(fg_color=self.tema_atual["bg_card"])
-        self._posicionar_janela_log()
-
-        topo = ctk.CTkFrame(self.janela_log, fg_color="transparent")
-        topo.pack(fill=tk.X, padx=10, pady=(8, 0))
-        ctk.CTkLabel(topo, text="Histórico", font=self.get_font('bold'), text_color=self.tema_atual["text"]).pack(side=tk.LEFT)
-        ctk.CTkButton(topo, text="🧼 Limpar", width=70, height=22, fg_color=self.tema_atual["bg_input"], hover_color="#4a4a4a", text_color=self.tema_atual["text"], command=self.limpar_log).pack(side=tk.RIGHT)
-        ctk.CTkButton(topo, text="✖", width=28, height=22, fg_color="transparent", hover_color="#5c2b29", text_color="#e06c75", command=self.alternar_log).pack(side=tk.RIGHT, padx=(0, 6))
-
-        self.caixa_log = ctk.CTkTextbox(self.janela_log, fg_color=self.tema_atual["bg_sidebar"], text_color=self.tema_atual["text"], font=self.get_font('main'), border_width=0, corner_radius=6)
-        self.caixa_log.pack(fill=tk.BOTH, expand=True, padx=10, pady=8)
-        self.caixa_log.configure(state="normal")
-        for linha in self._log_linhas:
-            self.caixa_log.insert(tk.END, f"• {linha}\n")
-        self.caixa_log.configure(state="disabled")
+        self.caixa_log.see(tk.END)
 
     def limpar_log(self) -> None:
         self._log_linhas.clear()
@@ -795,7 +1409,16 @@ class GerenciadorAmeasApp:
             
         tags_alvo = self.tree.item(target, "tags")
         if "pasta" in tags_alvo:
-            self.tree.move(item, target, "end")
+            # Move também as outras fichas selecionadas (Ctrl/Shift), sem
+            # tentar mover uma pasta para dentro dela mesma.
+            selecionados = [i for i in self.tree.selection() if self.tree.exists(i)]
+            movidos = selecionados if item in selecionados and len(selecionados) > 1 else [item]
+            for movido in movidos:
+                if not self.tree.exists(movido) or movido == target:
+                    continue
+                if eh_descendente(movido, target):
+                    continue
+                self.tree.move(movido, target, "end")
             self.tree.item(target, open=True)
         else:
             pai_alvo = self.tree.parent(target)
@@ -889,14 +1512,14 @@ class GerenciadorAmeasApp:
 
     def _menu_condicoes(self, idx: int, x: int, y: int) -> None:
         """Monta o menu de PV/condições para a linha indicada."""
-        menu = tk.Menu(self.root, tearoff=0, bg="#262626", fg="#dcddde", bd=0, activebackground=self.tema_atual["accent"])
+        menu = tk.Menu(self.root, tearoff=0, bg=self.tema_atual["bg_card"], fg=self.tema_atual["text"], bd=0, activebackground=self.tema_atual["accent"])
         menu.add_command(label="⚔️ Aplicar Dano…", command=lambda: self.ajustar_pv_da_linha(idx, -1))
         menu.add_command(label="💚 Curar…", command=lambda: self.ajustar_pv_da_linha(idx, 1))
         menu.add_command(label="💀 Zerar PV", command=lambda: self.aplicar_pv_tracker(idx, -1000000))
         menu.add_separator()
 
         ativas = {cond["chave"]: cond for cond in self._condicoes_linha(self.tracker_data[idx])}
-        submenu = tk.Menu(menu, tearoff=0, bg="#262626", fg="#dcddde", bd=0, activebackground=self.tema_atual["accent"])
+        submenu = tk.Menu(menu, tearoff=0, bg=self.tema_atual["bg_card"], fg=self.tema_atual["text"], bd=0, activebackground=self.tema_atual["accent"])
         for chave, (icone, nome, _efeito) in CONDICOES.items():
             ativa = ativas.get(chave)
             if ativa:
@@ -945,6 +1568,8 @@ class GerenciadorAmeasApp:
         alvo = self.tracker_data[index]
         ativas = self._condicoes_linha(alvo)
         chaves = [cond["chave"] for cond in ativas]
+        self._registrar_undo({"tipo": "cond", "indice": index, "nome": alvo["nome"],
+                              "status": [dict(cond) for cond in ativas]})
 
         if chave in chaves:
             ativas = [cond for cond in ativas if cond["chave"] != chave]
@@ -955,13 +1580,15 @@ class GerenciadorAmeasApp:
             self.registrar_log(f"{icone_condicao(chave)} {nome_condicao(chave)} aplicada em {alvo['nome']}{prazo}.")
 
         alvo["status"] = ativas
-        self.atualizar_tracker_view()
+        self._atualizar_linha(index)
 
     def ajustar_turnos_condicoes(self, index: int, delta: int) -> None:
         """Soma ou tira 1 turno de todas as condições com prazo da linha."""
         if not 0 <= index < len(self.tracker_data):
             return
         alvo = self.tracker_data[index]
+        self._registrar_undo({"tipo": "cond", "indice": index, "nome": alvo["nome"],
+                              "status": [dict(cond) for cond in self._condicoes_linha(alvo)]})
         novas = []
         for cond in self._condicoes_linha(alvo):
             if cond["turnos"] is None:
@@ -973,15 +1600,17 @@ class GerenciadorAmeasApp:
             else:
                 self.registrar_log(f"⏱ {nome_condicao(cond['chave'])} terminou em {alvo['nome']}.")
         alvo["status"] = novas
-        self.atualizar_tracker_view()
+        self._atualizar_linha(index)
 
     def limpar_condicoes(self, index: int) -> None:
         """Remove todas as condições da linha."""
         if not 0 <= index < len(self.tracker_data):
             return
         alvo = self.tracker_data[index]
+        self._registrar_undo({"tipo": "cond", "indice": index, "nome": alvo["nome"],
+                              "status": [dict(cond) for cond in self._condicoes_linha(alvo)]})
         alvo["status"] = []
-        self.atualizar_tracker_view()
+        self._atualizar_linha(index)
         self.registrar_log(f"🧼 Condições removidas de {alvo['nome']}.")
 
     def _sufixo_status(self, linha: dict) -> str:
@@ -1007,31 +1636,21 @@ class GerenciadorAmeasApp:
         self.lista_iniciativa.delete(0, tk.END)
         self.tracker_data.sort(key=lambda x: x["ini"], reverse=True)
         
-        texto_dif, cor_dif = calcular_dificuldade_encontro(self.tracker_data, self.dados_banco)
+        texto_dif, cor_dif = self._dificuldade_atual()
         self.lbl_dificuldade.configure(text=f"Encontro: {texto_dif}", text_color=cor_dif)
 
+        self._mapa_tracker: dict[str, list[int]] = {}
         for i, t in enumerate(self.tracker_data):
-            nome_exib = t['nome']
-            if len(nome_exib) > 13:
-                nome_exib = nome_exib[:11] + "..."
-
-            item_id = t.get("id", "")
-            pv_texto = self._pv_da_linha(item_id)
-            marcador = "▶ " if i == self.turno_atual_idx else "  "
-            linha = f"{marcador}[{t['ini']:02d}] {nome_exib:<13} {pv_texto:<7}"
-            sufixo = self._sufixo_status(t)
-            if sufixo:
-                linha += " " + sufixo
-            self.lista_iniciativa.insert(tk.END, linha)
-
-            if item_id in self.abas_abertas or item_id in self.dados_banco:
-                pv_atual, pv_max = self.obter_pv(item_id)
-                cor = self._cor_do_pv(pv_atual, pv_max)
-            else:
-                cor = "#8b8c8f"
+            texto, cor, morto = self._render_linha(i, t)
+            self.lista_iniciativa.insert(tk.END, texto)
             self.lista_iniciativa.itemconfig(i, fg=cor)
             if i == self.turno_atual_idx:
-                self.lista_iniciativa.itemconfig(i, bg=self.tema_atual["accent"], fg="white")
+                # Quem está caído continua legível mesmo com o destaque do turno.
+                self.lista_iniciativa.itemconfig(
+                    i, bg=self.tema_atual["accent"],
+                    fg=COR_PERIGO_CLARO if morto else "white",
+                )
+            self._mapa_tracker.setdefault(t.get("id", ""), []).append(i)
 
         if selecionado is not None:
             for i, t in enumerate(self.tracker_data):
@@ -1039,6 +1658,52 @@ class GerenciadorAmeasApp:
                     self.lista_iniciativa.selection_set(i)
                     break
 
+        self._atualizar_painel_turno()
+
+    def _render_linha(self, indice: int, t: dict) -> tuple[str, str, bool]:
+        """Monta (texto, cor, morto) de uma linha do Tracker."""
+        nome_exib = t["nome"]
+        if len(nome_exib) > 13:
+            nome_exib = nome_exib[:11] + "..."
+
+        item_id = t.get("id", "")
+        pv_texto = self._pv_da_linha(item_id)
+        marcador = "▶ " if indice == self.turno_atual_idx else "  "
+        texto = f"{marcador}[{t['ini']:02d}] {nome_exib:<13} {pv_texto:<7}"
+        sufixo = self._sufixo_status(t)
+        if sufixo:
+            texto += " " + sufixo
+
+        morto = False
+        if item_id in self.abas_abertas or item_id in self.dados_banco:
+            pv_atual, pv_max = self.obter_pv(item_id)
+            cor = self._cor_do_pv(pv_atual, pv_max)
+            morto = pv_atual <= 0
+        else:
+            cor = COR_TEXTO_SUAVE
+        return texto, cor, morto
+
+    def _atualizar_linha(self, indice: int) -> None:
+        """Redesenha só uma linha do Tracker (dano/condição), sem rebuild total."""
+        if not 0 <= indice < len(self.tracker_data):
+            return
+        if indice >= self.lista_iniciativa.size():
+            self.atualizar_tracker_view()
+            return
+
+        selecao = self.lista_iniciativa.curselection()
+        texto, cor, morto = self._render_linha(indice, self.tracker_data[indice])
+        self.lista_iniciativa.delete(indice)
+        self.lista_iniciativa.insert(indice, texto)
+        self.lista_iniciativa.itemconfig(indice, fg=cor, bg=self.tema_atual["bg_sidebar"])
+        if indice == self.turno_atual_idx:
+            self.lista_iniciativa.itemconfig(
+                indice, bg=self.tema_atual["accent"],
+                fg=COR_PERIGO_CLARO if morto else "white",
+            )
+        for i in selecao:
+            if i < self.lista_iniciativa.size():
+                self.lista_iniciativa.selection_set(i)
         self._atualizar_painel_turno()
 
     def _recursos_do_turno(self, item_id: str) -> tuple[str, str]:
@@ -1076,7 +1741,7 @@ class GerenciadorAmeasApp:
             self.lbl_turno_nome.configure(text="Sem combate", text_color=self.tema_atual["accent"])
             self.lbl_turno_recursos.configure(text="PV —    PE —")
             self.lbl_turno_defesas.configure(text="Def: — | Bloq: — | Esq: — | CD: —")
-            self.lbl_turno_condicoes.configure(text="Sem condições.", text_color="#8b8c8f")
+            self.lbl_turno_condicoes.configure(text="Sem condições.", text_color=COR_TEXTO_SUAVE)
             return
 
         indice = min(max(0, self.turno_atual_idx), len(self.tracker_data) - 1)
@@ -1090,25 +1755,72 @@ class GerenciadorAmeasApp:
 
         ativas = self._condicoes_linha(alvo)
         if not ativas:
-            self.lbl_turno_condicoes.configure(text="Sem condições.", text_color="#8b8c8f")
+            self.lbl_turno_condicoes.configure(text="Sem condições.", text_color=COR_TEXTO_SUAVE)
             return
 
         pedacos = []
         for cond in ativas:
             prazo = f" ({cond['turnos']}t)" if cond["turnos"] else ""
             pedacos.append(f"{icone_condicao(cond['chave'])} {nome_condicao(cond['chave'])}{prazo}")
-        self.lbl_turno_condicoes.configure(text="  ".join(pedacos), text_color="#e5b55e")
+        self.lbl_turno_condicoes.configure(text="  ".join(pedacos), text_color=COR_AVISO)
+
+    @staticmethod
+    def _inteiro_positivo(var: tk.StringVar, padrao: int) -> int:
+        """Lê um campo numérico do painel, com fallback para o padrão."""
+        texto = str(var.get()).strip()
+        return int(texto) if texto.isdigit() and int(texto) > 0 else padrao
+
+    @staticmethod
+    def _pasta_normalizada(texto: str) -> str:
+        return str(texto or "").strip().lower()
+
+    def _item_e_jogador(self, item_id: str) -> bool:
+        """Ficha de jogador (pasta Player/Jogadores/Party) não entra no desafio."""
+        if not item_id:
+            return False
+        return self._pasta_normalizada(self.faccao_do_item(item_id)) in PASTAS_JOGADOR
+
+    def _dificuldade_atual(self) -> tuple[str, str]:
+        """Desafio por dano/rodada contra o HP total dos inimigos (sem players)."""
+        inimigos = [
+            linha for linha in self.tracker_data
+            if not self._item_e_jogador(linha.get("id", ""))
+        ]
+        if not inimigos:
+            return "Sem Inimigos", COR_TEXTO_SUAVE
+
+        jogadores = self._inteiro_positivo(self.var_jogadores, 4)
+        nivel = self._inteiro_positivo(self.var_nivel_grupo, 1)
+
+        hp_total = 0
+        for linha in inimigos:
+            item_id = linha.get("id", "")
+            if item_id in self.abas_abertas or item_id in self.dados_banco:
+                hp_total += self.obter_pv(item_id)[1]
+
+        if hp_total <= 0:
+            # Sem HP vinculado (lacaios genéricos): cai no cálculo por Nível.
+            texto, cor = calcular_dificuldade_encontro(inimigos, self.dados_banco, jogadores, nivel)
+            return f"{texto} (sem HP)", cor
+
+        dados = analisar_desafio(jogadores, nivel, hp_total)
+        return dados["resumo"], dados["cor"]
+
+    def atualizar_dificuldade(self) -> None:
+        """Recalcula só o rótulo do encontro (sem reconstruir a lista)."""
+        texto, cor = self._dificuldade_atual()
+        self.lbl_dificuldade.configure(text=f"Encontro: {texto}", text_color=cor)
 
     def _cor_do_pv(self, atual: int, maximo: int) -> str:
-        """Verde acima de 50%, âmbar até 50%, vermelho até 25% e cinza em 0."""
+        """Verde acima de 50%, âmbar até 50%, vermelho até 25% e em 0."""
         if atual <= 0:
-            return "#8b8c8f"
+            return COR_PERIGO
         proporcao = atual / maximo if maximo else 0.0
         if proporcao > 0.5:
-            return "#6db35f"
+            return COR_SUCESSO
         if proporcao > 0.25:
-            return "#e5b55e"
-        return "#e06c75"
+            return COR_AVISO
+        return COR_PERIGO
 
     def obter_pv(self, item_id: str) -> tuple[int, int]:
         """Devolve (PV atual, PV máximo). A aba aberta manda; senão, o banco."""
@@ -1132,12 +1844,17 @@ class GerenciadorAmeasApp:
             self.registrar_log(f"⚠️ {alvo['nome']} não tem ficha vinculada, então não há PV para alterar.")
             return
 
+        aba = self.abas_abertas.get(item_id)
+        if aba is not None:
+            aba.sincronizar_agora()  # evita ler um máximo ainda preso no debounce
+
         atual, maximo = self.obter_pv(item_id)
         novo = max(0, min(maximo, atual + delta))
         if novo == atual:
             return
 
-        aba = self.abas_abertas.get(item_id)
+        self._registrar_undo({"tipo": "pv", "id": item_id, "nome": alvo["nome"], "pv": atual})
+
         if aba is not None:
             aba.pv_atual.set(novo)
 
@@ -1146,7 +1863,7 @@ class GerenciadorAmeasApp:
         dados.setdefault("pv_max", maximo)
         dados.setdefault("nome", alvo.get("nome", ""))
 
-        self.atualizar_tracker_view()
+        self._atualizar_linha(index)
         icone = "⚔️" if delta < 0 else "💚"
         acao = "levou" if delta < 0 else "curou"
         self.registrar_log(f"{icone} {alvo['nome']} {acao} {abs(novo - atual)} PV ({atual} → {novo})")
@@ -1183,10 +1900,13 @@ class GerenciadorAmeasApp:
         if item_id in self.abas_abertas:
             self.notebook.tab(self.abas_abertas[item_id].master, text=f"   {novo_nome}   ")
             
-        for i, t in enumerate(self.tracker_data):
-            if t['id'] == item_id:
-                self.tracker_data[i]['nome'] = novo_nome
-        self.atualizar_tracker_view()
+        indices = list(getattr(self, "_mapa_tracker", {}).get(item_id, []))
+        if not indices:
+            indices = [i for i, t in enumerate(self.tracker_data) if t.get("id") == item_id]
+        for i in indices:
+            if 0 <= i < len(self.tracker_data) and self.tracker_data[i].get("id") == item_id:
+                self.tracker_data[i]["nome"] = novo_nome
+                self._atualizar_linha(i)
 
     def novo_banco(self):
         if not messagebox.askyesno("Novo Cofre", "Você iniciará uma nova campanha. Alterações não salvas serão perdidas. Continuar?"):
@@ -1206,6 +1926,24 @@ class GerenciadorAmeasApp:
             self.notebook.forget(aba.master)
             aba.master.destroy()
         self.abas_abertas.clear()
+        self._destruir_cache_abas()
+
+    def _destruir_cache_abas(self) -> None:
+        """Descarta as fichas guardadas em cache (troca de cofre/exclusão)."""
+        for frame, _ficha in self._abas_cache.values():
+            if frame.winfo_exists():
+                frame.destroy()
+        self._abas_cache.clear()
+
+    def _guardar_aba_em_cache(self, item_id: str, ficha) -> None:
+        """Guarda a ficha fechada para reabrir sem reconstruir tudo."""
+        self._abas_cache[item_id] = (ficha.master, ficha)
+        excedentes = [chave for chave in self._abas_cache if chave != item_id]
+        while len(self._abas_cache) > 4 and excedentes:
+            antiga = excedentes.pop(0)
+            frame, _ = self._abas_cache.pop(antiga)
+            if frame.winfo_exists():
+                frame.destroy()
 
     def _reiniciar_pesquisa(self) -> None:
         """Limpa a busca e o cache da árvore após trocar de cofre."""
@@ -1213,17 +1951,65 @@ class GerenciadorAmeasApp:
         if self.var_pesquisa.get():
             self.var_pesquisa.set("")
 
+    def _configuracao_sessao(self) -> dict:
+        """Dados de configuração que viajam dentro do cofre."""
+        return {
+            "jogadores": self._inteiro_positivo(self.var_jogadores, 4),
+            "nivel_grupo": self._inteiro_positivo(self.var_nivel_grupo, 1),
+        }
+
+    def _aplicar_configuracao(self, config: dict) -> None:
+        if not config:
+            return
+        jogadores = config.get("jogadores")
+        if str(jogadores).isdigit():
+            self.var_jogadores.set(str(jogadores))
+        nivel_grupo = config.get("nivel_grupo")
+        if str(nivel_grupo).isdigit():
+            self.var_nivel_grupo.set(str(nivel_grupo))
+        self.atualizar_dificuldade()
+
     def _gravar_banco(self, caminho: str) -> bool:
         """Grava o cofre no caminho indicado; devolve se deu certo."""
         for item_id, aba in self.abas_abertas.items():
             self.dados_banco[item_id] = aba.get_dados()
         try:
-            estrutura = self.mapear_arvore_completa("")
-            salvar_banco_sqlite(caminho, estrutura, self.dados_banco)
+            # Com a busca ativa a árvore está filtrada: salvar o cache completo.
+            if self.var_pesquisa.get().strip() and self.arvore_cache:
+                estrutura = self.arvore_cache
+            else:
+                estrutura = self.mapear_arvore_completa("")
+            salvar_banco_sqlite(caminho, estrutura, self.dados_banco, self._configuracao_sessao())
         except Exception as e:
             messagebox.showerror("Erro de Gravação", str(e))
             return False
         return True
+
+    def _agendar_autosave(self) -> None:
+        self._autosave_id = self.root.after(AUTOSAVE_MINUTOS * 60_000, self._autosave)
+
+    def _autosave(self) -> None:
+        """Salva o cofre em silêncio a cada AUTOSAVE_MINUTOS (se já houver arquivo)."""
+        try:
+            if self.arquivo_atual:
+                for item_id, aba in self.abas_abertas.items():
+                    self.dados_banco[item_id] = aba.get_dados()
+                if self.var_pesquisa.get().strip() and self.arvore_cache:
+                    estrutura = self.arvore_cache
+                else:
+                    estrutura = self.mapear_arvore_completa("")
+                salvar_banco_sqlite(
+                    self.arquivo_atual, estrutura, self.dados_banco, self._configuracao_sessao()
+                )
+                self.registrar_log("💾 Salvamento automático concluído.")
+        except Exception as erro:
+            self.registrar_log(f"⚠️ Falha no salvamento automático: {erro}")
+        finally:
+            try:
+                if self.root.winfo_exists():
+                    self._agendar_autosave()
+            except tk.TclError:
+                pass
 
     def salvar_banco(self) -> bool:
         if not self.arquivo_atual:
@@ -1249,7 +2035,7 @@ class GerenciadorAmeasApp:
         if not caminho:
             return
         try:
-            estrutura, fichas = carregar_banco_sqlite(caminho)
+            estrutura, fichas, config = carregar_banco_sqlite(caminho)
         except Exception as e:
             messagebox.showerror("Erro de Leitura", str(e))
             return
@@ -1264,6 +2050,7 @@ class GerenciadorAmeasApp:
         self._fechar_todas_as_abas()
         self.tree.delete(*self.tree.get_children())
         self.limpar_tracker()
+        self._aplicar_configuracao(config)
 
         def restaurar(pai, nos):
             for n in nos:
@@ -1345,42 +2132,69 @@ class GerenciadorAmeasApp:
                 self.tree.item(item_id, text=f" {novo_nome}")
 
     def deletar_item(self):
+        """Exclui uma ou várias fichas/pastas selecionadas (Ctrl/Shift)."""
         if self.bloquear_se_buscando():
             return
-        sel = self.tree.selection()
-        if not sel:
-            return
-        item_id = sel[0]
-        if not messagebox.askyesno("Confirmar", f"Deseja excluir '{self.tree.item(item_id, 'text').strip()}' e todo seu conteúdo?"):
+        selecionados = list(self.tree.selection())
+        if not selecionados:
             return
 
-        def excluir_recursivamente(node):
+        if len(selecionados) == 1:
+            pergunta = f"Deseja excluir '{self.tree.item(selecionados[0], 'text').strip()}' e todo seu conteúdo?"
+        else:
+            pergunta = f"Deseja excluir as {len(selecionados)} seleções e todo o conteúdo delas?"
+
+        if not messagebox.askyesno("Confirmar", pergunta):
+            return
+
+        ids_unicos = [i for i in selecionados if self.tree.exists(i)]
+
+        def excluir_recursivamente(node: str) -> None:
             for filho in self.tree.get_children(node):
                 excluir_recursivamente(filho)
             if node in self.abas_abertas:
                 aba = self.abas_abertas.pop(node)
                 self.notebook.forget(aba.master)
                 aba.master.destroy()
+            if node in self._abas_cache:
+                frame, _ficha = self._abas_cache.pop(node)
+                if frame.winfo_exists():
+                    frame.destroy()
             self.dados_banco.pop(node, None)
-            
             for t in list(self.tracker_data):
-                if t['id'] == node:
+                if t["id"] == node:
                     self.tracker_data.remove(t)
 
-        excluir_recursivamente(item_id)
+        # Remove primeiro os que não estão dentro de outro selecionado.
+        for item_id in ids_unicos:
+            if self.tree.exists(item_id):
+                excluir_recursivamente(item_id)
+                self.tree.delete(item_id)
+
         self.atualizar_tracker_view()
-        self.tree.delete(item_id)
+        self.registrar_log(f"🗑️ {len(ids_unicos)} item(ns) excluído(s).")
 
     def abrir_aba_personagem(self, item_id, nome):
         if item_id in self.abas_abertas:
             self.notebook.select(self.abas_abertas[item_id].master)
             return
 
+        # Reabre instantaneamente uma ficha que foi fechada (cache de abas).
+        if item_id in self._abas_cache:
+            frame_cache, ficha_cache = self._abas_cache.pop(item_id)
+            if frame_cache.winfo_exists():
+                dados = self.dados_banco.get(item_id, {})
+                ficha_cache.atualizar_dados_rapidos(dados)
+                self.notebook.add(frame_cache, text=f"   {dados.get('nome', nome)}   ")
+                self.notebook.select(frame_cache)
+                self.abas_abertas[item_id] = ficha_cache
+                return
+
         frame_aba = ctk.CTkFrame(self.notebook, fg_color=self.tema_atual["bg_main"], corner_radius=0)
         barra_topo = ctk.CTkFrame(frame_aba, fg_color="transparent")
         barra_topo.pack(side=tk.TOP, fill=tk.X, padx=15, pady=5)
         
-        ctk.CTkButton(barra_topo, text="✖ Fechar Ficha", command=lambda: self.fechar_aba(item_id), fg_color="transparent", hover_color="#5c2b29", text_color="#e06c75", width=120).pack(side=tk.RIGHT)
+        ctk.CTkButton(barra_topo, text="✖ Fechar Ficha", command=lambda: self.fechar_aba(item_id), fg_color="transparent", hover_color=COR_BOTAO_PERIGO, text_color=COR_PERIGO, width=120).pack(side=tk.RIGHT)
 
         dados = self.dados_banco.get(item_id, None)
         ficha = FichaPersonagemFrame(frame_aba, lambda nome, nivel: self.sync_nome_ficha(item_id, nome, nivel), app_master=self, dados_iniciais=dados)
@@ -1388,9 +2202,9 @@ class GerenciadorAmeasApp:
 
         # Ações secundárias ficam na barra da aba, para o cabeçalho da ficha
         # não estourar quando o painel do Tracker está aberto.
-        ctk.CTkButton(barra_topo, text="📝 Exportar .md", command=ficha.exportar_markdown, fg_color=self.tema_atual["bg_input"], hover_color="#4a4a4a", text_color=self.tema_atual["text"], width=100).pack(side=tk.RIGHT, padx=(0, 5))
-        ctk.CTkButton(barra_topo, text="📜 Cartaz WANTED", command=ficha.gerar_cartaz, fg_color=self.tema_atual["bg_input"], hover_color="#4a4a4a", text_color=self.tema_atual["text"], width=130).pack(side=tk.RIGHT, padx=(0, 5))
-        ctk.CTkButton(barra_topo, text="🖥️ Tela Jogador", command=ficha.abrir_modo_jogador, fg_color=self.tema_atual["bg_input"], hover_color="#4a4a4a", text_color=self.tema_atual["text"], width=110).pack(side=tk.RIGHT, padx=(0, 5))
+        ctk.CTkButton(barra_topo, text="📝 Exportar .md", command=ficha.exportar_markdown, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"], width=100).pack(side=tk.RIGHT, padx=(0, 5))
+        ctk.CTkButton(barra_topo, text="📜 Cartaz WANTED", command=ficha.gerar_cartaz, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"], width=130).pack(side=tk.RIGHT, padx=(0, 5))
+        ctk.CTkButton(barra_topo, text="🖥️ Tela Jogador", command=ficha.abrir_modo_jogador, fg_color=self.tema_atual["bg_input"], hover_color=COR_HOVER, text_color=self.tema_atual["text"], width=110).pack(side=tk.RIGHT, padx=(0, 5))
 
         self.notebook.add(frame_aba, text=f"   {nome}   ")
         self.notebook.select(frame_aba)
@@ -1399,9 +2213,9 @@ class GerenciadorAmeasApp:
     def fechar_aba(self, item_id):
         if item_id in self.abas_abertas:
             aba = self.abas_abertas.pop(item_id)
-            self.dados_banco[item_id] = aba.get_dados() 
+            self.dados_banco[item_id] = aba.get_dados()
             self.notebook.forget(aba.master)
-            aba.master.destroy()
+            self._guardar_aba_em_cache(item_id, aba)
 
     def fechar_aba_com_click_meio(self, event):
         try:

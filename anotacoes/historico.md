@@ -147,6 +147,50 @@ Registro contínuo de tarefas executadas no projeto.
 
 ---
 
+### [22/10/2026] – Refatoração: indentação, debounce, história, estatísticas, lacaios, loot e dificuldade
+- **Responsável:** DeepSeek + Usuário
+- **Correções:**
+  - **`gerar_nome_pirata`:** corpo reindentado de 12 para 8 espaços (426 linhas normalizadas) e assinatura tipada (`-> None`). A lista de títulos não foi alterada.
+  - **Debounce dos derivados:** os `trace_add` de Nível/Atributos/Mods agora chamam `_agendar_calculo` (40 ms) em vez de recalcular a cada tecla; `carregar_dados` força um cálculo síncrono para restaurar PV/PE com os máximos certos; o agendamento é cancelado no `<Destroy>`.
+  - **História:** novo botão **📖 Expandir História** abre modal 860×660 com Aplicar/Cancelar.
+- **Melhorias:**
+  - **Estatísticas detalhadas:** distribuição por pasta/facção, faixas de perigo (1–3, 4–8, 9–14, 15+), maior Nível e maior Recompensa, total de habilidades e execução mais comum, soma de PV, PE e recompensas. Exibido em janela rolável (`_mostrar_relatorio`).
+  - **Lacaios inteligentes:** diálogo com nome base (sugerido pela facção), quantidade e arquétipo (Esquadrão Balanceado, Bando de Atiradores, Vanguarda Pesada). Cada lacaio varia ±1 nos Atributos (0–5) e nos Graus (0–3).
+  - **Loot contextual:** `gerar_loot_aleatorio` aceita `dados` e `faccao`, usa pools de Piratas/Marinha/Feras/Governo, favorece armas para Físico/Luta alto e mapas/ferramentas para Intelecto/Instinto alto, e tem 2%–5% de chance de Akuma no Mi desconhecida a partir do Nível 12.
+  - **Dificuldade relativa:** `calcular_dificuldade_encontro` compara poder dos inimigos (soma de Níveis × multiplicador de horda) com o poder do grupo (jogadores × nível médio): Fácil ≤60%, Médio ≤100%, Difícil ≤140%, Mortal acima. Painel do Tracker ganhou os campos "Jogadores" e "Nível médio".
+- **Testes:** `py -m py_compile` em todos os módulos; teste de debounce (PV só atualiza após 40 ms), carga de ficha (36/36), modal de história, dificuldade (1 inimigo Nv 10 vs 4×5 = 50% Fácil; 10 lacaios = 95% Médio; chefe Nv 20 = 100% Médio), loot por facção com item exclusivo, 5% de frutas em 4.000 loots de Nível 20, lacaios variados e relatório completo.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/core/combate.py`
+  - `ImpelDown Archives/utils/loot.py`
+  - `anotacoes/pendencias.md`
+
+---
+
+### [22/10/2026] – Ajuda, rolagem inline, PV extra, lacaios por Nível, WANTED, multiseleção e golpes automáticos
+- **Responsável:** DeepSeek + Usuário
+- **Ações Realizadas:**
+  - **Menu Ajuda:** cascata "Ajuda" com **⌨️ Atalhos** (lista completa em janela de leitura) e **ℹ️ Sobre**.
+  - **Rolar sem popup:** o cabeçalho da ficha ganhou um campo de expressão (`2d8+3`, Enter também rola). O botão 🎲 Rolar usa o campo; vazio rola `1d20`.
+  - **Log natural:** o histórico deixou de ser janela flutuante e virou painel embutido no rodapé do Tracker, aberto/fechado pelo botão 📜 Log (abre o Tracker se estiver escondido).
+  - **PV/PE máximos extras:** `calcular_atributos_derivados` aceita `bonus_pv`/`bonus_pe`; a ficha ganhou os contadores **+PV Máx** e **+PE Máx**, persistidos em `get_dados`/`carregar_dados`.
+  - **Lacaios por Nível:** o diálogo ganhou campo Nível; `_perfil_lacaio` escala Atributos (até 5) e Graus (até 3) pelo Nível e pelo arquétipo, mantendo a variação ±1.
+  - **Inimigo caído em vermelho:** com PV 0 a linha fica `#e06c75`; se for o turno atual, usa `#ffb3b3` sobre o destaque.
+  - **Cartaz WANTED refeito:** pergaminho com manchas discretas, moldura de tinta, "WANTED" em serifa ajustado à largura, retrato em moldura branca, "DEAD OR ALIVE", nome, `B$` com traço e selo **MARINE**.
+  - **Exclusão múltipla:** árvore em `selectmode="extended"`; Ctrl/Shift selecionam sem abrir aba; `deletar_item` apaga todas as seleções com uma confirmação.
+  - **Golpes automáticos:** `gerar_golpe_automatico` escolhe patamar pelo Nível (1/4/8/12), categoria pelos Atributos e sabor pela facção; o botão ✨ Golpe insere direto, sem popup.
+- **Testes:** `py -m py_compile` em todos os módulos; testes de +PV máximo (36→46), rolagem sem popup, golpe automático sem Toplevel, log embutido, atalhos (15 linhas), cartaz 720×1060 com retrato, lacaio Nv 5 (PV 51), linha vermelha em 0 PV, `selectmode` extended e exclusão de 2 fichas de uma vez. Capturas em `anotacoes/captura_mesa.png` e `anotacoes/cartaz_teste.png`.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/core/regras.py`
+  - `ImpelDown Archives/utils/golpes.py`
+  - `ImpelDown Archives/utils/cartaz.py`
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `anotacoes/pendencias.md`
+
+---
+
 ### [21/10/2026] – Auditoria completa e refatoração de desempenho/coerência
 - **Responsável:** DeepSeek + Usuário
 - **Achados corrigidos:**
@@ -169,3 +213,121 @@ Registro contínuo de tarefas executadas no projeto.
   - `ImpelDown Archives/utils/arquivos.py`
   - `ImpelDown Archives/ui/ficha_frame.py`
   - `ImpelDown Archives/ui/app_main.py`
+
+---
+
+### [22/10/2026] – +PV/+PE ao lado de Luta/Acro e log como sobreposição
+- **Responsável:** DeepSeek + Usuário
+- **Ações Realizadas:**
+  - **Contadores +PV Máx / +PE Máx** saíram da linha extra no rodapé dos bônus (que era cortada) e agora ficam na mesma linha de **Grau Luta / Grau Acro**, com valor de 22 px para caber nos 340 px do painel.
+  - **Histórico de rolagens** deixou de usar `pack` e passou a flutuar com `place` sobre o rodapé do Tracker (`relx=0, rely=1, anchor="sw", relwidth=1`). Antes o painel empurrava o log para fora da janela e só o título aparecia; agora ele aparece inteiro sobre os botões e não rouba espaço da lista.
+- **Testes:** `py -m py_compile`; +PV/+PE aplicados (36→41 e 11→13); log aberto com `winfo_ismapped()=1`, altura 263, encostado no fim do painel (y+h = altura do Tracker) e mensagens visíveis. Captura em `anotacoes/captura_log2.png`.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `anotacoes/pendencias.md`
+
+---
+
+### [22/10/2026] – Correção dos 10 bugs da auditoria
+- **Responsável:** DeepSeek + Usuário
+- **Correções:**
+  1. **Log limitado:** o widget agora é cortado no mesmo teto de 500 linhas da lista.
+  2. **Corrida do debounce:** `aplicar_pv_tracker` chama `sincronizar_agora()` antes de ler o máximo — dano logo após mudar +PV já usa o valor novo (56 em vez de 36).
+  3. **combate.py tolerante:** jogadores/nível/inimigos aceitam texto sem estourar.
+  4. **historia.py tolerante:** `_inteiro()` substitui os `int()` diretos; Nível "abc" não quebra.
+  5. **Tracker com atualização de linha única:** `_render_linha` + `_atualizar_linha` substituem o rebuild total em dano/cura/condições.
+  6. **sync_nome_ficha O(1):** usa `_mapa_tracker` (id → índices) montado no refresh, com fallback.
+  7. **Tema preserva a aba selecionada:** `_reconstruir_abas` guarda o índice e reseleciona a mesma ficha.
+  8. **Dificuldade sem duplicar ficha real:** o mesmo id conta uma vez; lacaios genéricos contam por linha.
+  9. **HabilidadeBloco:** toggle por estado booleano e redimensionamento por altura inicial + deslocamento do ponteiro.
+  10. **Arrastar em grupo:** soltar sobre pasta move todas as fichas selecionadas.
+- **Extra:** cartaz.py não depende mais de `font.size` no laço do "WANTED".
+- **Testes:** py_compile; log 500/500; combate com strings OK; história com Nível inválido OK; dano imediato após +20 PV usando máximo 56; 200 danos a 3,14 ms; renomear atualiza linha; duplicado conta 1 e dois lacaios contam 2; tema mantém aba 1; altura do bloco 112→232; arrasto move F1 e F2 juntos.
+
+---
+
+### [22/10/2026] – Limpeza: paleta semântica, tema ao vivo, patamares unificados e som removido
+- **Responsável:** DeepSeek + Usuário
+- **Ações Realizadas:**
+  - **`core/paleta.py` criado:** cores por papel (`TEXTO_SUAVE`, `PERIGO`, `AVISO`, `SUCESSO`, `HOVER`, `ALCA`, botões de perigo/sucesso, cores de dificuldade e do tooltip).
+  - **108 literais substituídos** por esses papéis ou pelas cores do tema: 74 em `app_main.py`, 34 em `ficha_frame.py`, 5 em `widgets_custom.py`. Sobraram apenas `"white"` (contraste proposital) e as definições da própria paleta.
+  - **Tema ao vivo sem recriar abas:** `mudar_tema` agora percorre a árvore de widgets e troca as cores do tema antigo pelas do novo (`_reaplicar_visual` / `_repintar_widget`). Inclui os internos do `CTkTabview` (o botão segmentado não aparece em `winfo_children`).
+  - **Fonte ao vivo sem recriar abas:** `_reaplicar_fonte` / `_trocar_fonte_widget` trocam só a família, preservando tamanho e estilo.
+  - **`accent_hover` por tema** no `config.py`, usado no botão Rolar.
+  - **PATAMARES unificados:** `inserir_habilidade` passou a ler `utils/golpes.PATAMARES` (fim da tabela duplicada).
+  - **Código morto removido:** `utils/sons.py` e a pasta `sons/` apagados.
+- **Testes:** `py -m py_compile` em todos os módulos; troca de tema mantendo a **mesma instância** de ficha (`is`), scroll preservado, botão e aba "Atributos" repintados (`#7852FF → #e05353`), filtro idem; troca de fonte Segoe UI → Consolas com a mesma aba; `inserir_habilidade("Média")` com custo `1 PE` e limite `+3 PE` vindos da tabela única. Captura em `anotacoes/captura_paleta.png`.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/core/paleta.py` (novo)
+  - `ImpelDown Archives/core/combate.py`
+  - `ImpelDown Archives/config.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/ui/widgets_custom.py`
+  - `ImpelDown Archives/ui/popups.py`
+  - `ImpelDown Archives/utils/sons.py` e `ImpelDown Archives/sons/` (removidos)
+
+---
+
+### [22/10/2026] – Ganhos rápidos, testes e ferramentas de preparação
+- **Responsável:** DeepSeek + Usuário
+- **Ações Realizadas:**
+  1. **Salvamento automático + backup:** `_agendar_autosave`/`_autosave` salvam a cada 3 minutos quando há cofre aberto; `salvar_banco_sqlite` copia a versão anterior para `.db.bak` antes de substituir.
+  2. **Desfazer (Ctrl+Z):** pilha de até 50 ações para PV e condições; restaura ficha aberta/banco e redesenha a linha.
+  3. **Configuração no cofre:** coluna `config` no SQLite guarda "Jogadores" e "Nível médio"; bancos antigos sem a coluna continuam abrindo (config vazia).
+  4. **Busca global (Ctrl+K):** janela com filtro por nome, Enter/duplo clique abre a ficha direto.
+  5. **Gerador de encontros (`utils/encontros.py`):** busca composições de chefe + lacaios que caem em Fácil/Médio/Difícil/Mortal e permite criá-las no cofre.
+  6. **Bestiário:** cria Capanga, Elite ou Chefe por Nível com bônus de PV/PE e atributo reforçado.
+  7. **Editor de habilidades:** campo "PE extra" com prévia de custo e alerta quando o extra passa do limite do patamar.
+  8. **Importação em lote (`utils/importacao.py`):** JSON (ficha ou lista/`fichas`) e CSV (`;` ou `,`) com validação de nome, Nível 1+, Atributos 0–5 e Graus 0–3.
+  9. **Tema por facção:** abrir ficha de pasta Marinha/Pirata/Monstros/Governo aplica o tema correspondente.
+  10. **Testes automatizados:** `ImpelDown Archives/tests/test_core.py` e `test_utils.py` com 25 testes (unittest; também rodam no pytest).
+- **Testes:** `py -m unittest discover -s tests` → **25 testes OK**; smoke do app cobrindo tema por facção, abertura dos três diálogos, gravação com config + `.bak`, aplicação da config e Ctrl+Z vazio.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/utils/arquivos.py`
+  - `ImpelDown Archives/utils/encontros.py` (novo)
+  - `ImpelDown Archives/utils/importacao.py` (novo)
+  - `ImpelDown Archives/ui/widgets_custom.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/tests/test_core.py` (novo)
+  - `ImpelDown Archives/tests/test_utils.py` (novo)
+  - `anotacoes/pendencias.md`
+
+---
+
+### [22/10/2026] – Correções de UX: tema, arquétipos, habilidades, golpes e encontros
+- **Responsável:** DeepSeek + Usuário
+- **Ações Realizadas:**
+  - **Tema não troca mais sozinho:** removida a troca automática ao abrir ficha. O tema por facção virou ação manual no menu de contexto (**🎨 Tema da facção**) de fichas e pastas.
+  - **Arquétipos de lacaios mais claros:** o menu suspenso com nomes longos virou **botões segmentados** (Balanceado / Atiradores / Vanguarda) com uma descrição logo abaixo explicando cada estilo.
+  - **Habilidades corrigidas:** o cabeçalho do bloco foi dividido em duas linhas (título + botões na primeira, custo/limite/execução/alcance na segunda), então o ✖ deixou de ser empurrado para fora. A exclusão agora usa um callback (`ao_remover`) — o evento `<Destroy>` não removia o bloco da lista.
+  - **Campo de PE esclarecido:** "PE extra" passou a **Potencialização (+PE)**, com prévia `+2 de +4 → total 5 PE` e aviso vermelho quando passa do limite do patamar.
+  - **Golpe com escolha de patamar:** o botão ✨ Golpe abre um diálogo com **Básica/Média/Forte/Suprema** (sugestão pelo Nível); categoria e sabor continuam automáticos pela ficha.
+  - **Encontros organizados:** o gerador cria uma pasta **“Encontro Gerado — <dificuldade>”** com as subpastas **Chefes** e **Lacaios**, cada inimigo na pasta certa.
+- **Testes:** `py -m unittest discover -s tests` → 25 testes OK; smoke confirmando tema inalterado ao abrir ficha, tema manual aplicado (Pirata), pastas do encontro com chefe/lacaios, exclusão de bloco 2→1 (inclusive bloco carregado), prévia de PE e diálogo de golpe.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/ui/widgets_custom.py`
+  - `anotacoes/pendencias.md`
+
+---
+
+### [22/10/2026] – Recompensa, faixa de graus, PV/PE digitáveis e reabertura em cache
+- **Responsável:** DeepSeek + Usuário
+- **Ações Realizadas:**
+  - **Digitação da recompensa corrigida:** o trace que formatava a cada tecla (e movia o cursor) foi removido. O valor fica livre enquanto se digita e é formatado ao sair do campo/Enter; `get_dados` grava só dígitos.
+  - **Graus de Luta/Acrobacia de -1 a 4:** os contadores da ficha foram limitados a esse intervalo, `core/regras.py` passou a aceitar -1..4 (mantendo PV/PE com piso 1) e a importação em lote valida a mesma faixa. Atributos continuam 0..5.
+  - **PV Máx e PE Máx digitáveis:** os valores ao lado de `/` viraram campos de edição. Ao confirmar (Enter ou sair), a diferença em relação ao cálculo vira bônus em `mod_pv`/`mod_pe` — que agora aceita valores negativos.
+  - **Reabertura de ficha em cache:** ao fechar uma aba, o frame não é mais destruído; ele fica em um cache de até 4 fichas. Reabrir reaproveita o frame e sincroniza só nome/Nível/PV/PE (`atualizar_dados_rapidos`). Imagens também ficam em cache por caminho.
+  - **Ganho medido:** primeira abertura ~637 ms; reabertura pelo cache ~94 ms (≈6,8× mais rápida), mantendo tema/fonte aplicados porque o frame continua filho do notebook.
+- **Testes:** `py -m unittest discover -s tests` → 25 OK; smoke confirmando digitação sem reformatar (`1234567` → sai → `1.234.567`), PV Máx digitado (50, mod +14), PE Máx (3, mod -8), grau -1 (Bloq 12) e grau 4 (Esq 20), cache devolvendo a mesma ficha.
+- **Arquivos Alterados:**
+  - `ImpelDown Archives/core/regras.py`
+  - `ImpelDown Archives/utils/importacao.py`
+  - `ImpelDown Archives/ui/ficha_frame.py`
+  - `ImpelDown Archives/ui/app_main.py`
+  - `ImpelDown Archives/tests/test_utils.py`
+  - `anotacoes/pendencias.md`
+

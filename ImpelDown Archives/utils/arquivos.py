@@ -1,21 +1,22 @@
 """Persistência do ImpelDown Archives: Markdown, JSON e SQLite.
 
-A gravação do cofre é atômica: escreve em um arquivo temporário e só troca o
-original quando tudo deu certo, para uma queda no meio do processo não deixar o
-banco pela metade.
+A gravação do cofre é atômica (temporário + os.replace) e mantém um backup
+rotativo ``.db.bak`` da versão anterior. O cofre também guarda uma linha de
+configuração (jogadores, nível médio do grupo etc.).
 """
 
 from __future__ import annotations
 
 import json
 import os
+import shutil
 import sqlite3
 from contextlib import closing
 from typing import Any
 
 _CREATE_TABELA = (
     "CREATE TABLE IF NOT EXISTS dados_rpg "
-    "(id INTEGER PRIMARY KEY, estrutura TEXT, fichas TEXT)"
+    "(id INTEGER PRIMARY KEY, estrutura TEXT, fichas TEXT, config TEXT)"
 )
 
 
@@ -69,25 +70,48 @@ def importar_ficha_json(caminho: str) -> dict[str, Any]:
     return dados
 
 
+def fazer_backup(caminho_db: str) -> str | None:
+    """Copia o cofre atual para ``.db.bak``; devolve o caminho do backup."""
+    if not os.path.exists(caminho_db):
+        return None
+    destino = f"{caminho_db}.bak"
+    try:
+        shutil.copy2(caminho_db, destino)
+        return destino
+    except OSError:
+        return None
+
+
+def _garantir_coluna_config(conn: sqlite3.Connection) -> None:
+    colunas = {linha[1] for linha in conn.execute("PRAGMA table_info(dados_rpg)")}
+    if "config" not in colunas:
+        conn.execute("ALTER TABLE dados_rpg ADD COLUMN config TEXT")
+
+
 def salvar_banco_sqlite(
     caminho_db: str,
     estrutura_arvore: list[dict],
     dados_banco: dict[str, Any],
+    config: dict[str, Any] | None = None,
 ) -> None:
-    """Grava o cofre inteiro de forma atômica (temporário + os.replace)."""
+    """Grava o cofre de forma atômica, com backup da versão anterior."""
     estrutura = json.dumps(estrutura_arvore, ensure_ascii=False)
     fichas = json.dumps(dados_banco, ensure_ascii=False)
+    config_json = json.dumps(config or {}, ensure_ascii=False)
     temporario = f"{caminho_db}.tmp"
 
     try:
         with closing(sqlite3.connect(temporario)) as conn:
             with conn:
                 conn.execute(_CREATE_TABELA)
+                _garantir_coluna_config(conn)
                 conn.execute("DELETE FROM dados_rpg")
                 conn.execute(
-                    "INSERT INTO dados_rpg (id, estrutura, fichas) VALUES (1, ?, ?)",
-                    (estrutura, fichas),
+                    "INSERT INTO dados_rpg (id, estrutura, fichas, config) VALUES (1, ?, ?, ?)",
+                    (estrutura, fichas, config_json),
                 )
+        if os.path.exists(caminho_db):
+            fazer_backup(caminho_db)
         os.replace(temporario, caminho_db)
     except Exception:
         if os.path.exists(temporario):
@@ -98,24 +122,41 @@ def salvar_banco_sqlite(
         raise
 
 
-def carregar_banco_sqlite(caminho_db: str) -> tuple[list[dict] | None, dict[str, Any] | None]:
-    """Lê o cofre sem alterar o arquivo original (modo somente leitura)."""
+def carregar_banco_sqlite(
+    caminho_db: str,
+) -> tuple[list[dict] | None, dict[str, Any] | None, dict[str, Any]]:
+    """Lê o cofre (estrutura, fichas, configuração) sem alterar o arquivo."""
     if not os.path.exists(caminho_db):
         raise FileNotFoundError(f"Banco não encontrado: {caminho_db}")
 
-    try:
-        with closing(sqlite3.connect(f"file:{caminho_db}?mode=ro", uri=True)) as conn:
+    linha = None
+    with closing(sqlite3.connect(f"file:{caminho_db}?mode=ro", uri=True)) as conn:
+        try:
             linha = conn.execute(
-                "SELECT estrutura, fichas FROM dados_rpg WHERE id=1"
+                "SELECT estrutura, fichas, config FROM dados_rpg WHERE id=1"
             ).fetchone()
-    except sqlite3.OperationalError:
-        return None, None
+        except sqlite3.OperationalError:
+            try:
+                linha = conn.execute(
+                    "SELECT estrutura, fichas FROM dados_rpg WHERE id=1"
+                ).fetchone()
+            except sqlite3.OperationalError:
+                return None, None, {}
 
     if not linha:
-        return None, None
+        return None, None, {}
 
     estrutura = json.loads(linha[0])
     fichas = json.loads(linha[1])
+    config: dict[str, Any] = {}
+    if len(linha) > 2 and linha[2]:
+        try:
+            lido = json.loads(linha[2])
+            if isinstance(lido, dict):
+                config = lido
+        except (TypeError, ValueError):
+            config = {}
+
     if not isinstance(estrutura, list) or not isinstance(fichas, dict):
-        return None, None
-    return estrutura, fichas
+        return None, None, {}
+    return estrutura, fichas, config

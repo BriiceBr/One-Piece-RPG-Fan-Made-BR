@@ -1,34 +1,40 @@
-"""Cartaz de Procurado (WANTED) gerado a partir da ficha.
+"""Cartaz de Procurado (WANTED) no estilo do mangá de One Piece.
 
-O cartaz é montado com Pillow, no tema atual do aplicativo, e salvo em PNG para
-ser mostrado na mesa. Se a ficha não tiver imagem, o cartaz sai com um espaço
-reservado — nunca dá erro.
+Fundo de pergaminho, "WANTED" em serifa, retrato emoldurado em branco,
+"DEAD OR ALIVE", nome, recompensa e o selo MARINE. O tema do aplicativo não é
+usado de propósito: o cartaz precisa parecer papel, não interface.
 """
 
 from __future__ import annotations
 
 import os
+import random
 import re
 from typing import Any
 
 from PIL import Image, ImageDraw, ImageFont
 
-LARGURA, ALTURA = 900, 1200
+LARGURA, ALTURA = 720, 1060
 
-FONTES_NEGRITO = (
-    r"C:\Windows\Fonts\arialbd.ttf",
-    r"C:\Windows\Fonts\segoeuib.ttf",
-    r"C:\Windows\Fonts\calibrib.ttf",
-)
 FONTES_SERIFA = (
     r"C:\Windows\Fonts\georgiab.ttf",
     r"C:\Windows\Fonts\timesbd.ttf",
+    r"C:\Windows\Fonts\constanb.ttf",
     r"C:\Windows\Fonts\arialbd.ttf",
 )
+FONTES_TEXTO = (
+    r"C:\Windows\Fonts\georgia.ttf",
+    r"C:\Windows\Fonts\times.ttf",
+    r"C:\Windows\Fonts\arial.ttf",
+)
+
+PERGAMINHO = (232, 220, 192)
+PERGAMINHO_ESCURO = (205, 190, 158)
+TINTA = (28, 24, 20)
+TINTA_SUAVE = (70, 60, 48)
 
 
 def _fonte(candidatas: tuple[str, ...], tamanho: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
-    """Carrega a primeira fonte disponível, com fallback embutido."""
     for caminho in candidatas:
         if os.path.exists(caminho):
             try:
@@ -38,76 +44,106 @@ def _fonte(candidatas: tuple[str, ...], tamanho: int) -> ImageFont.FreeTypeFont 
     return ImageFont.load_default()
 
 
-def _recompensa_texto(valor: str | int) -> str:
+def _texto_recompensa(valor: str | int) -> str:
     digitos = re.sub(r"\D", "", str(valor))
     if not digitos:
         return "SEM RECOMPENSA"
-    return f"B$ {int(digitos):,}".replace(",", ".")
+    return f"B$ {int(digitos):,} -".replace(",", ".")
+
+
+def _fundo_pergaminho() -> Image.Image:
+    """Pergaminho com manchas e vinheta, gerado de forma determinística."""
+    rng = random.Random(7)
+    cartaz = Image.new("RGB", (LARGURA, ALTURA), PERGAMINHO)
+    desenho = ImageDraw.Draw(cartaz)
+
+    for _ in range(700):
+        x = rng.randint(0, LARGURA)
+        y = rng.randint(0, ALTURA)
+        raio = rng.randint(1, 6)
+        cor = (226, 214, 186) if rng.random() < 0.5 else (238, 230, 208)
+        desenho.ellipse([x - raio, y - raio, x + raio, y + raio], fill=cor)
+
+    # Vinheta (bordas mais escuras)
+    for i in range(40):
+        tom = tuple(int(c * (1 - i * 0.006)) for c in PERGAMINHO_ESCURO)
+        desenho.rectangle([i, i, LARGURA - 1 - i, ALTURA - 1 - i], outline=tom)
+
+    # Moldura de tinta
+    desenho.rectangle([14, 14, LARGURA - 15, ALTURA - 15], outline=TINTA_SUAVE, width=3)
+    desenho.rectangle([26, 26, LARGURA - 27, ALTURA - 27], outline=TINTA_SUAVE, width=1)
+    return cartaz
 
 
 def gerar_cartaz_png(
     dados: dict[str, Any],
     caminho: str,
-    tema: dict[str, str],
+    tema: dict[str, str] | None = None,
     imagem: Image.Image | None = None,
 ) -> str:
-    """Desenha o cartaz e grava em ``caminho``; devolve o caminho gravado."""
-    fundo = tema.get("bg_sidebar", "#181818")
-    carta = tema.get("bg_card", "#262626")
-    destaque = tema.get("accent", "#7852FF")
-    texto = tema.get("text", "#dcddde")
-    suave = "#8b8c8f"
-
-    cartaz = Image.new("RGB", (LARGURA, ALTURA), fundo)
+    """Desenha o cartaz no estilo One Piece e grava em ``caminho``."""
+    cartaz = _fundo_pergaminho()
     desenho = ImageDraw.Draw(cartaz)
 
-    # Moldura dupla
-    desenho.rectangle([18, 18, LARGURA - 18, ALTURA - 18], outline=destaque, width=6)
-    desenho.rectangle([40, 40, LARGURA - 40, ALTURA - 40], outline=carta, width=3)
+    fonte_wanted = _fonte(FONTES_SERIFA, 150)
+    fonte_selo = _fonte(FONTES_SERIFA, 44)
+    fonte_nome = _fonte(FONTES_SERIFA, 58)
+    fonte_premio = _fonte(FONTES_SERIFA, 50)
+    fonte_marinha = _fonte(FONTES_SERIFA, 34)
+    fonte_miuda = _fonte(FONTES_TEXTO, 13)
 
-    fonte_wanted = _fonte(FONTES_SERIFA, 118)
-    fonte_nome = _fonte(FONTES_NEGRITO, 52)
-    fonte_selo = _fonte(FONTES_NEGRITO, 30)
-    fonte_premio = _fonte(FONTES_NEGRITO, 44)
-    fonte_rodape = _fonte(FONTES_NEGRITO, 22)
+    centro = LARGURA // 2
 
-    desenho.text((LARGURA // 2, 120), "WANTED", font=fonte_wanted, fill=texto, anchor="mm")
-    desenho.text((LARGURA // 2, 205), "DEAD OR ALIVE", font=fonte_selo, fill=destaque, anchor="mm")
+    # WANTED (dimensiona a fonte para caber na largura do cartaz)
+    tamanho_wanted = 150
+    fonte_wanted = _fonte(FONTES_SERIFA, tamanho_wanted)
+    while desenho.textlength("WANTED", font=fonte_wanted) > LARGURA - 90 and tamanho_wanted > 48:
+        tamanho_wanted -= 6
+        fonte_wanted = _fonte(FONTES_SERIFA, tamanho_wanted)
+    desenho.text((centro, 110), "WANTED", font=fonte_wanted, fill=TINTA, anchor="mm")
 
-    # Retrato
-    topo, base = 250, 770
-    lado = base - topo
-    esquerda = (LARGURA - lado) // 2
-    moldura = [esquerda - 8, topo - 8, esquerda + lado + 8, base + 8]
-    desenho.rectangle(moldura, outline=destaque, width=4)
+    # Retrato emoldurado em branco
+    moldura = [70, 200, LARGURA - 70, 690]
+    desenho.rectangle(moldura, fill=(250, 247, 238), outline=TINTA, width=3)
+    area = [moldura[0] + 10, moldura[1] + 10, moldura[2] - 10, moldura[3] - 10]
 
     if imagem is not None:
-        copia = imagem.convert("RGB")
-        copia.thumbnail((lado, lado), Image.Resampling.LANCZOS)
-        x = esquerda + (lado - copia.width) // 2
-        y = topo + (lado - copia.height) // 2
-        cartaz.paste(copia, (x, y))
+        retrato = imagem.convert("RGB")
+        largura_area = area[2] - area[0]
+        altura_area = area[3] - area[1]
+        retrato.thumbnail((largura_area, altura_area), Image.Resampling.LANCZOS)
+        x = area[0] + (largura_area - retrato.width) // 2
+        y = area[1] + (altura_area - retrato.height) // 2
+        cartaz.paste(retrato, (x, y))
     else:
-        desenho.rectangle([esquerda, topo, esquerda + lado, base], fill=carta)
-        desenho.text((LARGURA // 2, (topo + base) // 2), "SEM IMAGEM",
-                     font=fonte_selo, fill=suave, anchor="mm")
+        desenho.rectangle(area, fill=(236, 231, 219))
+        desenho.text(((area[0] + area[2]) // 2, (area[1] + area[3]) // 2),
+                     "SEM IMAGEM", font=fonte_selo, fill=TINTA_SUAVE, anchor="mm")
 
-    nome = str(dados.get("nome", "Desconhecido")).strip() or "Desconhecido"
-    # Quebra nomes longos em duas linhas
-    if len(nome) > 22:
-        corte = nome.rfind(" ", 0, 22)
-        if corte > 0:
-            nome = f"{nome[:corte]}\n{nome[corte + 1:]}"
-    desenho.multiline_text((LARGURA // 2, 880), nome, font=fonte_nome, fill=texto, anchor="mm", align="center")
+    # DEAD OR ALIVE com floreios
+    y_selo = 745
+    desenho.text((centro, y_selo), "DEAD OR ALIVE", font=fonte_selo, fill=TINTA, anchor="mm")
+    desenho.line([70, y_selo, 150, y_selo], fill=TINTA, width=2)
+    desenho.line([LARGURA - 150, y_selo, LARGURA - 70, y_selo], fill=TINTA, width=2)
 
-    premio = _recompensa_texto(dados.get("recompensa", "0"))
-    desenho.text((LARGURA // 2, 1000), premio, font=fonte_premio, fill=destaque, anchor="mm")
+    # Nome
+    nome = str(dados.get("nome", "DESCONHECIDO")).strip().upper() or "DESCONHECIDO"
+    while desenho.textlength(nome, font=fonte_nome) > LARGURA - 120 and len(nome) > 3:
+        fonte_nome = _fonte(FONTES_SERIFA, getattr(fonte_nome, "size", 58) - 3)
+    desenho.text((centro, 815), nome, font=fonte_nome, fill=TINTA, anchor="mm")
 
-    nivel = dados.get("nivel", "1")
-    desenho.text((LARGURA // 2, 1080), f"Nível {nivel}  •  Marinha",
-                 font=fonte_rodape, fill=suave, anchor="mm")
-    desenho.text((LARGURA // 2, 1120), "ImpelDown Archives",
-                 font=fonte_rodape, fill=suave, anchor="mm")
+    # Recompensa
+    desenho.text((centro, 890), _texto_recompensa(dados.get("recompensa", "0")),
+                 font=fonte_premio, fill=TINTA, anchor="mm")
+
+    # Rodapé: selo MARINE e nota
+    desenho.text((LARGURA - 80, 985), "MARINE", font=fonte_marinha, fill=TINTA, anchor="rm")
+    desenho.text(
+        (70, 985),
+        "IMPERIAL MARINE  •  DEPARTAMENTO DE JUSTIÇA  •  NÍVEL "
+        f"{dados.get('nivel', 1)}",
+        font=fonte_miuda, fill=TINTA_SUAVE, anchor="lm",
+    )
 
     cartaz.save(caminho, "PNG")
     return caminho

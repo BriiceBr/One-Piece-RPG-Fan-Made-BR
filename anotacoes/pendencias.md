@@ -61,9 +61,107 @@ Lista viva de itens a corrigir, decisões pendentes e conversões a realizar.
 ### 4.1 Mesa ao Vivo (21/10/2026)
 
 - [ ] **Soundboard fora da interface (22/10):** os botões de Canhão/Navio/Impacto/Haki e o mudo foram removidos do Tracker a pedido. `utils/sons.py` e a pasta `sons/` continuam no projeto, sem uso; se voltar, precisa de botão e de arquivos WAV.
-- [ ] **Janela do histórico:** abre no canto inferior direito no momento do clique; se a janela principal for movida depois, o log não acompanha. Avaliar reposicionar em `<Configure>`.
+- [ ] **Janela do histórico:** agora é uma sobreposição (`place`) no rodapé do Tracker, com ~215 px fixos. Enquanto aberta, cobre os botões de Dano/Cura/Próximo Turno; se incomodar, permitir arrastar/redimensionar ou abrir em altura menor.
 - [ ] **Duração padrão das condições:** hoje 3 turnos fixos ao aplicar. Decidir se o padrão deve variar por condição (ex.: Atordoado 1, Envenenado 5) ou se o Mestre define no momento.
 - [ ] **Golpes usam a tabela de PE da nota interna:** custos, limites e dados por patamar vêm de `anotacoes/regras_pe_transmutacao.md`, não do PDF. Precisa bater com a versão final do livro.
-- [ ] **Cartaz WANTED:** usa fontes do Windows (Arial/Georgia/Segoe UI) com fallback para a fonte padrão do Pillow; em outra máquina pode mudar o desenho. Falta opção de papel "pergaminho" claro.
+- [ ] **Cartaz WANTED:** usa fontes do Windows (Georgia/Times/Arial) com fallback para a fonte padrão do Pillow; em outra máquina o desenho pode mudar.
 - [ ] **Atalhos × menus:** `Espaço` e letras são globais; se um dia houver menu aberto, o Tk pode consumir a tecla antes. Testar com menus abertos quando surgir necessidade.
 - [ ] **Fluxos de UX:** as propostas de `anotacoes/ux_fluxos.md` (Ctrl+E exportar, Ctrl+L loot, busca global Ctrl+K, modo combate) ainda não foram implementadas.
+
+### 4.3 Ajustes de 22/10/2026 (segunda rodada)
+
+- [x] **Menu Ajuda:** cascata com "Atalhos" e "Sobre".
+- [x] **Rolagem sem popup:** campo de expressão no cabeçalho da ficha.
+- [x] **PV/PE máximos extras:** `bonus_pv`/`bonus_pe` em `regras.py` e contadores `+PV Máx`/`+PE Máx` na ficha.
+- [x] **Lacaios por Nível:** perfis escalam Atributos e Graus conforme o Nível escolhido.
+- [x] **Inimigo com 0 PV em vermelho** no Tracker.
+- [x] **Cartaz no estilo do mangá:** pergaminho, WANTED, retrato, DEAD OR ALIVE, nome, recompensa e MARINE.
+- [x] **Exclusão múltipla:** Ctrl/Shift na árvore; uma confirmação para todas.
+- [x] **Golpes automáticos:** patamar por Nível, categoria por Atributos e sabor pela facção.
+- [ ] **Golpe automático sem memória:** pode repetir título entre cliques; guardar os títulos já gerados na ficha evitaria repetição.
+- [ ] **Golpe automático sem confirmação:** se o resultado não agradar, é preciso fechar o bloco (✖) e gerar de novo.
+- [ ] **Cartaz sem retrato:** hoje mostra "SEM IMAGEM"; poderia usar um ícone genérico de silhueta.
+- [ ] **Multiseleção e arrastar:** com vários itens selecionados, o arrasto move só a linha pressionada; definir comportamento esperado.
+
+### 4.2 Refatoração de 22/10/2026
+
+- [x] **Dificuldade fixa por soma de Níveis:** substituída pela comparação com o poder do grupo (jogadores × nível médio) e multiplicador de horda.
+- [x] **Estatísticas detalhadas:** relatório com facções, faixas, destaques, habilidades e recursos.
+- [x] **Lacaios variados:** arquétipos + flutuação de ±1 e nomes por facção.
+- [x] **Loot contextual:** pools por facção, peso por Atributos e Akuma no Mi rara.
+- [ ] **Akuma no Mi no loot:** é só gancho narrativo; nenhuma regra é aplicada automaticamente (o Mestre define o poder).
+- [ ] **Facção inferida pelo nome da pasta:** pastas com nomes fora das palavras-chave (pirata, marinha, monstro/fera, governo) caem em "outros" e usam só o loot base.
+- [ ] **Campos "Jogadores" e "Nível médio":** são de sessão e não são salvos no cofre; se quiser persistir, criar coluna/tabela de configuração.
+- [ ] **Debounce de 40 ms:** cada tecla ainda agenda/atualiza depois do intervalo; se surgir travamento em máquinas lentas, aumentar o intervalo.
+- [ ] **Entrada de Nível aceita texto:** `_nivel_texto` sanitiza ao salvar, mas o campo continua livre; validar com `validatecommand` seria mais rígido.
+
+### 4.4 Correções de 22/10/2026 (auditoria)
+
+- [x] Log limitado a 500 linhas no widget.
+- [x] Dano no Tracker usa o PV máximo atualizado (fim da corrida do debounce).
+- [x] combate.py e historia.py tolerantes a texto no lugar de números.
+- [x] Tracker atualiza linha única em dano/cura/condições.
+- [x] sync_nome_ficha usa mapa id → índices.
+- [x] Tema preserva a aba selecionada.
+- [x] Duplicata de ficha real não infla a dificuldade.
+- [x] HabilidadeBloco com toggle por estado e resize estável.
+- [x] Arrastar em grupo move todas as fichas selecionadas.
+- [ ] Troca de tema ainda recria as abas (perde scroll dentro da ficha); resolver com registro de widgets por papel de cor.
+- [ ] Cores fixas continuam espalhadas (73 em app_main.py e 35 em ficha_frame.py); criar papéis semânticos no config.py.
+- [ ] PATAMARES duplicados entre utils/golpes.py e ficha_frame.inserir_habilidade; unificar em uma fonte.
+- [ ] utils/sons.py e a pasta sons/ seguem sem uso (soundboard removido da UI).
+
+### 4.5 Limpeza de 22/10/2026
+
+- [x] Paleta semântica em `core/paleta.py`; literais de cor eliminados da UI.
+- [x] Troca de tema ao vivo sem recriar abas (repintura por mapa de cores).
+- [x] Troca de fonte ao vivo sem recriar abas.
+- [x] `accent_hover` por tema.
+- [x] PATAMARES unificados em `utils/golpes.py`.
+- [x] `utils/sons.py` e `sons/` removidos.
+- [ ] Repintura por mapa depende de o valor atual bater com a paleta antiga; widgets com cor fora da paleta (ex.: `"white"`) não mudam por design.
+- [ ] `HabilidadeBloco` recriado dentro de uma aba já aberta nasce com o tema atual (correto), mas blocos com cores personalizadas no futuro precisariam de registro.
+- [ ] Tema/fonte continuam sem persistência entre sessões: ao abrir o app volta para Obsidian/Segoe UI.
+
+### 4.6 Ganhos rápidos e preparação (22/10/2026)
+
+- [x] Salvamento automático (3 min) + backup rotativo `.db.bak`.
+- [x] Ctrl+Z para PV e condições no Tracker.
+- [x] "Jogadores" e "Nível médio" persistidos no cofre.
+- [x] Ctrl+K abrindo ficha por nome.
+- [x] Gerador de encontros balanceado (com criação das fichas).
+- [x] Bestiário (Capanga/Elite/Chefe por Nível).
+- [x] Editor de habilidade com prévia de PE e validação do limite.
+- [x] Importação em lote JSON/CSV com validação.
+- [x] Tema automático por facção.
+- [x] Suíte de 25 testes automatizados.
+- [ ] Autosave salva sempre, mesmo sem mudanças; um controle de "sujo" evitaria gravações desnecessárias.
+- [ ] Desfazer cobre só PV e condições; renomear/excluir/arrastar continuam sem undo.
+- [ ] Tema por facção sobrescreve a escolha manual sempre que uma ficha é aberta; avaliar um botão "fixar tema".
+- [ ] Importação em lote assume CSV com cabeçalho `nome`; documentar as colunas aceitas para o Mestre.
+- [ ] `modo campanha` (sessões/XP) continua fora do escopo.
+
+### 4.7 Correções de UX (22/10/2026)
+
+- [x] Tema por facção deixou de ser automático; agora é ação manual no menu de contexto.
+- [x] Seletor de arquétipo com botões segmentados e descrição.
+- [x] Exclusão de habilidade funcionando (callback em vez de `<Destroy>`).
+- [x] Cabeçalho do bloco de habilidade em duas linhas (botões nunca somem).
+- [x] Campo de Potencialização (+PE) renomeado e com prévia clara.
+- [x] Escolha manual do patamar na geração de golpe.
+- [x] Encontros em pasta própria com subpastas Chefes/Lacaios.
+- [ ] A potencialização registrada no bloco ainda não é descontada automaticamente do PE no combate; hoje é informativa.
+- [ ] O tema por facção manual não fica salvo por pasta; se quiser, guardar a preferência no cofre.
+- [ ] Nomes padrão do encontro ("Chefe (Nv X)") podem ser editados depois; não há campo de nome no gerador.
+
+### 4.8 Ajustes de 22/10/2026 (recompensa, graus, PV/PE e cache)
+
+- [x] Recompensa não reformata mais durante a digitação.
+- [x] Graus de Luta/Acrobacia aceitam -1 a 4 (UI, regras e importação).
+- [x] PV Máx e PE Máx podem ser digitados; a diferença vira bônus no mod.
+- [x] Abas fechadas ficam em cache (até 4) e reabrem ~6,8× mais rápido.
+- [ ] Graus -1 e 4 estão fora da tabela oficial 0..3 do livro: é uma decisão da mesa, registrada aqui.
+- [ ] PV/PE máximo digitado pode gerar bônus negativo (máximo abaixo do cálculo). O sistema aceita, mas o livro não prevê isso; usar com consciência.
+- [ ] O cache reaproveita a ficha fechada e sincroniza só nome/Nível/PV/PE; mudanças externas em História/Habilidades exigiriam reabrir pela árvore e recarregar.
+- [ ] Imagens ficam em memória por caminho; se o arquivo mudar no disco, o cache continua com a versão antiga até reiniciar.
+

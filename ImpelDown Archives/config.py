@@ -12,6 +12,7 @@ TEMAS = {
         "bg_card": "#262626",
         "bg_input": "#363636",
         "accent": "#7852FF",
+        "accent_hover": "#5f3fd6",
         "text": "#dcddde"
     },
     "Marinha (Azul)": {
@@ -20,6 +21,7 @@ TEMAS = {
         "bg_card": "#1f2733",
         "bg_input": "#293342",
         "accent": "#4da6ff",
+        "accent_hover": "#2f8fe0",
         "text": "#e6f0ff"
     },
     "Yonkou (Vermelho)": {
@@ -28,6 +30,7 @@ TEMAS = {
         "bg_card": "#331b1b",
         "bg_input": "#422525",
         "accent": "#e05353",
+        "accent_hover": "#b83c3c",
         "text": "#ffe6e6"
     },
     "Pirata (Amarelo)": {
@@ -36,6 +39,7 @@ TEMAS = {
         "bg_card": "#362e20",
         "bg_input": "#473c2a",
         "accent": "#e5b55e",
+        "accent_hover": "#c99a45",
         "text": "#fff6e6"
     },
     "Exército Rev. (Verde)": {
@@ -44,6 +48,7 @@ TEMAS = {
         "bg_card": "#1d2b21",
         "bg_input": "#283b2d",
         "accent": "#6db35f",
+        "accent_hover": "#4f9444",
         "text": "#e6ffe9"
     }
 }
